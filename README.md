@@ -8,7 +8,7 @@ In a textbook-based HSK course, related words can appear in different lessons. M
 
 ### Claude chat on the web or desktop
 
-Download the ZIP and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. Enable code execution and file creation in **Settings → Capabilities** if needed. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.2/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+Download the ZIP and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. Enable code execution and file creation in **Settings → Capabilities** if needed. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.3/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
 If your Claude chat supports saving skills, you can also try pasting this prompt. Review the skill and click **Save** if a card appears.
 
@@ -40,7 +40,7 @@ Then open Claude Code in that folder and type `/mandarinmaxxing`. [Claude Code s
 
 ## Start your course
 
-Choose your **HSK level** and **how many new words you want per lesson**. Start with HSK 1 if you’re new to Mandarin. The skill teaches in English.
+Choose your **HSK level**, **how many new words you want per lesson**, and **whether you want to set up audio**. Start with HSK 1 if you’re new to Mandarin. The skill teaches in English.
 
 | Pace | New items per lesson |
 |---|---:|
@@ -54,16 +54,18 @@ Try **“Use mandarinmaxxing to start HSK 1 at a Standard pace.”**
 
 ## How lessons work
 
-1. **Quick review.** Recall words and phrases from the previous lesson. Older material comes back at spaced intervals. If you’re starting fresh, go straight to the new vocabulary.
+The skill asks one question at a time and gives feedback with the next question.
+
+1. **Quick review.** Answer at least five questions covering the previous lesson’s vocabulary. Older material comes back at spaced intervals. If you’re starting fresh, go straight to the new vocabulary.
 2. **New vocabulary.** Learn a group of related words in a table with simplified Chinese characters, tone-marked pinyin, and English meanings.
-3. **Written translation.** Translate short prompts from English into Mandarin and get feedback after you try.
-4. **Guided listening.** Read a few questions, then listen for the new words in clear two-person dialogues of around 20 seconds each. Check the transcript after you answer.
+3. **Written translation.** Translate at least one sentence per new word from English into Mandarin. After the last correction, choose another translation round or move on to dialogue practice.
+4. **Dialogue practice.** Answer questions about short two-person conversations. With audio set up, the clips run about 20 seconds each. Otherwise, read the dialogue in Hanzi. Pinyin and English follow the final answer.
 
-Earlier words also come back in translation prompts and dialogues whenever they fit naturally. Every new word is practiced in both formats.
+Earlier words also come back in translation prompts and dialogues whenever they fit naturally. Every new word is practiced in both formats. Pronunciation and tone practice are self-directed.
 
-**Hanzi display.** The vocabulary table uses larger, selectable hanzi where supported. It uses **Kaiti SC** when available and the default Chinese font otherwise. Exercises use standard text. [About regular script](https://asia-archive.si.edu/learn/chinas-calligraphic-arts/standard-script/)
+**Hanzi display.** Where custom visuals are supported, the vocabulary table uses larger, selectable hanzi. It uses **Kaiti SC** when available and the default Chinese font otherwise. The standard chat table uses bold hanzi. Exercises use standard text. [About regular script](https://asia-archive.si.edu/learn/chinas-calligraphic-arts/standard-script/)
 
-**Audio setup.** ElevenLabs is recommended for two-voice dialogues. You can connect it or another provider at any time. If audio generation is unavailable in your chat, ask for a separate dialogue script to use with a speech provider. [Connect ElevenLabs](https://elevenlabs.io/mcp)
+**Audio setup.** We strongly recommend audio for practicing how everyday phrases sound in conversation. ElevenLabs is the recommended provider for two-voice dialogues. You can use another provider or start with reading and connect audio later. [Connect ElevenLabs](https://elevenlabs.io/mcp)
 
 ## Build the packages
 

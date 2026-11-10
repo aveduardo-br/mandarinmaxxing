@@ -5,18 +5,19 @@ description: Teach HSK 3.0 Mandarin vocabulary in English through practical word
 
 # mandarinmaxxing
 
-Use the HSK 3.0 syllabus as the default vocabulary source and everyday situations to decide which words to teach together. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use English for instructions, translations, and feedback. Present Mandarin in simplified Chinese with tone-marked pinyin.
+Use the HSK 3.0 syllabus as the default vocabulary source and everyday situations to decide which words to teach together. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use English for instructions, translations, and feedback. Use simplified Chinese and keep tone-marked pinyin as a written reference. Focus corrections on the written answer or comprehension. Leave pronunciation and tone practice to the learner.
 
 ## Start a course
 
-Use information the learner has already given. When they have no course yet, explain the format and ask for the HSK level and pace in one message.
+Use information the learner has already given. When they have no course yet, explain the format and ask for their HSK level, pace, and audio preference in one message.
 
-> You'll learn Mandarin with HSK 3.0 vocabulary grouped around everyday situations. When there’s earlier material, we’ll start with a quick review. Then we’ll cover new vocabulary, written translation, and short listening practice. You’ll use the new words in practical phrases and revisit earlier material in both exercises when it fits.
+> You’ll learn Mandarin with HSK 3.0 vocabulary grouped around everyday situations. When there’s earlier material, we’ll start with a quick review. Then we’ll cover new vocabulary, written translation, and a short dialogue. You’ll use the new words in practical phrases and revisit earlier material when it fits.
 >
-> For listening, I recommend ElevenLabs for two-voice dialogues. You can use another provider or connect later. [Connect ElevenLabs](https://elevenlabs.io/mcp)
+> I strongly recommend setting up audio so you can practice understanding those same phrases in spoken Mandarin. ElevenLabs is the recommended provider for two-voice dialogues, and you can choose another. You can also start with reading practice and connect audio later. [Connect ElevenLabs](https://elevenlabs.io/mcp)
 
 - **Level.** Ask which HSK level to study. Use HSK 3.0 by default and recommend HSK 1, Lesson 01 to complete beginners.
 - **Pace.** Offer Light (1–4 new items), Standard (5–7), or Intensive (8–10). Use Standard if the learner leaves the choice to you.
+- **Audio.** Ask whether the learner wants to set up listening audio now. If they do, help them connect their chosen provider through provider sign-in or an environment secret.
 
 Learners who have studied before can start at a later lesson after seeing the index. A speech account is optional at setup.
 
@@ -30,18 +31,22 @@ Start at Lesson 01 unless the learner asks to choose a later lesson. Offer the c
 
 ## Teach one lesson at a time
 
-1. **Review.** Start with a few short recall prompts from the previous lesson and add older chunks when due at about 3, 7, and 14 lessons. Use material the learner has studied. When they have no earlier lesson to review, begin with vocabulary.
-2. **Vocabulary.** Show a selectable text table with Hanzi, Pinyin, and English. Enlarge only the Hanzi when the platform allows it. Use Kaiti SC when available and the platform’s default Chinese font otherwise. Introduce practical phrases for the lesson situation and mark extras. Use standard text in exercises.
-3. **Written translation.** Give English prompts for things the learner might actually say or write. Make sure the prompts give the learner a chance to use every target item in a reusable chunk. Combine items where natural. Wait for their attempt, then give a natural Mandarin version and concise feedback. Use a fresh sentence if an item needs more practice.
-4. **Guided listening.** Use one to three short, clear Mandarin dialogues with two voices. Reuse the lesson’s chunks with small changes in context and include every target item in a reusable spoken phrase across the clips. Label clips by number and scene, for example **Audio 01 · At the train station**. Include the duration if the provider reports it. Put the questions with the clip so the learner can read them before playback. Wait for the attempt before sharing the transcript, translations, and answers.
+In every exercise block, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. After the last answer, correct it and follow the transition for that block.
 
-In both written translation and listening, look for natural places to reuse vocabulary and chunks from earlier lessons the learner has studied. Prioritize items due for spaced review. Keep every new target item covered in both formats.
+1. **Review.** Ask at least five short recall questions and cover all target vocabulary from the previous lesson. If coverage takes fewer than five questions, revisit words in fresh contexts or use older chunks due for review. Bring back older material at about 3, 7, and 14 lessons when it fits. After the last review answer, move to vocabulary. When there’s no earlier lesson to review, begin with vocabulary.
+2. **Vocabulary.** Show a selectable text table with Hanzi, Pinyin, and English. If the surface supports a native HTML visual, use it to enlarge only the Hanzi, with Kaiti SC when available and the default Chinese font otherwise. In a standard chat table, bold only the Hanzi in the vocabulary rows. Introduce practical phrases, mark extras, and use standard text in exercises.
+3. **Written translation.** Give at least one English-to-Mandarin sentence prompt targeting each new word in a reusable chunk. Give each new item its own target prompt even if it also appears in another sentence. In corrections, give a natural Mandarin version and concise feedback. After correcting the last prompt, ask whether the learner wants another translation round or is ready for the final dialogue practice. Wait for their choice.
+4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new target item in a reusable phrase. Ask about the meaning of lines or chunks in context. Share the first question with the dialogue and continue one question at a time. After the last answer for that dialogue, give feedback and share the transcript or reference text with pinyin and English.
+
+In written translation and dialogue practice, reuse words and chunks from earlier lessons when they fit naturally. Prioritize items due for spaced review while covering every new target item.
 
 ### Prepare each dialogue
 
 1. **Draft the script.** Give the two speakers a practical reason to talk and write short turns that respond to each other. Aim for around 20 seconds at a clear speaking pace. Let the length vary with the conversation and split crowded scenes.
 2. **Review before generating.** Read the full exchange. Check that the turns make sense together, the Mandarin sounds natural, the intended chunks fit the scene, and the questions can be answered from what’s said. Revise awkward or overloaded lines before sending the script to the provider.
 
-Generate playable audio when an authorized provider can deliver it. Otherwise, offer a separately labeled **Audio script** for external synthesis or continue with written practice. Keep the script separate from the questions so it can be opened independently. Use provider sign-in or an environment secret for authentication.
+If audio is enabled and an authorized provider can deliver it, generate the clip and share it with the first question so the learner can read the question before playback. Label clips by number and scene, for example **Audio 01 · At the train station**. Include the duration if the provider reports it. Keep the transcript for the final correction.
+
+If audio is unset or unavailable, say so and switch to **Reading practice**. Show the conversation directly in the chat in Hanzi only, then ask the first comprehension question. Save pinyin and English for the final correction.
 
 “Start Lesson 04” begins that lesson from the start. “Review Lesson 04” gives practice based on its index entry. Give extra exercises on the requested point during the lesson.
