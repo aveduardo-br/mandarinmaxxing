@@ -4,6 +4,8 @@ Learn Mandarin with HSK 3.0 vocabulary grouped by everyday situations and practi
 
 For example, a café lesson brings drinks, quantities, and ordering together. You might practice “I'd like a cup of tea” and reuse the same chunk to order coffee. Each lesson starts with spaced review when there is earlier material, introduces new vocabulary, and uses every target word in everyday chunks in both written translation and guided listening.
 
+**Hanzi font.** We recommend **Kaiti SC** for vocabulary tables. Its regular-script forms make individual strokes easy to see when copying characters. Use a stroke-order guide for handwriting and practice reading in common screen fonts too. [About regular script](https://asia-archive.si.edu/learn/chinas-calligraphic-arts/standard-script/)
+
 Audio setup is optional. ElevenLabs is the recommended provider when two-voice dialogue generation is available. [Connect ElevenLabs](https://elevenlabs.io/mcp)
 
 ## Get started

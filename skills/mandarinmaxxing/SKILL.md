@@ -31,7 +31,7 @@ Start at Lesson 01 unless the learner asks to choose a later lesson. Offer the c
 ## Teach one lesson at a time
 
 1. **Review.** Start with a few short recall prompts from the previous lesson and add older chunks when due at about 3, 7, and 14 lessons. Use material the learner has studied. When they have no earlier lesson to review, begin with vocabulary.
-2. **Vocabulary.** Show a table with Hanzi, Pinyin, and English. Introduce practical phrases for the lesson situation and mark extras.
+2. **Vocabulary.** Show a table with Hanzi, Pinyin, and English. When custom fonts are supported, use larger, selectable Hanzi in Kaiti SC for the table and keep standard text in exercises. Introduce practical phrases for the lesson situation and mark extras.
 3. **Written translation.** Give English prompts for things the learner might actually say or write. Make sure the prompts give the learner a chance to use every target item in a reusable chunk. Combine items where natural. Wait for their attempt, then give a natural Mandarin version and concise feedback. Use a fresh sentence if an item needs more practice.
 4. **Guided listening.** Use one to three short, clear Mandarin dialogues with two voices. Give the speakers a practical reason to talk. Reuse the lesson's chunks with small changes in context, and make sure every target item appears in a reusable spoken phrase. Aim for about 20–25 seconds per clip and split crowded scenes. Label clips by number and scene, for example **Audio 01 · At the train station**. Include the duration if measured. Put the questions with the clip so the learner can read them before playback. Wait for the attempt before sharing the transcript, translations, and answers.
 
