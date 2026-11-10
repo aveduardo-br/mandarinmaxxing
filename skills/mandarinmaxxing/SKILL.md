@@ -20,6 +20,7 @@ Use information the learner has already given. When they have no course yet, exp
 - **Level.** Ask which HSK level to study. Use HSK 3.0 by default and recommend HSK 1, Lesson 01 to complete beginners.
 - **Pace.** Offer Light (1–4 new items), Standard (5–7), or Intensive (8–10). Use Standard if the learner leaves the choice to you.
 - **Audio.** Ask whether the learner wants to set up listening audio now. If they do, help them connect their chosen provider through provider sign-in or an environment secret.
+- **Display tip.** Mention that the table starts with large Hanzi in the system font. For an optional handwritten-style font, suggest installing or enabling Kaiti SC Bold in Font Book on Mac, or downloading and installing LXGW WenKai GB Regular. Continue setup with the system font. Use a custom font only after the learner asks to use it and confirms it is installed. [Font Book](https://support.apple.com/en-ie/guide/font-book/fntbk1000/mac) · [LXGW WenKai GB downloads](https://github.com/lxgw/LxgwWenKaiGB/releases/latest)
 
 Learners who have studied before can start at a later lesson after seeing the index. A speech account is optional at setup.
 
@@ -48,15 +49,15 @@ In written translation and dialogue practice, reuse words and chunks from earlie
 
 ### Format each vocabulary table
 
-Default to the selectable HTML table below when the chat can display it alongside the message and access the learner’s installed Kaiti SC Bold. Replace the heading and sample row with the lesson title and vocabulary. Localize the meaning header, extras, and font notice. Before sending, check that only the original simplified Hanzi are enlarged to 2.5 times the base size, and that pinyin and meanings stay at normal size. Use the renderer’s font-load result to confirm Kaiti SC Bold.
+Use the selectable HTML table below whenever the chat can display it alongside the message. Replace the heading and sample row with the lesson title and vocabulary. Localize the meaning header, extras, and font notice. Keep the Hanzi at 2.5 times the cell’s text size regardless of font availability. Keep pinyin and meanings at normal size. Leave `data-font` set to `system` unless the learner opted in and confirmed installation. Then set it to `kaiti` or `wenkai`. The table applies the chosen font once it loads and otherwise keeps the large system-font Hanzi.
 
 ```html
-<section id="mandarinmaxxing-vocab" aria-labelledby="mandarinmaxxing-vocab-title">
+<section id="mandarinmaxxing-vocab" data-font="system" aria-labelledby="mandarinmaxxing-vocab-title">
   <h2 id="mandarinmaxxing-vocab-title">Urban transportation</h2>
-  <p id="mandarinmaxxing-font-notice" role="status" hidden>This viewer could not confirm that Kaiti SC Bold loaded.</p>
+  <p id="mandarinmaxxing-font-notice" role="status" hidden>Using the system font for Hanzi because the selected font could not load.</p>
   <table class="table">
     <thead><tr><th scope="col">Hanzi</th><th scope="col">Pinyin</th><th scope="col">Meaning</th></tr></thead>
-    <tbody><tr><td lang="zh-Hans">公交车</td><td>gōngjiāochē</td><td>city bus</td></tr></tbody>
+    <tbody><tr><td><span lang="zh-Hans">公交车</span></td><td>gōngjiāochē</td><td>city bus</td></tr></tbody>
   </table>
 </section>
 <style>
@@ -66,30 +67,49 @@ Default to the selectable HTML table below when the chat can display it alongsid
     font-style: normal;
     font-weight: 700;
   }
+  @font-face {
+    font-family: "WenKai Vocabulary";
+    src: local("LXGW WenKai GB"), local("LXGW WenKai GB Regular"), local("LXGWWenKaiGB-Regular");
+    font-style: normal;
+    font-weight: 400;
+  }
   #mandarinmaxxing-vocab h2 { margin-bottom: calc(var(--font-size-base, 14px) * 0.5); }
   #mandarinmaxxing-vocab td { vertical-align: middle; user-select: text; }
-  #mandarinmaxxing-vocab td[lang="zh-Hans"] {
-    font-family: "Kaiti Vocabulary", "Kaiti SC", sans-serif;
-    font-size: calc(var(--font-size-base, 14px) * 2.5);
-    font-weight: 700;
+  #mandarinmaxxing-vocab td span[lang="zh-Hans"] {
+    font-size: 2.5em;
     font-synthesis: none;
     white-space: nowrap;
+  }
+  #mandarinmaxxing-vocab[data-loaded-font="kaiti"] td span[lang="zh-Hans"] {
+    font-family: "Kaiti Vocabulary", sans-serif;
+    font-weight: 700;
+  }
+  #mandarinmaxxing-vocab[data-loaded-font="wenkai"] td span[lang="zh-Hans"] {
+    font-family: "WenKai Vocabulary", sans-serif;
+    font-weight: 400;
   }
 </style>
 <script>
   (() => {
     const table = document.getElementById('mandarinmaxxing-vocab');
+    const choice = table.dataset.font;
+    const font = { kaiti: '700 35px "Kaiti Vocabulary"', wenkai: '400 35px "WenKai Vocabulary"' }[choice];
+    if (!font) return;
     const notice = document.getElementById('mandarinmaxxing-font-notice');
-    const hanzi = Array.from(table.querySelectorAll('td[lang="zh-Hans"]'), cell => cell.textContent).join('');
-    document.fonts.load('700 35px "Kaiti Vocabulary"', hanzi).then(
-      faces => { notice.hidden = faces.some(face => face.status === 'loaded'); },
+    if (!document.fonts?.load) { notice.hidden = false; return; }
+    const hanzi = Array.from(table.querySelectorAll('td span[lang="zh-Hans"]'), cell => cell.textContent).join('');
+    document.fonts.load(font, hanzi).then(
+      faces => {
+        if (faces.some(face => face.status === 'loaded')) table.dataset.loadedFont = choice;
+        else notice.hidden = false;
+      },
       () => { notice.hidden = false; }
     );
   })();
 </script>
 ```
 
-If the chat can’t embed the table or confirm the font, explain the limitation and offer a selectable Markdown table in the message. Enlarge Hanzi through inline math only where rendering and selection are confirmed, for example `$\LARGE\text{公交车}$` in Codex desktop. Elsewhere, use bold Hanzi. If the learner requires Kaiti SC, wait for their choice before using a fallback.
+If the chat can’t embed HTML, use a selectable Markdown table in the message. Enlarge Hanzi through inline math where rendering and selection are confirmed, for example `$\LARGE\text{公交车}$` in Codex desktop. Use bold Hanzi when the interface supports standard text formatting only.
 
 ### Respond to a written translation
 
