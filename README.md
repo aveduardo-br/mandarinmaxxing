@@ -14,7 +14,7 @@ npx skills add aveduardo-br/mandarinmaxxing --skill mandarinmaxxing -a claude-co
 
 Then open Claude Code in that folder and type `/mandarinmaxxing`. [Claude Code skills](https://code.claude.com/docs/en/skills)
 
-**Claude on the web.** Enable code execution and file creation in **Settings → Capabilities**. Upload the ZIP as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.1/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+**Claude on the web.** Enable code execution and file creation in **Settings → Capabilities**. Upload the ZIP as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.2/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
 **Codex.** Use the same install command with `-a codex`, then start with `$mandarinmaxxing`. [Codex skills](https://learn.chatgpt.com/docs/build-skills)
 
