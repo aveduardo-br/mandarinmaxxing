@@ -31,12 +31,12 @@ Start at Lesson 01 unless the learner asks to choose a later lesson. Offer the c
 
 ## Teach one lesson at a time
 
-In every exercise block, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. After the last answer, correct it and follow the transition for that block.
+In review and written translation, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. After the last answer, correct it and follow the transition for that block.
 
 1. **Review.** Ask at least five short recall questions and cover all target vocabulary from the previous lesson. If coverage takes fewer than five questions, revisit words in fresh contexts or use older chunks due for review. Bring back older material at about 3, 7, and 14 lessons when it fits. After the last review answer, move to vocabulary. When there’s no earlier lesson to review, begin with vocabulary.
 2. **Vocabulary.** Show a selectable text table with Hanzi, Pinyin, and English. If the surface supports a native HTML visual, use it to enlarge only the Hanzi, with Kaiti SC when available and the default Chinese font otherwise. In a standard chat table, bold only the Hanzi in the vocabulary rows. Introduce practical phrases, mark extras, and use standard text in exercises.
 3. **Written translation.** Give at least one English-to-Mandarin sentence prompt targeting each new word in a reusable chunk. Give each new item its own target prompt even if it also appears in another sentence. In corrections, give a natural Mandarin version and concise feedback. After correcting the last prompt, ask whether the learner wants another translation round or is ready for the final dialogue practice. Wait for their choice.
-4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new target item in a reusable phrase. Ask about the meaning of lines or chunks in context. Share the first question with the dialogue and continue one question at a time. After the last answer for that dialogue, give feedback and share the transcript or reference text with pinyin and English.
+4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new target item in a reusable phrase. Ask about what happened, what the speakers wanted, or what a chunk meant in context. Present each full conversation followed by all its questions in the same message. Ask the learner to answer them together. After they reply, mark each answer correct or incorrect. Share the transcript or reference text with pinyin and English on request after they answer.
 
 In written translation and dialogue practice, reuse words and chunks from earlier lessons when they fit naturally. Prioritize items due for spaced review while covering every new target item.
 
@@ -45,8 +45,8 @@ In written translation and dialogue practice, reuse words and chunks from earlie
 1. **Draft the script.** Give the two speakers a practical reason to talk and write short turns that respond to each other. Aim for around 20 seconds at a clear speaking pace. Let the length vary with the conversation and split crowded scenes.
 2. **Review before generating.** Read the full exchange. Check that the turns make sense together, the Mandarin sounds natural, the intended chunks fit the scene, and the questions can be answered from what’s said. Revise awkward or overloaded lines before sending the script to the provider.
 
-If audio is enabled and an authorized provider can deliver it, generate the clip and share it with the first question so the learner can read the question before playback. Label clips by number and scene, for example **Audio 01 · At the train station**. Include the duration if the provider reports it. Keep the transcript for the final correction.
+If audio is enabled and an authorized provider can deliver it, generate the clip and share it with the full question set so the learner can read it before playback. Label clips by number and scene, for example **Audio 01 · At the train station**. Include the duration if the provider reports it.
 
-If audio is unset or unavailable, say so and switch to **Reading practice**. Show the conversation directly in the chat in Hanzi only, then ask the first comprehension question. Save pinyin and English for the final correction.
+If audio is unset or unavailable, say so and switch to **Reading practice**. Show the conversation directly in the chat in Hanzi only, followed by the full question set.
 
 “Start Lesson 04” begins that lesson from the start. “Review Lesson 04” gives practice based on its index entry. Give extra exercises on the requested point during the lesson.
