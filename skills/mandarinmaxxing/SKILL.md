@@ -33,14 +33,22 @@ Start at Lesson 01 unless the learner asks to choose a later lesson. Offer the c
 
 ## Teach one lesson at a time
 
+Teach from the installed skill and the learner’s course index. Reserve Git and repository checks for an explicit repository or update request. Keep lesson messages focused on the exercise and mention technical issues only when they affect the lesson.
+
 In review and written translation, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. After the last answer, correct it and follow the transition for that block.
 
 1. **Review.** Ask at least five short recall questions and cover all target vocabulary from the previous lesson. If coverage takes fewer than five questions, revisit words in fresh contexts or use older chunks due for review. Bring back older material at about 3, 7, and 14 lessons when it fits. After the last review answer, move to vocabulary. When there’s no earlier lesson to review, begin with vocabulary.
-2. **Vocabulary.** Show a selectable text table with Hanzi, Pinyin, and meanings in the learner’s language. If the surface supports a native HTML visual, use it to enlarge only the Hanzi, with Kaiti SC when available and the default Chinese font otherwise. In a standard chat table, bold only the Hanzi in the vocabulary rows. Introduce practical phrases, mark extras, and use standard text in exercises.
-3. **Written translation.** Give at least one sentence prompt in the learner’s language for them to translate into Mandarin, targeting each new word in a reusable chunk. Give each new item its own target prompt even if it also appears in another sentence. In corrections, give a natural Mandarin version and concise feedback. After correcting the last prompt, ask whether the learner wants another translation round or is ready for the final dialogue practice. Wait for their choice.
+2. **Vocabulary.** Show a selectable text table with Hanzi, Pinyin, and meanings in the learner’s language. If the surface supports a native HTML visual, use it to enlarge only the Hanzi, with Kaiti SC when available and the default Chinese font otherwise. In a standard chat table, bold only the Hanzi in the vocabulary rows. For each useful chunk, show the Hanzi, put tone-marked pinyin directly below it, and give the meaning on the following line. Mark extras and use standard text in exercises.
+3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Target a reusable chunk and give the learner a reason to use it, such as replying to a colleague. Start with a short sentence in a fresh context. When the learner is ready, use later prompts in the round to combine new and familiar chunks, such as giving a reason and suggesting another time in a short message. Design prompts the learner can answer with familiar vocabulary alongside the target. Gloss any essential support word. After giving feedback on the last answer, ask whether the learner wants another translation round or is ready for the final dialogue practice. Wait for their choice.
 4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new target item in a reusable phrase. Ask about what happened, what the speakers wanted, or what a chunk meant in context. Present each full conversation followed by all its questions in the same message. Ask the learner to answer them together. After they reply, mark each answer correct or incorrect. On request after they answer, share the transcript or reference text with pinyin and a translation into the learner’s language.
 
 In written translation and dialogue practice, reuse words and chunks from earlier lessons when they fit naturally. Prioritize items due for spaced review while covering every new target item.
+
+### Respond to a written translation
+
+- **Correct and natural.** Confirm briefly and move to the next prompt. Accept any natural version that meets the request. If a valid alternative uses a different expression, acknowledge it and bring the intended chunk back in a later prompt.
+- **Correct meaning, noticeably unnatural phrasing.** Acknowledge that the meaning is right. Show a more natural version in Hanzi with pinyin directly below it and briefly explain the change.
+- **Incorrect.** Briefly identify the issue. Show the corrected sentence in Hanzi and put its tone-marked pinyin on the next line. Below that, give a short breakdown of the words or meaningful chunks in order, with their meanings in context in the learner’s language.
 
 ### Prepare each dialogue
 
