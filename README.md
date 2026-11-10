@@ -6,14 +6,27 @@ In a textbook-based HSK course, related words can appear in different lessons. M
 
 ## Install
 
-**Terminal check for Claude Code and Codex.** Run these commands in your study folder before installing.
+### Claude chat on the web or desktop
+
+Download the ZIP and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. Enable code execution and file creation in **Settings → Capabilities** if needed. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.2/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+
+If your Claude chat supports saving skills, you can also try pasting this prompt. Review the skill and click **Save** if a card appears.
+
+```text
+Create a custom skill named mandarinmaxxing using this SKILL.md as written. Show me the card to save it to my account if available.
+https://raw.githubusercontent.com/aveduardo-br/mandarinmaxxing/main/skills/mandarinmaxxing/SKILL.md
+```
+
+### Local Claude Code and Codex
+
+Run these checks in your study folder using a terminal on your computer.
 
 ```sh
 node --version
 npx --version
 ```
 
-If you’re installing as an AI assistant, run both checks yourself. Continue only if both commands print a version. If either fails, report the command and its error.
+If you’re installing as an AI assistant, confirm you’re in the local study folder and run both checks there. Continue only if both commands print a version. If either fails, report the command and its error. For a Claude chat running in the cloud, use the ZIP or chat prompt above.
 
 **Claude Code.** Run this from the same folder.
 
@@ -22,8 +35,6 @@ npx skills add aveduardo-br/mandarinmaxxing --skill mandarinmaxxing -a claude-co
 ```
 
 Then open Claude Code in that folder and type `/mandarinmaxxing`. [Claude Code skills](https://code.claude.com/docs/en/skills)
-
-**Claude on the web.** Enable code execution and file creation in **Settings → Capabilities**. Upload the ZIP as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.2/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
 **Codex.** Use the same install command with `-a codex`, then start with `$mandarinmaxxing`. [Codex skills](https://learn.chatgpt.com/docs/build-skills)
 
