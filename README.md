@@ -1,6 +1,8 @@
 # mandarinmaxxing
 
-Learn Mandarin with HSK 3.0 vocabulary grouped by everyday situations and practiced in phrases you can reuse. This English-language skill builds the course around your chosen HSK level and vocabulary pace.
+**Learn Mandarin with HSK 3.0 vocabulary grouped by topic.**
+
+In a textbook-based HSK course, related words can appear in different lessons. Mandarinmaxxing uses the HSK 3.0 syllabus as its base and groups related words by topic and everyday use. You’ll practice them in everyday chunks, such as short phrases and sentence patterns you can reuse in real conversations.
 
 ## Install
 
@@ -10,23 +12,38 @@ Learn Mandarin with HSK 3.0 vocabulary grouped by everyday situations and practi
 npx skills add aveduardo-br/mandarinmaxxing --skill mandarinmaxxing -a claude-code
 ```
 
-Then type `/mandarinmaxxing` in Claude Code. For local Codex, use `-a codex` in the install command and start with `$mandarinmaxxing`. [Claude Code skills](https://code.claude.com/docs/en/skills) · [Codex skills](https://learn.chatgpt.com/docs/build-skills)
+Then open Claude Code in that folder and type `/mandarinmaxxing`. [Claude Code skills](https://code.claude.com/docs/en/skills)
 
-**Claude on the web.** [Download the skill ZIP](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.0/mandarinmaxxing-claude.zip) and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+**Claude on the web.** Enable code execution and file creation in **Settings → Capabilities**. Upload the ZIP as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.1/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
-**ChatGPT on the web.** The plugin is available as a package for local testing. Public installation requires a listing in the Plugins Directory. [ChatGPT plugin packaging](https://developers.openai.com/plugins/build/plugins)
+**Codex.** Use the same install command with `-a codex`, then start with `$mandarinmaxxing`. [Codex skills](https://learn.chatgpt.com/docs/build-skills)
 
-Try **“Use mandarinmaxxing to start HSK 1 at a Standard pace.”** Standard introduces 5–7 items per lesson. Save the course index if you want to pick up a lesson in another chat.
+## Start your course
+
+Choose your **HSK level** and **how many new words you want per lesson**. Start with HSK 1 if you’re new to Mandarin. The skill teaches in English.
+
+| Pace | New items per lesson |
+|---|---:|
+| Light | 1–4 |
+| Standard | 5–7 |
+| Intensive | 8–10 |
+
+The skill builds a numbered lesson index from your chosen level and pace. Start at Lesson 01 or pick a later lesson if you’ve already studied some of the vocabulary. To resume in a new chat, attach your saved index and give the lesson number. If the skill can’t access the syllabus, you can attach a copy. [Official HSK syllabus](https://www.chinesetest.cn/HSK)
+
+Try **“Use mandarinmaxxing to start HSK 1 at a Standard pace.”**
 
 ## How lessons work
 
-For example, a café lesson brings drinks, quantities, and ordering together. You might practice “I'd like a cup of tea” and reuse the same chunk to order coffee. Each lesson starts with spaced review when there is earlier material, introduces new vocabulary, and uses every target word in everyday chunks in both written translation and guided listening.
+1. **Quick review.** Recall words and phrases from the previous lesson. Older material comes back at spaced intervals. If you’re starting fresh, go straight to the new vocabulary.
+2. **New vocabulary.** Learn a group of related words in a table with simplified Chinese characters, tone-marked pinyin, and English meanings.
+3. **Written translation.** Translate short prompts from English into Mandarin and get feedback after you try.
+4. **Guided listening.** Read a few questions, then listen for the new words in clear two-person dialogues of around 20 seconds each. Check the transcript after you answer.
 
-**Hanzi font.** We recommend **Kaiti SC** for vocabulary tables. Its regular-script forms make individual strokes easy to see when copying characters. Use a stroke-order guide for handwriting and practice reading in common screen fonts too. [About regular script](https://asia-archive.si.edu/learn/chinas-calligraphic-arts/standard-script/)
+Earlier words also come back in translation prompts and dialogues whenever they fit naturally. Every new word is practiced in both formats.
 
-Audio setup is optional. ElevenLabs is the recommended provider when two-voice dialogue generation is available. [Connect ElevenLabs](https://elevenlabs.io/mcp)
+**Hanzi display.** The vocabulary table uses larger, selectable hanzi where supported. It uses **Kaiti SC** when available and the default Chinese font otherwise. Exercises use standard text. [About regular script](https://asia-archive.si.edu/learn/chinas-calligraphic-arts/standard-script/)
 
-The skill uses the [official HSK syllabus](https://www.chinesetest.cn/HSK) or a syllabus you provide. If your chat cannot access the vocabulary list, attach a copy. If your chat cannot generate the listening audio, the skill can provide a separate script for a speech provider.
+**Audio setup.** ElevenLabs is recommended for two-voice dialogues. You can connect it or another provider at any time. If audio generation is unavailable in your chat, ask for a separate dialogue script to use with a speech provider. [Connect ElevenLabs](https://elevenlabs.io/mcp)
 
 ## Build the packages
 
@@ -38,4 +55,4 @@ mkdir -p dist
 zip dist/mandarinmaxxing-chatgpt.zip plugin.json skills/mandarinmaxxing/SKILL.md
 ```
 
-The packages share the same [skill instructions](skills/mandarinmaxxing/SKILL.md). The ChatGPT ZIP adds the plugin manifest.
+Both packages use the same skill instructions. The ChatGPT ZIP includes the plugin manifest for local desktop testing. Public installation on ChatGPT requires a listing in the Plugins Directory. [Skill instructions](skills/mandarinmaxxing/SKILL.md) · [ChatGPT plugin setup](https://developers.openai.com/plugins/build/plugins#install-a-local-plugin-manually)

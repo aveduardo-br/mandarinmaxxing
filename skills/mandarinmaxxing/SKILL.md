@@ -11,7 +11,7 @@ Use the HSK 3.0 syllabus as the default vocabulary source and everyday situation
 
 Use information the learner has already given. When they have no course yet, explain the format and ask for the HSK level and pace in one message.
 
-> You'll learn Mandarin with HSK 3.0 vocabulary grouped around everyday situations. Each lesson starts with a quick review, then moves into new vocabulary, written translation, and short listening practice. You'll use the new words in practical phrases in both exercises. Older phrases come back through spaced repetition.
+> You'll learn Mandarin with HSK 3.0 vocabulary grouped around everyday situations. When there’s earlier material, we’ll start with a quick review. Then we’ll cover new vocabulary, written translation, and short listening practice. You’ll use the new words in practical phrases and revisit earlier material in both exercises when it fits.
 >
 > For listening, I recommend ElevenLabs for two-voice dialogues. You can use another provider or connect later. [Connect ElevenLabs](https://elevenlabs.io/mcp)
 
@@ -31,9 +31,17 @@ Start at Lesson 01 unless the learner asks to choose a later lesson. Offer the c
 ## Teach one lesson at a time
 
 1. **Review.** Start with a few short recall prompts from the previous lesson and add older chunks when due at about 3, 7, and 14 lessons. Use material the learner has studied. When they have no earlier lesson to review, begin with vocabulary.
-2. **Vocabulary.** Show a table with Hanzi, Pinyin, and English. When custom fonts are supported, use larger, selectable Hanzi in Kaiti SC for the table and keep standard text in exercises. Introduce practical phrases for the lesson situation and mark extras.
+2. **Vocabulary.** Show a selectable text table with Hanzi, Pinyin, and English. Enlarge only the Hanzi when the platform allows it. Use Kaiti SC when available and the platform’s default Chinese font otherwise. Introduce practical phrases for the lesson situation and mark extras. Use standard text in exercises.
 3. **Written translation.** Give English prompts for things the learner might actually say or write. Make sure the prompts give the learner a chance to use every target item in a reusable chunk. Combine items where natural. Wait for their attempt, then give a natural Mandarin version and concise feedback. Use a fresh sentence if an item needs more practice.
-4. **Guided listening.** Use one to three short, clear Mandarin dialogues with two voices. Give the speakers a practical reason to talk. Reuse the lesson's chunks with small changes in context, and make sure every target item appears in a reusable spoken phrase. Aim for about 20–25 seconds per clip and split crowded scenes. Label clips by number and scene, for example **Audio 01 · At the train station**. Include the duration if measured. Put the questions with the clip so the learner can read them before playback. Wait for the attempt before sharing the transcript, translations, and answers.
+4. **Guided listening.** Use one to three short, clear Mandarin dialogues with two voices. Reuse the lesson’s chunks with small changes in context and include every target item in a reusable spoken phrase across the clips. Label clips by number and scene, for example **Audio 01 · At the train station**. Include the duration if measured. Put the questions with the clip so the learner can read them before playback. Wait for the attempt before sharing the transcript, translations, and answers.
+
+In both written translation and listening, look for natural places to reuse vocabulary and chunks from earlier lessons the learner has studied. Prioritize items due for spaced review. Keep every new target item covered in both formats.
+
+### Check each dialogue
+
+1. **Draft the script.** Give the two speakers a practical reason to talk and write short turns that respond to each other. Aim for around 20 seconds at a clear speaking pace. Let the length vary with the conversation and split crowded scenes.
+2. **Review before generating.** Read the full exchange. Check that the turns make sense together, the Mandarin sounds natural, the intended chunks fit the scene, and the questions can be answered from what’s said. Revise awkward or overloaded lines before sending the script to the provider.
+3. **Verify the result.** Confirm the provider returned playable audio. Measure the duration if possible. If you can listen to the clip, check that the voices are distinct and clear and that no line is missing or cut off. Fix and regenerate clips with a clear problem before sharing them.
 
 Generate playable audio when an authorized provider can deliver it. Otherwise, offer a separately labeled **Audio script** for external synthesis or continue with written practice. Keep the script separate from the questions so it can be opened independently. Use provider sign-in or an environment secret for authentication.
 
