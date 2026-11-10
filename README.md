@@ -8,7 +8,7 @@ In a textbook-based HSK course, related words can appear in different lessons. M
 
 ### Claude chat on the web or desktop
 
-Download the ZIP and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. Enable code execution and file creation in **Settings → Capabilities** if needed. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.12/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+Download the ZIP and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. Enable code execution and file creation in **Settings → Capabilities** if needed. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/latest/download/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
 If your Claude chat supports saving skills, you can also try pasting this prompt. Review the skill and click **Save** if a card appears.
 
@@ -63,7 +63,7 @@ In review and written translation, the skill asks one question at a time and giv
 
 Earlier words also come back in translation prompts and dialogues whenever they fit naturally. Every new word is practiced in both formats. Pronunciation and tone practice are self-directed.
 
-**Hanzi display.** The inline vocabulary table uses selectable Hanzi at 2.5 times the normal text size with the system font by default. Pinyin and meanings stay at normal size. For a handwritten style, install **Kaiti SC Bold** through Font Book on Mac or download and install **LXGW WenKai GB Regular**, then ask the skill to use it. If the font fails to load, Hanzi keep the same size in the system font. Chats with standard text formatting only use a selectable Markdown table. [Font Book](https://support.apple.com/en-ie/guide/font-book/fntbk1000/mac) · [LXGW WenKai GB downloads](https://github.com/lxgw/LxgwWenKaiGB/releases/latest)
+**Hanzi display.** The inline vocabulary table uses selectable Hanzi at 2.5 times the normal text size. Pinyin and meanings stay at normal size. We recommend **Kaiti SC Bold** on Mac or **AR PL KaitiM GB** on Windows. Their shapes are closer to careful handwriting, which makes the strokes easier to see when you study and copy characters into your notes. After installing a font, ask the skill to use it. Otherwise, the table uses the system font at the same size. Chats that only support standard text formatting use a selectable Markdown table. [Font Book](https://support.apple.com/en-ie/guide/font-book/fntbk1000/mac) · [AR PL KaitiM GB download (`gkai00mp.ttf`)](https://ctan.org/tex-archive/fonts/arphic-ttf)
 
 **Audio setup.** We strongly recommend audio for practicing how everyday phrases sound in conversation. ElevenLabs is the recommended provider for two-voice dialogues. You can use another provider or start with reading and connect audio later. [Connect ElevenLabs](https://elevenlabs.io/mcp)
 

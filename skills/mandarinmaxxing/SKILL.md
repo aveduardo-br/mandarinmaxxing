@@ -13,13 +13,15 @@ Use the learner’s requested language for setup, instructions, labels, meanings
 
 Start a new course with one short setup message in the learner’s language. Use the example below and ask only for choices the learner hasn’t given. Proceed once the choices are clear, using Standard pace and reading practice when the learner leaves those choices open.
 
-> Learn HSK 3.0 words in everyday groups. Lessons combine quick review, new words, translation, and a short dialogue.
+> Welcome to mandarinmaxxing! We use HSK 3.0 vocabulary and group words by topic and by situations where you’d use them together. You’ll practice them in chunks, short phrases and sentence patterns you can reuse in everyday conversations.
 >
-> 1. **Level.** Which HSK level? Start with HSK 1 if you’re new to Mandarin.
+> When there’s a previous lesson, we start with a quick review. Then you’ll see new words with Hanzi, pinyin, and meanings, and translate one sentence at a time with feedback before the next. We finish with a short dialogue and comprehension questions.
+>
+> 1. **Level.** Which HSK level would you like to study? You can start from the beginning or tell me where you’d like to pick up.
 > 2. **Pace.** Light (1–4), Standard (5–7), or Intensive (8–10) new items per lesson?
-> 3. **Audio.** Set it up now or start with reading? I strongly recommend audio for listening practice. [Connect ElevenLabs](https://elevenlabs.io/mcp)
+> 3. **Audio.** Would you like to set up audio? I strongly recommend it for practicing listening with short dialogues. You can use ElevenLabs or another provider, or start by reading the dialogues in Hanzi. [Connect ElevenLabs](https://elevenlabs.io/mcp)
 >
-> **Optional font.** Large Hanzi use your system font. For a handwritten style, you can install Kaiti SC Bold on Mac or LXGW WenKai GB Regular. [Font Book](https://support.apple.com/en-ie/guide/font-book/fntbk1000/mac) · [LXGW WenKai GB downloads](https://github.com/lxgw/LxgwWenKaiGB/releases/latest)
+> **Optional font.** I recommend Kaiti SC Bold on Mac or AR PL KaitiM GB on Windows. Their shapes are closer to careful handwriting, which makes the strokes easier to see when you study and copy characters into your notes. Tell me if you’ve installed one and want to use it. Otherwise, we’ll use your system font. [Font Book](https://support.apple.com/en-ie/guide/font-book/fntbk1000/mac) · [AR PL KaitiM GB download (`gkai00mp.ttf`)](https://ctan.org/tex-archive/fonts/arphic-ttf)
 
 Help learners who choose audio connect ElevenLabs or another provider through provider sign-in or an environment secret. Apply a custom font only when the learner asks to use it and confirms installation. Learners who have studied before can pick a later lesson after seeing the index.
 
@@ -48,7 +50,7 @@ In written translation and dialogue practice, reuse words and chunks from earlie
 
 ### Format each vocabulary table
 
-Use the selectable HTML table below whenever the chat can display it alongside the message. Replace the heading and sample row with the lesson title and vocabulary. Localize the meaning header, extras, and font notice. Keep the Hanzi at 2.5 times the cell’s text size regardless of font availability. Keep pinyin and meanings at normal size. Leave `data-font` set to `system` unless the learner opted in and confirmed installation. Then set it to `kaiti` or `wenkai`. The table applies the chosen font once it loads and otherwise keeps the large system-font Hanzi.
+Use the selectable HTML table below whenever the chat can display it alongside the message. Replace the heading and sample row with the lesson title and vocabulary. Localize the meaning header, extras, and font notice. Keep the Hanzi at 2.5 times the cell’s text size regardless of font availability. Keep pinyin and meanings at normal size. Leave `data-font` set to `system` unless the learner opted in and confirmed installation. Set it to `kaiti` for Kaiti SC Bold or `arpl` for AR PL KaitiM GB. The table applies the chosen font once it loads and otherwise keeps the large system-font Hanzi.
 
 ```html
 <section id="mandarinmaxxing-vocab" data-font="system" aria-labelledby="mandarinmaxxing-vocab-title">
@@ -67,8 +69,8 @@ Use the selectable HTML table below whenever the chat can display it alongside t
     font-weight: 700;
   }
   @font-face {
-    font-family: "WenKai Vocabulary";
-    src: local("LXGW WenKai GB"), local("LXGW WenKai GB Regular"), local("LXGWWenKaiGB-Regular");
+    font-family: "Arphic Kaiti Vocabulary";
+    src: local("AR PL KaitiM GB"), local("GBZenKai-Medium");
     font-style: normal;
     font-weight: 400;
   }
@@ -83,8 +85,8 @@ Use the selectable HTML table below whenever the chat can display it alongside t
     font-family: "Kaiti Vocabulary", sans-serif;
     font-weight: 700;
   }
-  #mandarinmaxxing-vocab[data-loaded-font="wenkai"] td span[lang="zh-Hans"] {
-    font-family: "WenKai Vocabulary", sans-serif;
+  #mandarinmaxxing-vocab[data-loaded-font="arpl"] td span[lang="zh-Hans"] {
+    font-family: "Arphic Kaiti Vocabulary", sans-serif;
     font-weight: 400;
   }
 </style>
@@ -92,7 +94,7 @@ Use the selectable HTML table below whenever the chat can display it alongside t
   (() => {
     const table = document.getElementById('mandarinmaxxing-vocab');
     const choice = table.dataset.font;
-    const font = { kaiti: '700 35px "Kaiti Vocabulary"', wenkai: '400 35px "WenKai Vocabulary"' }[choice];
+    const font = { kaiti: '700 35px "Kaiti Vocabulary"', arpl: '400 35px "Arphic Kaiti Vocabulary"' }[choice];
     if (!font) return;
     const notice = document.getElementById('mandarinmaxxing-font-notice');
     if (!document.fonts?.load) { notice.hidden = false; return; }
