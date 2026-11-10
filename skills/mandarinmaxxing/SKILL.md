@@ -35,12 +35,12 @@ Start at Lesson 01 unless the learner asks to choose a later lesson. Offer the c
 
 Teach from the installed skill and the learner’s course index. Reserve Git and repository checks for an explicit repository or update request. Keep lesson messages focused on the exercise and mention technical issues only when they affect the lesson.
 
-Present all written lesson content directly in the chat message as selectable text. Use only the chat’s native formatting for lesson tables, prompts, and corrections.
+Present written lesson content as selectable text in the conversation. Embed the vocabulary table in the chat when supported. Use native Markdown for prompts and corrections.
 
 In review and written translation, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. After the last answer, correct it and follow the transition for that block.
 
 1. **Review.** Ask at least five short recall questions and cover all target vocabulary from the previous lesson. If coverage takes fewer than five questions, revisit words in fresh contexts or use older chunks due for review. Bring back older material at about 3, 7, and 14 lessons when it fits. After the last review answer, move to vocabulary. When there’s no earlier lesson to review, begin with vocabulary.
-2. **Vocabulary.** Show a Markdown table with Hanzi, Pinyin, and meanings in the learner’s language. Apply the table format below. For each useful chunk, show the Hanzi, put tone-marked pinyin directly below it, and give the meaning on the following line. Mark extras and keep exercise prompts at normal text size.
+2. **Vocabulary.** Show a table with Hanzi, Pinyin, and meanings in the learner’s language. Apply the table format below. For each useful chunk, show the Hanzi, put tone-marked pinyin directly below it, and give the meaning on the following line. Mark extras and keep exercise prompts at normal text size.
 3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Use a numbered **Exercise** label in the learner’s language. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something, such as welcoming a guest and showing them where the bathroom is. Design prompts the learner can answer with familiar vocabulary alongside the target. Give any essential support word with its pinyin and meaning. After giving feedback on the last answer, ask whether the learner wants another translation round or is ready for the final dialogue practice. Wait for their choice.
 4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new target item in a reusable phrase. Ask about what happened, what the speakers wanted, or what a chunk meant in context. Present each full conversation followed by all its questions in the same message. Ask the learner to answer them together. After they reply, mark each answer correct or incorrect. On request after they answer, share the transcript or reference text with pinyin and a translation into the learner’s language.
 
@@ -48,7 +48,48 @@ In written translation and dialogue practice, reuse words and chunks from earlie
 
 ### Format each vocabulary table
 
-Before sending, check that the Hanzi cells contain the original simplified characters as selectable text and that the pinyin and meanings stay at normal size. Enlarge only the Hanzi where supported. In Codex desktop and other chats confirmed to render and copy Hanzi through inline math, use the form `$\LARGE\text{公交车}$` in each Hanzi cell. Prefer Kaiti SC when the chat offers native font selection for those cells. Otherwise, use the chat’s default Chinese font. Where inline enlargement or selectability is uncertain, use bold Hanzi in the Markdown table.
+Default to the selectable HTML table below when the chat can display it alongside the message and access the learner’s installed Kaiti SC Bold. Replace the heading and sample row with the lesson title and vocabulary. Localize the meaning header, extras, and font notice. Before sending, check that only the original simplified Hanzi are enlarged to 2.5 times the base size, and that pinyin and meanings stay at normal size. Use the renderer’s font-load result to confirm Kaiti SC Bold.
+
+```html
+<section id="mandarinmaxxing-vocab" aria-labelledby="mandarinmaxxing-vocab-title">
+  <h2 id="mandarinmaxxing-vocab-title">Urban transportation</h2>
+  <p id="mandarinmaxxing-font-notice" role="status" hidden>This viewer could not confirm that Kaiti SC Bold loaded.</p>
+  <table class="table">
+    <thead><tr><th scope="col">Hanzi</th><th scope="col">Pinyin</th><th scope="col">Meaning</th></tr></thead>
+    <tbody><tr><td lang="zh-Hans">公交车</td><td>gōngjiāochē</td><td>city bus</td></tr></tbody>
+  </table>
+</section>
+<style>
+  @font-face {
+    font-family: "Kaiti Vocabulary";
+    src: local("Kaiti SC Bold"), local("STKaiti-SC-Bold");
+    font-style: normal;
+    font-weight: 700;
+  }
+  #mandarinmaxxing-vocab h2 { margin-bottom: calc(var(--font-size-base, 14px) * 0.5); }
+  #mandarinmaxxing-vocab td { vertical-align: middle; user-select: text; }
+  #mandarinmaxxing-vocab td[lang="zh-Hans"] {
+    font-family: "Kaiti Vocabulary", "Kaiti SC", sans-serif;
+    font-size: calc(var(--font-size-base, 14px) * 2.5);
+    font-weight: 700;
+    font-synthesis: none;
+    white-space: nowrap;
+  }
+</style>
+<script>
+  (() => {
+    const table = document.getElementById('mandarinmaxxing-vocab');
+    const notice = document.getElementById('mandarinmaxxing-font-notice');
+    const hanzi = Array.from(table.querySelectorAll('td[lang="zh-Hans"]'), cell => cell.textContent).join('');
+    document.fonts.load('700 35px "Kaiti Vocabulary"', hanzi).then(
+      faces => { notice.hidden = faces.some(face => face.status === 'loaded'); },
+      () => { notice.hidden = false; }
+    );
+  })();
+</script>
+```
+
+If the chat can’t embed the table or confirm the font, explain the limitation and offer a selectable Markdown table in the message. Enlarge Hanzi through inline math only where rendering and selection are confirmed, for example `$\LARGE\text{公交车}$` in Codex desktop. Elsewhere, use bold Hanzi. If the learner requires Kaiti SC, wait for their choice before using a fallback.
 
 ### Respond to a written translation
 
