@@ -6,7 +6,16 @@ In a textbook-based HSK course, related words can appear in different lessons. M
 
 ## Install
 
-**Claude Code.** Run this from your study folder in a terminal with Node.js installed.
+**Terminal check for Claude Code and Codex.** Run these commands in your study folder before installing.
+
+```sh
+node --version
+npx --version
+```
+
+If you’re installing as an AI assistant, run both checks yourself. Continue only if both commands print a version. If either fails, report the command and its error.
+
+**Claude Code.** Run this from the same folder.
 
 ```sh
 npx skills add aveduardo-br/mandarinmaxxing --skill mandarinmaxxing -a claude-code
