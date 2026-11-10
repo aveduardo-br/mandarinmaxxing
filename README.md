@@ -8,7 +8,7 @@ In a textbook-based HSK course, related words can appear in different lessons. M
 
 ### Claude chat on the web or desktop
 
-Download the ZIP and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. Enable code execution and file creation in **Settings → Capabilities** if needed. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.6/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+Download the ZIP and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. Enable code execution and file creation in **Settings → Capabilities** if needed. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.7/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
 If your Claude chat supports saving skills, you can also try pasting this prompt. Review the skill and click **Save** if a card appears.
 
@@ -58,12 +58,12 @@ In review and written translation, the skill asks one question at a time and giv
 
 1. **Quick review.** Answer at least five questions covering the previous lesson’s vocabulary. Older material comes back at spaced intervals. If you’re starting fresh, go straight to the new vocabulary.
 2. **New vocabulary.** Learn a group of related words in a table with simplified Chinese characters, tone-marked pinyin, and meanings in your language. Useful phrases also show pinyin directly below the Hanzi.
-3. **Written translation.** Practice each new word in at least one prompt set in an everyday situation. Prompts grow from short sentences to connected messages as your repertoire grows. A correct answer moves you to the next prompt. When you make a mistake, you’ll see the corrected Hanzi, pinyin, and a short breakdown of the phrase. At the end, choose another translation round or move on to dialogue practice.
+3. **Written translation.** Practice each new word in at least one prompt set in an everyday situation. As your repertoire grows, alternate short sentences with connected messages. A correct answer moves you to the next exercise. When you make a mistake, you’ll see the corrected Hanzi, pinyin, and a short breakdown with pinyin beside each word or chunk. At the end, choose another translation round or move on to dialogue practice.
 4. **Dialogue practice.** Listen to a short two-person conversation of around 20 seconds or read it in Hanzi when audio is unavailable. All the questions come with the dialogue. Answer them together and see which answers were correct. You can ask for the transcript, pinyin, and translation after you answer.
 
 Earlier words also come back in translation prompts and dialogues whenever they fit naturally. Every new word is practiced in both formats. Pronunciation and tone practice are self-directed.
 
-**Hanzi display.** Where custom visuals are supported, the vocabulary table uses larger, selectable hanzi. It uses **Kaiti SC** when available and the default Chinese font otherwise. The standard chat table uses bold hanzi. Exercises use standard text. [About regular script](https://asia-archive.si.edu/learn/chinas-calligraphic-arts/standard-script/)
+**Hanzi display.** Where custom visuals are supported, the vocabulary table uses larger, selectable hanzi. It uses **Kaiti SC** when available and the default Chinese font otherwise. The standard chat table uses bold hanzi. Corrected sentences use larger hanzi where the chat supports it. [About regular script](https://asia-archive.si.edu/learn/chinas-calligraphic-arts/standard-script/)
 
 **Audio setup.** We strongly recommend audio for practicing how everyday phrases sound in conversation. ElevenLabs is the recommended provider for two-voice dialogues. You can use another provider or start with reading and connect audio later. [Connect ElevenLabs](https://elevenlabs.io/mcp)
 
