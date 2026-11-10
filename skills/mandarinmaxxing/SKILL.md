@@ -1,15 +1,17 @@
 ---
 name: mandarinmaxxing
-description: Teach HSK 3.0 Mandarin vocabulary in English through practical word groups, reusable everyday chunks, spaced review, written translation, and guided listening.
+description: Teach HSK 3.0 Mandarin vocabulary through practical word groups, reusable everyday chunks, spaced review, written translation, and guided listening.
 ---
 
 # mandarinmaxxing
 
-Use the HSK 3.0 syllabus as the default vocabulary source and everyday situations to decide which words to teach together. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use English for instructions, translations, and feedback. Use simplified Chinese and keep tone-marked pinyin as a written reference. Focus corrections on the written answer or comprehension. Leave pronunciation and tone practice to the learner.
+Use the HSK 3.0 syllabus as the default vocabulary source and everyday situations to decide which words to teach together. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use simplified Chinese and keep tone-marked pinyin as a written reference. Focus corrections on the written answer or comprehension. Leave pronunciation and tone practice to the learner.
 
 ## Start a course
 
-Use information the learner has already given. When they have no course yet, explain the format and ask for their HSK level, pace, and audio preference in one message.
+Use the learner’s requested language for setup, instructions, labels, meanings, prompts, and feedback. Otherwise, infer it from their conversational messages. If there is too little text, use the interface language when known or ask for their preferred language during setup. Keep that choice for the course until the learner asks to switch.
+
+Use information the learner has already given. When they have no course yet, explain the format and ask for their HSK level, pace, and audio preference in one message. Adapt the following setup example to the learner’s language.
 
 > You’ll learn Mandarin with HSK 3.0 vocabulary grouped around everyday situations. When there’s earlier material, we’ll start with a quick review. Then we’ll cover new vocabulary, written translation, and a short dialogue. You’ll use the new words in practical phrases and revisit earlier material when it fits.
 >
@@ -34,9 +36,9 @@ Start at Lesson 01 unless the learner asks to choose a later lesson. Offer the c
 In review and written translation, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. After the last answer, correct it and follow the transition for that block.
 
 1. **Review.** Ask at least five short recall questions and cover all target vocabulary from the previous lesson. If coverage takes fewer than five questions, revisit words in fresh contexts or use older chunks due for review. Bring back older material at about 3, 7, and 14 lessons when it fits. After the last review answer, move to vocabulary. When there’s no earlier lesson to review, begin with vocabulary.
-2. **Vocabulary.** Show a selectable text table with Hanzi, Pinyin, and English. If the surface supports a native HTML visual, use it to enlarge only the Hanzi, with Kaiti SC when available and the default Chinese font otherwise. In a standard chat table, bold only the Hanzi in the vocabulary rows. Introduce practical phrases, mark extras, and use standard text in exercises.
-3. **Written translation.** Give at least one English-to-Mandarin sentence prompt targeting each new word in a reusable chunk. Give each new item its own target prompt even if it also appears in another sentence. In corrections, give a natural Mandarin version and concise feedback. After correcting the last prompt, ask whether the learner wants another translation round or is ready for the final dialogue practice. Wait for their choice.
-4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new target item in a reusable phrase. Ask about what happened, what the speakers wanted, or what a chunk meant in context. Present each full conversation followed by all its questions in the same message. Ask the learner to answer them together. After they reply, mark each answer correct or incorrect. Share the transcript or reference text with pinyin and English on request after they answer.
+2. **Vocabulary.** Show a selectable text table with Hanzi, Pinyin, and meanings in the learner’s language. If the surface supports a native HTML visual, use it to enlarge only the Hanzi, with Kaiti SC when available and the default Chinese font otherwise. In a standard chat table, bold only the Hanzi in the vocabulary rows. Introduce practical phrases, mark extras, and use standard text in exercises.
+3. **Written translation.** Give at least one sentence prompt in the learner’s language for them to translate into Mandarin, targeting each new word in a reusable chunk. Give each new item its own target prompt even if it also appears in another sentence. In corrections, give a natural Mandarin version and concise feedback. After correcting the last prompt, ask whether the learner wants another translation round or is ready for the final dialogue practice. Wait for their choice.
+4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new target item in a reusable phrase. Ask about what happened, what the speakers wanted, or what a chunk meant in context. Present each full conversation followed by all its questions in the same message. Ask the learner to answer them together. After they reply, mark each answer correct or incorrect. On request after they answer, share the transcript or reference text with pinyin and a translation into the learner’s language.
 
 In written translation and dialogue practice, reuse words and chunks from earlier lessons when they fit naturally. Prioritize items due for spaced review while covering every new target item.
 
@@ -49,4 +51,4 @@ If audio is enabled and an authorized provider can deliver it, generate the clip
 
 If audio is unset or unavailable, say so and switch to **Reading practice**. Show the conversation directly in the chat in Hanzi only, followed by the full question set.
 
-“Start Lesson 04” begins that lesson from the start. “Review Lesson 04” gives practice based on its index entry. Give extra exercises on the requested point during the lesson.
+When asked to start a numbered lesson, begin that lesson from the start. When asked to review a numbered lesson, use its index entry. Give extra exercises on the requested point during the lesson.
