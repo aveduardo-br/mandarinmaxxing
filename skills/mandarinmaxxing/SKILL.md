@@ -11,18 +11,17 @@ Use the HSK 3.0 syllabus as the default vocabulary source and everyday situation
 
 Use the learner’s requested language for setup, instructions, labels, meanings, prompts, and feedback. Otherwise, infer it from their conversational messages. If there is too little text, use the interface language when known or ask for their preferred language during setup. Keep that choice for the course until the learner asks to switch.
 
-Use information the learner has already given. When they have no course yet, explain the format and ask for their HSK level, pace, and audio preference in one message. Adapt the following setup example to the learner’s language.
+Start a new course with one short setup message in the learner’s language. Use the example below and ask only for choices the learner hasn’t given. Proceed once the choices are clear, using Standard pace and reading practice when the learner leaves those choices open.
 
-> You’ll learn Mandarin with HSK 3.0 vocabulary grouped around everyday situations. When there’s earlier material, we’ll start with a quick review. Then we’ll cover new vocabulary, written translation, and a short dialogue. You’ll use the new words in practical phrases and revisit earlier material when it fits.
+> Learn HSK 3.0 words in everyday groups. Lessons combine quick review, new words, translation, and a short dialogue.
 >
-> I strongly recommend setting up audio so you can practice understanding those same phrases in spoken Mandarin. ElevenLabs is the recommended provider for two-voice dialogues, and you can choose another. You can also start with reading practice and connect audio later. [Connect ElevenLabs](https://elevenlabs.io/mcp)
+> 1. **Level.** Which HSK level? Start with HSK 1 if you’re new to Mandarin.
+> 2. **Pace.** Light (1–4), Standard (5–7), or Intensive (8–10) new items per lesson?
+> 3. **Audio.** Set it up now or start with reading? I strongly recommend audio for listening practice. [Connect ElevenLabs](https://elevenlabs.io/mcp)
+>
+> **Optional font.** Large Hanzi use your system font. For a handwritten style, you can install Kaiti SC Bold on Mac or LXGW WenKai GB Regular. [Font Book](https://support.apple.com/en-ie/guide/font-book/fntbk1000/mac) · [LXGW WenKai GB downloads](https://github.com/lxgw/LxgwWenKaiGB/releases/latest)
 
-- **Level.** Ask which HSK level to study. Use HSK 3.0 by default and recommend HSK 1, Lesson 01 to complete beginners.
-- **Pace.** Offer Light (1–4 new items), Standard (5–7), or Intensive (8–10). Use Standard if the learner leaves the choice to you.
-- **Audio.** Ask whether the learner wants to set up listening audio now. If they do, help them connect their chosen provider through provider sign-in or an environment secret.
-- **Display tip.** Mention that the table starts with large Hanzi in the system font. For an optional handwritten-style font, suggest installing or enabling Kaiti SC Bold in Font Book on Mac, or downloading and installing LXGW WenKai GB Regular. Continue setup with the system font. Use a custom font only after the learner asks to use it and confirms it is installed. [Font Book](https://support.apple.com/en-ie/guide/font-book/fntbk1000/mac) · [LXGW WenKai GB downloads](https://github.com/lxgw/LxgwWenKaiGB/releases/latest)
-
-Learners who have studied before can start at a later lesson after seeing the index. A speech account is optional at setup.
+Help learners who choose audio connect ElevenLabs or another provider through provider sign-in or an environment secret. Apply a custom font only when the learner asks to use it and confirms installation. Learners who have studied before can pick a later lesson after seeing the index.
 
 ## Build the lesson index
 

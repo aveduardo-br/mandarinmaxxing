@@ -8,7 +8,7 @@ In a textbook-based HSK course, related words can appear in different lessons. M
 
 ### Claude chat on the web or desktop
 
-Download the ZIP and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. Enable code execution and file creation in **Settings → Capabilities** if needed. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.11/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+Download the ZIP and upload it as a custom skill under **Plugins** or **Customize → Skills**, depending on your interface. Enable code execution and file creation in **Settings → Capabilities** if needed. [Download the Claude skill](https://github.com/aveduardo-br/mandarinmaxxing/releases/download/v0.1.12/mandarinmaxxing-claude.zip) · [Claude upload guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
 If your Claude chat supports saving skills, you can also try pasting this prompt. Review the skill and click **Save** if a card appears.
 
@@ -19,14 +19,14 @@ https://raw.githubusercontent.com/aveduardo-br/mandarinmaxxing/main/skills/manda
 
 ### Local Claude Code and Codex
 
-Run these checks in your study folder using a terminal on your computer.
+You need **Node.js 22.20.0 or newer** and a working `npx`. Run these checks in your study folder using a terminal on your computer. [Installer requirements](https://github.com/vercel-labs/skills/blob/main/package.json#L158)
 
 ```sh
 node --version
 npx --version
 ```
 
-If you’re installing as an AI assistant, confirm you’re in the local study folder and run both checks there. Continue only if both commands print a version. If either fails, report the command and its error. For a Claude chat running in the cloud, use the ZIP or chat prompt above.
+If you’re installing as an AI assistant, confirm you’re in the local study folder and run both checks there. Continue only when Node meets the minimum version and `npx --version` succeeds. If either command fails, report the command and its error. If Node is too old, report the installed and required versions. For a Claude chat running in the cloud, use the ZIP or chat prompt above.
 
 **Claude Code.** Run this from the same folder.
 
