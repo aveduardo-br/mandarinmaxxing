@@ -9,6 +9,8 @@ Use the HSK 3.0 syllabus as the default vocabulary source and everyday situation
 
 ## Start a course
 
+For “next lesson” or a request to resume, load the saved course before asking setup questions. If the current conversation already has an active course, use that context too.
+
 Use the learner’s requested language for setup, instructions, labels, meanings, prompts, and feedback. Otherwise, infer it from their conversational messages. If there is too little text, use the interface language when known or ask for their preferred language during setup. Keep that choice for the course until the learner asks to switch.
 
 Start a new course with one short setup message in the learner’s language. Use the example below and ask only for choices the learner hasn’t given. Proceed once the choices are clear, using Standard pace and reading practice when the learner leaves those choices open.
@@ -31,7 +33,21 @@ Use the [official HSK syllabus](https://www.chinesetest.cn/HSK) or a syllabus th
 
 Map the selected vocabulary into a numbered index by situation and pace. Group words the learner can use together to do something, such as ordering a drink or asking for directions. Include the relevant objects, actions, and expressions when they fit the same situation. Record each lesson's target items so that a later request for that lesson uses the same list. Give each official entry one introduction slot and label any vocabulary beyond the selected scope as extra. Compare the inventory with the source before calling it complete. For a large scope, build and check the index in sections, then show the learner a compact overview. If the complete source is unavailable, ask for it or offer a clearly labeled sample lesson.
 
-Start at Lesson 01 unless the learner asks to choose a later lesson. Offer the course index as a Markdown file for use in a new chat. When “next lesson” is ambiguous, ask for the index or lesson number.
+Start at Lesson 01 unless the learner asks to choose a later lesson. Save the verified index before starting the first lesson when shared storage is available.
+
+## Save and resume the course
+
+Use one `mandarinmaxxing-course.md` in the learner's study project when the chat has tools to read and write a folder that other chats in the project share. Use the same path in each chat. Keep these fields at the top, followed by the compact numbered index of topics and target vocabulary:
+
+- Course settings, including syllabus edition and scope, pace, language, and audio and font choices. Keep provider credentials outside this file.
+- Next regular lesson number (or a course complete marker) and completed regular lesson numbers. Use ranges for consecutive completed lessons.
+- When needed, the lesson number and short list of vocabulary or chunks that still need practice before advancing. Clear each pending item once the learner uses it without a hint in a fresh prompt.
+
+When resuming, read the header and the relevant index entries. Use the saved next lesson for “next lesson.” Keep the index stable and generate exercises from its vocabulary. Use the completed lesson numbers to choose the most recently completed lesson before the current one and the older lessons due for review. Skip review of lessons the learner has not studied. A standalone review or extra practice leaves the next lesson number in place.
+
+Update the pending items when a review round ends or the learner pauses. If a review was interrupted, check the previous lesson's coverage when resuming. Advance the saved next lesson after the learner answers the final dialogue questions and receives feedback, or mark the course complete after the last lesson. Before updating progress, reread the header. If the course has already advanced past the lesson this chat is working on, preserve the newer state. Reuse an existing course and only replace it on an explicit request to reset it.
+
+If shared writable storage is unavailable or saving fails, keep the course in the current conversation and tell the learner they can continue there. If a fresh chat has no course state, ask for the minimum information needed to resume. Use an existing index if the learner provides one. Never claim that progress was saved unless the write succeeded.
 
 ## Teach one lesson at a time
 
@@ -41,7 +57,7 @@ Present written lesson content as selectable text in the conversation. Embed the
 
 In review and written translation, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. After the last answer, correct it and follow the transition for that block.
 
-1. **Review.** Ask at least five short recall questions and cover all target vocabulary from the previous lesson. If coverage takes fewer than five questions, revisit words in fresh contexts or use older chunks due for review. Bring back older material at about 3, 7, and 14 lessons when it fits. After the last review answer, move to vocabulary. When there’s no earlier lesson to review, begin with vocabulary.
+1. **Review.** Ask at least five short recall questions and cover all target vocabulary from the most recently completed lesson before the current one. If coverage takes fewer than five questions, revisit words in fresh contexts or use older chunks due for review. Bring back a small selection of older items at about 3, 7, and 14 lessons when it fits, up to ten per session beyond the required review. Give extra practice on saved pending items. If an answer needs a hint or correction, ask the learner to use the target again in a fresh prompt after another question or a pause. Introduce the new vocabulary once the learner has used every target from the previous lesson without help in this review. If they pause with items still pending, save those items when possible and keep the next lesson number. When there’s no completed lesson to review, begin with vocabulary.
 2. **Vocabulary.** Show a table with Hanzi, Pinyin, and meanings in the learner’s language. Apply the table format below. For each useful chunk, show the Hanzi, put tone-marked pinyin directly below it, and give the meaning on the following line. Mark extras and keep exercise prompts at normal text size.
 3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Use a numbered **Exercise** label in the learner’s language. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something, such as welcoming a guest and showing them where the bathroom is. Design prompts the learner can answer with familiar vocabulary alongside the target. Give any essential support word with its pinyin and meaning. After giving feedback on the last answer, ask whether the learner wants another translation round or is ready for the final dialogue practice. Wait for their choice.
 4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new target item in a reusable phrase. Ask about what happened, what the speakers wanted, or what a chunk meant in context. Present each full conversation followed by all its questions in the same message. Ask the learner to answer them together. After they reply, mark each answer correct or incorrect. On request after they answer, share the transcript or reference text with pinyin and a translation into the learner’s language.
@@ -129,4 +145,4 @@ If audio is enabled and an authorized provider can deliver it, generate the clip
 
 If audio is unset or unavailable, say so and switch to **Reading practice**. Show the conversation directly in the chat in Hanzi only, followed by the full question set.
 
-When asked to start a numbered lesson, begin that lesson from the start. When asked to review a numbered lesson, use its index entry. Give extra exercises on the requested point during the lesson.
+When asked to start a numbered lesson, begin that lesson from the start. Treat a number other than the saved next lesson as standalone practice unless the learner asks to change their course position. When asked to review a numbered lesson, use its index entry. Give extra exercises on the requested point during the lesson.

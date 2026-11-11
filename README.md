@@ -48,15 +48,19 @@ Choose your **HSK level**, **how many new words you want per lesson**, and **whe
 | Standard | 5–7 |
 | Intensive | 8–10 |
 
-The skill builds a numbered lesson index from your chosen level and pace. Start at Lesson 01 or pick a later lesson if you’ve already studied some of the vocabulary. To resume in a new chat, attach your saved index and give the lesson number. If the skill can’t access the syllabus, you can attach a copy. [Official HSK syllabus](https://www.chinesetest.cn/HSK)
+The skill builds a numbered lesson index from your chosen level and pace. Start at Lesson 01 or pick a later lesson if you’ve already studied some of the vocabulary. If the skill can’t access the syllabus, you can attach a copy. [Official HSK syllabus](https://www.chinesetest.cn/HSK)
 
 To try it, ask mandarinmaxxing to start HSK 1 at a Standard pace in your preferred language.
+
+### Continue in a new chat
+
+Use one study project for the course. When its chats share a folder the skill can read and write, the skill saves your lesson index, next lesson, and pending review items in one Markdown file automatically. Open a new chat in the same project and say **“Next lesson.”** The skill reads the relevant entries and picks up where you left off. When shared writable storage is unavailable, continue in the same conversation.
 
 ## How lessons work
 
 In review and written translation, the skill asks one question at a time and gives feedback with the next question.
 
-1. **Quick review.** Answer at least five questions covering the previous lesson’s vocabulary. Older material comes back at spaced intervals. If you’re starting fresh, go straight to the new vocabulary.
+1. **Quick review.** Answer at least five questions covering the vocabulary from your last completed lesson. Older material comes back at spaced intervals. If you need help with a word, try it again in a fresh sentence before moving to new vocabulary. If you’re starting fresh, go straight to the new vocabulary.
 2. **New vocabulary.** Learn a group of related words in a table with simplified Chinese characters, tone-marked pinyin, and meanings in your language. Useful phrases also show pinyin directly below the Hanzi.
 3. **Written translation.** Practice each new word in at least one prompt set in an everyday situation. As your repertoire grows, alternate short sentences with connected messages. A correct answer moves you to the next exercise. When you make a mistake, you’ll see the corrected Hanzi, pinyin, and a short breakdown with pinyin beside each word or chunk. At the end, choose another translation round or move on to dialogue practice.
 4. **Dialogue practice.** Listen to a short two-person conversation of around 20 seconds or read it in Hanzi when audio is unavailable. All the questions come with the dialogue. Answer them together and see which answers were correct. You can ask for the transcript, pinyin, and translation after you answer.
