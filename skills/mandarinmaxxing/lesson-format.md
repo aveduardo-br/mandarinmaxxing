@@ -7,7 +7,7 @@ Formats for the parts of a lesson. Read this once per chat, before the first les
 - **Title.** Open each part with one bold line in this shape, in the learner’s language: `Lesson 20 · At school · part 1 of 2`. The lesson number is the map’s and never changes. Leave out “part 1 of 1” when a lesson has a single part.
 - **No commentary on the plan.** State the title and teach. Leave out remarks about how the lesson is divided, why a part has the number of words it has, or what the map says.
 - **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Reuse the wording already in `course.md`.
-- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate in a blockquote under it. Say “Translate into Mandarin” only before the first prompt of each part of the lesson.
+- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate as plain text under it, with a blank line between them. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” only before the first prompt of each part of the lesson.
 
 ## Write Mandarin the same way everywhere
 
@@ -54,11 +54,11 @@ If the chat can’t embed HTML, use a selectable Markdown table in the message. 
 
 ## Respond to a written translation
 
-Use plain Markdown for all feedback and the Mandarin pattern above. Quote the learner’s wrong word or chunk as plain text, so the bold replacement stands out.
+Use plain Markdown for all feedback and the Mandarin pattern above. Blockquotes are reserved for one thing: showing back what the learner wrote in a correction.
 
 - **Correct and natural.** Confirm briefly and move to the next prompt. Accept any natural version that meets the request. If a valid alternative uses a different expression, acknowledge it and bring the intended chunk back in a later prompt.
 - **Correct meaning, noticeably unnatural phrasing.** Acknowledge that the meaning is right. Show a more natural version in Hanzi with pinyin directly below it and briefly explain the change.
-- **Incorrect.** Point at the part that went wrong and nothing else: quote the word or chunk the learner wrote, give the one to use in its place with pinyin and meaning, and add a short reason when it helps, in the shape “you wrote X, use Y”. Then show the full corrected sentence once. Leave out a word-by-word breakdown of the parts the learner got right.
+- **Incorrect.** Use this order. First a short opener and “You wrote:”, then the learner’s whole answer in a blockquote. Next, one line that points only at the part that went wrong: the word or chunk to use in its place in bold, its pinyin in italics, and a short reason. Use one such line per error. Then the full corrected sentence once, as bold Hanzi, italic pinyin, and plain meaning on three lines. Follow with the next prompt. Leave out a word-by-word breakdown of the parts the learner got right.
 
 ## Prepare each dialogue
 
