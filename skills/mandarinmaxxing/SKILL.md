@@ -18,24 +18,25 @@ The skill guides the lessons. Long-term memorization stays with the learner's ow
 
 Read the map for the learner's level when a course starts or resumes. Look up single words in the syllabus file instead of reading it whole.
 
-## Check the course folder first
+## Check for a saved course first
 
-Before anything else, check whether this chat can read and write files in a folder, such as the folder of a Claude project on the learner’s computer.
+The course lives in one `course.md` kept where every chat of the same course can reach it: the documents of the learner’s Claude project, or the working folder when the skill runs in a coding agent such as Claude Code or Codex. A project keeps the file in the learner’s account, so the course follows them to any device. No folder on their computer is needed.
 
-- **Folder with a `course.md`.** Resume the course. Skip the setup.
-- **Folder without a `course.md`.** Run the setup below, then save the course.
-- **No folder.** Send the message below in the learner’s language and wait. If they ask for the trial lesson, teach Lesson 01 of HSK 1 at a pace of 5 without saving, and tell them at the end that the course starts once the project is set up.
+Before anything else, look for `course.md` there.
+
+- **Found.** Resume the course. Skip the setup.
+- **Not found, and this chat can save there.** Run the setup below, then save the course.
+- **Nowhere to save**, for example a chat outside any project. Send the message below in the learner’s language and wait. If they ask for the trial lesson, teach Lesson 01 of HSK 1 at a pace of 5 without saving, and tell them at the end that the course starts once the project is set up.
 
 > Before we start, let’s give your course a place to live. It takes a minute:
 >
-> 1. Create an empty folder on your computer, for example “Mandarin”.
-> 2. In the Claude desktop app, create a new project from that folder.
-> 3. In the project’s instructions, paste: `Use the mandarinmaxxing skill. My course is saved in course.md.`
-> 4. Open a chat inside the project and write “start mandarinmaxxing”.
+> 1. In Claude, create a new project, for example “Mandarin”.
+> 2. In the project’s instructions, paste: `Use the mandarinmaxxing skill. My course is saved in course.md.`
+> 3. Open a chat inside the project and write “start mandarinmaxxing”.
 >
-> From then on I keep your progress myself. If you’d like to try it first, I can give you a trial lesson right here, without saving.
+> From then on I keep your progress myself, on any device. If you’d like to try it first, I can give you a trial lesson right here, without saving.
 
-Describe these steps without naming menus or buttons, since the app changes. If a write to the folder fails later, say so once, finish the lesson, and never claim that progress was saved.
+Describe these steps without naming menus or buttons, since the app changes. If saving fails later, say so once, finish the lesson, and never claim that progress was saved.
 
 ## Start a course
 
@@ -80,7 +81,7 @@ For a map without `Split` lines, give a lesson at most 4, 7, or 10 new words for
 
 ## Save and resume the course
 
-Keep one `course.md` at the top of the course folder. Use the same path in each chat. Keep it in this shape:
+Keep one `course.md` in the place found above. Use the same name and path in each chat. Keep it in this shape:
 
 ```markdown
 # mandarinmaxxing course
@@ -100,13 +101,13 @@ Keep one `course.md` at the top of the course folder. Use the same path in each 
 - **To reinforce** holds up to ten words or chunks the learner needed help with in the last lesson. Replace the line after each lesson.
 - **Lessons** gets one line per completed lesson: number, situation, and the new words taught. This log is how later lessons know what an earlier lesson covered.
 
-Write `course.md` straight into the course folder with file tools. Save quietly: never attach, present, or send the file in the conversation, and mention saving only when it fails.
+Save quietly: write `course.md` to its place, avoid attaching or presenting the file in the conversation when the tools allow it, and mention saving only when it fails. If the learner asks for a copy in a folder on their computer, save one there as well.
 
 Keep provider credentials outside this file. If the learner asks to keep lesson notes, also save `lessons/lesson-NN.md` with that lesson’s vocabulary table, support words, and chunks, and keep doing so for later lessons.
 
 When resuming, read `course.md` and the map. Use the saved next lesson for “next lesson.” Add the lesson’s line and advance the next lesson number after the learner answers the final dialogue questions and receives feedback, or mark the course complete after the last lesson. Before writing, reread the file. If the course has already advanced past the lesson this chat is working on, preserve the newer state. Reuse an existing course and only replace it on an explicit request to reset it. A standalone review or extra practice leaves the next lesson number in place.
 
-If the folder holds a `mandarinmaxxing-course.md` from an earlier version, keep teaching from its index and offer once to restart the level on the map.
+If that place holds a `mandarinmaxxing-course.md` from an earlier version, keep teaching from its index and offer once to restart the level on the map.
 
 ## Teach one lesson at a time
 
