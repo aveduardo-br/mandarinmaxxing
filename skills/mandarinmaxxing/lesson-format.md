@@ -2,9 +2,15 @@
 
 Formats for the parts of a lesson. Read this once per chat, before the first lesson message.
 
+## Label lessons and prompts
+
+- **Lesson title.** Open each lesson with one bold line in this shape, in the learner’s language: `Lesson 02 · Situation 19 · Studying Chinese (2 of 2)`. The lesson number counts the lessons this learner has taken, starting at 01 whatever situation they begin with. The situation number is the map’s. The last part says which lesson of the situation this is.
+- **Same words every time.** Use one word for “lesson” and one name for each situation through the whole course. Reuse the wording already in the `course.md` lesson log.
+- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate in a blockquote under it. Say “Translate into Mandarin” only before the first prompt of each part.
+
 ## Format each vocabulary table
 
-Use the selectable HTML table below whenever the chat can display it alongside the message. Replace the heading and sample row with the lesson title and vocabulary. Localize the meaning header and the font notice. Keep the markup, sizes, and font rules as written.
+Use the selectable HTML table below whenever the chat can display it alongside the message. Copy the whole block character for character, including the `<style>` with its `@font-face` rule and the `<script>`. Change only three things: the heading, the rows, and the localized header and notice text. Keep every Hanzi inside `<span lang="zh-Hans">`. If the tool that renders the table comes with its own design guidance, this template still wins: don’t restyle it, simplify it, or drop the font.
 
 The Hanzi use a handwriting-style Kaiti in mainland standard forms, so the first shape the learner sees is close to what they will write in a notebook. The table uses the font from the learner's computer when it is installed and otherwise loads it from the web. The notice appears only when neither works.
 

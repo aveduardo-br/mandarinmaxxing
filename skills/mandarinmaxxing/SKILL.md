@@ -65,7 +65,7 @@ After the setup, show a compact overview of the level before the first lesson:
 
 Write both as bulleted lists, one situation per line, in this shape: the map’s two-digit number in bold, the situation name, and the number of lessons at the learner’s pace counted from its `Split` line, for example `- **08** Phone calls (1 lesson)`. Use bullets, never a Markdown numbered list, which adds a second set of numbers. The map numbers let the learner answer with something like “13 before 9”.
 
-Ask whether they want to move any situation earlier or later. Only situations after the jump start can move. Start Lesson 01 once the learner agrees. Learners who have studied before can start at a later situation.
+Ask whether they want to move any situation earlier or later. Only situations after the jump start can move. Start Lesson 01 once the learner agrees. Learners who have studied before can start at a later situation. When they name a number, such as “start at 19”, it is a situation number: put that situation first on the route, and tell them in one line that their first lesson is Lesson 01, in situation 19.
 
 For a level without a map in this skill, build one from the syllabus file with the same rules: situations a learner can talk about, blocks of two to four words that produce sentences together, look-alike and same-category words in different blocks, and core function words early. Check that every official word appears exactly once before showing the overview, and save the map beside the course file as `map-hsk-N.md`. If the syllabus file for the level is missing, ask the learner for a word list or offer a clearly labeled sample lesson.
 
@@ -93,13 +93,13 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 - To reinforce: 没关系
 
 ## Lessons
-01 | Say hello and thank you | 你好 再见 谢谢 不客气 对不起 没关系
-02 | Say hello and thank you | 您 好 没事
+01 | 01 Cumprimentar e agradecer | 你好 再见 谢谢 不客气 对不起 没关系
+02 | 01 Cumprimentar e agradecer | 您 好 没事
 ```
 
 - **Route** lists the situation numbers in the order the learner agreed to.
 - **To reinforce** holds up to ten words or chunks the learner needed help with in the last lesson. Replace the line after each lesson.
-- **Lessons** gets one line per completed lesson: number, situation, and the new words taught. This log is how later lessons know what an earlier lesson covered.
+- **Lessons** gets one line per completed lesson: lesson number, the situation’s map number and its name in the learner’s language, and the new words taught. Lesson numbers count the lessons the learner has taken, so the first lesson is 01 even when the route starts at a later situation. This log is how later lessons know what an earlier lesson covered.
 
 Save quietly: write `course.md` to its place, avoid attaching or presenting the file in the conversation when the tools allow it, and mention saving only when it fails. If the learner asks for a copy in a folder on their computer, save one there as well.
 
