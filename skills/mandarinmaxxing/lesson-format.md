@@ -4,9 +4,18 @@ Formats for the parts of a lesson. Read this once per chat, before the first les
 
 ## Label lessons and prompts
 
-- **Lesson title.** Open each lesson with one bold line in this shape, in the learner’s language: `Lesson 02 · Situation 19 · Studying Chinese (2 of 2)`. The lesson number counts the lessons this learner has taken, starting at 01 whatever situation they begin with. The situation number is the map’s. The last part says which lesson of the situation this is.
-- **Same words every time.** Use one word for “lesson” and one name for each situation through the whole course. Reuse the wording already in the `course.md` lesson log.
-- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate in a blockquote under it. Say “Translate into Mandarin” only before the first prompt of each part.
+- **Title.** Open each part with one bold line in this shape, in the learner’s language: `Lesson 20 · At school · part 1 of 2`. The lesson number is the map’s and never changes. Leave out “part 1 of 1” when a lesson has a single part.
+- **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Reuse the wording already in `course.md`.
+- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate in a blockquote under it. Say “Translate into Mandarin” only before the first prompt of each part of the lesson.
+
+## Write Mandarin the same way everywhere
+
+Outside the vocabulary table, every piece of Mandarin follows one pattern: **Hanzi in bold**, *pinyin in italics*, meaning in plain text.
+
+- A chunk or a corrected sentence takes three lines: the Hanzi in bold, the pinyin in italics under it, and the meaning in the learner’s language under that.
+- A word inside a sentence is written inline: **超市** (*chāoshì*, supermarket).
+- Dialogue lines for reading or listening stay as plain Hanzi, with no pinyin.
+- Never italicize or strike through Hanzi.
 
 ## Format each vocabulary table
 
@@ -68,7 +77,7 @@ If the chat can’t embed HTML, use a selectable Markdown table in the message. 
 
 ## Respond to a written translation
 
-For a model or corrected sentence, use a native Markdown subheading for the Hanzi, with tone-marked pinyin directly below in normal text. Use plain Markdown for all feedback: quote the learner’s wrong word or chunk as plain text and bold the replacement. Never strike through Hanzi, since the line reads as an extra stroke. Whenever you gloss individual words or chunks, put the pinyin beside each Hanzi item before its meaning.
+Use plain Markdown for all feedback and the Mandarin pattern above. Quote the learner’s wrong word or chunk as plain text, so the bold replacement stands out.
 
 - **Correct and natural.** Confirm briefly and move to the next prompt. Accept any natural version that meets the request. If a valid alternative uses a different expression, acknowledge it and bring the intended chunk back in a later prompt.
 - **Correct meaning, noticeably unnatural phrasing.** Acknowledge that the meaning is right. Show a more natural version in Hanzi with pinyin directly below it and briefly explain the change.

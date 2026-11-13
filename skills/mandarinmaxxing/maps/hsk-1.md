@@ -1,6 +1,6 @@
 # HSK 1 map
 
-Source: HSK syllabus released 2025-11 (300 words). Lessons at paces 3 / 5 / 7: 97 / 58 / 42. Situations 01–07 are the jump start. Under each situation, the `Split` line gives the number of blocks in each lesson at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 本1.
+Source: HSK syllabus released 2025-11 (300 words). Each situation is one lesson, numbered as below: 22 lessons. Parts at paces 3 / 5 / 7: 97 / 58 / 42. Lessons 01–07 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 本1.
 
 ## 01 | jump-start | Say hello and thank you
 Split: 1-1-1 / 1-2 / 1-2
