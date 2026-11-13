@@ -59,10 +59,10 @@ Leave audio and fonts out of the setup. Use audio whenever an authorized provide
 After the setup, show a compact overview of the level before the first lesson:
 
 - The total number of lessons for the level at the learner’s pace, taken from the map header, and what that means in weeks at one lesson a day. Present it as an estimate.
-- The jump start, when the level has one, as a numbered list: the situations every later lesson depends on, taught first and in order. Present it as the words the learner needs for everything else.
-- The other situations as a second numbered list, in the map’s suggested order.
+- The jump start, when the level has one: the situations every later lesson depends on, taught first and in order. Present it as the words the learner needs for everything else.
+- The other situations, in the map’s suggested order.
 
-Use the map’s situation numbers in both lists, one situation per line, with the number of lessons each takes at the learner’s pace, counted from its `Split` line. The numbers let the learner answer with something like “13 before 9”.
+Write both as bulleted lists, one situation per line, in this shape: the map’s two-digit number in bold, the situation name, and the number of lessons at the learner’s pace counted from its `Split` line, for example `- **08** Phone calls (1 lesson)`. Use bullets, never a Markdown numbered list, which adds a second set of numbers. The map numbers let the learner answer with something like “13 before 9”.
 
 Ask whether they want to move any situation earlier or later. Only situations after the jump start can move. Start Lesson 01 once the learner agrees. Learners who have studied before can start at a later situation.
 
@@ -99,6 +99,8 @@ Keep one `course.md` at the top of the course folder. Use the same path in each 
 - **Route** lists the situation numbers in the order the learner agreed to.
 - **To reinforce** holds up to ten words or chunks the learner needed help with in the last lesson. Replace the line after each lesson.
 - **Lessons** gets one line per completed lesson: number, situation, and the new words taught. This log is how later lessons know what an earlier lesson covered.
+
+Write `course.md` straight into the course folder with file tools. Save quietly: never attach, present, or send the file in the conversation, and mention saving only when it fails.
 
 Keep provider credentials outside this file. If the learner asks to keep lesson notes, also save `lessons/lesson-NN.md` with that lesson’s vocabulary table, support words, and chunks, and keep doing so for later lessons.
 
