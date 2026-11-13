@@ -1,0 +1,49 @@
+name: Release
+
+# Publishes a GitHub release for the version in plugin.json, with the skill ZIP attached.
+# Runs on every push to main and does nothing when that version already has a release.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the version
+        id: v
+        run: echo "tag=v$(python3 -c "import json; print(json.load(open('plugin.json'))['version'])")" >> "$GITHUB_OUTPUT"
+
+      - name: Check for an existing release
+        id: exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${{ steps.v.outputs.tag }}" >/dev/null 2>&1; then
+            echo "found=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=no" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check the maps and build the ZIP
+        if: steps.exists.outputs.found == 'no'
+        run: |
+          for map in skills/mandarinmaxxing/maps/hsk-*.md; do python3 tools/check_map.py "$map"; done
+          sh tools/build.sh
+
+      - name: Publish the release
+        if: steps.exists.outputs.found == 'no'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.v.outputs.tag }}" download/mandarinmaxxing-claude.zip \
+            --target "$GITHUB_SHA" \
+            --title "${{ steps.v.outputs.tag }}" \
+            --notes-file release-notes.md
