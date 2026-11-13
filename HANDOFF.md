@@ -1,62 +1,94 @@
-# Handoff: nova versão da skill mandarinmaxxing
+# Handoff: skill mandarinmaxxing
 
-Ponto de partida para o chat que vai melhorar a skill. Leia este arquivo inteiro antes de começar.
+Estado da skill na versão 0.3.0 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
 
-- **Converse com o Eduardo em português.** O `SKILL.md` e o README são em inglês.
-- **Primeiro a skill, depois o site.** A copy do site vai descrever esta nova versão, então nada de prometer no site o que ainda não estiver aqui.
-
-## Leia antes
-
-- `skills/mandarinmaxxing/SKILL.md`: o comportamento atual.
-- No repositório do site (`aveduardo-br/mandarinmaxxing-site`):
-  - `docs/messaging.md`: objetivo, frase principal, pilares e o que não dizer.
-  - `docs/research.md`: números do HSK 3.0 e pesquisa sobre o método.
+- **Converse com o Eduardo em português.** O `SKILL.md`, o `lesson-format.md` e o README são em inglês.
+- **Mostre opções antes de mudanças grandes** e teste com aulas reais. O Eduardo valida vendo.
+- **Pesquise antes de afirmar.** Limites de ferramenta, de conector ou de plano só valem depois de testados.
 
 ## O norte
 
 > The same HSK words, reorganized around everyday conversations.
 
-- A skill segue o HSK (mesma lista oficial), mas organiza as aulas em torno de **situações** do dia a dia, com foco em conversa.
-- Quem termina um nível passou pelas mesmas palavras desse nível, em outra ordem.
-- Nenhum método está errado: é uma opção para quem prefere estudar assim.
+- Mesma lista oficial do HSK, em outra ordem: por situação do dia a dia.
+- Nenhum método está errado. É uma opção para quem prefere estudar assim.
+- Skill enxuta: instalar e usar tem que ser o mais simples possível. Nada de pasta no computador, script ou chave colada no chat.
+- Mensagem e tom: `docs/messaging.md` no repositório `aveduardo-br/mandarinmaxxing-site`.
 
-## O que a skill já faz
+## Como a skill funciona hoje
 
-- Setup com nível, ritmo (1–4 / 5–7 / 8–10), idioma, áudio e fonte.
-- Índice numerado por situação, cobrindo cada palavra oficial uma vez e conferido contra a fonte.
-- Aula em 4 etapas: revisão, vocabulário e chunks, tradução escrita, diálogo.
-- Revisão espaçada (cerca de 3, 7 e 14 aulas depois) e prática extra nas palavras com dificuldade.
-- Progresso salvo num único `mandarinmaxxing-course.md`, quando o chat tem pasta compartilhada.
+**Arquivos** (`skills/mandarinmaxxing/`)
 
-## O que o Eduardo quer que ela passe a fazer
+- `SKILL.md`: setup, mapa, partes, revisão, salvar e retomar.
+- `lesson-format.md`: formato de cada mensagem da aula (título, tabela, correção, leitura, áudio). A skill lê uma vez por chat.
+- `maps/hsk-N.md`: o mapa de um nível. Só o HSK 1 existe.
+- `syllabus/hsk-1..6.csv`: lista oficial de novembro de 2025.
+- `fonts/`: fonte Kaiti (LXGW WenKai GB Lite) recortada para os 1.940 hanzi do HSK 1 a 6.
 
-1. **Syllabus novo por padrão.** Usar o HSK 3.0 de novembro de 2025 (300 / 500 / 1.000 / 2.000 / 3.600 / 5.400 palavras acumuladas nos níveis 1–6), ou outra lista bem documentada.
-2. **Índice aprovado antes de começar.** Montar o índice do nível inteiro, mostrar ao aluno e só começar depois da aprovação.
-3. **Uma situação ao longo de várias aulas.** Ex.: "arrumar a casa" em 3–4 aulas, cada dia uma parte com o vocabulário de apoio. A pesquisa apoia distribuir palavras parecidas (ex.: nomes de cômodos) por aulas diferentes.
-4. **Completar a situação agora.** Trazer na hora as palavras que completam a situação, em vez de esperar o livro apresentá-las. Palavras de outros níveis entram por importância, quando a situação pede.
-5. **Extras em segundo plano.** Não marcar na aula de que nível cada palavra vem. Explicar só se o aluno perguntar. (O Eduardo quer testar isso antes de fechar.)
-6. **Um arquivo por aula.** Salvar `aula-01.md`, `aula-02.md`… com o vocabulário e os chunks de cada aula, para sempre poder voltar a uma aula. Pensar também num modelo de estudo de chunks e em como retomar.
-7. **Setup mais personalizado.** Mais perguntas no início: palavras por dia, quantidade de revisão, quantidade de chunks. O Eduardo ainda não definiu quais perguntas são essas; desenhe com ele.
-8. **Install e setup mais simples.** O Eduardo quer melhorar o caminho de instalação também.
-9. **Palavra extra opcional.** O ritmo (1–4 / 5–7 / 8–10) continua como referência, mas não precisa ser rígido. Se uma palavra a mais completar um chunk da aula, a skill a apresenta junto com o vocabulário, diz que é uma palavra a mais e pergunta se o aluno quer estudá-la. O aluno decide. Isso também pode substituir as faixas fixas por um número-alvo ("umas 5 palavras por aula").
-10. **Revisão espaçada que se adapta.** Não existe intervalo perfeito; a pesquisa (ver `docs/research.md` do site) indica que o melhor espaçamento depende de por quanto tempo se quer lembrar. Proposta, para validar com o Eduardo:
-    - **Por desempenho, sem o aluno configurar intervalos.** Errou ou precisou de ajuda: a palavra volta cedo, na próxima aula. Acertou sem ajuda: o intervalo cresce (por exemplo 1 → 3 → 7 → 14 aulas). Acertou várias vezes seguidas: sai da fila.
-    - **No setup, só uma pergunta simples de intensidade** ("pouca, média ou muita revisão"), que muda quantos itens antigos entram por aula, não a matemática.
-11. **Um arquivo de revisão com os erros.** Em vez de um arquivo de erros separado, um `revisao.md` com uma linha por palavra ou chunk: aula em que foi aprendido, próxima revisão, quantas vezes errou e o tipo de erro (ex.: classificador, ordem da frase, palavra trocada). É a "memória" da revisão espaçada: a skill lê esse arquivo para montar a revisão e pode criar exercícios para os erros que se repetem.
+**Aula e parte**
 
-Estrutura de arquivos sugerida: `curso.md` (configurações, índice e progresso), `aulas/aula-NN.md` (vocabulário e chunks de cada aula) e `revisao.md` (fila de revisão e erros). Desenhar e testar antes de fechar.
+- Cada situação do mapa é uma **aula**, com número fixo. A aula 20 é sempre "Na escola", em qualquer ordem de estudo.
+- A aula é dada em **partes**. O ritmo (3, 5, 7 ou outro número) conta palavras novas por parte.
+- O mapa agrupa as palavras em blocos de 2 a 4. A linha `Split` de cada aula diz quantos blocos entram em cada parte nos ritmos 3 / 5 / 7.
+- HSK 1: 300 palavras, 22 aulas, 98 blocos. Partes nos ritmos 3 / 5 / 7: 97 / 58 / 42. As aulas 01 a 07 são o jump start.
+
+**Uma parte tem quatro etapas**
+
+1. Revisão: frases para traduzir, cobrindo a parte anterior e as palavras a reforçar.
+2. Vocabulário: tabela com hanzi, pinyin e significado.
+3. Tradução escrita: uma frase por vez, do idioma do aluno para o mandarim.
+4. Texto final: leitura com tarefa de reescrita ou, com áudio, um clipe para ouvir e perguntas.
+
+**Revisão**
+
+- Sem fila nem pontuação. A parte anterior volta na revisão, e palavras de 3, 7 e 14 linhas atrás no registro `Done` voltam dentro dos exercícios.
+- `To reinforce` guarda até dez palavras em que o aluno precisou de ajuda na última parte.
+
+**Onde o curso fica salvo**
+
+- Um único `course.md` nos documentos do projeto do Claude (a ferramenta do projeto costuma gravar em `claude/course.md`). Acompanha o aluno em qualquer aparelho.
+- Uma pasta do computador ligada ao projeto serve só de leitura, não de gravação. Não depender dela.
+- Fora de um projeto, a skill mostra os três passos para criar um e oferece uma aula de teste sem salvar.
+
+**Áudio**
+
+- Opcional. Um clipe por parte, uma voz, uma geração, uma tomada.
+- Padrão: ElevenLabs pelo conector do Claude, voz Sarah (`EXAVITQu4vr4xnSDxMaL`), idioma marcado como chinês.
+- A skill nunca gera áudio com ferramenta que o aluno não escolheu e nunca repete uma geração por conta própria.
+
+## Decisões e por quê
+
+- **Diálogo com duas vozes foi descartado.** Os conectores do ElevenLabs não têm a ferramenta de diálogo da API (`/v1/text-to-dialogue`). Dá para juntar falas com o nó de composição do conector completo, mas é uma geração por fala e as falas ficam empilhadas se a ordem não for escrita à mão. Uma voz só funciona em qualquer conector.
+- **Script local com chave de API foi descartado.** O terminal do app do Claude é isolado e só acessa a internet se a conta liberar. Exigiria pasta, chave e configuração de rede de cada aluno.
+- **O botão "ler em voz alta" do Claude não serve** para mandarim: lê hanzi com os sons errados.
+- **Correção em texto simples.** Cartões e cores ficaram pesados. Hanzi em negrito, pinyin em itálico, significado normal. Nunca riscar nem italicizar hanzi. A resposta do aluno aparece em citação só na correção.
+- **A lista do setup é a fonte da verdade.** Os números das aulas nunca mudam, e a skill não comenta como a aula foi dividida.
+- **Sem caderno de aulas por padrão.** A skill só salva `lessons/lesson-NN-P.md` se o aluno pedir.
+
+## Como testar
+
+1. `python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-1.md` confere o mapa contra a lista oficial.
+2. `sh tools/build.sh` gera `dist/mandarinmaxxing-claude.zip`.
+3. No Claude: **Customize → Skills → + → Create skill → Upload a skill**. Criar um projeto vazio com a linha de instruções do README e escrever "start mandarinmaxxing".
+4. Fazer uma parte inteira, abrir um segundo chat no mesmo projeto e pedir a próxima.
+
+Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivinhar por capturas de tela.
+
+## Ao publicar
+
+- Atualizar a versão em `plugin.json`, criar a tag e uma release com o `mandarinmaxxing-claude.zip`. O README aponta para `releases/latest`.
+- A tabela de vocabulário carrega a fonte pelo jsDelivr, de um commit fixo deste repositório. Se o arquivo da fonte mudar, atualize o endereço em `lesson-format.md`.
+- Avisar o que mudou, para a copy do site ser reescrita.
+
+## O que falta
+
+1. **Mapa do HSK 2**, depois o 3. Os níveis 4 a 6 ficam para mais tarde. Sem mapa, a skill monta um na hora a partir da lista oficial, sem revisão humana.
+2. **Site.** Reescrever a copy para esta versão e fazer a página de instalação: os quatro passos e uma seção "Áudio (opcional)", com os nomes reais dos botões.
+3. **Confirmar com uma conta gratuita do ElevenLabs** que o conector funciona. Os testes foram feitos numa conta Creator.
+4. **Formulação sobre a prova**, ainda em aberto no `messaging.md`.
 
 ## Regras
 
 - Não inventar palavras nem números do HSK. Conferir contra o syllabus.
 - Não prometer fluência, aprovação nem avaliação de pronúncia.
-- Testar com aulas reais antes de dar por pronto. O Eduardo valida vendo.
-- Ao terminar: atualizar README, gerar a release e avisar o que mudou, para a copy do site ser reescrita.
-
-## Sugestão de modelo
-
-Usar o Claude Fable para desenhar e escrever o novo `SKILL.md`, que é o trabalho de raciocínio mais pesado. Para rodadas de teste e ajustes pequenos, o Opus basta.
-
-## Mensagem para abrir o novo chat
-
-> Quero fazer a nova versão da skill mandarinmaxxing. O repositório é `aveduardo-br/mandarinmaxxing`. Leia o `HANDOFF.md` de lá e os arquivos `docs/messaging.md` e `docs/research.md` do repositório `aveduardo-br/mandarinmaxxing-site`. Vamos começar desenhando juntos o novo setup e a organização das aulas antes de editar o SKILL.md. Converse comigo em português.
+- Não prometer no site o que a skill ainda não faz.

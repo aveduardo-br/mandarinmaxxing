@@ -5,7 +5,7 @@ description: Teach HSK 3.0 Mandarin vocabulary reorganized around everyday situa
 
 # mandarinmaxxing
 
-Teach the official HSK vocabulary in an order built for conversation. Each level's words are grouped into everyday situations, and each situation runs across a few lessons. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use simplified Chinese and keep tone-marked pinyin as a written reference. Focus corrections on the written answer or comprehension. Leave pronunciation and tone practice to the learner.
+Teach the official HSK vocabulary in an order built for conversation. Each level's words are grouped into everyday situations, and each situation is one lesson, taught in short parts. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use simplified Chinese and keep tone-marked pinyin as a written reference. Focus corrections on the written answer or comprehension. Leave pronunciation and tone practice to the learner.
 
 The skill guides the lessons. Long-term memorization stays with the learner's own tools, such as flashcards or notes. Say so plainly if the learner asks what the skill does for memorization.
 
@@ -63,11 +63,11 @@ Start a new course with one short setup message in the learner’s language. Use
 
 Keep this structure, order, and length when you localize it: the two opening paragraphs, three numbered headings each on its own line with its text below, and the keyboard note. Name the learner’s own language where the example says “your language”. Write the pace as one sentence, not a table.
 
-Leave audio and fonts out of the setup. The vocabulary table loads its own Hanzi font, so the learner has nothing to install.
+Leave fonts out of the setup. The vocabulary table loads its own Hanzi font, so the learner has nothing to install.
 
 **Audio or reading.** Save the learner’s choice in `course.md` and use only that.
 
-- **Voice provider.** The learner connects a text-to-speech provider of their choice, usually with an API key from their own account. The last exercise is one short clip, a single speaker in a single voice, that they hear without seeing the text, followed by comprehension questions. Each clip is one generation with one take, so it works with any provider that turns text into speech and needs no folder, script, or key in the chat. If the provider isn’t connected yet, tell them how to connect it, use reading meanwhile, and switch once it appears. If the provider fails or runs out of credits, say so once and use reading for the rest of the part.
+- **Voice provider.** The learner connects a text-to-speech provider of their choice to the chat, usually ElevenLabs through its connector. The last exercise is one short clip, a single speaker in a single voice, that they hear without seeing the text, followed by comprehension questions. Each clip is one generation with one take, so it works with any provider that turns text into speech and needs no folder, script, or key in the chat. If the provider isn’t connected yet, tell them how to connect it, use reading meanwhile, and switch once it appears. If the provider fails or runs out of credits, say so once and use reading for the rest of the part.
 - **Reading.** The default. The last exercise is a short text to read, followed by a task. The format is in `lesson-format.md`.
 
 Never generate audio with a tool the learner didn’t choose, and never with a general media tool that spends their credits. Don’t suggest the chat app’s read aloud button for Mandarin: its voice reads Hanzi with the wrong sounds. If the learner asks about it, say so plainly.
@@ -80,7 +80,7 @@ Each situation in the map is one **lesson**, and its map number is the lesson nu
 
 After the setup, show a compact overview of the level before the first part:
 
-- The number of lessons and the total number of parts at the learner’s pace, taken from the map header, and what that means in weeks at one part a day. Present it as an estimate.
+- The number of lessons and the total number of parts at the learner’s pace, taken from the map header, and what that means in weeks at one part a day. Present it as an estimate. Say once, in one sentence, that the pace counts new words per part: each lesson is one situation, studied a part at a time.
 - The jump start, when the level has one: the lessons every later lesson depends on, taught first and in order. Present it as the words the learner needs for everything else.
 - The other lessons, in the map’s suggested order.
 
@@ -130,7 +130,7 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 ```
 
 - **Labels** fixes the learner-language words for lesson, part, review, and exercise. Use exactly these in every chat.
-- **Audio** is `none`, or the provider the learner chose, with the one voice picked for the course so every clip sounds the same.
+- **Audio** is `none`, or the provider the learner chose, with the one voice picked for the course so every clip sounds the same, for example `ElevenLabs, voice Sarah`.
 - **Route** lists the lesson numbers in the order the learner agreed to.
 - **Next** names the lesson and part to teach next.
 - **To reinforce** holds up to ten words or chunks the learner needed help with in the last part. Replace the line after each part. It can be empty.
