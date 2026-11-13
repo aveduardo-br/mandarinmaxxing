@@ -145,7 +145,7 @@ The Hanzi use a handwriting-style Kaiti in mainland standard forms, so the first
   @font-face {
     font-family: "Mandarinmaxxing Kaiti";
     src: local("LXGW WenKai GB"), local("LXGW WenKai GB Lite"),
-      url("https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@v2-draft/skills/mandarinmaxxing/fonts/kaiti-hsk-1-6.woff") format("woff");
+      url("https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@338b81599301cc40b92b882af7d7e301efa15c7b/skills/mandarinmaxxing/fonts/kaiti-hsk-1-6.woff") format("woff");
     font-style: normal;
     font-weight: 400;
     font-display: swap;
