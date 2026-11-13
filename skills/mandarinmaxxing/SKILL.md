@@ -150,13 +150,14 @@ The Hanzi use a handwriting-style Kaiti in mainland standard forms, so the first
     font-weight: 400;
     font-display: swap;
   }
-  #mandarinmaxxing-vocab { --mmx-soft: var(--text-secondary, color-mix(in srgb, currentColor 65%, transparent)); --mmx-line: var(--border, color-mix(in srgb, currentColor 15%, transparent)); }
+  #mandarinmaxxing-vocab { --mmx-soft: var(--text-secondary, color-mix(in srgb, currentColor 65%, transparent)); --mmx-line: var(--border, color-mix(in srgb, currentColor 15%, transparent)); padding: 4px 0 24px; }
   #mandarinmaxxing-vocab h2 { font-size: 16px; font-weight: 500; margin: 0 0 8px; }
   #mandarinmaxxing-vocab table { width: 100%; border-collapse: collapse; }
-  #mandarinmaxxing-vocab th { text-align: left; font-size: 13px; font-weight: 500; color: var(--mmx-soft); padding: 8px 16px 8px 0; border-bottom: 1px solid var(--mmx-line); }
-  #mandarinmaxxing-vocab td { font-weight: 400; padding: 10px 16px 10px 0; border-bottom: 1px solid var(--mmx-line); vertical-align: middle; user-select: text; }
+  #mandarinmaxxing-vocab th, #mandarinmaxxing-vocab td { text-align: left; padding: 10px 32px 10px 0; border-bottom: 1px solid var(--mmx-line); vertical-align: middle; }
+  #mandarinmaxxing-vocab th { font-size: 13px; font-weight: 500; color: var(--mmx-soft); }
+  #mandarinmaxxing-vocab td { font-weight: 400; user-select: text; }
+  #mandarinmaxxing-vocab th:nth-child(-n+2), #mandarinmaxxing-vocab td:nth-child(-n+2) { width: 1%; white-space: nowrap; }
   #mandarinmaxxing-vocab td:nth-child(2) { color: var(--mmx-soft); }
-  #mandarinmaxxing-vocab td:first-child, #mandarinmaxxing-vocab th:first-child { padding-right: 28px; width: 1%; }
   #mandarinmaxxing-vocab td span[lang="zh-Hans"] {
     font-family: "Mandarinmaxxing Kaiti", "Kaiti SC", "STKaiti", "KaiTi", serif;
     font-size: 32px;
@@ -165,7 +166,7 @@ The Hanzi use a handwriting-style Kaiti in mainland standard forms, so the first
     font-synthesis: none;
     white-space: nowrap;
   }
-  #mandarinmaxxing-font-notice { font-size: 13px; color: var(--mmx-soft); margin: 8px 0 0; }
+  #mandarinmaxxing-font-notice { font-size: 13px; color: var(--mmx-soft); margin: 12px 0 0; }
 </style>
 <script>
   (() => {
