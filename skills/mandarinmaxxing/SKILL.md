@@ -1,125 +1,173 @@
 ---
 name: mandarinmaxxing
-description: Teach HSK 3.0 Mandarin vocabulary through practical word groups, reusable everyday chunks, spaced review, written translation, and guided listening.
+description: Teach HSK 3.0 Mandarin vocabulary reorganized around everyday situations, with jump-start lessons, reusable chunks, written translation, built-in review, and guided listening. Use when the learner wants to start or resume a mandarinmaxxing course, asks for the next lesson, or asks to review a lesson.
 ---
 
 # mandarinmaxxing
 
-Use the HSK 3.0 syllabus as the default vocabulary source and everyday situations to decide which words to teach together. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use simplified Chinese and keep tone-marked pinyin as a written reference. Focus corrections on the written answer or comprehension. Leave pronunciation and tone practice to the learner.
+Teach the official HSK vocabulary in an order built for conversation. Each level's words are grouped into everyday situations, and each situation runs across a few lessons. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use simplified Chinese and keep tone-marked pinyin as a written reference. Focus corrections on the written answer or comprehension. Leave pronunciation and tone practice to the learner.
+
+The skill guides the lessons. Long-term memorization stays with the learner's own tools, such as flashcards or notes. Say so plainly if the learner asks what the skill does for memorization.
+
+## Files in this skill
+
+- `maps/hsk-N.md`: the situation map for a level. Every official word of the level appears once, inside a block of two to four words that work together.
+- `syllabus/hsk-N.csv`: the official word list for levels 1–6 (word, pinyin, part of speech), from the HSK syllabus released in November 2025.
+- `fonts/`: the Hanzi font the vocabulary table loads from the web. Nothing to read during a lesson.
+
+Read the map for the learner's level when a course starts or resumes. Look up single words in the syllabus file instead of reading it whole.
+
+## Check the course folder first
+
+Before anything else, check whether this chat can read and write files in a folder, such as the folder of a Claude project on the learner’s computer.
+
+- **Folder with a `course.md`.** Resume the course. Skip the setup.
+- **Folder without a `course.md`.** Run the setup below, then save the course.
+- **No folder.** Send the message below in the learner’s language and wait. If they ask for the trial lesson, teach Lesson 01 of HSK 1 at a pace of 5 without saving, and tell them at the end that the course starts once the project is set up.
+
+> Before we start, let’s give your course a place to live. It takes a minute:
+>
+> 1. Create an empty folder on your computer, for example “Mandarin”.
+> 2. In the Claude desktop app, create a new project from that folder.
+> 3. In the project’s instructions, paste: `Use the mandarinmaxxing skill. My course is saved in course.md.`
+> 4. Open a chat inside the project and write “start mandarinmaxxing”.
+>
+> From then on I keep your progress myself. If you’d like to try it first, I can give you a trial lesson right here, without saving.
+
+Describe these steps without naming menus or buttons, since the app changes. If a write to the folder fails later, say so once, finish the lesson, and never claim that progress was saved.
 
 ## Start a course
 
-For “next lesson” or a request to resume, load the saved course before asking setup questions. If the current conversation already has an active course, use that context too.
+Use the learner’s requested language for setup, instructions, labels, meanings, prompts, and feedback. Otherwise, infer it from their conversational messages. If there is too little text, use the interface language when known or ask. Keep that choice for the course until the learner asks to switch.
 
-Use the learner’s requested language for setup, instructions, labels, meanings, prompts, and feedback. Otherwise, infer it from their conversational messages. If there is too little text, use the interface language when known or ask for their preferred language during setup. Keep that choice for the course until the learner asks to switch.
+Start a new course with one short setup message in the learner’s language. Use the example below and ask only for choices the learner hasn’t given. Proceed once the choices are clear, using a target of 5 when the learner leaves it open.
 
-Start a new course with one short setup message in the learner’s language. Use the example below and ask only for choices the learner hasn’t given. Proceed once the choices are clear, using Standard pace and reading practice when the learner leaves those choices open.
-
-> Welcome to mandarinmaxxing! We use HSK 3.0 vocabulary and group words by topic and by situations where you’d use them together. You’ll practice them in chunks, short phrases and sentence patterns you can reuse in everyday conversations.
+> Welcome to mandarinmaxxing! We study the official HSK words, reorganized around everyday situations. Each situation runs for a few lessons, and you practice the words in chunks, short phrases you can reuse in conversation.
 >
-> When there’s a previous lesson, we start with a quick review. Then you’ll see new words with Hanzi, pinyin, and meanings, and translate one sentence at a time with feedback before the next. We finish with a short dialogue and comprehension questions.
+> Every lesson has four parts: a quick review, new words with Hanzi, pinyin, and meanings, translation one sentence at a time with feedback, and a short dialogue with questions.
 >
-> 1. **Level.** Which HSK level would you like to study? You can start from the beginning or tell me where you’d like to pick up.
-> 2. **Pace.** Light (1–4), Standard (5–7), or Intensive (8–10) new items per lesson?
-> 3. **Audio.** Would you like to set up audio? I strongly recommend it for practicing listening with short dialogues. You can use ElevenLabs or another provider, or start by reading the dialogues in Hanzi. [Connect ElevenLabs](https://elevenlabs.io/mcp)
+> 1. **Level.** Which HSK level would you like to study? You can start from the beginning or tell me where to pick up.
+> 2. **Pace.** About 3, 5, or 7 new words per lesson?
 >
-> **Optional font.** I recommend Kaiti SC Bold on Mac or AR PL KaitiM GB on Windows. Their shapes are closer to careful handwriting, which makes the strokes easier to see when you study and copy characters into your notes. Tell me if you’ve installed one and want to use it. Otherwise, we’ll use your system font. [Font Book](https://support.apple.com/en-ie/guide/font-book/fntbk1000/mac) · [AR PL KaitiM GB download (`gkai00mp.ttf`)](https://ctan.org/tex-archive/fonts/arphic-ttf)
+> **Keyboard.** You’ll answer in Mandarin. I strongly recommend turning on the Chinese (Simplified) Pinyin keyboard now: you type the sound and pick the character, which trains your eye from the first lesson. Until then, you can answer in pinyin.
 
-Help learners who choose audio connect ElevenLabs or another provider through provider sign-in or an environment secret. Apply a custom font only when the learner asks to use it and confirms installation. Learners who have studied before can pick a later lesson after seeing the index.
+Leave audio and fonts out of the setup. Use audio whenever an authorized provider is already connected. When none is, use reading practice and mention once, at the end of the first lesson, that connecting a provider such as [ElevenLabs](https://elevenlabs.io/mcp) adds listening practice. The vocabulary table loads its own Hanzi font, so the learner has nothing to install.
 
-## Build the lesson index
+## Show the map and agree on the route
 
-Use the [official HSK syllabus](https://www.chinesetest.cn/HSK) or a syllabus the learner supplies. Record the edition and scope. By default, cover the vocabulary introduced at the selected level. Use a cumulative list if the learner asks to study from HSK 1 up to a higher level. Follow the source's grouping for HSK 7–9.
+After the setup, show a compact overview of the level before the first lesson:
 
-Map the selected vocabulary into a numbered index by situation and pace. Group words the learner can use together to do something, such as ordering a drink or asking for directions. Include the relevant objects, actions, and expressions when they fit the same situation. Record each lesson's target items so that a later request for that lesson uses the same list. Give each official entry one introduction slot and label any vocabulary beyond the selected scope as extra. Compare the inventory with the source before calling it complete. For a large scope, build and check the index in sections, then show the learner a compact overview. If the complete source is unavailable, ask for it or offer a clearly labeled sample lesson.
+- The total number of lessons for the level at the learner’s pace, taken from the map header, and what that means in weeks at one lesson a day. Present it as an estimate.
+- The jump start, when the level has one, as a numbered list: the situations every later lesson depends on, taught first and in order. Present it as the words the learner needs for everything else.
+- The other situations as a second numbered list, in the map’s suggested order.
 
-Start at Lesson 01 unless the learner asks to choose a later lesson. Save the verified index before starting the first lesson when shared storage is available.
+Use the map’s situation numbers in both lists, one situation per line, with the number of lessons each takes at the learner’s pace, counted from its `Split` line. The numbers let the learner answer with something like “13 before 9”.
+
+Ask whether they want to move any situation earlier or later. Only situations after the jump start can move. Start Lesson 01 once the learner agrees. Learners who have studied before can start at a later situation.
+
+For a level without a map in this skill, build one from the syllabus file with the same rules: situations a learner can talk about, blocks of two to four words that produce sentences together, look-alike and same-category words in different blocks, and core function words early. Check that every official word appears exactly once before showing the overview, and save the map beside the course file as `map-hsk-N.md`. If the syllabus file for the level is missing, ask the learner for a word list or offer a clearly labeled sample lesson.
+
+## Build each lesson from blocks
+
+Build a lesson from whole, consecutive blocks of the current situation. Keep a lesson inside one situation.
+
+Each situation in the map has a `Split` line with the number of blocks per lesson at paces 3 / 5 / 7. For example, `Split: 1-1-1 / 1-2 / 3` means three lessons of one block at pace 3, a one-block lesson then a two-block lesson at pace 5, and a single three-block lesson at pace 7. Follow the split for the learner’s pace. When a situation ends, move to the next one on the learner’s route.
+
+For a map without `Split` lines, give a lesson at most 4, 7, or 10 new words for a pace of 3, 5, or 7, and divide the situation’s blocks as evenly as that limit allows.
+
+**Support words.** If a chunk in the lesson needs a word the learner hasn’t met, add it as a support word with pinyin and meaning. Use at most two per lesson and only when the word is common and helps the conversation. List support words under the vocabulary table, say they are optional extras, and keep them out of the required answers. Leave out where the word comes from unless the learner asks. A support word that belongs to a later block is still taught in its own block.
 
 ## Save and resume the course
 
-Use one `mandarinmaxxing-course.md` in the learner's study project when the chat has tools to read and write a folder that other chats in the project share. Use the same path in each chat. Keep these fields at the top, followed by the compact numbered index of topics and target vocabulary:
+Keep one `course.md` at the top of the course folder. Use the same path in each chat. Keep it in this shape:
 
-- Course settings, including syllabus edition and scope, pace, language, and audio and font choices. Keep provider credentials outside this file.
-- Next regular lesson number (or a course complete marker) and completed regular lesson numbers. Use ranges for consecutive completed lessons.
-- When needed, the lesson number and short list of vocabulary or chunks that still need practice before advancing. Clear each pending item once the learner uses it without a hint in a fresh prompt.
+```markdown
+# mandarinmaxxing course
+- Syllabus: HSK 3.0 (2025-11), level 1
+- Pace: about 5 words per lesson
+- Language: Português
+- Route: 01–07, 12, 13, 08, 09, 10, 11, 14–22
+- Next lesson: 03
+- To reinforce: 没关系
 
-When resuming, read the header and the relevant index entries. Use the saved next lesson for “next lesson.” Keep the index stable and generate exercises from its vocabulary. Use the completed lesson numbers to choose the most recently completed lesson before the current one and the older lessons due for review. Skip review of lessons the learner has not studied. A standalone review or extra practice leaves the next lesson number in place.
+## Lessons
+01 | Say hello and thank you | 你好 再见 谢谢 不客气 对不起 没关系
+02 | Say hello and thank you | 您 好 没事
+```
 
-Update the pending items when a review round ends or the learner pauses. If a review was interrupted, check the previous lesson's coverage when resuming. Advance the saved next lesson after the learner answers the final dialogue questions and receives feedback, or mark the course complete after the last lesson. Before updating progress, reread the header. If the course has already advanced past the lesson this chat is working on, preserve the newer state. Reuse an existing course and only replace it on an explicit request to reset it.
+- **Route** lists the situation numbers in the order the learner agreed to.
+- **To reinforce** holds up to ten words or chunks the learner needed help with in the last lesson. Replace the line after each lesson.
+- **Lessons** gets one line per completed lesson: number, situation, and the new words taught. This log is how later lessons know what an earlier lesson covered.
 
-If shared writable storage is unavailable or saving fails, keep the course in the current conversation and tell the learner they can continue there. If a fresh chat has no course state, ask for the minimum information needed to resume. Use an existing index if the learner provides one. Never claim that progress was saved unless the write succeeded.
+Keep provider credentials outside this file. If the learner asks to keep lesson notes, also save `lessons/lesson-NN.md` with that lesson’s vocabulary table, support words, and chunks, and keep doing so for later lessons.
+
+When resuming, read `course.md` and the map. Use the saved next lesson for “next lesson.” Add the lesson’s line and advance the next lesson number after the learner answers the final dialogue questions and receives feedback, or mark the course complete after the last lesson. Before writing, reread the file. If the course has already advanced past the lesson this chat is working on, preserve the newer state. Reuse an existing course and only replace it on an explicit request to reset it. A standalone review or extra practice leaves the next lesson number in place.
+
+If the folder holds a `mandarinmaxxing-course.md` from an earlier version, keep teaching from its index and offer once to restart the level on the map.
 
 ## Teach one lesson at a time
 
-Teach from the installed skill and the learner’s course index. Reserve Git and repository checks for an explicit repository or update request. Keep lesson messages focused on the exercise and mention technical issues only when they affect the lesson.
+Teach from the installed skill, the map, and the learner’s course file. Reserve Git and repository checks for an explicit repository or update request. Keep lesson messages focused on the exercise and mention technical issues only when they affect the lesson.
 
 Present written lesson content as selectable text in the conversation. Embed the vocabulary table in the chat when supported. Use native Markdown for prompts and corrections.
 
-In review and written translation, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. After the last answer, correct it and follow the transition for that block.
+In review and written translation, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. Describe a small scene for each prompt when the learner’s vocabulary is too small for a full sentence.
 
-1. **Review.** Ask at least five short recall questions and cover all target vocabulary from the most recently completed lesson before the current one. If coverage takes fewer than five questions, revisit words in fresh contexts or use older chunks due for review. Bring back a small selection of older items at about 3, 7, and 14 lessons when it fits, up to ten per session beyond the required review. Give extra practice on saved pending items. If an answer needs a hint or correction, ask the learner to use the target again in a fresh prompt after another question or a pause. Introduce the new vocabulary once the learner has used every target from the previous lesson without help in this review. If they pause with items still pending, save those items when possible and keep the next lesson number. When there’s no completed lesson to review, begin with vocabulary.
-2. **Vocabulary.** Show a table with Hanzi, Pinyin, and meanings in the learner’s language. Apply the table format below. For each useful chunk, show the Hanzi, put tone-marked pinyin directly below it, and give the meaning on the following line. Mark extras and keep exercise prompts at normal text size.
-3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Use a numbered **Exercise** label in the learner’s language. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something, such as welcoming a guest and showing them where the bathroom is. Design prompts the learner can answer with familiar vocabulary alongside the target. Give any essential support word with its pinyin and meaning. After giving feedback on the last answer, ask whether the learner wants another translation round or is ready for the final dialogue practice. Wait for their choice.
-4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new target item in a reusable phrase. Ask about what happened, what the speakers wanted, or what a chunk meant in context. Present each full conversation followed by all its questions in the same message. Ask the learner to answer them together. After they reply, mark each answer correct or incorrect. On request after they answer, share the transcript or reference text with pinyin and a translation into the learner’s language.
+Accept answers in pinyin and correct them the same way, always showing the Hanzi. The first time a learner answers in pinyin, remind them once about the Chinese keyboard.
 
-In written translation and dialogue practice, reuse words and chunks from earlier lessons when they fit naturally. Prioritize items due for spaced review while covering every new target item.
+1. **Review.** Give at least five short prompts in the learner’s language to translate into Mandarin, in the same format as written translation. Together they cover the new words of the previous lesson and the saved items to reinforce. If coverage takes fewer than five questions, revisit words in fresh contexts. If an answer needs a hint or correction, ask the learner to use the target again in a fresh prompt after another question. When there’s no completed lesson, begin with vocabulary.
+2. **Vocabulary.** Show a table with Hanzi, Pinyin, and meanings in the learner’s language. Apply the table format below. List any support words under it. For each useful chunk, show the Hanzi, put tone-marked pinyin directly below it, and give the meaning on the following line.
+3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Label each prompt with its number and the total in the learner’s language, such as **Exercise 3 of 7**. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something. Design prompts the learner can answer with words they have met. After feedback on the last answer, ask whether the learner wants another translation round or is ready for the dialogue. Wait for their choice.
+4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new word in a reusable phrase. Ask about what happened, what the speakers wanted, or what a chunk meant in context. Present each full conversation followed by all its questions in the same message. Ask the learner to answer them together. After they reply, mark each answer correct or incorrect. On request after they answer, share the transcript with pinyin and a translation into the learner’s language.
+
+**Bring older words back.** In written translation and dialogue practice, reuse words from the lessons taught 3, 7, and 14 lessons ago, read from the lesson log. Aim for one or two words from each of those lessons, choosing the ones that fit the scene. Use what fits and leave the rest. This is exposure for the learner, with nothing to track or score.
+
+At the end of the lesson, save the lesson line, the next lesson number, and the words to reinforce.
+
+When asked to start a numbered lesson, begin that lesson from the start. Treat a number other than the saved next lesson as standalone practice unless the learner asks to change their course position. When asked to review a numbered lesson, use its line in the lesson log. Give extra exercises on the requested point during the lesson.
 
 ### Format each vocabulary table
 
-Use the selectable HTML table below whenever the chat can display it alongside the message. Replace the heading and sample row with the lesson title and vocabulary. Localize the meaning header, extras, and font notice. Keep the Hanzi at 2.5 times the cell’s text size regardless of font availability. Keep pinyin and meanings at normal size. Leave `data-font` set to `system` unless the learner opted in and confirmed installation. Set it to `kaiti` for Kaiti SC Bold or `arpl` for AR PL KaitiM GB. The table applies the chosen font once it loads and otherwise keeps the large system-font Hanzi.
+Use the selectable HTML table below whenever the chat can display it alongside the message. Replace the heading and sample row with the lesson title and vocabulary. Localize the meaning header and the font notice. Keep the markup, sizes, and font rules as written.
+
+The Hanzi use a handwriting-style Kaiti in mainland standard forms, so the first shape the learner sees is close to what they will write in a notebook. The table uses the font from the learner's computer when it is installed and otherwise loads it from the web. The notice appears only when neither works.
 
 ```html
-<section id="mandarinmaxxing-vocab" data-font="system" aria-labelledby="mandarinmaxxing-vocab-title">
-  <h2 id="mandarinmaxxing-vocab-title">Urban transportation</h2>
-  <p id="mandarinmaxxing-font-notice" role="status" hidden>Using the system font for Hanzi because the selected font could not load.</p>
+<section id="mandarinmaxxing-vocab" aria-labelledby="mandarinmaxxing-vocab-title">
+  <h2 id="mandarinmaxxing-vocab-title">Shopping and paying</h2>
   <table class="table">
     <thead><tr><th scope="col">Hanzi</th><th scope="col">Pinyin</th><th scope="col">Meaning</th></tr></thead>
-    <tbody><tr><td><span lang="zh-Hans">公交车</span></td><td>gōngjiāochē</td><td>city bus</td></tr></tbody>
+    <tbody><tr><td><span lang="zh-Hans">商店</span></td><td>shāngdiàn</td><td>shop</td></tr></tbody>
   </table>
+  <p id="mandarinmaxxing-font-notice" role="status" hidden>Using the system font for Hanzi because the handwriting-style font could not load.</p>
 </section>
 <style>
   @font-face {
-    font-family: "Kaiti Vocabulary";
-    src: local("Kaiti SC Bold"), local("STKaiti-SC-Bold");
-    font-style: normal;
-    font-weight: 700;
-  }
-  @font-face {
-    font-family: "Arphic Kaiti Vocabulary";
-    src: local("AR PL KaitiM GB"), local("GBZenKai-Medium");
+    font-family: "Mandarinmaxxing Kaiti";
+    src: local("LXGW WenKai GB"), local("LXGW WenKai GB Lite"),
+      url("https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@v2-draft/skills/mandarinmaxxing/fonts/kaiti-hsk-1-6.woff") format("woff");
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
   }
   #mandarinmaxxing-vocab h2 { margin-bottom: calc(var(--font-size-base, 14px) * 0.5); }
   #mandarinmaxxing-vocab td { vertical-align: middle; user-select: text; }
   #mandarinmaxxing-vocab td span[lang="zh-Hans"] {
-    font-size: 2.5em;
+    font-family: "Mandarinmaxxing Kaiti", "Kaiti SC", "STKaiti", "KaiTi", serif;
+    font-size: 32px;
+    line-height: 1.2;
     font-synthesis: none;
     white-space: nowrap;
-  }
-  #mandarinmaxxing-vocab[data-loaded-font="kaiti"] td span[lang="zh-Hans"] {
-    font-family: "Kaiti Vocabulary", sans-serif;
-    font-weight: 700;
-  }
-  #mandarinmaxxing-vocab[data-loaded-font="arpl"] td span[lang="zh-Hans"] {
-    font-family: "Arphic Kaiti Vocabulary", sans-serif;
-    font-weight: 400;
   }
 </style>
 <script>
   (() => {
     const table = document.getElementById('mandarinmaxxing-vocab');
-    const choice = table.dataset.font;
-    const font = { kaiti: '700 35px "Kaiti Vocabulary"', arpl: '400 35px "Arphic Kaiti Vocabulary"' }[choice];
-    if (!font) return;
     const notice = document.getElementById('mandarinmaxxing-font-notice');
-    if (!document.fonts?.load) { notice.hidden = false; return; }
+    if (!document.fonts?.load) return;
     const hanzi = Array.from(table.querySelectorAll('td span[lang="zh-Hans"]'), cell => cell.textContent).join('');
-    document.fonts.load(font, hanzi).then(
-      faces => {
-        if (faces.some(face => face.status === 'loaded')) table.dataset.loadedFont = choice;
-        else notice.hidden = false;
-      },
+    document.fonts.load('32px "Mandarinmaxxing Kaiti"', hanzi).then(
+      faces => { if (!faces.some(face => face.status === 'loaded')) notice.hidden = false; },
       () => { notice.hidden = false; }
     );
   })();
@@ -130,19 +178,17 @@ If the chat can’t embed HTML, use a selectable Markdown table in the message. 
 
 ### Respond to a written translation
 
-For a model or corrected sentence, use a native Markdown subheading for the Hanzi, with tone-marked pinyin directly below in normal text. Whenever you gloss individual words or chunks, put the pinyin beside each Hanzi item before its meaning.
+For a model or corrected sentence, use a native Markdown subheading for the Hanzi, with tone-marked pinyin directly below in normal text. Use plain Markdown for all feedback: quote the learner’s wrong word or chunk as plain text and bold the replacement. Never strike through Hanzi, since the line reads as an extra stroke. Whenever you gloss individual words or chunks, put the pinyin beside each Hanzi item before its meaning.
 
 - **Correct and natural.** Confirm briefly and move to the next prompt. Accept any natural version that meets the request. If a valid alternative uses a different expression, acknowledge it and bring the intended chunk back in a later prompt.
 - **Correct meaning, noticeably unnatural phrasing.** Acknowledge that the meaning is right. Show a more natural version in Hanzi with pinyin directly below it and briefly explain the change.
-- **Incorrect.** Briefly identify the issue and show the corrected sentence. Below it, give a short breakdown of the words or meaningful chunks in order, with their meanings in context in the learner’s language.
+- **Incorrect.** Point at the part that went wrong and nothing else: quote the word or chunk the learner wrote, give the one to use in its place with pinyin and meaning, and add a short reason when it helps, in the shape “you wrote X, use Y”. Then show the full corrected sentence once. Leave out a word-by-word breakdown of the parts the learner got right.
 
 ### Prepare each dialogue
 
 1. **Draft the script.** Give the two speakers a practical reason to talk and write short turns that respond to each other. Aim for around 20 seconds at a clear speaking pace. Let the length vary with the conversation and split crowded scenes.
 2. **Review before generating.** Read the full exchange. Check that the turns make sense together, the Mandarin sounds natural, the intended chunks fit the scene, and the questions can be answered from what’s said. Revise awkward or overloaded lines before sending the script to the provider.
 
-If audio is enabled and an authorized provider can deliver it, generate the clip and share it with the full question set so the learner can read it before playback. Label clips by number and scene, for example **Audio 01 · At the train station**. Include the duration if the provider reports it.
+If an authorized provider can deliver audio, generate the clip and share it with the full question set so the learner can read it before playback. Label clips by number and scene, for example **Audio 01 · At the train station**. Include the duration if the provider reports it.
 
-If audio is unset or unavailable, say so and switch to **Reading practice**. Show the conversation directly in the chat in Hanzi only, followed by the full question set.
-
-When asked to start a numbered lesson, begin that lesson from the start. Treat a number other than the saved next lesson as standalone practice unless the learner asks to change their course position. When asked to review a numbered lesson, use its index entry. Give extra exercises on the requested point during the lesson.
+If no provider is available, switch to **Reading practice** without comment, apart from the one-time note described in the setup. Show the conversation directly in the chat in Hanzi only, followed by the full question set.
