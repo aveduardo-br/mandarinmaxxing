@@ -22,7 +22,7 @@ Read the map for the learner's level when a course starts or resumes. Look up si
 
 The course lives in one `course.md` kept where every chat of the same course can reach it: the documents of the learner’s Claude project, or the working folder when the skill runs in a coding agent such as Claude Code or Codex. A project keeps the file in the learner’s account, so the course follows them to any device. No folder on their computer is needed.
 
-Before anything else, look for `course.md` there.
+Before anything else, look for `course.md` there. A project’s document tool may file it under a folder of its own, such as `claude/course.md`: look for a document named `course.md` at any path, and keep saving to the one you find.
 
 - **Found.** Resume the course. Skip the setup.
 - **Not found, and this chat can save there.** Run the setup below, then save the course.
@@ -40,7 +40,7 @@ Describe these steps without naming menus or buttons, since the app changes. If 
 
 ## Start a course
 
-Use the learner’s requested language for setup, instructions, labels, meanings, prompts, and feedback. Otherwise, infer it from their conversational messages. If there is too little text, use the interface language when known or ask. Keep that choice for the course until the learner asks to switch.
+Use the learner’s requested language for setup, instructions, labels, meanings, prompts, and feedback. Otherwise, infer it from their conversational messages. If there is too little text, use the language the interface or what you already know about the learner points to, or ask. Add no line offering to switch. Keep that choice for the course until the learner asks to switch.
 
 Start a new course with one short setup message in the learner’s language. Use the example below and ask only for choices the learner hasn’t given. Proceed once the choices are clear, using a target of 5 when the learner leaves it open.
 
@@ -53,7 +53,9 @@ Start a new course with one short setup message in the learner’s language. Use
 >
 > **Keyboard.** You’ll answer in Mandarin. I strongly recommend turning on the Chinese (Simplified) Pinyin keyboard now: you type the sound and pick the character, which trains your eye from the first lesson. Until then, you can answer in pinyin.
 
-Leave audio and fonts out of the setup. Use audio whenever an authorized provider is already connected. When none is, use reading practice and mention once, at the end of the first part, that connecting a provider such as [ElevenLabs](https://elevenlabs.io/mcp) adds listening practice. The vocabulary table loads its own Hanzi font, so the learner has nothing to install.
+Leave audio and fonts out of the setup. The vocabulary table loads its own Hanzi font, so the learner has nothing to install.
+
+**Audio.** Dialogues are audio when the learner has a text-to-speech provider connected, such as [ElevenLabs](https://elevenlabs.io/mcp). The first time you find one, ask once whether they want the dialogues as audio with it, and save the answer in `course.md`. Never generate audio with a general media tool that spends the learner’s credits unless they asked for it. With no provider, use reading practice and mention once, at the end of the first part, that connecting one adds listening practice.
 
 ## Lessons and parts
 
@@ -69,6 +71,8 @@ After the setup, show a compact overview of the level before the first part:
 
 Write both as bulleted lists, one lesson per line, in this shape: the map’s two-digit number in bold, the lesson name, and the number of parts at the learner’s pace counted from its `Split` line, for example `- **08** Phone calls (1 part)`. Use bullets, never a Markdown numbered list, which adds a second set of numbers.
 
+Then save the course: `course.md` with the settings, the route, and the full lesson list in the learner’s language.
+
 Ask whether they want to move any lesson earlier or later. Only lessons after the jump start can move. Learners who have studied before can start at a later lesson: “start at 19” puts Lesson 19 first on the route, and it is still called Lesson 19. Start once the learner agrees.
 
 For a level without a map in this skill, build one from the syllabus file with the same rules: situations a learner can talk about, blocks of two to four words that produce sentences together, look-alike and same-category words in different blocks, and core function words early. Check that every official word appears exactly once before showing the overview, and save the map beside the course file as `map-hsk-N.md`. If the syllabus file for the level is missing, ask the learner for a word list or offer a clearly labeled sample lesson.
@@ -81,7 +85,7 @@ Each lesson in the map has a `Split` line with the number of blocks per part at 
 
 For a map without `Split` lines, give a part at most 4, 7, or 10 new words for a pace of 3, 5, or 7, and divide the lesson’s blocks as evenly as that limit allows.
 
-**Support words.** If a chunk needs a word the learner hasn’t met, add it as a support word with pinyin and meaning. Use at most two per part and only when the word is common and helps the conversation. List support words under the vocabulary table, say they are optional extras, and keep them out of the required answers. Leave out where the word comes from unless the learner asks. A support word that belongs to a later block is still taught in its own block.
+**Support words.** Most parts need none. Add one only when a chunk built from the part’s own words can’t work without a word the learner hasn’t met. Never write a chunk in order to bring in an extra word. Use at most two per part, list them under the vocabulary table as optional extras with pinyin and meaning, and never write a prompt whose natural answer requires one. Leave out where the word comes from unless the learner asks. A support word that belongs to a later block is still taught in its own block.
 
 ## Save and resume the course
 
@@ -92,19 +96,29 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 - Syllabus: HSK 3.0 (2025-11), level 1
 - Pace: about 5 words per part
 - Language: Português
+- Labels: Aula, parte, Revisão, Exercício
+- Audio: none
 - Route: 01–07, 12, 13, 08, 09, 10, 11, 14–22
 - Next: Lesson 02, part 1 of 2
 - To reinforce: 没关系
 
+## Lessons
+01 Cumprimentar e agradecer (2 partes)
+02 Dizer o que você quer (2 partes)
+…one line for every lesson of the level
+
 ## Done
-01.1 | Cumprimentar e agradecer | 你好 再见 谢谢
-01.2 | Cumprimentar e agradecer | 不客气 对不起 没关系 您 好 没事
+01.1 | 你好 再见 谢谢
+01.2 | 不客气 对不起 没关系 您 好 没事
 ```
 
+- **Labels** fixes the learner-language words for lesson, part, review, and exercise. Use exactly these in every chat.
+- **Audio** is `none`, or the provider the learner agreed to use.
 - **Route** lists the lesson numbers in the order the learner agreed to.
 - **Next** names the lesson and part to teach next.
-- **To reinforce** holds up to ten words or chunks the learner needed help with in the last part. Replace the line after each part.
-- **Done** gets one line per completed part, in the order studied: lesson number and part, the lesson name in the learner’s language, and the new words taught. This log is how later parts know what an earlier one covered.
+- **To reinforce** holds up to ten words or chunks the learner needed help with in the last part. Replace the line after each part. It can be empty.
+- **Lessons** is the whole level as the learner saw it at setup: map number, name in their language, and number of parts. Write it once and use these names in every chat.
+- **Done** gets one line per completed part, in the order studied: lesson number and part, then the new words taught. This log is how later parts know what an earlier one covered.
 
 Save quietly: write `course.md` to its place, avoid attaching or presenting the file in the conversation when the tools allow it, and mention saving only when it fails. If the learner asks for a copy in a folder on their computer, save one there as well.
 
@@ -120,7 +134,7 @@ Before the first lesson message in a chat, read `lesson-format.md`. Copy its voc
 
 Teach from the installed skill, the map, and the learner’s course file. Reserve Git and repository checks for an explicit repository or update request. Keep lesson messages focused on the exercise and mention technical issues only when they affect the lesson.
 
-Present written lesson content as selectable text in the conversation. Embed the vocabulary table in the chat when supported. Use native Markdown for prompts and corrections.
+Present written lesson content as selectable text in the conversation. Draw the vocabulary table with the chat’s inline HTML or widget tool when there is one, never as an artifact or a file. Use native Markdown for prompts and corrections.
 
 In review and written translation, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. Describe a small scene for each prompt when the learner’s vocabulary is too small for a full sentence.
 
@@ -128,7 +142,7 @@ Accept answers in pinyin and correct them the same way, always showing the Hanzi
 
 1. **Review.** Give at least five short prompts in the learner’s language to translate into Mandarin, in the same format as written translation. Together they cover the new words of the previous part in the **Done** log and the saved items to reinforce. If coverage takes fewer than five questions, revisit words in fresh contexts. If an answer needs a hint or correction, ask the learner to use the target again in a fresh prompt after another question. When nothing has been studied yet, begin with vocabulary.
 2. **Vocabulary.** Show a table with Hanzi, Pinyin, and meanings in the learner’s language. Use the table template from `lesson-format.md`. List any support words under it, then the useful chunks.
-3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something. Design prompts the learner can answer with words they have met. After feedback on the last answer, ask whether the learner wants another translation round or is ready for the dialogue. Wait for their choice.
+3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Use at least five prompts and at most three more than the number of new words. When an answer needs a correction, bring that word back in a later prompt of the same round and add it to the words to reinforce. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something. Design prompts the learner can answer with words they have met. After feedback on the last answer, ask whether the learner wants another translation round or is ready for the dialogue. Wait for their choice.
 4. **Dialogue practice.** Use one to three short Mandarin conversations between two speakers. Across the conversations, use every new word in a reusable phrase. Ask about what happened, what the speakers wanted, or what a chunk meant in context. Present each full conversation followed by all its questions in the same message. Ask the learner to answer them together. After they reply, mark each answer correct or incorrect. On request after they answer, share the transcript with pinyin and a translation into the learner’s language.
 
 **Bring older words back.** In written translation and dialogue practice, reuse words from the parts 3, 7, and 14 lines back in the **Done** log. Aim for one or two words from each, choosing the ones that fit the scene. Use what fits and leave the rest. This is exposure for the learner, with nothing to track or score.

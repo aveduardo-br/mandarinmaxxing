@@ -5,8 +5,9 @@ Formats for the parts of a lesson. Read this once per chat, before the first les
 ## Label lessons and prompts
 
 - **Title.** Open each part with one bold line in this shape, in the learner’s language: `Lesson 20 · At school · part 1 of 2`. The lesson number is the map’s and never changes. Leave out “part 1 of 1” when a lesson has a single part.
-- **No commentary on the plan.** State the title and teach. Leave out remarks about how the lesson is divided, why a part has the number of words it has, or what the map says.
-- **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Reuse the wording already in `course.md`.
+- **Title once.** When a part starts with the vocabulary table, the table’s heading is the title and no title line goes above it. When a part starts with review, the title line opens the review and the table’s heading repeats it later.
+- **No commentary on the plan.** State the title and teach. Leave out remarks about how the lesson is divided, why a part has the number of words it has, or what the map says, unless the learner asks. One short line before the table, such as “Here are the new words”, is fine.
+- **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Take them from the **Labels** line and the **Lessons** list in `course.md`.
 - **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate as plain text under it, with a blank line between them. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” only before the first prompt of each part of the lesson.
 
 ## Write Mandarin the same way everywhere
