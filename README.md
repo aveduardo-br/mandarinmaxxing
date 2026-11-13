@@ -21,7 +21,7 @@ Your progress is saved, so you can open a new chat on any device and say "next l
 
 You need a Claude account where you can add skills and create projects. It takes about five minutes.
 
-1. **Download the skill.** [mandarinmaxxing-claude.zip](https://github.com/aveduardo-br/mandarinmaxxing/releases/latest/download/mandarinmaxxing-claude.zip)
+1. **Download the skill.** [mandarinmaxxing-claude.zip](https://github.com/aveduardo-br/mandarinmaxxing/raw/main/download/mandarinmaxxing-claude.zip)
 2. **Add it to Claude.** Open **Customize → Skills**, click **+**, choose **Create skill**, then **Upload a skill**, and pick the ZIP. [Claude's guide to skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 3. **Create a project** for your course, for example "Mandarin". In the project's instructions, paste this line:
 
@@ -104,7 +104,7 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table |
 | `tools/` | Scripts that check a map against the word list and build the ZIP |
 
-To check a map and build the ZIP, run these from the repository root:
+To check a map and rebuild the ZIP in `download/`, run these from the repository root:
 
 ```sh
 python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-1.md

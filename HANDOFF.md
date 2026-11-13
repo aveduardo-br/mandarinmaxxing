@@ -68,7 +68,7 @@ Estado da skill na versão 0.3.0 (novembro de 2026) e o que vem depois. Leia int
 ## Como testar
 
 1. `python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-1.md` confere o mapa contra a lista oficial.
-2. `sh tools/build.sh` gera `dist/mandarinmaxxing-claude.zip`.
+2. `sh tools/build.sh` gera `download/mandarinmaxxing-claude.zip`.
 3. No Claude: **Customize → Skills → + → Create skill → Upload a skill**. Criar um projeto vazio com a linha de instruções do README e escrever "start mandarinmaxxing".
 4. Fazer uma parte inteira, abrir um segundo chat no mesmo projeto e pedir a próxima.
 
@@ -76,7 +76,8 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 
 ## Ao publicar
 
-- Atualizar a versão em `plugin.json`, criar a tag e uma release com o `mandarinmaxxing-claude.zip`. O README aponta para `releases/latest`.
+- Atualizar a versão em `plugin.json`, rodar `sh tools/build.sh` e commitar o `download/mandarinmaxxing-claude.zip` junto. O README aponta para esse arquivo no `main`, então o download sempre acompanha o código.
+- Tags e releases não podem ser criadas pelas sessões do Claude neste repositório. Se quiser uma, o Eduardo cria pelo site do GitHub. A última release (v0.2.0) ainda traz o ZIP antigo.
 - A tabela de vocabulário carrega a fonte pelo jsDelivr, de um commit fixo deste repositório. Se o arquivo da fonte mudar, atualize o endereço em `lesson-format.md`.
 - Avisar o que mudou, para a copy do site ser reescrita.
 
