@@ -46,11 +46,11 @@ Start a new course with one short setup message in the learner’s language. Use
 
 > Welcome to mandarinmaxxing! We study the official HSK words, reorganized around everyday situations. Each situation runs for a few lessons, and you practice the words in chunks, short phrases you can reuse in conversation.
 >
-> Every lesson has four parts: a quick review, new words with Hanzi, pinyin, and meanings, translation one sentence at a time with feedback, and a short dialogue or text at the end.
+> Every lesson has four parts: a quick review, new words with Hanzi, pinyin, and meanings, translation one sentence at a time with feedback, and a short text at the end, to read or to listen to.
 >
 > 1. **Level.** Which HSK level would you like to study? You can start from the beginning or tell me where to pick up.
 > 2. **Pace.** About 3, 5, or 7 new words per sitting?
-> 3. **Audio.** Every part ends with a short text or dialogue. For audio with natural Mandarin voices, connect a voice provider such as ElevenLabs: the free account includes 10,000 credits a month, and another provider is fine too. Without one, you read the text instead. Do you want to set up audio?
+> 3. **Audio.** Every part ends with a short text. To hear it in a natural Mandarin voice, connect a voice provider such as ElevenLabs: the free account includes 10,000 credits a month, and another provider is fine too. Without one, you read the text instead, and there is nothing to set up. Do you want audio?
 >
 > **Keyboard.** You’ll answer in Mandarin. I strongly recommend turning on the Chinese (Simplified) Pinyin keyboard now: you type the sound and pick the character, which trains your eye from the first lesson. Until then, you can answer in pinyin.
 
@@ -58,7 +58,7 @@ Leave audio and fonts out of the setup. The vocabulary table loads its own Hanzi
 
 **Audio or reading.** Save the learner’s choice in `course.md` and use only that.
 
-- **Voice provider.** The learner connects a text-to-speech provider of their choice, usually with an API key from their own account. The last exercise is a two-voice dialogue they hear without seeing the text, followed by comprehension questions. If the provider isn’t connected yet, tell them how to connect it, use reading meanwhile, and switch once it appears. If the provider fails or runs out of credits, say so once and use reading for the rest of the part.
+- **Voice provider.** The learner connects a text-to-speech provider of their choice, usually with an API key from their own account. The last exercise is one short clip, a single speaker in a single voice, that they hear without seeing the text, followed by comprehension questions. Each clip is one generation with one take, so it works with any provider that turns text into speech and needs no folder, script, or key in the chat. If the provider isn’t connected yet, tell them how to connect it, use reading meanwhile, and switch once it appears. If the provider fails or runs out of credits, say so once and use reading for the rest of the part.
 - **Reading.** The default. The last exercise is a short text to read, followed by a task. The format is in `lesson-format.md`.
 
 Never generate audio with a tool the learner didn’t choose, and never with a general media tool that spends their credits. Don’t suggest the chat app’s read aloud button for Mandarin: its voice reads Hanzi with the wrong sounds. If the learner asks about it, say so plainly.
@@ -119,7 +119,7 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 ```
 
 - **Labels** fixes the learner-language words for lesson, part, review, and exercise. Use exactly these in every chat.
-- **Audio** is `none`, or the provider the learner chose, with the two voices picked for the course so every dialogue sounds the same.
+- **Audio** is `none`, or the provider the learner chose, with the one voice picked for the course so every clip sounds the same.
 - **Route** lists the lesson numbers in the order the learner agreed to.
 - **Next** names the lesson and part to teach next.
 - **To reinforce** holds up to ten words or chunks the learner needed help with in the last part. Replace the line after each part. It can be empty.
@@ -136,7 +136,7 @@ If that place holds a `mandarinmaxxing-course.md` from an earlier version, keep 
 
 ## Teach one part at a time
 
-Before the first lesson message in a chat, read `lesson-format.md`. Copy its vocabulary table template exactly, changing only the title, the rows, and the localized labels, and follow its formats for titles, prompts, feedback, and dialogues.
+Before the first lesson message in a chat, read `lesson-format.md`. Copy its vocabulary table template exactly, changing only the title, the rows, and the localized labels, and follow its formats for titles, prompts, feedback, and the final text.
 
 Teach from the installed skill, the map, and the learner’s course file. Reserve Git and repository checks for an explicit repository or update request. Keep lesson messages focused on the exercise and mention technical issues only when they affect the lesson.
 
@@ -148,8 +148,8 @@ Accept answers in pinyin and correct them the same way, always showing the Hanzi
 
 1. **Review.** Give at least five short prompts in the learner’s language to translate into Mandarin, in the same format as written translation. Together they cover the new words of the previous part in the **Done** log and the saved items to reinforce. If coverage takes fewer than five questions, revisit words in fresh contexts. If an answer needs a hint or correction, ask the learner to use the target again in a fresh prompt after another question. When nothing has been studied yet, begin with vocabulary.
 2. **Vocabulary.** Show a table with Hanzi, Pinyin, and meanings in the learner’s language. Use the table template from `lesson-format.md`. List any support words under it, then the useful chunks.
-3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Use at least five prompts and at most three more than the number of new words. When an answer needs a correction, bring that word back in a later prompt of the same round and add it to the words to reinforce. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something. Design prompts the learner can answer with words they have met. After feedback on the last answer, ask whether the learner wants another translation round or is ready for the dialogue. Wait for their choice.
-4. **Dialogue or reading.** With a voice provider, an audio dialogue with questions. Without one, a short reading with a rewrite task. Follow the matching format in `lesson-format.md`. Across the exercise, use every new word in a reusable phrase.
+3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Use at least five prompts and at most three more than the number of new words. When an answer needs a correction, bring that word back in a later prompt of the same round and add it to the words to reinforce. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something. Design prompts the learner can answer with words they have met. After feedback on the last answer, ask whether the learner wants another translation round or is ready for the final text. Wait for their choice.
+4. **Listening or reading.** With a voice provider, one audio clip with questions. Without one, a short reading with a rewrite task. Follow the matching format in `lesson-format.md`. Across the exercise, use every new word in a reusable phrase.
 
 **Bring older words back.** In written translation and the last exercise, reuse words from the parts 3, 7, and 14 lines back in the **Done** log. Aim for one or two words from each, choosing the ones that fit the scene. Use what fits and leave the rest. This is exposure for the learner, with nothing to track or score.
 

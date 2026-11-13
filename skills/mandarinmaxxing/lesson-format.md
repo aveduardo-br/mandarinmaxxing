@@ -73,9 +73,10 @@ The task is to rewrite the text with a few changes you name, for example another
 
 Use one or two of these per part. Use every new word of the part across the texts.
 
-## Audio dialogue, with a voice provider
+## Listening, with a voice provider
 
-1. **Draft the script.** Give two speakers a practical reason to talk and write short turns that respond to each other. Aim for around 20 seconds at a clear speaking pace. Split crowded scenes into two dialogues.
-2. **Review before generating.** Read the full exchange. Check that the turns make sense together, the Mandarin sounds natural, the intended chunks fit the scene, and the questions can be answered from what’s said.
-3. **Generate and send.** Use the two voices saved for the course, one per speaker. Send the clip with its questions in the same message, so the learner can read them before playing. Label it by number and scene, such as **Audio 1 · At the train station**. Keep the script out of the message.
-4. Ask what happened, what the speakers wanted, or what a chunk meant in context. Ask the learner to answer all the questions together, then mark each answer correct or incorrect. Share the script with pinyin and a translation only if they ask after answering.
+1. **Draft the script.** One speaker, three to six short sentences: someone telling what they did, what they want, or what happened, in a concrete scene. Aim for 15 to 20 seconds at a clear speaking pace. Keep it a single voice; a conversation would need one generation per line.
+2. **Review before generating.** Read the script through. Check that the Mandarin sounds natural, the part’s new words fit the scene, and the questions can be answered from what’s said.
+3. **Generate once.** Make one clip with the voice saved for the course, asking the provider for a single take. On the first clip of a course, pick one clear, neutral voice from the provider’s own voice list, set the language to Chinese when the provider has that setting, and save the voice in `course.md`. Never run a generation again to retry or to get a variation unless the learner asks: each run spends their credits.
+4. **Send.** Put the questions in the same message as the clip, so the learner can read them before playing. Label it by number and scene, such as **Audio 1 · At the tea shop**. Keep the script out of the message.
+5. Ask what happened, what the speaker wanted, or what a chunk meant in context. Ask the learner to answer all the questions together, then mark each answer correct or incorrect. Share the script with pinyin and a translation only if they ask after answering.
