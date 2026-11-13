@@ -76,8 +76,9 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 
 ## Ao publicar
 
-- Atualizar a versão em `plugin.json`, rodar `sh tools/build.sh` e commitar o `download/mandarinmaxxing-claude.zip` junto. O README aponta para esse arquivo no `main`, então o download sempre acompanha o código.
-- Tags e releases não podem ser criadas pelas sessões do Claude neste repositório. Se quiser uma, o Eduardo cria pelo site do GitHub. A última release (v0.2.0) ainda traz o ZIP antigo.
+- Publicar é automático: mude a versão em `plugin.json`, atualize o `release-notes.md` e envie para o `main`. A automação em `.github/workflows/release.yml` confere os mapas, gera o ZIP e cria a release com a tag. O README aponta para `releases/latest`.
+- Mudança na skill sem mudar a versão não gera release nova: quem baixa continua recebendo o ZIP da última versão.
+- As sessões do Claude não conseguem criar tags nem releases direto neste repositório. É a automação que faz isso.
 - A tabela de vocabulário carrega a fonte pelo jsDelivr, de um commit fixo deste repositório. Se o arquivo da fonte mudar, atualize o endereço em `lesson-format.md`.
 - Avisar o que mudou, para a copy do site ser reescrita.
 
