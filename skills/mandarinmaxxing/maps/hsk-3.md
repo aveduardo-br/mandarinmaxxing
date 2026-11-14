@@ -1,6 +1,6 @@
 # HSK 3 map
 
-Source: HSK syllabus released 2025-11 (500 words). Each situation is one lesson, numbered as below: 37 lessons. Parts at paces 3 / 5 / 7: 168 / 93 / 70. Lessons 01–04 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 才1. The list has 得 twice: the verb děi (have to) in lesson 03 and the verb dé (get) in lesson 35.
+Source: HSK syllabus released 2025-11 (500 words). Each situation is one lesson, numbered as below: 37 lessons. Parts at paces 3 / 5 / 7: 167 / 93 / 69. Lessons 01–04 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 才1. The list has 得 twice: the verb děi (have to) in lesson 03 and the verb dé (get) in lesson 35.
 
 ## 01 | jump-start | Give your opinion
 Split: 1-1-1-1-1 / 1-2-2 / 1-2-2
@@ -21,7 +21,7 @@ Split: 1-1-1-1 / 1-1-2 / 2-2
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 打算 如果 的话
 - 决定 或者 最好
-- 得 为了 只能
+- 得 为了 用 只能
 - 只要 愿意 行
 - 只有 需要 或
 - 不用 该1
@@ -118,11 +118,10 @@ Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
 - 短裤 选择
 
 ## 15 | situation | Move house
-Split: 1-1-1-1 / 2-2 / 2-2
+Split: 1-1-1 / 2-1 / 3
 - 搬 沙发 屋子
 - 搬家 房子 小区
-- 灯 关 电
-- 洗衣机 用
+- 灯 关 电 洗衣机
 
 ## 16 | situation | Clean up and get ready
 Split: 1-1-1-1 / 2-2 / 2-2
