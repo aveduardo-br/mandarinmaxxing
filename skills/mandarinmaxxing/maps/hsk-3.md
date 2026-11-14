@@ -1,12 +1,12 @@
 # HSK 3 map
 
-Source: HSK syllabus released 2025-11 (500 words). Each situation is one lesson, numbered as below: 37 lessons. Parts at paces 3 / 5 / 7: 167 / 93 / 69. Lessons 01–04 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 才1. The list has 得 twice: the verb děi (have to) in lesson 03 and the verb dé (get) in lesson 35.
+Source: HSK syllabus released 2025-11 (500 words). Each situation is one lesson, numbered as below: 37 lessons. Parts at paces 3 / 5 / 7: 168 / 94 / 69. Lessons 01–04 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 才1. The list has 得 twice: the verb děi (have to) in lesson 03 and the verb dé (get) in lesson 35.
 
 ## 01 | jump-start | Give your opinion
 Split: 1-1-1-1-1 / 1-2-2 / 1-2-2
 - 认为 应该 当然
 - 其实 比较 可是
-- 同意 不行 只是
+- 同意 行 只
 - 相信 必须 挺
 - 看来 可 一定
 
@@ -22,16 +22,16 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 打算 如果 的话
 - 决定 或者 最好
 - 得 为了 用 只能
-- 只要 愿意 行
+- 只要 愿意 不行
 - 只有 需要 或
 - 不用 该1
 
 ## 04 | jump-start | Talk about your habits
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
-- 平时 常常 一般
+- 平时 常常 几乎
 - 总是 习惯 又
 - 最近 常 更
-- 几乎 只 特别
+- 一般 只是 特别
 - 越 极 总
 
 ## 05 | situation | Catching up with a friend
@@ -47,10 +47,10 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 阿姨 照顾 老人
 - 叔叔 关心 别人
-- 夫妻 出生 姐妹
-- 大人 长 男人
-- 邻居 客人 热情
-- 女人 爱人 一样
+- 夫妻 出生 女人
+- 大人 长 姐妹
+- 邻居 热情 爱人
+- 男人 一样
 
 ## 07 | situation | Describing a friend
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
@@ -64,9 +64,9 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 感到 开心 心里
 - 生气 急 为
-- 担心 安全
+- 担心 安全 满意
 - 着急 放心 怕
-- 害怕 奇怪 满意
+- 害怕 奇怪
 
 ## 09 | situation | Saying when it was
 Split: 1-1-1-1 / 2-2 / 2-2
@@ -76,22 +76,22 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 后年 刚刚 差不多
 
 ## 10 | situation | Holidays and visits
-Split: 1-1-1-2 / 2-3 / 2-3
-- 新年 过节 礼物
+Split: 1-1-1-1-1 / 1-2-2 / 2-3
+- 新年 节 礼物
 - 做客 欢迎 假期
 - 周末 一块儿 照相
-- 放假 节
+- 放假 过节 客人
 - 节日 休假
 
 ## 11 | situation | Eating out
-Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
+Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-3-2
 - 饿 菜单 请客
-- 尝 甜 糖
-- 渴 饮料 矿泉水
-- 饱 碗 筷子
-- 服务 盘子 勺子
+- 尝 甜 勺子
+- 渴 饮料 糖
+- 饱 筷子
+- 服务 盘子 矿泉水
 - 酒 瓶子 子
-- 一共 啤酒
+- 一共 碗 啤酒
 
 ## 12 | situation | Buying food
 Split: 1-1-1-1 / 2-2 / 2-2
@@ -102,10 +102,10 @@ Split: 1-1-1-1 / 2-2 / 2-2
 
 ## 13 | situation | Eating at home
 Split: 1-1-1-1 / 2-2 / 4
-- 冰箱 放 蛋糕
 - 外卖 方便
-- 方便面 冰 加
-- 冰激凌 咱们
+- 冰 加 冰激凌
+- 冰箱 放 蛋糕
+- 方便面 咱们
 
 ## 14 | situation | Trying on clothes
 Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
@@ -145,9 +145,9 @@ Split: 1-1-1 / 1-2 / 3
 
 ## 19 | situation | Email and messages
 Split: 1-1-1 / 1-2 / 3
-- 邮件 发 收
-- 邮箱 号码 收到
-- 信 封 有关
+- 邮件 发 号码
+- 邮箱 收 有关
+- 信 封 收到
 
 ## 20 | situation | Talking about the seasons
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
