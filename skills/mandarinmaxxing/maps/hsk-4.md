@@ -1,6 +1,6 @@
 # HSK 4 map
 
-Source: HSK syllabus released 2025-11 (1000 words). Each situation is one lesson, numbered as below: 56 lessons. Parts at paces 3 / 5 / 7: 318 / 172 / 131. Lessons 01–05 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 生1. The list has 重 twice (zhòng, heavy, in lesson 25, and chóng, again, in lesson 27) and 空 twice (kòng, free time, in lesson 11, and kōng, empty, in lesson 31).
+Source: HSK syllabus released 2025-11 (1000 words). Each situation is one lesson, numbered as below: 56 lessons. Parts at paces 3 / 5 / 7: 319 / 172 / 131. Lessons 01–05 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 生1. The list has 重 twice (zhòng, heavy, in lesson 25, and chóng, again, in lesson 27) and 空 twice (kòng, free time, in lesson 11, and kōng, empty, in lesson 31).
 
 ## 01 | jump-start | Say how sure you are
 Split: 1-1-1-1-1-1 / 2-2-2 / 2-2-2
@@ -33,11 +33,11 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
 - 许多 所有 各种
 - 全部 至少 左右
-- 偶尔 往往 从来
-- 老是 永远 暂时
-- 稍微 更加 多么
+- 全 往往 从来
+- 老是 暂时 稍微
+- 永远 更加 多么
 - 全都 一切 各
-- 各个 全 稍
+- 各个 偶尔 稍
 
 ## 05 | jump-start | Say what you can and can't do
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
@@ -49,13 +49,13 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 究竟 敢 禁止
 
 ## 06 | situation | Parents and relatives
-Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 3-2-3
+Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
 - 父母 家庭 幸福
 - 父亲 严格 批评
 - 母亲 耐心 鼓励
 - 兄弟 俩 互相
-- 孙子 孙女 陪 抱
-- 亲戚 聚 热闹
+- 孙子 陪 抱
+- 亲戚 聚 热闹 孙女
 - 父子 母女 相比
 - 父女 母子 家长
 
@@ -75,10 +75,10 @@ Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
 - 脾气 冷静 讨厌
 - 优点 诚实 勇敢
 - 缺点 懒 粗心
-- 幽默 开玩笑 好笑
+- 幽默 开玩笑 积极
 - 细心 礼貌 友好
 - 骄傲 自信 优秀
-- 笨 积极 客气
+- 笨 好笑 客气
 
 ## 09 | situation | Sharing good news
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
@@ -89,29 +89,30 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 吃惊 兴奋 棒
 
 ## 10 | situation | Talking through a bad day
-Split: 1-1-1-1-1-1-1 / 2-1-2-2 / 2-2-3
+Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
 - 伤心 失望 心
-- 后悔 可惜 错过 失去
-- 烦 紧张 压力 面对
+- 后悔 可惜 错过
+- 烦 紧张 压力
 - 烦恼 无聊 放松
-- 难受 受不了 气
+- 难受 失去 感情
+- 受不了 气 面对
 - 抱歉 原谅 感受
-- 误会 解释 道歉 感情
+- 误会 解释 道歉
 
 ## 11 | situation | Friends and dates
 Split: 1-1-1-1-1-1-1 / 2-2-1-2 / 2-2-3
 - 友谊 尊重 理解
-- 约 邀请 答应 空
+- 约 答应 空 打招呼
 - 约会 浪漫 爱情
 - 拒绝 怀疑 对方
 - 联系 网友 友情 回信
-- 打招呼 接受 同样
+- 邀请 接受 同样
 - 商量 意见 打扰
 
 ## 12 | situation | Parties and celebrations
 Split: 1-1-1-1 / 2-2 / 2-2
-- 聚会 庆祝 干杯
-- 聚餐 祝 成功
+- 聚会 祝 干杯
+- 聚餐 庆祝 成功
 - 红包 月饼 假日
 - 鲜花 节假日 香
 
