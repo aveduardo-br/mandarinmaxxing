@@ -4,18 +4,18 @@ Formats for the parts of a lesson. Read this once per chat, before the first les
 
 ## Label lessons and prompts
 
-- **Title.** Open each part with one bold line in this shape, in the learner’s language: `HSK 1 · Lesson 20 · At school · part 1 of 2`. The level comes first, because lesson numbers restart at 1 in each level. The lesson number is the map’s and never changes. Leave out “part 1 of 1” when a lesson has a single part.
-- **Title once.** When a part starts with the vocabulary table, the table’s heading is the title and no title line goes above it. When a part starts with review, the title line opens the review and the table’s heading repeats it later.
+- **Title.** Open each part with one bold line in this shape, in the learner’s language: `HSK 1 · Lesson 20 · At school · part 1 of 2`. The level comes first, because lesson numbers restart at 1 in each level. Write the number without a leading zero. The lesson number is the map’s and never changes. Leave out “part 1 of 1” when a lesson has a single part.
+- **Title once.** When a part starts with the vocabulary table, the table’s heading is the title and no title line goes above it. When a part starts with review, the title line opens the review and the table’s heading repeats it later. With the Markdown fallback, the title goes in a bold line above the table.
 - **No commentary on the plan.** State the title and teach. Leave out remarks about how the lesson is divided, why a part has the number of words it has, or what the map says, unless the learner asks. One short line before the table, such as “Here are the new words”, is fine.
 - **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Take them from the **Labels** line and the **Lessons** list in `course.md`.
-- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate as plain text under it, with a blank line between them. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” only before the first prompt of each part of the lesson.
+- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate as plain text under it, with a blank line between them. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” once per sitting, before its first prompt.
 
 ## Write Mandarin the same way everywhere
 
 Outside the vocabulary table, every piece of Mandarin follows one pattern: **Hanzi in bold**, *pinyin in italics*, meaning in plain text.
 
-- A chunk or a corrected sentence takes three lines: the Hanzi in bold, the pinyin in italics under it, and the meaning in the learner’s language under that.
-- A word inside a sentence is written inline: **超市** (*chāoshì*, supermarket).
+- A chunk or a corrected sentence takes three lines: the Hanzi in bold, the pinyin in italics under it, and the meaning in the learner’s language under that. Use hard line breaks so the three lines don’t run together. Put the chunk list under one bold line with the saved label for useful phrases; when a word in a chunk can be swapped, say which in its meaning line.
+- A word inside a sentence is written inline: **超市** (*chāoshì*, supermarket). A word the learner has known since earlier parts needs only the bold Hanzi, unless it is the point of the correction.
 - Reading texts stay as plain Hanzi, with no pinyin.
 - Never italicize or strike through Hanzi.
 
@@ -57,21 +57,21 @@ If the chat can’t embed HTML, use a selectable Markdown table in the message. 
 
 Use plain Markdown for all feedback and the Mandarin pattern above. Blockquotes are reserved for one thing: showing back what the learner wrote in a correction.
 
-- **Correct and natural.** Confirm briefly and move to the next prompt. Accept any natural version that meets the request. If a valid alternative uses a different expression, acknowledge it and bring the intended chunk back in a later prompt.
+- **Correct and natural.** Confirm briefly and move to the next prompt. Accept any natural version that meets the request. If a valid alternative uses a different expression, acknowledge it, name the chunk you were after, and bring it back in a later prompt.
 - **Correct meaning, noticeably unnatural phrasing.** Acknowledge that the meaning is right. Show a more natural version in Hanzi with pinyin directly below it and briefly explain the change.
-- **Incorrect.** Use this order. First a short opener and “You wrote:”, then the learner’s whole answer in a blockquote. Next, one line that points only at the part that went wrong: the word or chunk to use in its place in bold, its pinyin in italics, and a short reason. Use one such line per error. Then the full corrected sentence once, as bold Hanzi, italic pinyin, and plain meaning on three lines. Follow with the next prompt. Leave out a word-by-word breakdown of the parts the learner got right.
+- **Incorrect.** Use this order. First a short opener and “You wrote:”, then the learner’s whole answer in a blockquote. Next, one line that points only at the part that went wrong: the word or chunk to use in its place in bold, its pinyin in italics, and a short reason. For a slip of word order, show the stretch in the right order. Use one such line per fix, even when one fix settles two slips. Then the full corrected sentence once, as bold Hanzi, italic pinyin, and plain meaning on three lines. Follow with the next prompt. Leave out a word-by-word breakdown of the parts the learner got right.
 
 ## Reading, when there is no voice provider
 
 Send one message in this order:
 
-- A bold title in the learner’s language with its number, such as **Reading 1**.
+- A bold title with the saved label for reading and its number, such as **Reading 1**.
 - The text: three to six short Mandarin sentences in plain Hanzi, as someone telling a small story or describing their day, or a short exchange between two people. No pinyin and no translation.
 - A bold line such as **Your turn**, then the task in the learner’s language.
 
-The task is to rewrite the text with a few changes you name, for example another day, another thing to buy, another price. Skip comprehension questions here: the learner can see the text, so they only test finding a word. Correct the rewrite with the same format as a written translation.
+The task is to rewrite the text with a few changes you name, for example another day, another thing to buy, another price. Choose changes that make the learner write the part’s new words again, not only swap older ones. Skip comprehension questions here: the learner can see the text, so they only test finding a word. Correct the rewrite with the same format as a written translation.
 
-Use one or two of these per part. Use every new word of the part across the texts.
+Use one text per part, with every new word of the part in it. Add a second only when the new words don’t fit one scene.
 
 ## Listening, with a voice provider
 
