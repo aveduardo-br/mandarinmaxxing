@@ -6,7 +6,7 @@ n = re.search(r'hsk-(\d)\.md$', mapfile).group(1)
 src = os.path.join(os.path.dirname(os.path.abspath(mapfile)), '..', 'syllabus', f'hsk-{n}.csv')
 rows = list(csv.DictReader(open(src, encoding='utf-8-sig')))
 pos = {r['word']: r['part_of_speech'] for r in rows}
-official = list(pos)
+official = collections.Counter(r['word'] for r in rows)  # a word can be listed twice, such as 过 in HSK 2
 sits = []  # (title, [blocks])
 for line in open(mapfile, encoding='utf-8'):
     line = line.strip()
@@ -14,11 +14,11 @@ for line in open(mapfile, encoding='utf-8'):
     elif line.startswith('- '): sits[-1][1].append(line[2:].split())
 seen = collections.Counter(w for _, bs in sits for b in bs for w in b)
 ok = True
-missing = [w for w in official if w not in seen]
+missing = [w for w in official if seen[w] < official[w]]
 extra = [w for w in seen if w not in pos]
-dup = [w for w, c in seen.items() if c > 1]
+dup = [w for w, c in seen.items() if c > official.get(w, 1)]
 badsize = [(t, b) for t, bs in sits for b in bs if not 2 <= len(b) <= 4]
-print(f'official {len(official)} | mapped {sum(seen.values())} | situations {len(sits)} | blocks {sum(len(bs) for _, bs in sits)}')
+print(f'official {sum(official.values())} | mapped {sum(seen.values())} | situations {len(sits)} | blocks {sum(len(bs) for _, bs in sits)}')
 for label, v in [('missing', missing), ('not in list', extra), ('duplicated', dup), ('block size not 2-4', badsize)]:
     print(f'{label}: {v if v else "none"}'); ok &= not v
 def content(b):  # block has something besides nouns / numerals / measure words

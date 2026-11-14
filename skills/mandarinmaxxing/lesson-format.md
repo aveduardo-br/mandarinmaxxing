@@ -4,7 +4,7 @@ Formats for the parts of a lesson. Read this once per chat, before the first les
 
 ## Label lessons and prompts
 
-- **Title.** Open each part with one bold line in this shape, in the learner’s language: `Lesson 20 · At school · part 1 of 2`. The lesson number is the map’s and never changes. Leave out “part 1 of 1” when a lesson has a single part.
+- **Title.** Open each part with one bold line in this shape, in the learner’s language: `HSK 1 · Lesson 20 · At school · part 1 of 2`. The level comes first, because lesson numbers restart at 1 in each level. The lesson number is the map’s and never changes. Leave out “part 1 of 1” when a lesson has a single part.
 - **Title once.** When a part starts with the vocabulary table, the table’s heading is the title and no title line goes above it. When a part starts with review, the title line opens the review and the table’s heading repeats it later.
 - **No commentary on the plan.** State the title and teach. Leave out remarks about how the lesson is divided, why a part has the number of words it has, or what the map says, unless the learner asks. One short line before the table, such as “Here are the new words”, is fine.
 - **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Take them from the **Labels** line and the **Lessons** list in `course.md`.
@@ -21,13 +21,13 @@ Outside the vocabulary table, every piece of Mandarin follows one pattern: **Han
 
 ## Format each vocabulary table
 
-Use the selectable HTML table below whenever the chat can display it alongside the message. Copy the whole block character for character, including the `<style>` with its `@font-face` rule. Change only three things: the heading, the rows, and the localized column headers. The heading is the lesson title line, such as `Lesson 10 · Dates and weekdays · part 1 of 2`. Keep every Hanzi inside `<span lang="zh-Hans">`. If the tool that renders the table comes with its own design guidance, this template still wins: don’t restyle it, simplify it, or drop the font.
+Use the selectable HTML table below whenever the chat can display it alongside the message. Copy the whole block character for character, including the `<style>` with its `@font-face` rule. Change only three things: the heading, the rows, and the localized column headers. The heading is the lesson title line, such as `HSK 1 · Lesson 10 · Dates and weekdays · part 1 of 2`. Keep every Hanzi inside `<span lang="zh-Hans">`. If the tool that renders the table comes with its own design guidance, this template still wins: don’t restyle it, simplify it, or drop the font.
 
 The Hanzi use a handwriting-style Kaiti in mainland standard forms, so the first shape the learner sees is close to what they will write in a notebook. The font loads from the web, or from the learner’s computer when it is installed there.
 
 ```html
 <section id="mandarinmaxxing-vocab">
-  <h2>Lesson 13 · Shopping and paying · part 1 of 3</h2>
+  <h2>HSK 1 · Lesson 13 · Shopping and paying · part 1 of 3</h2>
   <table>
     <thead><tr><th scope="col">Hanzi</th><th scope="col">Pinyin</th><th scope="col">Meaning</th></tr></thead>
     <tbody><tr><td><span lang="zh-Hans">商店</span></td><td>shāngdiàn</td><td>shop</td></tr></tbody>

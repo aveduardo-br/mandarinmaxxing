@@ -74,7 +74,7 @@ Never generate audio with a tool the learner didn’t choose, and never with a g
 
 ## Lessons and parts
 
-Each situation in the map is one **lesson**, and its map number is the lesson number for good: Lesson 20 is always “At school”, whatever order the learner studies in. A lesson is taught in one or more **parts**, and a part is one sitting. The list the learner sees at setup is the source of truth for the whole course. Never renumber it.
+Each situation in the map is one **lesson**, and its map number is the lesson number for good: in HSK 1, Lesson 20 is always “At school”, whatever order the learner studies in. Numbers restart at 01 in each level, so always name the level with the lesson: HSK 2, Lesson 1. A lesson is taught in one or more **parts**, and a part is one sitting. The list the learner sees at setup is the source of truth for the whole course. Never renumber it.
 
 ## Show the map and agree on the route
 
@@ -125,8 +125,8 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 …one line for every lesson of the level
 
 ## Done
-01.1 | 你好 再见 谢谢
-01.2 | 不客气 对不起 没关系 您 好 没事
+1-01.1 | 你好 再见 谢谢
+1-01.2 | 不客气 对不起 没关系 您 好 没事
 ```
 
 - **Labels** fixes the learner-language words for lesson, part, review, and exercise. Use exactly these in every chat.
@@ -135,13 +135,15 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 - **Next** names the lesson and part to teach next.
 - **To reinforce** holds up to ten words or chunks the learner needed help with in the last part. Replace the line after each part. It can be empty.
 - **Lessons** is the whole level as the learner saw it at setup: map number, name in their language, and number of parts. Write it once and use these names in every chat.
-- **Done** gets one line per completed part, in the order studied: lesson number and part, then the new words taught. This log is how later parts know what an earlier one covered.
+- **Done** gets one line per completed part, in the order studied: level, lesson number and part, then the new words taught, so `2-01.1` is HSK 2, Lesson 1, part 1. The level prefix is for this log only and never appears in a lesson. Read a line without a prefix as the level the course started on. This log is how later parts know what an earlier one covered.
 
 Save quietly: write `course.md` to its place, avoid attaching or presenting the file in the conversation when the tools allow it, and mention saving only when it fails. If the learner asks for a copy in a folder on their computer, save one there as well.
 
 Keep provider credentials outside this file. If the learner asks to keep lesson notes, also save `lessons/lesson-NN-P.md` with that part’s vocabulary table, support words, and chunks, and keep doing so for later parts.
 
-When resuming, read `course.md` and the map. Use the saved **Next** for “next lesson” or “next part.” Add the line to **Done** and advance **Next** after the learner finishes the last exercise and receives feedback, or when they skip it or ask to mark the part as done. Mark the course complete after the last part. Before writing, reread the file. If the course has already advanced past the part this chat is working on, preserve the newer state. Reuse an existing course and only replace it on an explicit request to reset it. A standalone review or extra practice leaves **Next** in place.
+When resuming, read `course.md` and the map. Use the saved **Next** for “next lesson” or “next part.” Add the line to **Done** and advance **Next** after the learner finishes the last exercise and receives feedback, or when they skip it or ask to mark the part as done. Before writing, reread the file. If the course has already advanced past the part this chat is working on, preserve the newer state. Reuse an existing course and only replace it on an explicit request to reset it. A standalone review or extra practice leaves **Next** in place.
+
+**When a level ends.** After the last part of a level, congratulate the learner in one line and offer the next level. If they accept, keep the same `course.md`: update the level in **Syllabus**, replace **Route** and the **Lessons** list with the new level’s, set **Next** to its Lesson 01, part 1, and keep the whole **Done** log, so words from the level just finished keep coming back in the new one. Show the new level’s overview and agree on the route as at the start of a course. If there is no next level, mark the course complete.
 
 If that place holds a `mandarinmaxxing-course.md` from an earlier version, keep teaching from its index and offer once to restart the level on the map.
 
