@@ -1,6 +1,6 @@
 # HSK 4 map
 
-Source: HSK syllabus released 2025-11 (1000 words). Each situation is one lesson, numbered as below: 56 lessons. Parts at paces 3 / 5 / 7: 319 / 172 / 131. Lessons 01–05 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 生1. The list has 重 twice (zhòng, heavy, in lesson 25, and chóng, again, in lesson 27) and 空 twice (kòng, free time, in lesson 11, and kōng, empty, in lesson 31).
+Source: HSK syllabus released 2025-11 (1000 words). Each situation is one lesson, numbered as below: 56 lessons. Parts at paces 3 / 5 / 7: 319 / 173 / 131. Lessons 01–05 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 生1. The list has 重 twice (zhòng, heavy, in lesson 25, and chóng, again, in lesson 27) and 空 twice (kòng, free time, in lesson 11, and kōng, empty, in lesson 31).
 
 ## 01 | jump-start | Say how sure you are
 Split: 1-1-1-1-1-1 / 2-2-2 / 2-2-2
@@ -125,7 +125,7 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 民族 多样
 
 ## 14 | situation | Then, now and next
-Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 3-3-2
+Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
 - 当时 原来 忽然
 - 之前 本来 已
 - 之后 将要 目前
@@ -133,7 +133,7 @@ Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 3-3-2
 - 世纪 末 整
 - 之间 其中 期
 - 之中 前后 以内
-- 此 从此 此次 内
+- 此 从此 此次
 
 ## 15 | situation | Morning and night
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
@@ -357,8 +357,8 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 本科 专业 入学
 - 毕业 毕业生 学院
-- 硕士 博士 研究
-- 研究生 申请 奖学金
+- 硕士 申请 奖学金
+- 研究 研究生 博士 科学
 - 教授 院长 教学
 - 学费 教育 重视
 
@@ -373,9 +373,9 @@ Split: 1-1-1-1 / 2-2 / 2-2
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 单位 部门 负责
 - 加班 任务 按时
-- 出差 安排 计划
+- 出差 安排 办事
+- 管 组 计划
 - 负责人 管理 人员
-- 办事 管 组
 
 ## 44 | situation | Office paperwork
 Split: 1-1-1-1 / 2-2 / 2-2
@@ -386,11 +386,11 @@ Split: 1-1-1-1 / 2-2 / 2-2
 
 ## 45 | situation | Discussing and deciding
 Split: 1-1-1-1-1-1 / 2-1-2-1 / 2-2-2
-- 讨论 提出 建议
+- 讨论 提 建议
 - 看法 反对 表示 交流
 - 想法 考虑 判断 谈
 - 主意 说法 指出
-- 说明 提 重点 对于
+- 提出 说明 重点 对于
 - 提到 相反 情况 坏处
 
 ## 46 | situation | Reporting on a project
@@ -423,14 +423,13 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 进入 抬头 拍
 
 ## 49 | situation | Online life
-Split: 1-1-1-1-1-1-1 / 2-2-1-2 / 2-2-3
+Split: 1-1-1-1-1-1 / 2-2-1-1 / 2-2-2
 - 互联网 信息 技术
 - 网页 查看 图片
 - 视频 播放 暂停
 - 短信 发送 回复 网址
 - 消息 转发 信号 通
-- 线上 线下 活动
-- 科学 科技
+- 线上 线下 活动 科技
 
 ## 50 | situation | Going to a show
 Split: 1-1-1-1 / 2-2 / 2-2
@@ -447,11 +446,12 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 钢琴 艺术 流行
 
 ## 52 | situation | Books and writers
-Split: 1-1-1-1 / 2-2 / 2-2
+Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 小说 作家 著名
 - 杂志 读者 内容
-- 作者 作品 记者
-- 笑话 有趣 日记 猜
+- 作者 作品 有趣
+- 日记 笑话 猜
+- 记者 者
 
 ## 53 | situation | Teams and competitions
 Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
@@ -473,18 +473,18 @@ Split: 1-1-1-1-1 / 2-1-2 / 2-3
 
 ## 55 | situation | Rules and the law
 Split: 1-1-1-1 / 2-2 / 2-2
-- 法律 律师 规定
+- 法 法律 律师
+- 规定 保证 按照
 - 社会 责任 公共
-- 保证 证明 有效
-- 法 正式 按照
+- 证明 有效 正式
 
 ## 56 | situation | Reading a formal notice
 Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
-- 与 由 将
-- 自 无 入
-- 为1 之1 者
-- 用于 高于 共
-- 用来 低于 分为
-- 便于 作为1 有着
-- 叫作 仅 既
-- 仅仅 性 感
+- 将 由 与
+- 自 无 入 内
+- 为1 共 分为
+- 用于 仅 高于
+- 作为1 有着 之1
+- 用来 便于 既
+- 叫作 感
+- 仅仅 性 低于
