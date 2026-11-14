@@ -7,6 +7,8 @@ numbers: `words of the block | one or two sentences`. A line passes when
 - every other word in them was already taught: all lower levels, this level's jump start
   (for a jump-start lesson, only the lessons before it), and this lesson up to this block.
 That is the worst case: a learner who goes straight from the jump start to this lesson.
+A word of this level that was not taught yet also fails when it hides inside the sentence as
+characters the learner knows one by one (国家 read as 国 + 家).
 Whether a sentence sounds natural is for a person to judge."""
 import csv, os, re, sys
 n = int(sys.argv[1]); root = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
@@ -26,12 +28,14 @@ for l in open(path, encoding='utf-8'):
     l = l.strip()
     if l.startswith('## '): num = l[3:5]
     elif '|' in l: w, s = l.split('|', 1); anchors[(num, w.strip())] = s.strip()
+level_words = {w for w in words(n) if len(w) > 1}
 lower = set(EXTRA)
 for m in range(1, n): lower |= words(m)
 jump = {l['num']: {bare(w) for b in l['blocks'] for w in b} for l in lessons if l['jump']}
+SEP = r'[，。？！、：；“”‘’《》（）\s0-9A-Za-z…—·]+'
 def uncovered(text, known):
     bad = []
-    for seg in re.split(r'[，。？！、：；“”‘’《》（）\s0-9A-Za-z…—·]+', text):
+    for seg in re.split(SEP, text):
         ok = [True] + [False] * len(seg)
         for i in range(1, len(seg) + 1):
             ok[i] = any(ok[j] and seg[j:i] in known for j in range(max(0, i - 6), i))
@@ -42,6 +46,19 @@ def uncovered(text, known):
                     if seg[i:i + size] in known: i += size; break
                 else: bad.append(seg[i]); i += 1
     return bad
+TRANSPARENT = {'这个', '那个', '哪个', '不要', '做饭', '不够'}  # plain sums of words taught earlier
+def hidden(text, known):
+    """Words of this level, not taught yet, that the sentence spells out of shorter known words."""
+    found = []
+    for seg in re.split(SEP, text):
+        cuts, i = [0], 0
+        while i < len(seg):
+            i += next((size for size in range(6, 0, -1) if seg[i:i + size] in known), 1); cuts.append(i)
+        for a in range(len(cuts)):
+            for b in range(a + 2, len(cuts)):
+                w = seg[cuts[a]:cuts[b]]
+                if w in level_words and w not in known and w not in TRANSPARENT: found.append(w)
+    return found
 problems = total = 0
 for l in lessons:
     known = set(lower)
@@ -51,6 +68,7 @@ for l in lessons:
         total += 1; known |= {bare(w) for w in b}; key = (l['num'], ' '.join(b)); s = anchors.pop(key, None)
         if s is None: print(f"{l['num']} no anchor: {' '.join(b)}"); problems += 1; continue
         missing = [w for w in b if bare(w) not in s]; bad = uncovered(s, known)
+        bad += hidden(s, known)
         if missing or bad:
             problems += 1
             print(f"{l['num']} {' '.join(b)} | {s}" + (f"  << block word not used: {' '.join(missing)}" if missing else '') + (f"  << not taught yet: {' '.join(bad)}" if bad else ''))
