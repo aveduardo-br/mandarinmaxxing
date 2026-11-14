@@ -69,8 +69,10 @@ Without audio there is nothing to set up. You read the text instead.
 
 ## What it covers
 
-- **HSK 1 is ready.** All 300 words of the level, in 22 lessons. The first seven lessons are a jump start: greetings, saying what you want, saying who you are.
-- **HSK 2 to 6.** The official word lists are included. Their lesson maps aren't written yet, so the skill builds a map for your level when you start it. Hand-checked maps are coming, HSK 2 first.
+- **HSK 1 to 4 are ready.** 2,000 words in 134 lessons: HSK 1 has 300 words in 22 lessons, HSK 2 has 200 in 19, HSK 3 has 500 in 37, and HSK 4 has 1,000 in 56.
+- **Each level opens with a jump start.** In HSK 1 it's greetings, saying what you want, saying who you are. In the later levels it's the connecting words every other lesson uses, such as "because", "already" and "if".
+- **Finish a level and the course moves on to the next.** Words from the level you finished keep coming back.
+- **HSK 5 and 6.** The official word lists are included. Their lesson maps aren't written yet, so the skill builds a map for your level when you start it.
 - **The word list** is the HSK syllabus released in November 2025, levels 1 to 6. Every word of a level appears once in its map.
 
 ## What it doesn't do
@@ -102,12 +104,14 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | `skills/mandarinmaxxing/maps/` | The lesson map for each level |
 | `skills/mandarinmaxxing/syllabus/` | The official word lists, levels 1 to 6 |
 | `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table |
-| `tools/` | Scripts that check a map against the word list and build the ZIP |
+| `qa/anchors/` | One test sentence for every group of words in a map. The skill doesn't read these |
+| `tools/` | Scripts that check the maps and the test sentences, and build the ZIP |
 
 To check a map and build the ZIP locally, run these from the repository root:
 
 ```sh
 python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-1.md
+python3 tools/check_anchors.py 1
 sh tools/build.sh
 ```
 

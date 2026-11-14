@@ -1,6 +1,6 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "mandarinmaxxing",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Learn Mandarin with HSK 3.0 vocabulary reorganized around everyday conversations: the same official words, one situation at a time."
 }
