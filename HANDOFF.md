@@ -21,7 +21,7 @@ Estado da skill na versão 0.3.0 (novembro de 2026) e o que vem depois. Leia int
 
 - `SKILL.md`: setup, mapa, partes, revisão, salvar e retomar.
 - `lesson-format.md`: formato de cada mensagem da aula (título, tabela, correção, leitura, áudio). A skill lê uma vez por chat.
-- `maps/hsk-N.md`: o mapa de um nível. Só o HSK 1 existe.
+- `maps/hsk-N.md`: o mapa de um nível. Existem os do HSK 1 a 4 (os do 2 a 4 ainda não foram publicados, ver abaixo).
 - `syllabus/hsk-1..6.csv`: lista oficial de novembro de 2025.
 - `fonts/`: fonte Kaiti (LXGW WenKai GB Lite) recortada para os 1.940 hanzi do HSK 1 a 6.
 
@@ -31,6 +31,11 @@ Estado da skill na versão 0.3.0 (novembro de 2026) e o que vem depois. Leia int
 - A aula é dada em **partes**. O ritmo (3, 5, 7 ou outro número) conta palavras novas por parte.
 - O mapa agrupa as palavras em blocos de 2 a 4. A linha `Split` de cada aula diz quantos blocos entram em cada parte nos ritmos 3 / 5 / 7.
 - HSK 1: 300 palavras, 22 aulas, 98 blocos. Partes nos ritmos 3 / 5 / 7: 97 / 58 / 42. As aulas 01 a 07 são o jump start.
+- HSK 2: 200 palavras, 18 aulas. Partes: 66 / 37 / 29. Jump start 01 a 03.
+- HSK 3: 500 palavras, 37 aulas. Partes: 168 / 93 / 70. Jump start 01 a 04.
+- HSK 4: 1.000 palavras, 56 aulas. Partes: 318 / 172 / 131. Jump start 01 a 05.
+- A numeração recomeça em 01 a cada nível. Para o aluno, o título sempre leva o nível: "HSK 2 · Aula 1". No registro `Done` do `course.md` a linha leva o prefixo do nível (`2-01.1`).
+- Ao terminar um nível, a skill oferece o seguinte no mesmo `course.md` e mantém o registro `Done`, para as palavras do nível anterior continuarem voltando.
 
 **Uma parte tem quatro etapas**
 
@@ -84,14 +89,15 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 
 ## O que falta
 
-1. **Mapa do HSK 2**, depois o 3. Os níveis 4 a 6 ficam para mais tarde. Sem mapa, a skill monta um na hora a partir da lista oficial, sem revisão humana.
-2. **Site.** Reescrever a copy para esta versão e fazer a página de instalação: os quatro passos e uma seção "Áudio (opcional)", com os nomes reais dos botões.
-3. **Confirmar com uma conta gratuita do ElevenLabs** que o conector funciona. Os testes foram feitos numa conta Creator.
-4. **Formulação sobre a prova**, ainda em aberto no `messaging.md`.
+1. **Publicar os mapas do HSK 2 a 4.** Estão na branch `hsk-maps-2-4`, sem versão nova. Passaram no `check_map.py`, no `qa_map.py`, numa revisão independente por nível e num ensaio de 16 partes em que cada frase foi conferida por script contra as palavras já ensinadas. Falta o teste com aluno de verdade. Para publicar: subir a versão em `plugin.json`, atualizar `release-notes.md` e a seção "What it covers" do README, e juntar no `main`.
+2. **Mapas do HSK 5 e 6.** Sem mapa, a skill monta um na hora a partir da lista oficial, sem revisão humana.
+3. **Site.** Reescrever a copy para esta versão e fazer a página de instalação: os quatro passos e uma seção "Áudio (opcional)", com os nomes reais dos botões.
+4. **Confirmar com uma conta gratuita do ElevenLabs** que o conector funciona. Os testes foram feitos numa conta Creator.
+5. **Formulação sobre a prova**, ainda em aberto no `messaging.md`.
 
 ## Como fazer o mapa de um nível
 
-O mapa do HSK 1 (`skills/mandarinmaxxing/maps/hsk-1.md`) é o modelo. O do HSK 2 segue o mesmo formato, com as 200 palavras de `syllabus/hsk-2.csv`.
+O mapa do HSK 1 (`skills/mandarinmaxxing/maps/hsk-1.md`) é o modelo. Os outros níveis seguem o mesmo formato, com as palavras de `syllabus/hsk-N.csv`.
 
 **Formato do arquivo**
 
@@ -111,18 +117,22 @@ O mapa do HSK 1 (`skills/mandarinmaxxing/maps/hsk-1.md`) é o modelo. O do HSK 2
 - **Palavra de apoio é exceção**, nunca requisito, e nunca se inventa um chunk para justificar uma.
 - Não precisa ser perfeito. O Eduardo prefere fechar um mapa bom e melhorar com o uso.
 
-**Perguntas em aberto para o HSK 2**
+**O que os mapas do HSK 2 a 4 ensinaram**
 
-- O HSK 2 precisa de jump start próprio, ou começa direto nas situações, já que o aluno vem do HSK 1?
-- As situações do HSK 2 continuam as do HSK 1 (por exemplo, "Compras" parte 2) ou são novas?
-- A numeração das aulas recomeça em 01 a cada nível.
+- **Cada nível tem jump start curto**, com as palavras de ligação dentro de aulas com tema (dar opinião, explicar por quê). Gramática central vai para lá mesmo que caiba numa situação: 比 e 得 no HSK 2, 把 e 被 no HSK 3.
+- **A palavra simples vem antes da composta** quando as duas estão na mesma aula (考 antes de 考试). Entre aulas de ordem livre não dá para garantir.
+- **Uma palavra de cada família por bloco.** Sinônimos, antônimos e séries (cores, pontos cardeais, 高温 / 低温 / 降温) ficam em blocos diferentes.
+- **A lista oficial repete grafias** com sentido e pronúncia diferentes: 过 no HSK 2, 得 no HSK 3, 重 e 空 no HSK 4. Cada uma fica em uma aula, e o cabeçalho do mapa diz quais.
+- **No máximo quatro partes por aula no ritmo 5.** Aula maior que isso é dividida em duas situações.
+- **Sufixos e palavras presas** (子, 员, 性, 感, 者) vão depois das palavras que os contêm, para o aluno reconhecer o padrão.
+- **Números de aula só mudam antes de publicar.** Depois de publicado, o número é para sempre.
 
 **Passo a passo**
 
-1. Ler `syllabus/hsk-2.csv` e propor ao Eduardo a lista de situações, com as palavras de cada uma, antes de montar blocos.
+1. Ler `syllabus/hsk-N.csv` e montar a lista de situações com as palavras de cada uma. O Eduardo não lê hanzi: mostre sempre o significado ao lado.
 2. Montar os blocos e escrever o arquivo.
-3. Rodar `python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-2.md`. Ele confere que cada palavra oficial aparece uma vez, que os blocos têm de 2 a 4 palavras, e aponta blocos só com substantivos, numerais ou classificadores, que costumam não formar frase.
-4. Rodar `python3 tools/split_map.py skills/mandarinmaxxing/maps/hsk-2.md` para escrever as linhas `Split`, e atualizar o total de partes no cabeçalho.
+3. Rodar `python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-N.md`. Ele confere que cada palavra oficial aparece uma vez, que os blocos têm de 2 a 4 palavras, e aponta blocos só com substantivos, numerais ou classificadores, que costumam não formar frase.
+4. Rodar `python3 tools/split_map.py skills/mandarinmaxxing/maps/hsk-N.md` para escrever as linhas `Split` e atualizar o número de aulas e o total de partes no cabeçalho. Depois, `python3 tools/qa_map.py` no mesmo arquivo: ele lista o tamanho das partes em cada ritmo, palavras parecidas no mesmo bloco e compostas antes da simples.
 5. Pedir a um revisor independente (um subagente que não viu o mapa nascer) para apontar blocos fracos e aulas sem tema.
 6. Testar duas ou três aulas de verdade com o Eduardo antes de publicar.
 7. Subir a versão em `plugin.json`, atualizar `release-notes.md` e o README (seção "What it covers"). No site, atualizar o FAQ "Which levels" e decidir se a seção 02 mostra os dois níveis.
@@ -132,7 +142,3 @@ O mapa do HSK 1 (`skills/mandarinmaxxing/maps/hsk-1.md`) é o modelo. O do HSK 2
 - Não inventar palavras nem números do HSK. Conferir contra o syllabus.
 - Não prometer fluência, aprovação nem avaliação de pronúncia.
 - Não prometer no site o que a skill ainda não faz.
-
-## Mensagem para abrir o chat do mapa do HSK 2
-
-> Quero fazer o mapa do HSK 2 da skill mandarinmaxxing. O repositório é `aveduardo-br/mandarinmaxxing`. Leia o `HANDOFF.md`, principalmente a seção "Como fazer o mapa de um nível", o `skills/mandarinmaxxing/SKILL.md` e o mapa do HSK 1 em `skills/mandarinmaxxing/maps/hsk-1.md`. Comece me propondo a lista de situações do HSK 2 com as palavras de cada uma, antes de montar os blocos. Converse comigo em português.

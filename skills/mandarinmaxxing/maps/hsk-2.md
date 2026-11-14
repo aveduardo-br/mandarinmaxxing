@@ -1,6 +1,6 @@
 # HSK 2 map
 
-Source: HSK syllabus released 2025-11 (200 words). Each situation is one lesson, numbered as below: 18 lessons. Parts at paces 3 / 5 / 7: 66 / 37 / 30. Lessons 01–03 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 别1. The list has 过 twice: the particle guo in lesson 03 and the verb guò in lesson 08.
+Source: HSK syllabus released 2025-11 (200 words). Each situation is one lesson, numbered as below: 18 lessons. Parts at paces 3 / 5 / 7: 66 / 37 / 29. Lessons 01–03 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 别1. The list has 过 twice: the particle guo in lesson 03 and the verb guò in lesson 08.
 
 ## 01 | jump-start | Ask for help and say why
 Split: 1-1-1-1 / 2-2 / 2-2
@@ -16,12 +16,12 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 但是 准备 等1
 - 虽然 但
 
-## 03 | jump-start | Say what you've done
+## 03 | jump-start | Say what you've done and how well
 Split: 1-1-1-1 / 2-2 / 2-2
 - 过 次 已经
 - 开始 完 时
-- 每 周 经常
-- 有时 最
+- 每 周 经常 有时
+- 得 比 最
 
 ## 04 | situation | Introduce people
 Split: 1-1-1 / 1-2 / 3
@@ -31,9 +31,9 @@ Split: 1-1-1 / 1-2 / 3
 
 ## 05 | situation | Describe someone
 Split: 1-1-1-1 / 2-2 / 2-2
-- 个子 高 比
-- 男孩儿 眼睛 这么
-- 女孩儿 笑 从小 地
+- 个子 高 这么
+- 男孩儿 眼睛 笑
+- 女孩儿 从小 地
 - 小孩儿 小时候 那么
 
 ## 06 | situation | At the café and the restaurant
@@ -100,9 +100,9 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 考试 词 意思
 
 ## 15 | situation | Playing sports
-Split: 1-1-1-1 / 2-2 / 2-2
+Split: 1-1-1-1 / 2-2 / 4
 - 运动 打1 球
-- 踢 足球 得
+- 踢 足球
 - 篮球 跑 游
 - 跑步 游泳
 

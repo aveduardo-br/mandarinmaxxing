@@ -33,9 +33,9 @@ for s_i, s in enumerate(sits):
 out = []
 for idx, l in enumerate(lines):
     if l.startswith('Source:'):
-        l = re.sub(r'Lessons at paces? .*?\. |Lessons at targets .*?\. ', '', l)
-        l = l.replace('(300 words). ', f'(300 words). Lessons at paces 3 / 5 / 7: {totals[0]} / {totals[1]} / {totals[2]}. ')
+        l = re.sub(r'below: \d+ lessons\.', f'below: {len(sits)} lessons.', l)
+        l = re.sub(r'Parts at paces 3 / 5 / 7: [\d /]+\.', f'Parts at paces 3 / 5 / 7: {totals[0]} / {totals[1]} / {totals[2]}.', l)
     out.append(l)
     if idx in inserts: out.append(inserts[idx])
 open(path, 'w', encoding='utf-8').write('\n'.join(out))
-print('lessons at 3/5/7:', totals)
+print('parts at paces 3 / 5 / 7:', totals)
