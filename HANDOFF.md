@@ -123,7 +123,7 @@ O mapa do HSK 1 (`skills/mandarinmaxxing/maps/hsk-1.md`) é o modelo. Os outros 
 - `tools/check_map.py`: cada palavra oficial uma vez, blocos de 2 a 4.
 - `tools/qa_map.py`: tamanho das partes em cada ritmo, parecidas no mesmo bloco, composta antes da simples.
 - `qa/anchors/hsk-N.md` e `tools/check_anchors.py`: uma frase-âncora por bloco (660 blocos nos quatro níveis), usando todas as palavras do bloco e só vocabulário já ensinado no pior caso (jump start mais a própria aula). A skill não lê esses arquivos; eles são a prova de que o bloco funciona e ficam fora do ZIP.
-- Duas revisões independentes por nível. A segunda foi bloco por bloco, sem teto, com a frase ao lado: reescreveu cerca de um terço das frases e reagrupou blocos em 50 aulas.
+- Duas revisões independentes por nível. A segunda foi bloco por bloco, sem teto, com a frase ao lado: reescreveu mais de 40% das frases e reagrupou blocos em cerca de 50 aulas.
 - Quatro ensaios da skill com aluno simulado: curso novo no HSK 2, retomada num segundo chat e fim do HSK 1 com passagem para o HSK 2 (duas vezes). Os buracos que apareceram nas instruções foram corrigidos no `SKILL.md` e no `lesson-format.md`.
 
 **O que os mapas do HSK 2 a 4 ensinaram**
