@@ -1,6 +1,6 @@
 # HSK 4 map
 
-Source: HSK syllabus released 2025-11 (1000 words). Each situation is one lesson, numbered as below: 56 lessons. Parts at paces 3 / 5 / 7: 319 / 173 / 131. Lessons 01–05 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 生1. The list has 重 twice (zhòng, heavy, in lesson 25, and chóng, again, in lesson 27) and 空 twice (kòng, free time, in lesson 11, and kōng, empty, in lesson 31).
+Source: HSK syllabus released 2025-11 (1000 words). Each situation is one lesson, numbered as below: 56 lessons. Parts at paces 3 / 5 / 7: 319 / 173 / 130. Lessons 01–05 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 生1. The list has 重 twice (zhòng, heavy, in lesson 25, and chóng, again, in lesson 27) and 空 twice (kòng, free time, in lesson 11, and kōng, empty, in lesson 31).
 
 ## 01 | jump-start | Say how sure you are
 Split: 1-1-1-1-1-1 / 2-2-2 / 2-2-2
@@ -179,7 +179,7 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 食堂 午餐 份
 - 早餐 结账 付
 - 快餐 现金 支付
-- 葡萄酒 白酒 倒
+- 白酒 倒
 
 ## 21 | situation | Snacks and drinks
 Split: 1-1-1-1-1 / 2-2-1 / 3-2
@@ -187,17 +187,17 @@ Split: 1-1-1-1-1 / 2-2-1 / 3-2
 - 巧克力 袋子 克
 - 果汁 葡萄 千克
 - 汽水 酸奶 剩 光
-- 茶叶 食品 两2 不够
+- 茶叶 食品 两2 葡萄酒
 
 ## 22 | situation | Shopping around
-Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
+Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-3-2
 - 逛 市场 顾客
 - 价格 打折 值
 - 降价 商品 购买
+- 货 牌 价钱
 - 牌子 质量 值得
-- 高价 货 牌
-- 购物 零钱 够
-- 价钱 低价 零花钱
+- 购物 低价 零钱 够
+- 高价 零花钱 不够
 
 ## 23 | situation | Shopping online
 Split: 1-1-1-1 / 2-2 / 2-2
@@ -206,7 +206,7 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 取 上门 密码
 - 地址 收费 存
 
-## 24 | situation | Good and bad service
+## 24 | situation | Dealing with people
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 态度 不满 麻烦
 - 提醒 顺便 等到
@@ -216,44 +216,44 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 熟悉 适合 相互
 
 ## 25 | situation | Comparing two things
-Split: 1-1-1-1-1 / 2-2-1 / 3-2
-- 不如 区别 特点
-- 相同 普通 少见
-- 粗 轻 巧
-- 细 重 假
-- 真正 共同 正好 准
+Split: 1-1-1-1-1 / 1-2-2 / 2-3
+- 不如 区别 特点 真正
+- 相同 巧 普通
+- 粗 轻 少见
+- 细 重 共同
+- 假 准 正好
 
 ## 26 | situation | Renting a place
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 租 房东 房租
-- 出租 客厅 家具
+- 出租 客厅 家具 费
 - 窗 亮 院子
 - 钥匙 掉 敲
-- 修 弄 厕所 费
+- 修 弄 厕所
 - 修理 师傅 窗户
 
 ## 27 | situation | Following instructions
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
-- 使用 说明书 仔细
+- 使用 说明书 仔细 留
 - 按 推 顺序
 - 压 装 详细
-- 重新 重 直接
-- 留 定 停止
+- 重 直接
+- 重新 定 停止
 - 吸 烟 响 发出
 
 ## 28 | situation | At the gym
-Split: 1-1-1-1-1 / 2-1-2 / 2-1-2
+Split: 1-1-1-1-1 / 2-2-1 / 2-3
 - 健身 教练 力气
 - 健身房 汗 流 身
-- 体重 减 量 步
-- 胳膊 抬 举 秒
-- 肚子 皮肤 全身
+- 体重 减 步
+- 胳膊 举 秒
+- 抬 肚子 皮肤 全身
 
 ## 29 | situation | Seeing a doctor
-Split: 1-1-1-1-1 / 1-2-2 / 2-3
+Split: 1-1-1-1-1 / 2-1-2 / 2-3
 - 咳 痛 鼻子
 - 大夫 咳嗽 头痛
-- 护士 打针 体温
+- 护士 量 体温 打针
 - 受伤 血 严重
 - 体检 正常 减轻
 
@@ -297,17 +297,17 @@ Split: 1-1-1-1 / 2-2 / 2-2
 
 ## 34 | situation | Filling in a form
 Split: 1-1-1 / 1-2 / 3
-- 表 填写 项
+- 表 填写 项 男士
 - 性别 男性 国籍
-- 女性 男士 身份证
+- 女性 身份证
 
 ## 35 | situation | Planning a trip
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 旅行 订 旅馆 入住
 - 导游 参观 景点
-- 景区 游玩 美景
+- 景区 游玩 度假
 - 风景 美丽 吸引
-- 度假 背包 背
+- 背 背包 美景
 - 景色 印象 留下 眼前
 
 ## 36 | situation | Out in nature
