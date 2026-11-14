@@ -8,7 +8,7 @@ Formats for the parts of a lesson. Read this once per chat, before the first les
 - **Title once.** When a part starts with the vocabulary table, the table’s heading is the title and no title line goes above it. When a part starts with review, the title line opens the review and the table’s heading repeats it later. With the Markdown fallback, the title goes in a bold line above the table.
 - **No commentary on the plan.** State the title and teach. Leave out remarks about how the lesson is divided, why a part has the number of words it has, or what the map says, unless the learner asks. One short line before the table, such as “Here are the new words”, is fine.
 - **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Take them from the **Labels** line and the **Lessons** list in `course.md`.
-- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate as plain text under it, with a blank line between them. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” once per sitting, before its first prompt.
+- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate as plain text under it, with a blank line between them. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” before the first review prompt and again before the first exercise prompt, and nowhere else.
 
 ## Write Mandarin the same way everywhere
 
@@ -50,6 +50,8 @@ The Hanzi use a handwriting-style Kaiti in mainland standard forms, so the first
   #mandarinmaxxing-vocab span[lang="zh-Hans"] { font-family: "Mandarinmaxxing Kaiti", "Kaiti SC", "STKaiti", "KaiTi", serif; font-size: 32px; line-height: 1.2; font-synthesis: none; }
 </style>
 ```
+
+Under the table, add a one-line usage note only for a word whose use the meaning cell can’t show: two words that translate the same way (帮 and 帮忙), or a word that needs a pattern (让 + person + verb).
 
 If the chat can’t embed HTML, use a selectable Markdown table in the message. Enlarge Hanzi through inline math where rendering and selection are confirmed, for example `$\LARGE\text{公交车}$` in Codex desktop. Use bold Hanzi when the interface supports standard text formatting only.
 

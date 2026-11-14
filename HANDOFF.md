@@ -31,9 +31,9 @@ Estado da skill na versão 0.3.0 (novembro de 2026) e o que vem depois. Leia int
 - A aula é dada em **partes**. O ritmo (3, 5, 7 ou outro número) conta palavras novas por parte.
 - O mapa agrupa as palavras em blocos de 2 a 4. A linha `Split` de cada aula diz quantos blocos entram em cada parte nos ritmos 3 / 5 / 7.
 - HSK 1: 300 palavras, 22 aulas, 98 blocos. Partes nos ritmos 3 / 5 / 7: 97 / 58 / 42. As aulas 01 a 07 são o jump start.
-- HSK 2: 200 palavras, 18 aulas. Partes: 66 / 37 / 29. Jump start 01 a 03.
-- HSK 3: 500 palavras, 37 aulas. Partes: 168 / 93 / 70. Jump start 01 a 04.
-- HSK 4: 1.000 palavras, 56 aulas. Partes: 318 / 172 / 131. Jump start 01 a 05.
+- HSK 2: 200 palavras, 19 aulas. Partes: 66 / 38 / 29. Jump start 01 a 04.
+- HSK 3: 500 palavras, 37 aulas. Partes: 168 / 94 / 69. Jump start 01 a 04.
+- HSK 4: 1.000 palavras, 56 aulas. Partes: 319 / 173 / 130. Jump start 01 a 05.
 - A numeração recomeça em 01 a cada nível. Para o aluno, o título sempre leva o nível: "HSK 2 · Aula 1". No registro `Done` do `course.md` a linha leva o prefixo do nível (`2-01.1`).
 - Ao terminar um nível, a skill oferece o seguinte no mesmo `course.md` e mantém o registro `Done`, para as palavras do nível anterior continuarem voltando.
 
@@ -73,9 +73,10 @@ Estado da skill na versão 0.3.0 (novembro de 2026) e o que vem depois. Leia int
 ## Como testar
 
 1. `python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-1.md` confere o mapa contra a lista oficial.
-2. `sh tools/build.sh` gera `download/mandarinmaxxing-claude.zip`.
-3. No Claude: **Customize → Skills → + → Create skill → Upload a skill**. Criar um projeto vazio com a linha de instruções do README e escrever "start mandarinmaxxing".
-4. Fazer uma parte inteira, abrir um segundo chat no mesmo projeto e pedir a próxima.
+2. `python3 tools/check_anchors.py 1` (e 2, 3, 4) confere as frases-âncora contra o mapa.
+3. `sh tools/build.sh` gera `download/mandarinmaxxing-claude.zip`.
+4. No Claude: **Customize → Skills → + → Create skill → Upload a skill**. Criar um projeto vazio com a linha de instruções do README e escrever "start mandarinmaxxing".
+5. Fazer uma parte inteira, abrir um segundo chat no mesmo projeto e pedir a próxima.
 
 Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivinhar por capturas de tela.
 
@@ -89,7 +90,7 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 
 ## O que falta
 
-1. **Publicar os mapas do HSK 2 a 4.** Estão na branch `hsk-maps-2-4`, sem versão nova. Passaram no `check_map.py`, no `qa_map.py`, numa revisão independente por nível e num ensaio de 16 partes em que cada frase foi conferida por script contra as palavras já ensinadas. Falta o teste com aluno de verdade. Para publicar: subir a versão em `plugin.json`, atualizar `release-notes.md` e a seção "What it covers" do README, e juntar no `main`.
+1. **Publicar os mapas do HSK 2 a 4 e o HSK 1 revisado.** Estão na branch `hsk-maps-2-4`, sem versão nova. O que já foi feito está em "Como os mapas foram conferidos", abaixo. Falta o teste com aluno de verdade. Para publicar: subir a versão em `plugin.json`, atualizar `release-notes.md` e a seção "What it covers" do README, e juntar no `main`. O HSK 1 mudou só dentro dos blocos: números, nomes e totais de partes (97 / 58 / 42) são os mesmos da versão publicada.
 2. **Mapas do HSK 5 e 6.** Sem mapa, a skill monta um na hora a partir da lista oficial, sem revisão humana.
 3. **Site.** Reescrever a copy para esta versão e fazer a página de instalação: os quatro passos e uma seção "Áudio (opcional)", com os nomes reais dos botões.
 4. **Confirmar com uma conta gratuita do ElevenLabs** que o conector funciona. Os testes foram feitos numa conta Creator.
@@ -117,23 +118,33 @@ O mapa do HSK 1 (`skills/mandarinmaxxing/maps/hsk-1.md`) é o modelo. Os outros 
 - **Palavra de apoio é exceção**, nunca requisito, e nunca se inventa um chunk para justificar uma.
 - Não precisa ser perfeito. O Eduardo prefere fechar um mapa bom e melhorar com o uso.
 
+**Como os mapas foram conferidos**
+
+- `tools/check_map.py`: cada palavra oficial uma vez, blocos de 2 a 4.
+- `tools/qa_map.py`: tamanho das partes em cada ritmo, parecidas no mesmo bloco, composta antes da simples.
+- `qa/anchors/hsk-N.md` e `tools/check_anchors.py`: uma frase-âncora por bloco (660 blocos nos quatro níveis), usando todas as palavras do bloco e só vocabulário já ensinado no pior caso (jump start mais a própria aula). A skill não lê esses arquivos; eles são a prova de que o bloco funciona e ficam fora do ZIP.
+- Duas revisões independentes por nível. A segunda foi bloco por bloco, sem teto, com a frase ao lado: reescreveu cerca de um terço das frases e reagrupou blocos em 50 aulas.
+- Quatro ensaios da skill com aluno simulado: curso novo no HSK 2, retomada num segundo chat e fim do HSK 1 com passagem para o HSK 2 (duas vezes). Os buracos que apareceram nas instruções foram corrigidos no `SKILL.md` e no `lesson-format.md`.
+
 **O que os mapas do HSK 2 a 4 ensinaram**
 
-- **Cada nível tem jump start curto**, com as palavras de ligação dentro de aulas com tema (dar opinião, explicar por quê). Gramática central vai para lá mesmo que caiba numa situação: 比 e 得 no HSK 2, 把 e 被 no HSK 3.
+- **Cada nível tem jump start curto**, com as palavras de ligação dentro de aulas com tema (dar opinião, explicar por quê). Gramática central e palavras de uso geral vão para lá mesmo que caibam numa situação: 比, 得, 从, 着, 正, 地, 快 e 慢 no HSK 2; 把, 被 e 用 no HSK 3. O sinal de que uma palavra pede jump start é ela fazer falta nas frases-âncora de várias aulas.
 - **A palavra simples vem antes da composta** quando as duas estão na mesma aula (考 antes de 考试). Entre aulas de ordem livre não dá para garantir.
 - **Uma palavra de cada família por bloco.** Sinônimos, antônimos e séries (cores, pontos cardeais, 高温 / 低温 / 降温) ficam em blocos diferentes.
 - **A lista oficial repete grafias** com sentido e pronúncia diferentes: 过 no HSK 2, 得 no HSK 3, 重 e 空 no HSK 4. Cada uma fica em uma aula, e o cabeçalho do mapa diz quais.
 - **No máximo quatro partes por aula no ritmo 5.** Aula maior que isso é dividida em duas situações.
 - **Sufixos e palavras presas** (子, 员, 性, 感, 者) vão depois das palavras que os contêm, para o aluno reconhecer o padrão.
-- **Números de aula só mudam antes de publicar.** Depois de publicado, o número é para sempre.
+- **Números de aula só mudam antes de publicar.** Depois de publicado, o número é para sempre. No HSK 1, já publicado, as correções trocaram palavras de bloco sem mudar o tamanho dos blocos, para os totais de partes não mudarem.
+- **Frase que passa no script não é frase natural.** O conferidor só garante o vocabulário. Quem julga se a frase soa como chinês de verdade é um revisor que não a escreveu.
+- **Faltas da lista oficial:** não há 切 (cortar), 杯 (copo, como classificador) nem sobrenomes ou nomes de cidade nos níveis 1 a 4. São os casos típicos de palavra de apoio.
 
 **Passo a passo**
 
 1. Ler `syllabus/hsk-N.csv` e montar a lista de situações com as palavras de cada uma. O Eduardo não lê hanzi: mostre sempre o significado ao lado.
 2. Montar os blocos e escrever o arquivo.
 3. Rodar `python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-N.md`. Ele confere que cada palavra oficial aparece uma vez, que os blocos têm de 2 a 4 palavras, e aponta blocos só com substantivos, numerais ou classificadores, que costumam não formar frase.
-4. Rodar `python3 tools/split_map.py skills/mandarinmaxxing/maps/hsk-N.md` para escrever as linhas `Split` e atualizar o número de aulas e o total de partes no cabeçalho. Depois, `python3 tools/qa_map.py` no mesmo arquivo: ele lista o tamanho das partes em cada ritmo, palavras parecidas no mesmo bloco e compostas antes da simples.
-5. Pedir a um revisor independente (um subagente que não viu o mapa nascer) para apontar blocos fracos e aulas sem tema.
+4. Rodar `python3 tools/split_map.py skills/mandarinmaxxing/maps/hsk-N.md` para escrever as linhas `Split` e atualizar o número de aulas e o total de partes no cabeçalho. Depois, `python3 tools/qa_map.py` no mesmo arquivo: ele lista o tamanho das partes em cada ritmo, palavras parecidas no mesmo bloco e compostas antes da simples. Por fim, escrever `qa/anchors/hsk-N.md` (uma frase por bloco) e rodar `python3 tools/check_anchors.py N`; bloco sem frase natural é bloco a refazer.
+5. Pedir a revisores independentes (subagentes que não viram o mapa nascer), em trechos de umas 20 aulas e sem teto de correções, para ler bloco por bloco com a frase ao lado. Cada um trabalha numa cópia e só entrega com os três conferidores passando.
 6. Testar duas ou três aulas de verdade com o Eduardo antes de publicar.
 7. Subir a versão em `plugin.json`, atualizar `release-notes.md` e o README (seção "What it covers"). No site, atualizar o FAQ "Which levels" e decidir se a seção 02 mostra os dois níveis.
 
