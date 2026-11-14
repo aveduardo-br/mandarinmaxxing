@@ -34,7 +34,7 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 几乎 只 特别
 - 越 极 总
 
-## 05 | situation | Catch up with a friend
+## 05 | situation | Catching up with a friend
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 好久 不见 见面
 - 聊 听说 结婚
@@ -52,7 +52,7 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 邻居 客人 热情
 - 女人 爱人 一样
 
-## 07 | situation | Describe a friend
+## 07 | situation | Describing a friend
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 身高 米 矮
 - 头发 短 可爱
@@ -60,7 +60,7 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 耳朵 瘦 努力
 - 嘴 聪明 认真
 
-## 08 | situation | Say how you feel
+## 08 | situation | Saying how you feel
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 感到 开心 心里
 - 生气 急 为
@@ -68,7 +68,7 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 着急 放心 怕
 - 害怕 奇怪 满意
 
-## 09 | situation | Say when it was
+## 09 | situation | Saying when it was
 Split: 1-1-1-1 / 2-2 / 2-2
 - 前年 过去2 久
 - 前天 刚 不久
@@ -83,7 +83,7 @@ Split: 1-1-1-2 / 2-3 / 2-3
 - 放假 节
 - 节日 休假
 
-## 11 | situation | Eat out
+## 11 | situation | Eating out
 Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
 - 饿 菜单 请客
 - 尝 甜 糖
@@ -93,21 +93,21 @@ Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
 - 酒 瓶子 子
 - 一共 啤酒
 
-## 12 | situation | Buy food
+## 12 | situation | Buying food
 Split: 1-1-1-1 / 2-2 / 2-2
 - 新鲜 牛 斤
 - 羊 公斤 好多
 - 西瓜 毛 差
 - 鸡 香蕉 角
 
-## 13 | situation | Eat at home
+## 13 | situation | Eating at home
 Split: 1-1-1-1 / 2-2 / 4
 - 冰箱 放 蛋糕
 - 外卖 方便
 - 方便面 冰 加
 - 冰激凌 咱们
 
-## 14 | situation | Try on clothes
+## 14 | situation | Trying on clothes
 Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
 - 试 衬衫 合适
 - 裙子 大小 换
@@ -117,27 +117,27 @@ Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
 - 大衣 种 怎样
 - 短裤 选择
 
-## 15 | situation | Move house
+## 15 | situation | Moving house
 Split: 1-1-1 / 2-1 / 3
 - 搬 沙发 屋子
 - 搬家 房子 小区
 - 灯 关 电 洗衣机
 
-## 16 | situation | Clean up and get ready
+## 16 | situation | Cleaning up and getting ready
 Split: 1-1-1-1 / 2-2 / 2-2
 - 扫 地 脏
 - 打扫 干 半天
 - 起 刷 牙
 - 洗澡 牙刷
 
-## 17 | situation | Stay healthy
+## 17 | situation | Staying healthy
 Split: 1-1-1-1 / 2-2 / 2-2
 - 感冒 发烧 注意
 - 检查 住院 腿
 - 出院 健康 病人
 - 脚 锻炼 坚持
 
-## 18 | situation | Lose your phone or card
+## 18 | situation | Losing your phone or card
 Split: 1-1-1 / 1-2 / 3
 - 丢 卡 以为
 - 发现 关机 银行卡
@@ -149,7 +149,7 @@ Split: 1-1-1 / 1-2 / 3
 - 邮箱 号码 收到
 - 信 封 有关
 
-## 20 | situation | Talk about the seasons
+## 20 | situation | Talking about the seasons
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 季节 春天 开花
 - 夏天 太阳 伞
@@ -174,7 +174,7 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 相机 拍照 清楚
 - 照片 张
 
-## 23 | situation | Find the way
+## 23 | situation | Finding the way
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 地图 查 附近
 - 街 向 路口
@@ -193,7 +193,7 @@ Split: 1-1-1-2-2 / 2-2-3 / 3-4
 - 东南 发展
 - 西北 市
 
-## 25 | situation | Catch a train or a plane
+## 25 | situation | Catching a train or a plane
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 高铁 出发 检票
 - 起飞 晚点 马上
@@ -207,7 +207,7 @@ Split: 1-1-1 / 1-2 / 3
 - 卫生间 干净 电梯
 - 楼梯 空调 安静
 
-## 27 | situation | Read signs and notices
+## 27 | situation | Reading signs and notices
 Split: 1-2 / 3 / 3
 - 以上 常用 中
 - 以下 常见
@@ -220,7 +220,7 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 校长 讲 校园
 - 女生 放学 名单 黑板
 
-## 29 | situation | Do your homework
+## 29 | situation | Doing your homework
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 作业 完成 页
 - 复习 课文 遍
@@ -229,7 +229,7 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 笔记 记 铅笔
 - 对话 句子 笔记本 纸
 
-## 30 | situation | Talk about your grades
+## 30 | situation | Talking about your grades
 Split: 1-1-1-1 / 2-2 / 2-2
 - 数学 难 成绩
 - 历史 容易 提高
@@ -242,7 +242,7 @@ Split: 1-1-1 / 1-2 / 3
 - 还 字典 认得
 - 故事 电子书 懂得
 
-## 32 | situation | Study abroad
+## 32 | situation | Studying abroad
 Split: 1-1-1-1 / 2-2 / 2-2
 - 留学 语言 机会
 - 留学生 了解 文化
@@ -256,7 +256,7 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 会议 参加 结束
 - 开会 工作日 主要
 
-## 34 | situation | Solve a problem
+## 34 | situation | Solving a problem
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 办 要求 帮助
 - 怎么办 办法 解决

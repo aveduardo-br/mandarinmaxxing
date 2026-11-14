@@ -59,7 +59,7 @@ Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 3-2-3
 - 父子 母女 相比
 - 父女 母子 家长
 
-## 07 | situation | Tell your life story
+## 07 | situation | Telling your life story
 Split: 1-1-1-1-1-1-1 / 2-2-2-1 / 2-3-2
 - 童年 回忆 难忘
 - 儿童 生1 生命
@@ -69,7 +69,7 @@ Split: 1-1-1-1-1-1-1 / 2-2-2-1 / 2-3-2
 - 中年 经历 日子
 - 老年 活 一生 美好
 
-## 08 | situation | Talk about personality
+## 08 | situation | Talking about personality
 Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
 - 性格 活泼 害羞
 - 脾气 冷静 讨厌
@@ -80,7 +80,7 @@ Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
 - 骄傲 自信 优秀
 - 笨 积极 客气
 
-## 09 | situation | Share good news
+## 09 | situation | Sharing good news
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 心情 愉快 轻松
 - 激动 羡慕 感觉
@@ -88,7 +88,7 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 感谢 支持 内心
 - 吃惊 兴奋 棒
 
-## 10 | situation | Talk through a bad day
+## 10 | situation | Talking through a bad day
 Split: 1-1-1-1-1-1-1 / 2-1-2-2 / 2-2-3
 - 伤心 失望 心
 - 后悔 可惜 错过 失去
@@ -150,7 +150,7 @@ Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 环保 塑料 节约
 - 浪费 纸巾 干
 
-## 17 | situation | Dress for the day
+## 17 | situation | Dressing for the day
 Split: 1-1-1-1-1 / 2-2-1 / 3-2
 - 外套 厚 暖和
 - 毛衣 脱 挂
@@ -158,14 +158,14 @@ Split: 1-1-1-1-1 / 2-2-1 / 3-2
 - 皮鞋 袜子 破
 - 镜子 理发 样子 美
 
-## 18 | situation | Talk about flavors
+## 18 | situation | Talking about flavors
 Split: 1-1-1-1 / 2-2 / 2-2
 - 味道 辣 咸
 - 汤 盐 酸
 - 苦 闻 味
 - 鲜 美食 小吃
 
-## 19 | situation | Cook at home
+## 19 | situation | Cooking at home
 Split: 1-1-1-1 / 2-2 / 2-2
 - 厨房 烤 熟
 - 刀 西红柿 生2 片
@@ -188,7 +188,7 @@ Split: 1-1-1-1-1 / 2-2-1 / 3-2
 - 汽水 酸奶 剩 光
 - 茶叶 食品 两2 不够
 
-## 22 | situation | Shop around
+## 22 | situation | Shopping around
 Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
 - 逛 市场 顾客
 - 价格 打折 值
@@ -198,7 +198,7 @@ Split: 1-1-1-1-1-1-1 / 1-2-2-2 / 2-2-3
 - 购物 零钱 够
 - 价钱 低价 零花钱
 
-## 23 | situation | Shop online
+## 23 | situation | Shopping online
 Split: 1-1-1-1 / 2-2 / 2-2
 - 网购 快递 寄
 - 扫码 会员 免费
@@ -214,7 +214,7 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 故意 随便 表现
 - 熟悉 适合 相互
 
-## 25 | situation | Compare two things
+## 25 | situation | Comparing two things
 Split: 1-1-1-1-1 / 2-2-1 / 3-2
 - 不如 区别 特点
 - 相同 普通 少见
@@ -222,7 +222,7 @@ Split: 1-1-1-1-1 / 2-2-1 / 3-2
 - 细 重 假
 - 真正 共同 正好 准
 
-## 26 | situation | Rent a place
+## 26 | situation | Renting a place
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 租 房东 房租
 - 出租 客厅 家具
@@ -231,7 +231,7 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 修 弄 厕所 费
 - 修理 师傅 窗户
 
-## 27 | situation | Follow instructions
+## 27 | situation | Following instructions
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 使用 说明书 仔细
 - 按 推 顺序
@@ -248,7 +248,7 @@ Split: 1-1-1-1-1 / 2-1-2 / 2-1-2
 - 胳膊 抬 举 秒
 - 肚子 皮肤 全身
 
-## 29 | situation | See a doctor
+## 29 | situation | Seeing a doctor
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 咳 痛 鼻子
 - 大夫 咳嗽 头痛
@@ -294,13 +294,13 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 旅客 出行 证
 - 签证 使馆 办理 证件
 
-## 34 | situation | Fill in a form
+## 34 | situation | Filling in a form
 Split: 1-1-1 / 1-2 / 3
 - 表 填写 项
 - 性别 男性 国籍
 - 女性 男士 身份证
 
-## 35 | situation | Plan a trip
+## 35 | situation | Planning a trip
 Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 旅行 订 旅馆 入住
 - 导游 参观 景点
@@ -320,7 +320,7 @@ Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
 - 老虎 熊 大自然 死
 - 火 着火
 
-## 37 | situation | Check the forecast
+## 37 | situation | Checking the forecast
 Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 气温 降 零下
 - 气候 降温 适应
@@ -336,7 +336,7 @@ Split: 1-1-1-1-1 / 2-2-1 / 3-2
 - 课程 自学 基础
 - 知识 丰富 积累 好处
 
-## 39 | situation | Learn a language
+## 39 | situation | Learning a language
 Split: 1-1-1-1-1 / 2-1-2 / 3-2
 - 口语 流利 普通话
 - 听力 阅读 语法
@@ -361,7 +361,7 @@ Split: 1-1-1-1-1-1 / 2-2-2 / 3-3
 - 教授 院长 教学
 - 学费 教育 重视
 
-## 42 | situation | Look for a job
+## 42 | situation | Looking for a job
 Split: 1-1-1-1 / 2-2 / 2-2
 - 招聘 条件 符合
 - 应聘 面试 能力
@@ -383,7 +383,7 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 表格 资料 查找
 - 小组 总结 通知
 
-## 45 | situation | Discuss and decide
+## 45 | situation | Discussing and deciding
 Split: 1-1-1-1-1-1 / 2-1-2-1 / 2-2-2
 - 讨论 提出 建议
 - 看法 反对 表示 交流
@@ -392,7 +392,7 @@ Split: 1-1-1-1-1-1 / 2-1-2-1 / 2-2-2
 - 说明 提 重点 对于
 - 提到 相反 情况 坏处
 
-## 46 | situation | Report on a project
+## 46 | situation | Reporting on a project
 Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 3-2-3
 - 调查 进行 过程
 - 方式 效果 产生
@@ -414,7 +414,7 @@ Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
 - 广告 降低 费用
 - 多数 少量 普遍
 
-## 48 | situation | Host an event
+## 48 | situation | Hosting an event
 Split: 1-1-1-1 / 2-2 / 2-2
 - 举办 大厅 场
 - 举行 取消 顺利
@@ -431,7 +431,7 @@ Split: 1-1-1-1-1-1-1 / 2-2-1-2 / 2-2-3
 - 线上 线下 活动
 - 科学 科技
 
-## 50 | situation | Go to a show
+## 50 | situation | Going to a show
 Split: 1-1-1-1 / 2-2 / 2-2
 - 话剧 演员 演
 - 剧院 演出 精彩
@@ -477,7 +477,7 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 保证 证明 有效
 - 法 正式 按照
 
-## 56 | situation | Read a formal notice
+## 56 | situation | Reading a formal notice
 Split: 1-1-1-1-1-1-1-1 / 2-2-2-2 / 2-3-3
 - 与 由 将
 - 自 无 入

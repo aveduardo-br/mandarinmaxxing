@@ -23,13 +23,13 @@ Split: 1-1-1-1 / 2-2 / 2-2
 - 每 周 经常 有时
 - 得 比 最
 
-## 04 | situation | Introduce people
+## 04 | situation | Introducing people
 Split: 1-1-1 / 1-2 / 3
 - 介绍 位 丈夫
 - 姓 自己 爷爷
 - 姓名 妻子 奶奶
 
-## 05 | situation | Describe someone
+## 05 | situation | Describing someone
 Split: 1-1-1-1 / 2-2 / 2-2
 - 个子 高 这么
 - 男孩儿 眼睛 笑
