@@ -73,5 +73,6 @@ Leia também os `[NÃO SEI]` nas transcrições: cada um é ou um furo da skill 
 
 - O aluno não esquece: ele tem o caderno e anota o que quiser. O teste mostra se a skill ensina e traz de volta o que deveria, não quanto uma pessoa reteria.
 - Os códigos vêm com espaço entre as palavras, o que facilita para o aluno (em chinês não há espaço).
+- A cifra troca só as palavras: a ordem e a gramática continuam sendo do mandarim, e as palavras gramaticais (了, 的, 吗, classificadores) também viram códigos. O modelo que faz o aluno conhece a gramática do chinês e pode perceber que é chinês disfarçado. Por isso um acerto de uma regra que a skill nunca mostrou não prova que ela ensinou; um erro ou um `[NÃO SEI]` é o sinal confiável.
 - O ambiente não é o app do Claude: tabela em Markdown e áudio como texto.
 - Custo esperado: perto de 150 mil tokens por parte só para o professor, mais o aluno. As 19 partes devem passar de 3 milhões.
