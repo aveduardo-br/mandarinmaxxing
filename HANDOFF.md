@@ -92,6 +92,8 @@ A meta é 1 hora por dia (decisão do Eduardo: menos que isso não dá progresso
 
 Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivinhar por capturas de tela.
 
+**Benchmark.** `qa/benchmark/` tem os cenários, o roteiro das simulações, o roteiro do juiz e o script de correção. Rodar antes de cada versão nova: um agente por cenário e rodada (`runner.md`), `check_run.py` em cada pasta, e um juiz independente por cenário (`judge.md`). A rodada 1 (0.5.0) está em `qa/benchmark/results/round-1/`, com o resumo no `README.md` de lá. Cada bug novo vira um cenário.
+
 ## Ao publicar
 
 - Publicar é automático: mude a versão em `plugin.json`, atualize o `release-notes.md` e envie para o `main`. A automação em `.github/workflows/release.yml` confere os mapas, gera o ZIP e cria a release com a tag. O README aponta para `releases/latest`.
