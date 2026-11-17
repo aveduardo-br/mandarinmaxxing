@@ -92,3 +92,9 @@ if __name__ == '__main__':
     s9, n9 = course(k9, f'Lesson 28, part 1 of {p28}', route='01–56', level=4)
     open(os.path.join(d, 's9-course.md'), 'w', encoding='utf-8').write(s9)
     print('s8 done lines', n8, '| s9 done lines', n9)
+    # S10: HSK 1, Lesson 04 parts 1-2 done; next is 04.3, which teaches 中文 and 汉语 together
+    l1 = lessons()
+    k10 = sum(len(l['split']) for l in l1 if l['n'] <= 3) + 2
+    s10, n10 = course(k10, 'Lesson 04, part 3 of 3', reinforce='什么')
+    open(os.path.join(d, 's10-course.md'), 'w', encoding='utf-8').write(s10)
+    print('s10 done lines', n10)

@@ -60,3 +60,11 @@ Each scenario gives the starting `course.md` (or none), the student's first mess
 - Teach the whole part. Decline anything optional.
 - Stop after the tutor's closing message.
 - What it tests: an upper-intermediate part with a large vocabulary, older words from 30 and 60 parts back, natural Mandarin in long sentences.
+
+## s10-synonyms
+
+- Starting `course.md`: `scenarios/s10-course.md` (HSK 1, up to Lesson 4 part 2; next is Lesson 4 part 3, which teaches 明天 会 中文 昨天 汉语).
+- First message: `próxima aula`
+- The student always prefers 中文 over 汉语 when both fit. Teach the whole part. Decline anything optional.
+- Stop after the tutor's closing message.
+- What it tests (from the ciphered-student run): prompts that hold words the answer leaves out, hints and scripts with unmet words, a neglected synonym (汉语), answers accepted without the new word.
