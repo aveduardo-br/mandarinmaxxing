@@ -2,14 +2,15 @@ The same HSK words, reorganized around everyday conversations.
 
 **What's new**
 
-- Hand-checked maps for HSK 2, 3 and 4: 200 words in 19 lessons, 500 words in 37 lessons, and 1,000 words in 56 lessons.
-- Each level opens with a short jump start: the connecting words every later lesson uses, taught inside situations such as asking for help or giving your opinion.
-- When you finish a level, the course moves on to the next one, and words from the level you finished keep coming back.
-- Lesson titles now show the level, such as "HSK 2 · Lesson 1".
-- The HSK 1 map was revised. Lessons and their numbers are the same; inside each lesson, a short word now comes before the longer word built from it, and look-alike words are taught apart.
-- Every part ends by telling you what comes next.
-- The closing text now has you write the new words again, not only swap older ones.
-- Every group of words in every map was tested with a sentence that uses only words taught so far.
+- A part is now built for about an hour a day, the time real progress takes. When a part ends early, as in the first lessons, the skill offers the next one right away. Ask for a shorter session when you have less time.
+- The review asks one full sentence for each word of your last part, five to ten in all.
+- Three rounds of five exercises: the phrases first, then complete sentences, then short sequences like telling your day or writing a message. Every new word comes up in at least three sentences, and you can ask for one more round.
+- Useful phrases show how they break down when the parts are words you can use right away, like 你好 = 你 + 好.
+- Listening with audio is now a short dictation plus a short story told by one person. Without audio, the reading is one person telling their day.
+- Older words come back by turn, from up to 60 parts back, so the start of a level keeps coming back until its end. Words you needed help with stay on your list until you get them right.
+- When you finish a lesson, you can play out its situation in a short role-play.
+- Ask any time for an extra reading with only the words you know, or for flashcards of a part's words, ready to import into Anki.
+- Jumping to a later lesson before finishing the jump start now asks whether to count its words as known.
 
 **Install**
 
