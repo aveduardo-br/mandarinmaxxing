@@ -1,6 +1,8 @@
 # Handoff: skill mandarinmaxxing
 
-Estado da skill na versão 0.4.0 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
+Estado da skill na versão 0.5.0 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
+
+**Situação da 0.5.0:** pronta na branch `v0.5-review`, com o pull request aberto para a `main`. Ainda não foi testada por uma pessoa. Fazer o merge publica a release, porque o `plugin.json` já está em 0.5.0. Antes do merge, testar uma sessão inteira (ver "Como testar").
 
 - **Converse com o Eduardo em português.** O `SKILL.md`, o `lesson-format.md` e o README são em inglês.
 - **Mostre opções antes de mudanças grandes** e teste com aulas reais. O Eduardo valida vendo.
@@ -50,7 +52,7 @@ A meta é 1 hora por dia (decisão do Eduardo: menos que isso não dá progresso
 **Revisão**
 
 - Sem fila nem pontuação. A parte anterior volta na revisão, e palavras de 3, 7, 14, 30 e 60 linhas atrás no registro `Done` voltam dentro dos exercícios, no máximo seis por parte.
-- As palavras antigas são escolhidas por rodízio (a linha de 3 atrás dá a 1ª palavra, a de 7 atrás a 2ª…), não pelo que encaixa mais fácil. Simulação nos mapas, ritmo 5: com a regra antiga, 13 a 18% das palavras voltavam depois da revisão da parte seguinte; com a nova, 70 a 94%. Repetição espaçada de verdade para cada palavra não cabe numa aula; para isso a skill entrega cartões para o Anki quando o aluno pede.
+- As palavras antigas são escolhidas por rodízio (a linha de 3 atrás dá a 1ª palavra, a de 7 atrás a 2ª…), não pelo que encaixa mais fácil. Simulação nos mapas, ritmo 5: com a regra antiga, 13 a 18% das palavras voltavam depois da revisão da parte seguinte; com a nova, de 68 a 80% (`tools/review_coverage.py`). Repetição espaçada de verdade para cada palavra não cabe numa aula; para isso a skill entrega cartões para o Anki quando o aluno pede.
 - `To reinforce` guarda até dez palavras ou chunks em que o aluno precisou de ajuda. O item só sai quando o aluno acerta sem ajuda.
 - Ao terminar uma aula com duas ou mais partes, a skill oferece um fechamento: role-play da situação, de quatro a seis falas, sem mudar `Next`.
 
@@ -74,6 +76,11 @@ A meta é 1 hora por dia (decisão do Eduardo: menos que isso não dá progresso
 - **Correção em texto simples.** Cartões e cores ficaram pesados. Hanzi em negrito, pinyin em itálico, significado normal. Nunca riscar nem italicizar hanzi. A resposta do aluno aparece em citação só na correção.
 - **A lista do setup é a fonte da verdade.** Os números das aulas nunca mudam, e a skill não comenta como a aula foi dividida.
 - **Sem caderno de aulas por padrão.** A skill só salva `lessons/lesson-NN-P.md` se o aluno pedir.
+- **Uma hora por dia é o padrão** (0.5.0). Decisão do Eduardo: menos que isso não dá progresso de verdade, e a skill não promete aprender em 20 minutos. A conta bate com os livros: o HSK Standard Course 1 sugere de 30 a 34 horas-aula para 150 palavras, e o HSK 1 novo tem 300 palavras em 58 partes no ritmo 5. A meta é da sessão, não da parte: parte curta oferece a próxima.
+- **Abrir com 你好, com decomposição** (0.5.0). Os dois livros oficiais abrem com cumprimentos. A ideia de começar por 我/你 foi descartada porque mudaria a numeração e os totais do HSK 1. A decomposição do chunk (你好 = 你 + 好) entrega o "eu, você" desde a aula 1. Ela só aparece quando as peças servem na hora; 没关系 não é decomposto nem como curiosidade.
+- **Três baterias com nível pelo vocabulário** (0.5.0). "Frase complexa" quer dizer a mais longa que as palavras já vistas permitem, nunca palavras novas. A frase "acordei às 7 e fui trabalhar no hospital" só fica possível depois da aula 11 do HSK 1.
+- **Ditado antes da narração** (0.5.0). Na aula 1 o áudio tinha 5 segundos, porque três palavras não fazem uma narração. O ditado funciona com pouco vocabulário. No teste, uma narração saiu como meia conversa (uma atendente falando com um cliente subentendido); a regra agora proíbe falar com alguém ou citar alguém.
+- **Revisão espaçada dentro da aula tem limite** (0.5.0). Simulação nos quatro mapas: para cada palavra voltar duas vezes, cada parte precisaria de 10 a 14 palavras antigas. O rodízio com no máximo 6 por parte faz de 68 a 80% das palavras voltarem pelo menos uma vez, contra 13 a 18% na regra antiga. A repetição espaçada de cada palavra fica com o Anki, e a skill entrega os cartões quando o aluno pede. Para refazer a conta depois de mudar um mapa ou a regra: `python3 tools/review_coverage.py skills/mandarinmaxxing/maps/hsk-N.md 5`.
 
 ## Como testar
 
@@ -81,7 +88,7 @@ A meta é 1 hora por dia (decisão do Eduardo: menos que isso não dá progresso
 2. `python3 tools/check_anchors.py 1` (e 2, 3, 4) confere as frases-âncora contra o mapa.
 3. `sh tools/build.sh` gera `download/mandarinmaxxing-claude.zip`.
 4. No Claude: **Customize → Skills → + → Create skill → Upload a skill**. Criar um projeto vazio com a linha de instruções do README e escrever "start mandarinmaxxing".
-5. Fazer uma parte inteira, abrir um segundo chat no mesmo projeto e pedir a próxima.
+5. Fazer uma parte inteira (cerca de 1 hora), abrir um segundo chat no mesmo projeto e pedir a próxima. Para ver o rodízio de palavras antigas sem fazer 15 partes, colocar no projeto um `course.md` já adiantado, com umas 20 linhas no `Done`.
 
 Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivinhar por capturas de tela.
 
@@ -95,12 +102,13 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 
 ## O que falta
 
-1. **Testar com aluno de verdade.** A versão 0.4.0 publicou os mapas do HSK 2 a 4 e o HSK 1 revisado. O que foi conferido está em "Como os mapas foram conferidos", abaixo; nada disso substitui uma pessoa fazendo as aulas. O HSK 1 mudou só dentro dos blocos: números, nomes e totais de partes (97 / 58 / 42) são os mesmos da 0.3.0.
-2. **Mapas do HSK 5 e 6.** Sem mapa, a skill monta um na hora a partir da lista oficial, sem revisão humana.
-3. **Site.** Reescrever a copy para esta versão e fazer a página de instalação: os quatro passos e uma seção "Áudio (opcional)", com os nomes reais dos botões.
-4. **Confirmar com uma conta gratuita do ElevenLabs** que o conector funciona. Os testes foram feitos numa conta Creator.
-5. **Formulação sobre a prova**, ainda em aberto no `messaging.md`.
-6. **Site: 1 hora por dia.** A seção "Your course" fala em uma aula por dia e calcula datas com isso. Na 0.5 a unidade é uma parte de cerca de 1 hora por dia; ajustar a copy e o FAQ.
+1. **Testar a 0.5.0 e fazer o merge.** Pontos a olhar: se as frases da bateria 3 parecem frases de verdade, se a sessão chega perto de 1 hora, se 15 frases mais a revisão cansam (o primeiro corte seria a bateria 3 virar opcional no jump start), e se o ditado da aula 1 funciona. Depois, um benchmark da skill (formato ainda a definir com o Eduardo).
+2. **Testar com aluno de verdade.** A versão 0.4.0 publicou os mapas do HSK 2 a 4 e o HSK 1 revisado. O que foi conferido está em "Como os mapas foram conferidos", abaixo; nada disso substitui uma pessoa fazendo as aulas. O HSK 1 mudou só dentro dos blocos: números, nomes e totais de partes (97 / 58 / 42) são os mesmos da 0.3.0.
+3. **Mapas do HSK 5 e 6.** Sem mapa, a skill monta um na hora a partir da lista oficial, sem revisão humana.
+4. **Site.** Reescrever a copy para esta versão e fazer a página de instalação: os quatro passos e uma seção "Áudio (opcional)", com os nomes reais dos botões.
+5. **Confirmar com uma conta gratuita do ElevenLabs** que o conector funciona. Os testes foram feitos numa conta Creator.
+6. **Formulação sobre a prova**, ainda em aberto no `messaging.md`.
+7. **Site: 1 hora por dia.** A seção "Your course" fala em uma aula por dia e calcula datas com isso. Na 0.5 a unidade é uma parte de cerca de 1 hora por dia; ajustar a copy e o FAQ.
 
 ## Como fazer o mapa de um nível
 
@@ -153,6 +161,19 @@ O mapa do HSK 1 (`skills/mandarinmaxxing/maps/hsk-1.md`) é o modelo. Os outros 
 5. Pedir a revisores independentes (subagentes que não viram o mapa nascer), em trechos de umas 20 aulas e sem teto de correções, para ler bloco por bloco com a frase ao lado. Cada um trabalha numa cópia e só entrega com os três conferidores passando.
 6. Testar duas ou três aulas de verdade com o Eduardo antes de publicar.
 7. Subir a versão em `plugin.json`, atualizar `release-notes.md` e o README (seção "What it covers"). No site, atualizar o FAQ "Which levels" e decidir se a seção 02 mostra os dois níveis.
+
+## Outros projetos parecidos (pesquisa de novembro de 2026)
+
+Ninguém faz o que a skill faz: a lista oficial inteira de cada nível, cada palavra uma vez, reorganizada num mapa fixo e conferido, com a aula dada no chat. O que existe:
+
+- **New HSK Course (o livro oficial do HSK 3.0).** Também é situacional, com "dramas" de personagens em cenas reais. O HSK 1 tem 15 lições com as 300 palavras. Por isso o site não deve dizer que o livro é uma lista solta: a diferença é o jeito, reorganizado do nosso jeito (aulas curtas, blocos que formam frase, ritmo do aluno, grátis e melhorando aos poucos). O contraste "lista solta" ainda vale para o HSK Standard Course antigo.
+- **Skills de agente (ClawHub/OpenClaw, para Claude Code):** chinese-tutor (conteúdo real empurrado em horários, sem lista do HSK, revisão de 1, 3, 7 e 14 aulas atrás, e propaganda de um app e de aulas no TikTok), Mandarin Chinese Daily Drill (sessão gerada na hora, sem progresso salvo), hsk-learning (controle de domínio e quizzes), xuezh (motor com CLI local) e chinese-learning-assistant (fluência para HSK 4 ou mais). Nenhuma funciona só subindo um ZIP no app do Claude.
+- **Chunking Chinese.** É o mais próximo na ideia de chunks: combina chunks falando em voz alta, por nível do HSK e contexto. É pago (US$ 30 por mês) e não serve para iniciante.
+- **Mandarin Temple** (curso completo de HSK com vozes de IA, pago), **LearnChinese.ai** (projeto pessoal que segue a ordem do livro), listas e PDFs "por tema" (categorias como cores e animais, que é a aula de categoria que o Eduardo rejeitou), e GPTs e prompts genéricos sem mapa nem progresso.
+- **O que pegamos deles na 0.5.0:** a lista do que o aluno pode pedir (comandos do chinese-tutor), o fechamento da aula (o prompt russo "Laoshi" faz um diálogo a cada sete aulas) e a ponte para o Anki.
+- **O que ficou de fora:** avaliação de fala (Chunking Chinese) e ajuste automático de nível (chinese-tutor). A fala exigiria reconhecimento de voz.
+
+A prova: a lista da skill (syllabus de novembro de 2025) vale para as provas regulares do HSK 1 a 6 a partir de 13 de dezembro de 2026. Até 7 de novembro de 2026, as provas usavam o HSK 2.0.
 
 ## Regras
 

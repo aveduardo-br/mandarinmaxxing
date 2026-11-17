@@ -45,12 +45,14 @@ If you start the skill outside a project, it shows you these same steps and offe
 The first message asks three things. They are suggestions, and you can change any of them later by asking.
 
 - **Level.** New to Mandarin? Start with HSK 1, lesson 1. If you've studied before, name the level or the lesson you want to pick up from.
-- **Pace.** How many new words each time you study: 3 is light, 5 is the recommended pace, 7 is intense. Any other number works too.
+- **Pace.** How many new words each part brings: 3 is light, 5 is the recommended pace, 7 is intense. Any other number works too. A part is built for about an hour; when one ends early, as in the first lessons, the skill offers the next part right away.
 - **Audio.** Optional. See below.
 
 Then the skill shows you the full list of lessons for your level and how long it should take. You can move lessons around before you start, for example to study food before phone calls.
 
 The skill writes in the language you write in. Ask if you want another one.
+
+**What you can ask for.** At any time: review a lesson, change the pace, a shorter session, one more round of exercises, an extra reading with only the words you know, flashcards of a part's words ready to import into Anki, or notes of each part.
 
 **Keyboard.** You answer in Mandarin from the first lesson. You can start by typing pinyin. When you want the next step, turn on your device's Chinese keyboard (Pinyin, Simplified): you type the sound and pick the character.
 
@@ -71,6 +73,7 @@ Without audio there is nothing to set up. You read the text instead.
 ## What it covers
 
 - **HSK 1 to 4 are ready.** 2,000 words in 134 lessons: HSK 1 has 300 words in 22 lessons, HSK 2 has 200 in 19, HSK 3 has 500 in 37, and HSK 4 has 1,000 in 56.
+- **How long it takes.** At the recommended pace, HSK 1 is 58 parts, about two months at one part (an hour) a day. HSK 2 is 38 parts, HSK 3 is 94, and HSK 4 is 173. The skill shows the estimate for your own pace when you start.
 - **Each level opens with a jump start.** In HSK 1 it's greetings, saying what you want, saying who you are. In the later levels it's the connecting words every other lesson uses, such as "because", "already" and "if".
 - **Finish a level and the course moves on to the next.** Words from the level you finished keep coming back.
 - **HSK 5 and 6.** The official word lists are included. Their lesson maps aren't written yet, so the skill builds a map for your level when you start it.
