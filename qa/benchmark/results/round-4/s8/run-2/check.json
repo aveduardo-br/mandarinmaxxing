@@ -1,0 +1,86 @@
+{
+ "run": "qa/benchmark/results/round-4/s8/run-2",
+ "turns": 50,
+ "tutor_turns": 25,
+ "new_done_lines": [
+  "2-05.1"
+ ],
+ "taught_words": 5,
+ "next": "Lesson 05, part 2 of 2",
+ "to_reinforce": "也很喜欢",
+ "known_jump_start": false,
+ "review_counter": [
+  6
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 21,
+ "unknown_hanzi_outside_table": {
+  "王": "**姓**: o sobrenome vem logo depois: 我姓王.",
+  "李": "Meu sobrenome é Wang. E o seu? (troque o sobrenome: 王, 李, 张)",
+  "张": "Meu sobrenome é Wang. E o seu? (troque o sobrenome: 王, 李, 张)"
+ },
+ "unknown_hanzi_in_expected_answers": [
+  "张",
+  "李",
+  "王"
+ ],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [
+  "可是",
+  "天下"
+ ],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 5,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "narration",
+   "chars": 54,
+   "addresses_listener": false
+  },
+  {
+   "kind": "narration",
+   "chars": 97,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 14.5,
+  "1": 8.2,
+  "2": 14.4,
+  "3": 22.0
+ },
+ "older_words": {
+  "scheduled": [
+   "过",
+   "帮"
+  ],
+  "used": [
+   "过",
+   "帮"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

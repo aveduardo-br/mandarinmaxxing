@@ -2,14 +2,12 @@ The same HSK words, reorganized around everyday conversations.
 
 **What's new**
 
-- The review at the start of a part now matches where you are in the course, not the part it reviews. Jump to a later lesson and the first questions are as long as the rest, instead of starting with "Thank you! — You're welcome!".
-- After jumping past an unfinished jump start, the first review uses the jump start's words, in full sentences set near the new lesson.
-- The first round always changes something in each phrase instead of asking for it as listed.
-- Dictation sentences are at the level of the second round.
-- Sentences in a sequence have to make sense together, and corrections are checked for natural Mandarin, not for closeness to one answer.
-- Words that translate the same as another word you know (以为 and 觉得) get a context that only one fits.
+Small fixes from a benchmark of HSK 2 and HSK 4 lessons:
 
-Tested with three benchmark rounds of simulated lessons, including HSK 3 (`qa/benchmark/results/`).
+- No two exercises in a part share the same sentence frame with only a name or a time swapped, including the review.
+- The first two rounds are never shorter than the review, so the level holds through the whole part.
+- Sentences use spoken Mandarin, not written-register verbs.
+- The listening step tells a new scene instead of retelling an exercise.
 
 **Install**
 

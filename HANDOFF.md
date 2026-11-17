@@ -1,8 +1,8 @@
 # Handoff: skill mandarinmaxxing
 
-Estado da skill na versão 0.5.2 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
+Estado da skill na versão 0.5.3 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
 
-**Situação:** 0.5.2 publicada. Passou por três rodadas de benchmark com aulas simuladas (`qa/benchmark/results/`), incluindo HSK 3, mas ainda não por uma pessoa fazendo um curso inteiro. O Eduardo testou a 0.5.1 e achou a revisão simples demais depois de pular para uma aula adiantada; a 0.5.2 corrige isso (rodada 3). Os ajustes finais de cada versão entraram sem nova rodada, e o README de cada rodada diz quais.
+**Situação:** 0.5.3 publicada. Passou por quatro rodadas de benchmark com aulas simuladas (`qa/benchmark/results/`), cobrindo HSK 1 a 4, mas ainda não por uma pessoa fazendo um curso inteiro. O Eduardo testou a 0.5.1 e achou a revisão simples demais depois de pular para uma aula adiantada; a 0.5.2 corrige isso (rodada 3). Os ajustes finais de cada versão entraram sem nova rodada, e o README de cada rodada diz quais.
 
 - **Converse com o Eduardo em português.** O `SKILL.md`, o `lesson-format.md` e o README são em inglês.
 - **Mostre opções antes de mudanças grandes** e teste com aulas reais. O Eduardo valida vendo.
@@ -104,7 +104,7 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 
 ## O que falta
 
-1. **Testar a 0.5.2 com uma pessoa.** Pontos a olhar: se as frases da bateria 3 parecem frases de verdade, se a sessão chega perto de 1 hora, se 15 frases mais a revisão cansam (o primeiro corte seria a bateria 3 virar opcional no jump start), e se o ditado da aula 1 funciona. Se mexer na skill de novo, rodar o benchmark nos cenários afetados (não precisa de rodada completa). Ainda não há cenário do HSK 2 nem do HSK 4.
+1. **Testar a 0.5.3 com uma pessoa.** Pontos a olhar: se as frases da bateria 3 parecem frases de verdade, se a sessão chega perto de 1 hora, se 15 frases mais a revisão cansam (o primeiro corte seria a bateria 3 virar opcional no jump start), e se o ditado da aula 1 funciona. Se mexer na skill de novo, rodar o benchmark nos cenários afetados (não precisa de rodada completa). Há cenários dos HSK 1 a 4; o HSK 2 foi o mais irregular (33 e 28), então vale olhar primeiro se mexer em algo.
 2. **Testar com aluno de verdade.** A versão 0.4.0 publicou os mapas do HSK 2 a 4 e o HSK 1 revisado. O que foi conferido está em "Como os mapas foram conferidos", abaixo; nada disso substitui uma pessoa fazendo as aulas. O HSK 1 mudou só dentro dos blocos: números, nomes e totais de partes (97 / 58 / 42) são os mesmos da 0.3.0.
 3. **Mapas do HSK 5 e 6.** Sem mapa, a skill monta um na hora a partir da lista oficial, sem revisão humana.
 4. **Site.** Reescrever a copy para esta versão e fazer a página de instalação: os quatro passos e uma seção "Áudio (opcional)", com os nomes reais dos botões.

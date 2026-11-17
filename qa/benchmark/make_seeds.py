@@ -31,7 +31,9 @@ def lessons(pace_idx=1, path=None):
 
 def course(done_until, next_line, route='01–22', extra='', reinforce='', level=1):
     ls = lessons(path=f'skills/mandarinmaxxing/maps/hsk-{level}.md')
-    names = PT if level == 1 else PT3
+    if level == 1: names = PT
+    elif level == 3: names = PT3
+    else: names = [n for n in (line.split('|')[2].strip() for line in open(f'skills/mandarinmaxxing/maps/hsk-{level}.md', encoding='utf-8') if line.startswith('## '))]
     done = []
     for l in ls:
         i = 0
@@ -77,3 +79,16 @@ if __name__ == '__main__':
     s7, n7 = course(k7, f'Lesson 07, part 1 of {p7}', route='01–37', level=3)
     open(os.path.join(d, 's7-course.md'), 'w', encoding='utf-8').write(s7)
     print('s6 done lines', n6, '| s7 done lines', n7)
+    # S8: HSK 2 right after its jump start (lessons 01-04 done); next is 05.1. HSK 1 counts as met.
+    l2 = lessons(path='skills/mandarinmaxxing/maps/hsk-2.md')
+    k8 = sum(len(l['split']) for l in l2 if l['n'] <= 4)
+    p5 = len(next(l for l in l2 if l['n'] == 5)['split'])
+    s8, n8 = course(k8, f'Lesson 05, part 1 of {p5}', route='01–19', level=2)
+    open(os.path.join(d, 's8-course.md'), 'w', encoding='utf-8').write(s8)
+    # S9: middle of HSK 4 (lessons 01-27 done); next is 28.1. HSK 1-3 count as met.
+    l4 = lessons(path='skills/mandarinmaxxing/maps/hsk-4.md')
+    k9 = sum(len(l['split']) for l in l4 if l['n'] <= 27)
+    p28 = len(next(l for l in l4 if l['n'] == 28)['split'])
+    s9, n9 = course(k9, f'Lesson 28, part 1 of {p28}', route='01–56', level=4)
+    open(os.path.join(d, 's9-course.md'), 'w', encoding='utf-8').write(s9)
+    print('s8 done lines', n8, '| s9 done lines', n9)

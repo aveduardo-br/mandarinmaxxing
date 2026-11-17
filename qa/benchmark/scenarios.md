@@ -44,3 +44,19 @@ Each scenario gives the starting `course.md` (or none), the student's first mess
 - Teach the first part of Lesson 30. Decline anything optional.
 - Stop after the tutor's closing message.
 - What it tests: a jump inside a level whose jump start is done (no jump start question), a review at the course's level although the last part reviewed is from Lesson 6, and prompts with no words from Lessons 7 to 29.
+
+## s8-hsk2-after-jump-start
+
+- Starting `course.md`: `scenarios/s8-course.md` (HSK 2, jump start done: Lessons 1 to 4; next is Lesson 5 part 1). HSK 1 counts as met.
+- First message: `próxima aula`
+- Teach the whole part. Decline anything optional.
+- Stop after the tutor's closing message.
+- What it tests: the first situation after a jump start that carries grammar (比, 得, 从, 着, 正, 地), HSK 1 and 2 words together, the level of the review.
+
+## s9-hsk4-mid
+
+- Starting `course.md`: `scenarios/s9-course.md` (HSK 4, Lessons 1 to 27 done; next is Lesson 28 part 1). HSK 1 to 3 count as met.
+- First message: `próxima aula`
+- Teach the whole part. Decline anything optional.
+- Stop after the tutor's closing message.
+- What it tests: an upper-intermediate part with a large vocabulary, older words from 30 and 60 parts back, natural Mandarin in long sentences.

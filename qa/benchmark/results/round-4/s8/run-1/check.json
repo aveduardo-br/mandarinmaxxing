@@ -1,0 +1,75 @@
+{
+ "run": "qa/benchmark/results/round-4/s8/run-1",
+ "turns": 50,
+ "tutor_turns": 25,
+ "new_done_lines": [
+  "2-05.1"
+ ],
+ "taught_words": 5,
+ "next": "Lesson 05, part 2 of 2",
+ "to_reinforce": "这位老师, 晚饭",
+ "known_jump_start": false,
+ "review_counter": [
+  6
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 21,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 5,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 50,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 90,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 12.8,
+  "1": 12.0,
+  "2": 17.8,
+  "3": 26.4
+ },
+ "older_words": {
+  "scheduled": [
+   "过",
+   "帮"
+  ],
+  "used": [
+   "过",
+   "帮"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

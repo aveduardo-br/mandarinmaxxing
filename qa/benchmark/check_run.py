@@ -98,6 +98,17 @@ def main(run, start):
             expected.append((i, m.group(1).strip()))
     exp_leaks = sorted({ch for _, e in expected for ch in HAN.findall(e) if ch not in known_chars})
 
+    # unmet multi-character words: words of the syllabus (any level) that appear in an expected
+    # answer but aren't known; catches 可是 when 可 and 是 are each known
+    syllabus_words = set()
+    for n_ in range(1, 7):
+        for line in list(open(f'skills/mandarinmaxxing/syllabus/hsk-{n_}.csv', encoding='utf-8'))[1:]:
+            w = re.sub(r'\d+$', '', line.split(',')[1])
+            if len(w) >= 2:
+                syllabus_words.add(w)
+    unmet_words = sorted({w for _, e in expected for w in syllabus_words if w in e.split('(')[0] and w not in known
+                          and not any(w in k for k in known if len(k) > len(w))})
+
     # counters
     review = [(int(a), int(b)) for a, b in re.findall(r'\*\*(?:Revisão|Review)\s+(\d+)\s+(?:de|of)\s+(\d+)\*\*', '\n'.join(tutor))]
     rounds = {}
@@ -170,6 +181,7 @@ def main(run, start):
         'expected_answers': len(expected),
         'unknown_hanzi_outside_table': leaks,
         'unknown_hanzi_in_expected_answers': exp_leaks,
+        'unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)': unmet_words,
         'student_nao_sei': sum(s.count('NÃO SEI') for s in student),
         'new_word_coverage_min': min(coverage.values()) if coverage else None,
         'new_words_under_3': [w for w, c in coverage.items() if c < 3],

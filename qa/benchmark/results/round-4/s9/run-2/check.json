@@ -1,0 +1,87 @@
+{
+ "run": "qa/benchmark/results/round-4/s9/run-2",
+ "turns": 52,
+ "tutor_turns": 26,
+ "new_done_lines": [
+  "4-28.1"
+ ],
+ "taught_words": 7,
+ "next": "Lesson 28, part 2 of 3",
+ "to_reinforce": "搬完家",
+ "known_jump_start": false,
+ "review_counter": [
+  7
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 22,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [
+  "一身",
+  "个别",
+  "天下",
+  "有力",
+  "请教"
+ ],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 5,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 60,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 91,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 19.3,
+  "1": 15.8,
+  "2": 21.4,
+  "3": 33.6
+ },
+ "older_words": {
+  "scheduled": [
+   "使用",
+   "重",
+   "寄",
+   "皮鞋",
+   "懒"
+  ],
+  "used": [
+   "使用",
+   "重",
+   "寄",
+   "皮鞋",
+   "懒"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}
