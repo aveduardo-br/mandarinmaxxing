@@ -8,13 +8,13 @@ Formats for the parts of a lesson. Read this once per chat, before the first les
 - **Title once.** When a part starts with the vocabulary table, the table’s heading is the title and no title line goes above it. When a part starts with review, the title line opens the review and the table’s heading repeats it later. With the Markdown fallback, the title goes in a bold line above the table.
 - **No commentary on the plan.** State the title and teach. Leave out remarks about how the lesson is divided, why a part has the number of words it has, or what the map says, unless the learner asks. One short line before the table, such as “Here are the new words”, is fine.
 - **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Take them from the **Labels** line and the **Lessons** list in `course.md`.
-- **Prompts.** In review and written translation, put the counter on its own bold line, such as **Review 1 of 5** or **Exercise 3 of 7**, and the sentence to translate as plain text under it, with a blank line between them. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” before the first review prompt and again before the first exercise prompt, and nowhere else.
+- **Prompts.** Put the counter on its own bold line and the sentence to translate as plain text under it, with a blank line between them. In the review the counter counts the whole review, such as **Review 2 of 7**. In the rounds it names the round and counts to five, such as **Round 2 · 3 of 5**, using the saved label for round. Open each round with one bold line that names it, such as **Round 2 · Full actions**. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” before the first review prompt and again before the first prompt of round 1, and nowhere else.
 
 ## Write Mandarin the same way everywhere
 
 Outside the vocabulary table, every piece of Mandarin follows one pattern: **Hanzi in bold**, *pinyin in italics*, meaning in plain text.
 
-- A chunk or a corrected sentence takes three lines: the Hanzi in bold, the pinyin in italics under it, and the meaning in the learner’s language under that. Use hard line breaks so the three lines don’t run together. Put the chunk list under one bold line with the saved label for useful phrases; when a word in a chunk can be swapped, say which in its meaning line.
+- A chunk or a corrected sentence takes three lines: the Hanzi in bold, the pinyin in italics under it, and the meaning in the learner’s language under that. Use hard line breaks so the three lines don’t run together. Put the chunk list under one bold line with the saved label for useful phrases; when a word in a chunk can be swapped, say which in its meaning line. A breakdown, when the chunk has one, is a fourth line in plain text: 你好 = 你 (you) + 好 (good).
 - A word inside a sentence is written inline: **超市** (*chāoshì*, supermarket). A word the learner has known since earlier parts needs only the bold Hanzi, unless it is the point of the correction.
 - Reading texts stay as plain Hanzi, with no pinyin.
 - Never italicize or strike through Hanzi.
@@ -68,7 +68,7 @@ Use plain Markdown for all feedback and the Mandarin pattern above. Blockquotes 
 Send one message in this order:
 
 - A bold title with the saved label for reading and its number, such as **Reading 1**.
-- The text: three to six short Mandarin sentences in plain Hanzi, as someone telling a small story or describing their day, or a short exchange between two people. No pinyin and no translation.
+- The text: three to six short Mandarin sentences in plain Hanzi, one person telling in the first person what they did, what they plan, or what happened. No dialogue, no quoted lines, no pinyin and no translation.
 - A bold line such as **Your turn**, then the task in the learner’s language.
 
 The task is to rewrite the text with a few changes you name, for example another day, another thing to buy, another price. Choose changes that make the learner write the part’s new words again, not only swap older ones. Skip comprehension questions here: the learner can see the text, so they only test finding a word. Correct the rewrite with the same format as a written translation.
@@ -77,8 +77,26 @@ Use one text per part, with every new word of the part in it. Add a second only 
 
 ## Listening, with a voice provider
 
-1. **Draft the script.** One speaker, three to six short sentences: someone telling what they did, what they want, or what happened, in a concrete scene. Aim for 15 to 20 seconds at a clear speaking pace. Keep it a single voice; a conversation would need one generation per line.
-2. **Review before generating.** Read the script through. Check that the Mandarin sounds natural, the part’s new words fit the scene, and the questions can be answered from what’s said.
-3. **Generate once.** Make one clip with the voice saved for the course, asking the provider for a single take. On the first clip of a course, choose the voice and save it in `course.md`: with ElevenLabs, use Sarah (voice ID `EXAVITQu4vr4xnSDxMaL`) unless the learner asks for another; with another provider, or if Sarah isn’t in the voice list, pick one clear, neutral voice from the provider’s own list. Set the language to Chinese when the provider has that setting. Never run a generation again to retry or to get a variation unless the learner asks: each run spends their credits.
-4. **Send.** Put the questions in the same message as the clip, so the learner can read them before playing. Label it by number and scene, such as **Audio 1 · At the tea shop**. Keep the script out of the message.
-5. Ask what happened, what the speaker wanted, or what a chunk meant in context. Ask the learner to answer all the questions together, then mark each answer correct or incorrect. Share the script with pinyin and a translation only if they ask after answering.
+Up to two clips, sent one at a time: the dictation first, then the narration. Each clip has one speaker, in the voice saved for the course.
+
+**Before any clip.**
+
+- **Review the script.** Read it through: the Mandarin sounds natural, it uses only words the learner has met, and the new words of the part are in it.
+- **Generate once.** Ask the provider for a single take. On the first clip of a course, choose the voice and save it in `course.md`: with ElevenLabs, use Sarah (voice ID `EXAVITQu4vr4xnSDxMaL`) unless the learner asks for another; with another provider, or if Sarah isn’t in the voice list, pick one clear, neutral voice from the provider’s own list. Set the language to Chinese when the provider has that setting. Never run a generation again to retry or to get a variation unless the learner asks: each run spends their credits.
+- **Keep the script out of the message.** Share it with pinyin and a translation only after the learner answers, or if they ask.
+
+**Dictation.** Three to five short sentences, each a thing someone might say, built from the part’s words and older ones. Write them as separate sentences so the voice pauses between them. Send the clip under a bold title such as **Dictation 1**, and ask the learner to write each sentence they hear, numbered, in Hanzi or pinyin. They can replay it as often as they like. Correct each sentence with the written-translation format, then show the script.
+
+**Narration.** One person speaking in the first person about their own day, plan, or something that happened, in a concrete scene: three to eight sentences, 20 to 40 seconds at a clear pace. The speaker never addresses a listener, asks the listener anything, or quotes anyone; a conversation, or half of one, is not a narration. Send the clip labeled by number and scene, such as **Audio 1 · At the tea shop**, with the questions in the same message so the learner can read them before playing: what happened, what the speaker wanted or plans, what a chunk meant in context. Ask for all the answers together, then mark each correct or incorrect.
+
+Use the narration only once the learner has met enough words to fill about 20 seconds. Before that, the dictation alone is the listening step.
+
+## Close a part
+
+Send one short closing message after the last exercise:
+
+- What comes next, such as “Next time: HSK 1, Lesson 11, part 3.”
+- When the part was the last part of a lesson with two or more parts, one line saying the lesson is complete and offering the wrap-up role-play, now or next time, such as “Lesson 11 is complete. Want a quick role-play of this situation now, or next time?”
+- When the session ran well under an hour, an offer to start the next part now.
+
+Leave out a summary of the part and any comment on how it was divided.

@@ -8,12 +8,13 @@ I built this skill for myself. The textbook order felt slow to me, with words th
 
 ## How a lesson works
 
-Each lesson is one situation, such as **Shopping and paying**. You study it in short parts, a few new words at a time.
+Each lesson is one situation, such as **Shopping and paying**. You study it in parts, a few new words at a time, and a part is built for about an hour a day. That's roughly what real progress takes; if you have less time, ask for a shorter session.
 
-1. **Quick review.** You translate a few sentences with the words from your last part. Older words come back too, so you don't forget them.
-2. **New words.** A table with Hanzi, pinyin, and the meaning in your language.
-3. **Translation.** You get one sentence at a time in your language and write it in Mandarin. If something is off, you see what to change and the corrected sentence.
-4. **A short text.** You read it and rewrite it with a few changes. With audio turned on, you listen to it instead and answer what you understood.
+1. **Review.** One sentence to translate for each word of your last part. Older words come back inside these sentences, so you don't forget them.
+2. **New words.** A table with Hanzi, pinyin, and the meaning in your language, plus a few ready-to-use phrases.
+3. **Three rounds of exercises.** Five sentences each, from your language into Mandarin. The first round practices the phrases, the second asks for complete sentences, and the third for short sequences, like telling your day or writing a message. If something is off, you see what to change and the corrected sentence.
+4. **Listening.** With audio turned on, a short dictation and a short story in a natural voice. Without audio, you read a short text and rewrite it with a few changes.
+5. **Wrap-up.** When you finish a lesson, you can play out its situation in a short role-play.
 
 Your progress is saved, so you can open a new chat on any device and say "next lesson".
 
@@ -55,7 +56,7 @@ The skill writes in the language you write in. Ask if you want another one.
 
 ## Audio (optional)
 
-Every lesson closes with a short text. With audio, you hear it in a natural voice without seeing it written, then answer questions about it. It's the course's listening practice.
+Every part closes with listening practice. With audio, you hear a short dictation and write it down, then a short story in a natural voice and answer questions about it.
 
 Most people use ElevenLabs, which has a free account:
 
@@ -63,7 +64,7 @@ Most people use ElevenLabs, which has a free account:
 2. In Claude, open **Customize → Connectors**, find **ElevenLabs**, and connect it.
 3. Tell the skill you want audio.
 
-Each lesson generates one short clip in one voice. The skill uses a voice called Sarah by default, and you can ask for another. You can also bring a different voice provider.
+Each part generates up to two short clips in one voice. The skill uses a voice called Sarah by default, and you can ask for another. You can also bring a different voice provider.
 
 Without audio there is nothing to set up. You read the text instead.
 

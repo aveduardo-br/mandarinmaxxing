@@ -37,12 +37,15 @@ Estado da skill na versão 0.4.0 (novembro de 2026) e o que vem depois. Leia int
 - A numeração recomeça em 01 a cada nível. Para o aluno, o título sempre leva o nível: "HSK 2 · Aula 1". No registro `Done` do `course.md` a linha leva o prefixo do nível (`2-01.1`).
 - Ao terminar um nível, a skill oferece o seguinte no mesmo `course.md` e mantém o registro `Done`, para as palavras do nível anterior continuarem voltando.
 
-**Uma parte tem quatro etapas**
+**Uma parte, cerca de uma hora**
 
-1. Revisão: frases para traduzir, cobrindo a parte anterior e as palavras a reforçar.
-2. Vocabulário: tabela com hanzi, pinyin e significado.
-3. Tradução escrita: uma frase por vez, do idioma do aluno para o mandarim.
-4. Texto final: leitura com tarefa de reescrita ou, com áudio, um clipe para ouvir e perguntas.
+A meta é 1 hora por dia (decisão do Eduardo: menos que isso não dá progresso de verdade). Se a parte acaba antes, como no jump start e no ritmo 3, a skill oferece a próxima parte na mesma sessão.
+
+1. Revisão: uma frase longa por palavra da parte anterior, de 5 a 10, com as palavras antigas e as de reforço dentro dessas frases.
+2. Vocabulário: tabela e chunks. A decomposição (你好 = 你 + 好) só aparece quando as peças servem agora; senão, nem como curiosidade.
+3. Três baterias de 5: chunks, ação completa, sequência (2–3 frases ligadas). Cada palavra nova aparece em pelo menos três frases, porque cinco a sete recuperações fixam melhor que uma a três (Nakata, 2017). O aluno pode pedir mais uma bateria.
+4. Escuta: ditado e narração de uma pessoa só, em primeira pessoa, sem diálogo. A narração só entra quando o vocabulário dá para uns 20 segundos. Sem áudio, leitura com reescrita, também de uma pessoa só.
+5. Fechamento: o que vem depois e, no fim de uma aula com duas ou mais partes, o role-play da situação.
 
 **Revisão**
 
@@ -59,7 +62,7 @@ Estado da skill na versão 0.4.0 (novembro de 2026) e o que vem depois. Leia int
 
 **Áudio**
 
-- Opcional. Um clipe por parte, uma voz, uma geração, uma tomada.
+- Opcional. Até dois clipes por parte (ditado e narração), uma voz, uma geração cada, uma tomada. No teste, cada clipe gastou de 18 a 45 créditos: uns 3 mil por mês num ritmo diário, dentro da conta gratuita.
 - Padrão: ElevenLabs pelo conector do Claude, voz Sarah (`EXAVITQu4vr4xnSDxMaL`), idioma marcado como chinês.
 - A skill nunca gera áudio com ferramenta que o aluno não escolheu e nunca repete uma geração por conta própria.
 
@@ -97,6 +100,7 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 3. **Site.** Reescrever a copy para esta versão e fazer a página de instalação: os quatro passos e uma seção "Áudio (opcional)", com os nomes reais dos botões.
 4. **Confirmar com uma conta gratuita do ElevenLabs** que o conector funciona. Os testes foram feitos numa conta Creator.
 5. **Formulação sobre a prova**, ainda em aberto no `messaging.md`.
+6. **Site: 1 hora por dia.** A seção "Your course" fala em uma aula por dia e calcula datas com isso. Na 0.5 a unidade é uma parte de cerca de 1 hora por dia; ajustar a copy e o FAQ.
 
 ## Como fazer o mapa de um nível
 

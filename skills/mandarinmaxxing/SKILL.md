@@ -57,7 +57,7 @@ Start a new course with one short setup message in the learner’s language. Use
 > How many new words each time you study? 3 is light, **5 is what I recommend**, 7 is intense. If you’d rather have another number, just say so.
 >
 > **3. Audio** (optional)
-> Each study session closes with a short text using the day’s vocabulary. With audio, you hear that text in a natural voice, without seeing it written, and answer what you understood: it’s the course’s listening practice. Most people use ElevenLabs, which has a free account, but you can bring another voice provider. Without audio, you read the text and there’s nothing to set up. Do you want audio?
+> Each study session closes with listening practice. With audio, you hear a short dictation and a short story in a natural voice, without seeing them written: you write what you heard and answer what you understood. Most people use ElevenLabs, which has a free account, but you can bring another voice provider. Without audio, you read the text and there’s nothing to set up. Do you want audio?
 >
 > **Keyboard.** You’ll answer in Mandarin from the first lesson. You can start by typing in pinyin to get practicing right away. When you want the next step, turn on the Chinese keyboard (Pinyin, Simplified): you type the sound and pick the character.
 
@@ -67,8 +67,8 @@ Leave fonts out of the setup. The vocabulary table loads its own Hanzi font, so 
 
 **Audio or reading.** Save the learner’s choice in `course.md` and use only that.
 
-- **Voice provider.** The learner connects a text-to-speech provider of their choice to the chat, usually ElevenLabs through its connector. The last exercise is one short clip, a single speaker in a single voice, that they hear without seeing the text, followed by comprehension questions. Each clip is one generation with one take, so it works with any provider that turns text into speech and needs no folder, script, or key in the chat. If the provider isn’t connected yet, tell them how to connect it, use reading meanwhile, and switch once it appears. If the provider fails or runs out of credits, say so once and use reading for the rest of the part.
-- **Reading.** The default. The last exercise is a short text to read, followed by a task. The format is in `lesson-format.md`.
+- **Voice provider.** The learner connects a text-to-speech provider of their choice to the chat, usually ElevenLabs through its connector. The listening step has up to two short clips, a dictation and a narration, each a single speaker in a single voice, heard without seeing the text. Each clip is one generation with one take, so it works with any provider that turns text into speech and needs no folder, script, or key in the chat. If the provider isn’t connected yet, tell them how to connect it, use reading meanwhile, and switch once it appears. If the provider fails or runs out of credits, say so once and use reading for the rest of the part.
+- **Reading.** The default. The listening step becomes a short text to read, followed by a rewrite task. The format is in `lesson-format.md`.
 
 Never generate audio with a tool the learner didn’t choose, and never with a general media tool that spends their credits. Don’t suggest the chat app’s read aloud button for Mandarin: its voice reads Hanzi with the wrong sounds. If the learner asks about it, say so plainly.
 
@@ -80,7 +80,7 @@ Each situation in the map is one **lesson**, and its map number is the lesson nu
 
 After the setup, show a compact overview of the level before the first part:
 
-- The number of lessons and the total number of parts at the learner’s pace, taken from the map header, and what that means in weeks at one part a day. Present it as an estimate. Say once, in one sentence, that each lesson is one situation, studied a part at a time, and that the pace is a target: a part brings about that many new words, sometimes one or two more or fewer.
+- The number of lessons and the total number of parts at the learner’s pace, taken from the map header, and what that means in weeks at one part a day, about an hour each. Present it as an estimate. Say once, in one sentence, that each lesson is one situation, studied a part at a time, and that the pace is a target: a part brings about that many new words, sometimes one or two more or fewer.
 - The jump start, when the level has one: the lessons every later lesson depends on, taught first and in order. Present it as the words the learner needs for everything else.
 - The other lessons, in map order.
 
@@ -91,6 +91,8 @@ Then save the course: `course.md` with the settings, the route, and the full les
 Add one line, in the learner’s language, on what they can ask for at any time: review a lesson, change the pace, an extra reading with only the words they know, flashcards of a part’s words, or notes of each part. Keep it to a single sentence.
 
 Ask whether they want to move any lesson earlier or later, and save again if the route changes. Only lessons after the jump start can move. Learners who have studied before can start at a later lesson: “start at 19” puts Lesson 19 first on the route, and it is still called Lesson 19. Start once the learner agrees.
+
+Whenever the learner jumps to a lesson out of route order, confirm in one line what comes after it, and save the route. If that lesson comes before the jump start is finished, ask once whether to count the jump start’s words as known. If yes, add `Known: jump start` to `course.md` and treat those words as met; if no, teach the jump start first.
 
 For a level without a map in this skill, build one from the syllabus file with the same rules: situations a learner can talk about, blocks of two to four words that produce sentences together, look-alike and same-category words in different blocks, and core function words early. Check that every official word appears exactly once before showing the overview, and save the map beside the course file as `map-hsk-N.md`. If the syllabus file for the level is missing, ask the learner for a word list or offer a clearly labeled sample lesson.
 
@@ -115,7 +117,7 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 - Syllabus: HSK 3.0 (2025-11), level 1
 - Pace: about 5 words per part
 - Language: Português
-- Labels: Aula, parte, Revisão, Exercício, Leitura, Frases úteis, Largada
+- Labels: Aula, parte, Revisão, Bateria, Exercício, Escuta, Leitura, Frases úteis, Largada
 - Audio: none
 - Route: 01–07, 12, 13, 08, 09, 10, 11, 14–22
 - Next: Lesson 02, part 1 of 2
@@ -131,7 +133,7 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 1-01.2 | 不客气 对不起 没关系 您 好 没事
 ```
 
-- **Labels** fixes the learner-language words for lesson, part, review, exercise (the translation prompts), reading (the final text), useful phrases (the chunk list), and jump start. Use exactly these in every chat. If an older file lacks one, choose it once and save it right away. Field names and the **Next** line stay in English.
+- **Labels** fixes the learner-language words for lesson, part, review, round (a set of five exercises), exercise (one translation prompt), listening (the audio step), reading (the text when there is no audio), useful phrases (the chunk list), and jump start. Use exactly these in every chat. If an older file lacks one, choose it once and save it right away. Field names and the **Next** line stay in English.
 - **Audio** is `none`, or the provider the learner chose, with the one voice picked for the course so every clip sounds the same, for example `ElevenLabs, voice Sarah`.
 - **Route** lists the lesson numbers in the order the learner agreed to.
 - **Next** names the lesson and part to teach next, or says `level complete`.
@@ -159,29 +161,35 @@ Teach from the installed skill, the map, and the learner’s course file. Reserv
 
 Present written lesson content as selectable text in the conversation. Draw the vocabulary table with the chat’s inline HTML or widget tool when there is one, never as an artifact or a file. Use native Markdown for prompts and corrections.
 
-In review and written translation, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. Describe a small scene for each prompt when the learner’s vocabulary is too small for a full sentence.
+**A session is about an hour.** That is the default and what the course estimates are built on. If a part ends well before that, as happens in the jump start and at pace 3, offer in the closing line to start the next part now. If the learner says they have less time, shorten round 3 and the listening step; never skip the review.
+
+In the review and the rounds, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. Every prompt is a whole sentence someone would actually say or write, in the learner’s language, never a fragment or a description of a scene. When the learner knows very few words, a short line of an exchange (“Hi! Thank you!”) is a whole sentence.
 
 Accept answers in pinyin and correct them the same way, always showing the Hanzi. When a pinyin answer is right, confirm it and show the sentence in Hanzi on one line. The first time a learner answers in pinyin in a chat, remind them once about the Chinese keyboard.
 
-Words of the levels below the course level count as met, even with an empty **Done** log: a learner who starts at HSK 2 knows HSK 1.
+Words of the levels below the course level count as met, even with an empty **Done** log: a learner who starts at HSK 2 knows HSK 1. Design every prompt so it can be answered with words the learner has met.
 
-1. **Review.** Give at least five short prompts in the learner’s language to translate into Mandarin, in the same format as written translation. Together they cover the new words of the previous part in the **Done** log and the saved items to reinforce. If coverage takes fewer than five questions, revisit words in fresh contexts. If an answer needs a hint or correction, ask the learner to use the target again in a fresh prompt after another question. When nothing has been studied yet, begin with vocabulary.
-2. **Vocabulary.** Show a table with Hanzi, Pinyin, and meanings in the learner’s language. Use the table template from `lesson-format.md`. List any support words under it, then two to four useful chunks, and end the message with the first translation prompt.
-3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Use at least five prompts and at most three more than the number of new words. When an answer needs a correction, bring that word back in a later prompt of the same round and add it to the words to reinforce. Keep the total in the counter fixed: rework one of the prompts still to come so that it needs the word again, and add a prompt only when none is left. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something. Design prompts the learner can answer with words they have met. After feedback on the last answer, ask whether the learner wants another translation round or is ready for the final text. Wait for their choice.
-4. **Listening or reading.** With a voice provider, one audio clip with questions. Without one, a short reading with a rewrite task. Follow the matching format in `lesson-format.md`. Across the exercise, use every new word in a reusable phrase.
+1. **Review.** One prompt per new word of the previous part in the **Done** log, at least five and at most ten. Each prompt is a full sentence, longer than the chunk it tests. Weave the saved items to reinforce and the older words (below) into these same sentences; add prompts for them only while the total stays at ten or fewer. If an answer needs a hint or correction, ask the learner to use the target again in a fresh prompt after another question. When nothing has been studied yet, begin with vocabulary.
+2. **Vocabulary.** Show a table with Hanzi, Pinyin, and meanings in the learner’s language, using the template in `lesson-format.md`. List any support words under it, then two to four useful chunks. Under a chunk, add one breakdown line only when its parts are words the learner can reuse right away, as in 你好 = 你 (you) + 好 (good). Otherwise leave the parts alone, not even as a curiosity, unless the learner asks. End the message with the first prompt of round 1.
+3. **Three rounds of five exercises.** Each round has exactly five prompts to translate into Mandarin. Across the three rounds, every new word appears in at least three prompts.
+   - **Round 1 · Chunks.** Each prompt uses one of the part’s chunks, swapping its open slot, so the learner feels how the chunk works.
+   - **Round 2 · Full actions.** Each prompt is a complete sentence with who, when or where, and what happens, joining a new chunk to words met earlier.
+   - **Round 3 · Sequences.** Each prompt is two or three connected sentences: a short account of a day, a plan, or a message to someone. Make them as long as the met words allow; early in the jump start that may be a two-line exchange.
 
-**Bring older words back.** In written translation and the last exercise, reuse words from the lines 3, 7, 14, 30, and 60 back in the **Done** log, counting from its end, where the last line is 1. Skip the distances the log doesn’t reach yet; across levels the whole log counts. Pick the words by turn, not by what fits most easily, so every word of a line gets its turn over the visits:
+   When an answer needs a correction, bring that word back in a later prompt of the same or the next round, and add it to the words to reinforce; keep each round at five by reworking a prompt still to come. After round 3, offer one more round in the style of round 3, or the listening step. Wait for their choice.
+4. **Listening or reading.** With a voice provider, a dictation clip, then a narration clip once the met words can carry about 20 seconds of narration; before that, the dictation alone. Without a provider, a short reading with a rewrite task. Follow the formats in `lesson-format.md`. Across the listening step, use every new word.
+5. **Close.** Save the **Done** line, **Next**, and the words to reinforce. Send the closing message in the format of `lesson-format.md`: what comes next, and, when the part just saved was the last part of a lesson with two or more parts, the offer of a wrap-up role-play.
+
+**Bring older words back.** In the review and the rounds, reuse words from the lines 3, 7, 14, 30, and 60 back in the **Done** log, counting from its end, where the last line is 1. Skip the distances the log doesn’t reach yet; across levels the whole log counts. Pick the words by turn, not by what fits most easily, so every word of a line gets its turn over the visits:
 
 - Line 3 back gives its 1st word, 7 back its 2nd, 14 back its 3rd, 30 back its 4th, 60 back its 5th. When a line is shorter, keep counting from its start again (in a three-word line, the 4th is the 1st).
 - A line with more than five words gives two words per visit: the 1st and 2nd, then the 3rd and 4th, and so on.
-- If the word whose turn it is can’t fit any prompt or the text, take the next one in the line.
-- Use at most six of these words in a part. When there are more, drop the ones from the nearest lines first: the review already covered the line just before.
+- If the word whose turn it is can’t fit any prompt, take the next one in the line.
+- Use at most six of these words in a part. When there are more, drop the ones from the nearest lines first: the review already covers the line just before.
 
 This is exposure for the learner, with nothing to track or score.
 
-At the end of the part, save the **Done** line, **Next**, and the words to reinforce. Close with one short line that names what comes next, such as “Next time: HSK 2, Lesson 1, part 2.” Begin another part in the same chat only if the learner asks.
-
-**When a lesson ends.** If the part just saved was the last part of a lesson with two or more parts, say in the closing line that the lesson is complete and offer a short wrap-up, now or next time. The wrap-up is a role-play of the lesson’s situation: you play the other person, writing in Mandarin with the meaning under each line, and the learner replies in Mandarin, for four to six turns that call on blocks from every part of the lesson. Correct each reply with the written-translation format. It is standalone practice: it leaves **Next** and **Done** as they are. Offer it once; if the learner moves on, don’t bring it up again.
+**Wrap-up role-play.** When the learner accepts it, now or in a later chat, play the other person in the lesson’s situation, writing in Mandarin with the meaning under each line, and let the learner reply in Mandarin, for four to six turns that call on blocks from every part of the lesson. Correct each reply with the written-translation format. It is standalone practice: it leaves **Next** and **Done** as they are. Offer it once; if the learner moves on, don’t bring it up again.
 
 When asked for a specific lesson or part, begin it from the start. Treat one other than the saved **Next** as standalone practice unless the learner asks to change their course position. When asked to review a lesson, use its lines in the **Done** log. Give extra exercises on the requested point during the lesson.
 
