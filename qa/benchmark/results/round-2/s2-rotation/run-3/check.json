@@ -1,0 +1,70 @@
+{
+ "run": "/home/claude/mm-bench/round-2/s2-rotation/run-3",
+ "turns": 50,
+ "tutor_turns": 25,
+ "new_done_lines": [
+  "1-11.2"
+ ],
+ "taught_words": 6,
+ "next": "Lesson 11, part 3 of 4",
+ "to_reinforce": "星期五 四点半 给朋友打电话",
+ "known_jump_start": false,
+ "review_counter": [
+  6
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 21,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 3,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 29,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 60,
+   "addresses_listener": false
+  }
+ ],
+ "older_words": {
+  "scheduled": [
+   "月",
+   "弟弟",
+   "们"
+  ],
+  "used": [
+   "月",
+   "弟弟",
+   "们"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

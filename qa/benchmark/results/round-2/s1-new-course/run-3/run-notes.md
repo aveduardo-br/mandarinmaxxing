@@ -1,0 +1,23 @@
+# Run notes: s1-new-course, run-3
+
+Scenario: s1-new-course (new course, HSK 1, pace 5, audio via ElevenLabs voice Sarah; part 1 and part 2 of Lesson 1; accept wrap-up role-play).
+Turns: 68 (T1 to T68).
+
+Final state is in course/course.md (Next: Lesson 02, part 1 of 2; To reinforce: 没事; Done has 1-01.1 and 1-01.2).
+
+## Unclear instructions or uncertain applications
+
+1. Language of the setup. SKILL.md: "If there is too little text, use the language the interface or what you already know about the learner points to, or ask in one short line before the setup." The first message was only "start mandarinmaxxing" (English, no conversational text). I set up in Portuguese without asking (what I know about the learner); a strict reading could have asked one line first, which would add a turn the scenario does not script.
+2. Review with fewer than five words. SKILL.md: "One prompt per new word of the previous part in the Done log, at least five and at most ten. When that part had fewer than five words, fill the review with the items to reinforce and the older words (below), each in a prompt of its own." In part 2 the previous part had 3 words, the reinforce list was empty and there were no older words (log reaches only 1 line), so only 3 prompts were possible. I used 3 and did not stretch or repeat. The "at least five" floor cannot be met here.
+3. "Bring older words back" distances 3/7/14/30/60 do not exist in a log of 1 line, so nothing to apply (as the text says: skip).
+4. Round 1 "swapping its open slot" in part 1: the chunks 你好 / 谢谢 / 再见 have no open slot. Prompts just used the chunks (and combinations).
+5. Round 3 with fewer than ten met words: "give round 1, then a round 2 of short exchanges ..., and skip round 3." Part 2 started with 3 met words and ended with 9 (still under ten), so round 3 was skipped in both parts. Following paragraph: "After round 3, offer one more round in the style of round 3, or the listening step." With no round 3 and too few words for another round, I went straight to the listening step instead of offering a choice. Unclear whether an offer was expected.
+6. "Every new word appears in at least three prompts" (rounds). In part 2, 6 new words and only 10 prompts, with prompts that must stay natural and use only met words, is tight. 不客气 and 没关系 reach 3 (counting prompts where 没关系 is accepted as an alternative for 没事 and vice versa); 没事 appears as the intended answer in 3 prompts only after the corrective rework (R2-1, R2-3, R2-5). The usage note "accept both" makes the counts depend on interpretation.
+7. Chunk limit: "two to four useful chunks". Part 2 has six words; 没事 and 谢谢您 are not chunks but are used in prompts. Round 1 says every prompt uses one of the part's chunks; R1 stuck to the four listed.
+8. Support words / breakdown line: breakdown for 您好 was given because 您 and 好 are both reusable at once; for part 1 (你好) no breakdown, since 你 is not reusable yet. I added one usage line for 您 (谢谢您) beside the 没关系/没事 line; not strictly required by the template.
+9. Where to save the voice. lesson-format.md: "On the first clip of a course, choose the voice and save it in course.md"; the course.md at setup was saved with `Audio: ElevenLabs`, and the voice Sarah was added when the first clip was made.
+10. Part 1 closing: "When the part just saved was the last part of a lesson with two or more parts, the offer of a wrap-up" did not apply to part 1 of 2; offered only the next part. At the end of part 2 the closing offered both the role-play and the next part; the student chose the role-play. The scenario says stop after the wrap-up ends, so I ended with a one-line pointer to the next part instead of a new offer.
+11. Wrap-up role-play: "four to six turns that call on blocks from every part of the lesson". I did 4 learner replies (您好, 谢谢您 reply, 对不起 reply, 再见 reply). 你好 from part 1 was not used. The text does not say whether the role-play needs a short scene intro in the learner's language; I added one sentence.
+12. Items to reinforce: slips in part 1 and in the first part of part 2 were answered right later in the same part, so they were not saved; only 没事 (dictation slip at the very end, no later chance) was added. Dictation slip counts as "missed and did not get right unaided later".
+13. "Title once": part 1 starts with vocabulary (Markdown fallback), so the bold title sits above the table; part 2 starts with review, so the title opens the review and the table has no repeated heading in the Markdown fallback (the template's "table's heading repeats it later" is for the HTML table only).
+14. Pinyin keyboard reminder: given once, on the first pinyin answer (T14).

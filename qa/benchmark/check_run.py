@@ -106,10 +106,19 @@ def main(run, start):
             addresses = bool(re.search(r'[你您]|吗|[“”"「」]', script)) if kind == 'narration' else None
             audio.append({'kind': kind, 'chars': len(HAN.findall(script)), 'addresses_listener': addresses})
 
+    # older words by turn (rule of 0.5.1: one word per line 3, 7, 14, 30, 60 back)
+    scheduled = []
+    for k, off in enumerate([3, 7, 14, 30, 60], 1):
+        if off <= len(start_lines):
+            ws = start_lines[len(start_lines) - off][1]
+            scheduled.append(ws[(k - 1) % len(ws)])
+    all_exp = ' '.join(e for _, e in expected)
+    older = {'scheduled': scheduled, 'used': [w for w in scheduled if w in all_exp]}
+
     flags = {
         'wrapup_offered': any(re.search(r'role-?play|encena|dramatiz|simula(r|ção) (a|da) situação', m, re.I) for m in tutor),
         'jump_start_question': any(re.search(r'[Ll]argada|jump start', m) and re.search(r'conhecid', m) for m in tutor),
-        'next_part_offered': any(re.search(r'próxima parte|começar a parte|seguir (para|com) a (próxima|parte)', m, re.I) for m in tutor),
+        'next_part_offered': any(re.search(r'próxima parte|começar a parte|começar agora|seguir (para|com) a (próxima|parte)', m, re.I) for m in tutor),
     }
     next_line = re.search(r'^- Next: (.*)$', course, flags=re.M)
     reinforce = re.search(r'^- To reinforce: ?(.*)$', course, flags=re.M)
@@ -131,6 +140,7 @@ def main(run, start):
         'new_word_coverage_min': min(coverage.values()) if coverage else None,
         'new_words_under_3': [w for w, c in coverage.items() if c < 3],
         'audio': audio,
+        'older_words': older,
         'flags': flags,
     }
     print(json.dumps(report, ensure_ascii=False, indent=1))

@@ -1,0 +1,72 @@
+{
+ "run": "/home/claude/mm-bench/round-2/s2-rotation/run-2",
+ "turns": 48,
+ "tutor_turns": 24,
+ "new_done_lines": [
+  "1-11.2"
+ ],
+ "taught_words": 6,
+ "next": "Lesson 11, part 3 of 4",
+ "to_reinforce": "下午 很晚起床",
+ "known_jump_start": false,
+ "review_counter": [
+  5
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 20,
+ "unknown_hanzi_outside_table": {
+  "王": "今天我五点半起床，很早。我在家喝茶，也吃饭。上午九点，我去中国朋友的家。我朋友叫小王，她是中国人。她妹妹很晚起床，现在也在家。下午三点半，我们都在她家喝茶。我很高兴，明天我也去她家"
+ },
+ "unknown_hanzi_in_expected_answers": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 3,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 36,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 77,
+   "addresses_listener": false
+  }
+ ],
+ "older_words": {
+  "scheduled": [
+   "月",
+   "弟弟",
+   "们"
+  ],
+  "used": [
+   "月",
+   "弟弟",
+   "们"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}
