@@ -1,0 +1,68 @@
+{
+ "run": "/home/claude/mm-bench/round-3/s5-jump-ahead/run-2",
+ "turns": 52,
+ "tutor_turns": 26,
+ "new_done_lines": [
+  "1-22.1"
+ ],
+ "taught_words": 6,
+ "next": "Lesson 02, part 1 of 2",
+ "to_reinforce": "去医院, 没事",
+ "known_jump_start": true,
+ "review_counter": [
+  6
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 21,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 3,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 27,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 60,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 9.2,
+  "1": 6.8,
+  "2": 11.0,
+  "3": 19.2
+ },
+ "older_words": {
+  "scheduled": [],
+  "used": []
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": true,
+  "next_part_offered": true
+ }
+}

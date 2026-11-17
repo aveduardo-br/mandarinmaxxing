@@ -1,0 +1,68 @@
+{
+ "run": "/home/claude/mm-bench/round-3/s5-jump-ahead/run-3",
+ "turns": 54,
+ "tutor_turns": 27,
+ "new_done_lines": [
+  "1-22.1"
+ ],
+ "taught_words": 6,
+ "next": "Lesson 02, part 1 of 2",
+ "to_reinforce": "没有大病, 不想生病",
+ "known_jump_start": true,
+ "review_counter": [
+  7
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 22,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 3,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 29,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 57,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 9.9,
+  "1": 6.6,
+  "2": 10.8,
+  "3": 18.2
+ },
+ "older_words": {
+  "scheduled": [],
+  "used": []
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": true,
+  "next_part_offered": true
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "run": "/home/claude/mm-bench/round-3/s7-jump-hsk3/run-2",
+ "turns": 50,
+ "tutor_turns": 25,
+ "new_done_lines": [
+  "3-30.1"
+ ],
+ "taught_words": 6,
+ "next": "Lesson 30, part 2 of 2",
+ "to_reinforce": "先…然后…",
+ "known_jump_start": false,
+ "review_counter": [
+  5
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 20,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 4,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 35,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 75,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 16.4,
+  "1": 6.4,
+  "2": 15.2,
+  "3": 28.2
+ },
+ "older_words": {
+  "scheduled": [
+   "阿姨",
+   "只是",
+   "发生"
+  ],
+  "used": [
+   "阿姨",
+   "只是",
+   "发生"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

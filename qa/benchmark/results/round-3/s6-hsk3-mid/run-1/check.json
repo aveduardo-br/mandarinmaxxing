@@ -1,0 +1,78 @@
+{
+ "run": "/home/claude/mm-bench/round-3/s6-hsk3-mid/run-1",
+ "turns": 50,
+ "tutor_turns": 25,
+ "new_done_lines": [
+  "3-18.1"
+ ],
+ "taught_words": 3,
+ "next": "Lesson 18, part 2 of 2",
+ "to_reinforce": "把卡放在书包里 手机 以为",
+ "known_jump_start": false,
+ "review_counter": [
+  6
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 21,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 6,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 42,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 83,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 16.8,
+  "1": 10.6,
+  "2": 15.0,
+  "3": 33.2
+ },
+ "older_words": {
+  "scheduled": [
+   "起",
+   "种",
+   "斤",
+   "男人"
+  ],
+  "used": [
+   "起",
+   "种",
+   "斤",
+   "男人"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}
