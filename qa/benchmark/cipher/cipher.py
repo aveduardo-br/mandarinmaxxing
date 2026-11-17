@@ -24,10 +24,35 @@ MAP_FILE = os.path.join(HERE, '.secret-map.json')
 HAN = r'一-鿿'
 TONED = 'āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ'
 PLAIN = str.maketrans('āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü', 'aaaaeeeeiiiioooouuuuvvvvv')
-INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w', '']
-FINALS = ['iang', 'iong', 'uang', 'ueng', 'ang', 'eng', 'ing', 'ong', 'ian', 'iao', 'uai', 'uan', 'van', 'ai', 'ei', 'ao', 'ou',
-          'an', 'en', 'in', 'un', 'vn', 'ia', 'ie', 'iu', 'ua', 'uo', 'ui', 've', 'er', 'a', 'o', 'e', 'i', 'u', 'v']
-SYLL = re.compile('^(?:(?:' + '|'.join(INITIALS[:-1]) + ')?(?:' + '|'.join(FINALS) + '))+$')
+_F = lambda txt: txt.split()
+_ALLOWED = {
+    '': _F('a o e ai ei ao ou an en ang eng er'),
+    'y': _F('a e ao ou an ang i in ing ong u ue uan un'),
+    'w': _F('a o ai ei an en ang eng u'),
+    'b': _F('a o ai ei ao an en ang eng i ie iao ian in ing u'),
+    'p': _F('a o ai ei ao ou an en ang eng i ie iao ian in ing u'),
+    'm': _F('a o e ai ei ao ou an en ang eng i ie iao iu ian in ing u'),
+    'f': _F('a o ei ou an en ang eng u'),
+    'd': _F('a e ai ei ao ou an en ang eng ong i ia ie iao iu ian ing u uo ui uan un'),
+    't': _F('a e ai ao ou an ang eng ong i ie iao ian ing u uo ui uan un'),
+    'n': _F('a e ai ei ao ou an en ang eng ong i ie iao iu ian in iang ing u uo uan v ve'),
+    'l': _F('a o e ai ei ao ou an ang eng ong i ia ie iao iu ian in iang ing u uo uan un v ve'),
+    'g': _F('a e ai ei ao ou an en ang eng ong u ua uo uai ui uan un uang'),
+    'k': _F('a e ai ei ao ou an en ang eng ong u ua uo uai ui uan un uang'),
+    'h': _F('a e ai ei ao ou an en ang eng ong u ua uo uai ui uan un uang'),
+    'j': _F('i ia ie iao iu ian in iang ing iong u ue uan un'),
+    'q': _F('i ia ie iao iu ian in iang ing iong u ue uan un'),
+    'x': _F('i ia ie iao iu ian in iang ing iong u ue uan un'),
+    'zh': _F('a e i ai ei ao ou an en ang eng ong u ua uo ui uai uan un uang'),
+    'ch': _F('a e i ai ao ou an en ang eng ong u ua uo ui uai uan un uang'),
+    'sh': _F('a e i ai ei ao ou an en ang eng u ua uo ui uai uan un uang'),
+    'r': _F('e i ao ou an en ang eng ong u ua uo ui uan un'),
+    'z': _F('a e i ai ei ao ou an en ang eng ong u uo ui uan un'),
+    'c': _F('a e i ai ao ou an en ang eng ong u uo ui uan un'),
+    's': _F('a e i ai ao ou an en ang eng ong u uo ui uan un'),
+}
+_SYLLABLES = sorted({i + f for i, fs in _ALLOWED.items() for f in fs}, key=len, reverse=True)
+SYLL = re.compile('^(?:(?:' + '|'.join(_SYLLABLES) + ')r?)+$')
 
 
 def is_pinyin(span):
@@ -36,7 +61,7 @@ def is_pinyin(span):
     words = re.findall(r"[A-Za-z" + TONED + "ü']+", span)
     if not words or not any(c in TONED for c in span):
         return False
-    if re.search(r'[ãõçâêôàÃÕÇ]', span):
+    if re.search(r'[ãõçâêôÃÕÇ]', span):
         return False
     return all(SYLL.match(w.lower().replace("'", '').translate(PLAIN)) for w in words)
 CONS = 'bdfgklmnprstvz'
@@ -109,6 +134,7 @@ def encode(text, table):
     text = re.sub(r'<!--.*?-->', '', text, flags=re.S)
     text = re.sub(r'(?<!\*)\*(?!\*)([^*\n]+?)(?<!\*)\*(?!\*)', lambda m: '' if is_pinyin(m.group(1)) else m.group(0), text)
     text = _drop_pinyin_columns(text)
+    text = re.sub(r'\(([^()\n]+)\)', lambda m: '' if is_pinyin(m.group(1)) else m.group(0), text)
     text = re.sub(r'\(\s*,\s*', '(', text)
     text = re.sub(r'\(\s*\)', '', text)
 
