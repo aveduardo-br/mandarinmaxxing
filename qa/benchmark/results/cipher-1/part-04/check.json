@@ -1,0 +1,75 @@
+{
+ "run": "/home/claude/mm-bench/cipher-1/part-04",
+ "turns": 51,
+ "tutor_turns": 25,
+ "new_done_lines": [
+  "1-02.2"
+ ],
+ "taught_words": 7,
+ "next": "Lesson 03, part 1 of 2",
+ "to_reinforce": "",
+ "known_jump_start": false,
+ "review_counter": [
+  7
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 22,
+ "unknown_hanzi_outside_table": {
+  "在": "<!-- expected: 你好！请喝茶，我做饭。 (also accept 您好！请喝茶，我在做饭 is NOT possible; 我做饭 expected) -->"
+ },
+ "unknown_hanzi_in_expected_answers": [
+  "在"
+ ],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [
+  "不要",
+  "做饭"
+ ],
+ "student_nao_sei": 2,
+ "new_word_coverage_min": 4,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 25,
+   "addresses_listener": null
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 5.6,
+  "1": 4.8,
+  "2": 7.8,
+  "3": 12.8
+ },
+ "older_words": {
+  "scheduled": [
+   "你好"
+  ],
+  "used": [
+   "你好"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": true,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

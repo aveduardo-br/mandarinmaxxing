@@ -1,0 +1,61 @@
+{
+ "run": "/home/claude/mm-bench/cipher-1/part-10",
+ "turns": 49,
+ "tutor_turns": 24,
+ "new_done_lines": [
+  "1-05.1"
+ ],
+ "taught_words": 4,
+ "next": "Lesson 05, part 2 of 3",
+ "to_reinforce": "中国朋友",
+ "known_jump_start": false,
+ "review_counter": [
+  5
+ ],
+ "rounds": {},
+ "expected_answers": 20,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 0,
+ "new_words_under_3": [
+  "朋友",
+  "的",
+  "这",
+  "那"
+ ],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 30,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 47,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 10.8,
+  "1": null,
+  "2": null,
+  "3": null
+ },
+ "older_words": {
+  "scheduled": [
+   "中国",
+   "要"
+  ],
+  "used": [
+   "中国",
+   "要"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

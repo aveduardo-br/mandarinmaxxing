@@ -1,0 +1,77 @@
+{
+ "run": "/home/claude/mm-bench/cipher-1/part-13",
+ "turns": 51,
+ "tutor_turns": 25,
+ "new_done_lines": [
+  "1-06.1"
+ ],
+ "taught_words": 4,
+ "next": "Lesson 06, part 2 of 4",
+ "to_reinforce": "",
+ "known_jump_start": false,
+ "review_counter": [
+  6
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 21,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [
+  "不要"
+ ],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 4,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 34,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 51,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 7.0,
+  "1": 3.8,
+  "2": 8.8,
+  "3": 13.6
+ },
+ "older_words": {
+  "scheduled": [
+   "这",
+   "他"
+  ],
+  "used": [
+   "这",
+   "他"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

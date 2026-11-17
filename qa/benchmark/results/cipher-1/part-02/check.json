@@ -1,0 +1,60 @@
+{
+ "run": "/home/claude/mm-bench/cipher-1/part-02",
+ "turns": 31,
+ "tutor_turns": 15,
+ "new_done_lines": [
+  "1-01.2"
+ ],
+ "taught_words": 6,
+ "next": "Lesson 02, part 1 of 2",
+ "to_reinforce": "对不起",
+ "known_jump_start": false,
+ "review_counter": [
+  3
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 13,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 2,
+ "new_words_under_3": [
+  "好"
+ ],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 20,
+   "addresses_listener": null
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 2.0,
+  "1": 2.8,
+  "2": 6.4,
+  "3": null
+ },
+ "older_words": {
+  "scheduled": [],
+  "used": []
+ },
+ "flags": {
+  "wrapup_offered": true,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "run": "/home/claude/mm-bench/cipher-1/part-05",
+ "turns": 51,
+ "tutor_turns": 25,
+ "new_done_lines": [
+  "1-03.1"
+ ],
+ "taught_words": 4,
+ "next": "Lesson 03, part 2 of 2",
+ "to_reinforce": "",
+ "known_jump_start": false,
+ "review_counter": [
+  7
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 22,
+ "unknown_hanzi_outside_table": {
+  "李": "Eu me chamo 李明 (Lǐ Míng).",
+  "明": "Eu me chamo 李明 (Lǐ Míng).",
+  "王": "Desculpe, eu não me chamo 李明 (Lǐ Míng), eu me chamo 王红 (Wáng Hóng).",
+  "红": "Desculpe, eu não me chamo 李明 (Lǐ Míng), eu me chamo 王红 (Wáng Hóng)."
+ },
+ "unknown_hanzi_in_expected_answers": [
+  "明",
+  "李",
+  "王",
+  "红"
+ ],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [
+  "做饭"
+ ],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 4,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 31,
+   "addresses_listener": null
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 7.9,
+  "1": 5.6,
+  "2": 7.8,
+  "3": 14.2
+ },
+ "older_words": {
+  "scheduled": [
+   "不客气"
+  ],
+  "used": [
+   "不客气"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

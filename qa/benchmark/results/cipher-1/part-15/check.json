@@ -1,0 +1,77 @@
+{
+ "run": "/home/claude/mm-bench/cipher-1/part-15",
+ "turns": 53,
+ "tutor_turns": 26,
+ "new_done_lines": [
+  "1-06.3"
+ ],
+ "taught_words": 4,
+ "next": "Lesson 06, part 4 of 4",
+ "to_reinforce": "",
+ "known_jump_start": false,
+ "review_counter": [
+  7
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 22,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 4,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 42,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 70,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 7.6,
+  "1": 9.2,
+  "2": 12.2,
+  "3": 18.0
+ },
+ "older_words": {
+  "scheduled": [
+   "我们",
+   "国",
+   "谢谢"
+  ],
+  "used": [
+   "我们",
+   "国",
+   "谢谢"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}

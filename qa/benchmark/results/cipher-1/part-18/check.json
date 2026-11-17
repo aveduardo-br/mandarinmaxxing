@@ -1,0 +1,77 @@
+{
+ "run": "/home/claude/mm-bench/cipher-1/part-18",
+ "turns": 53,
+ "tutor_turns": 26,
+ "new_done_lines": [
+  "1-07.2"
+ ],
+ "taught_words": 7,
+ "next": "Lesson 07, part 3 of 3",
+ "to_reinforce": "",
+ "known_jump_start": false,
+ "review_counter": [
+  7
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 22,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [],
+ "student_nao_sei": 1,
+ "new_word_coverage_min": 3,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 42,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 67,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 8.7,
+  "1": 7.2,
+  "2": 9.2,
+  "3": 20.0
+ },
+ "older_words": {
+  "scheduled": [
+   "六",
+   "很",
+   "饭"
+  ],
+  "used": [
+   "六",
+   "很",
+   "饭"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}
