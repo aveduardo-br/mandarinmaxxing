@@ -88,6 +88,8 @@ Write both as bulleted lists, one lesson per line, in this shape: the map’s tw
 
 Then save the course: `course.md` with the settings, the route, and the full lesson list in the learner’s language.
 
+Add one line, in the learner’s language, on what they can ask for at any time: review a lesson, change the pace, an extra reading with only the words they know, flashcards of a part’s words, or notes of each part. Keep it to a single sentence.
+
 Ask whether they want to move any lesson earlier or later, and save again if the route changes. Only lessons after the jump start can move. Learners who have studied before can start at a later lesson: “start at 19” puts Lesson 19 first on the route, and it is still called Lesson 19. Start once the learner agrees.
 
 For a level without a map in this skill, build one from the syllabus file with the same rules: situations a learner can talk about, blocks of two to four words that produce sentences together, look-alike and same-category words in different blocks, and core function words early. Check that every official word appears exactly once before showing the overview, and save the map beside the course file as `map-hsk-N.md`. If the syllabus file for the level is missing, ask the learner for a word list or offer a clearly labeled sample lesson.
@@ -133,7 +135,7 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 - **Audio** is `none`, or the provider the learner chose, with the one voice picked for the course so every clip sounds the same, for example `ElevenLabs, voice Sarah`.
 - **Route** lists the lesson numbers in the order the learner agreed to.
 - **Next** names the lesson and part to teach next, or says `level complete`.
-- **To reinforce** holds up to ten words or chunks the learner needed help with in the last part. For a slip of word order or grammar, save the chunk, not a single word. Replace the line after each part. It can be empty.
+- **To reinforce** holds up to ten words or chunks the learner needed help with, oldest first. For a slip of word order or grammar, save the chunk, not a single word. After each part, remove the items the learner used correctly without help during that part, then add the new ones at the end. An item stays until it is answered right, so a second miss keeps it. When the line passes ten items, drop the oldest. It can be empty.
 - **Lessons** is the whole level as the learner saw it at setup: map number, name in their language, and number of parts. Write it once and use these names in every chat.
 - **Done** gets one line per completed part, in the order studied: level, lesson number and part, then the new words taught as the map spells them, so `2-01.1` is HSK 2, Lesson 1, part 1. Sense numbers such as 别1 stay in this log and in the map only; the learner always sees 别. The level prefix is for this log only and never appears in a lesson. Read a line without a prefix as the level the course started on. This log is how later parts know what an earlier one covered.
 
@@ -168,8 +170,22 @@ Words of the levels below the course level count as met, even with an empty **Do
 3. **Written translation.** Give each new word at least one dedicated prompt in the learner’s language to translate into Mandarin. Use at least five prompts and at most three more than the number of new words. When an answer needs a correction, bring that word back in a later prompt of the same round and add it to the words to reinforce. Keep the total in the counter fixed: rework one of the prompts still to come so that it needs the word again, and add a prompt only when none is left. Start with short sentences in fresh contexts. When the learner is ready, alternate short prompts with brief connected messages that combine new and familiar chunks to accomplish something. Design prompts the learner can answer with words they have met. After feedback on the last answer, ask whether the learner wants another translation round or is ready for the final text. Wait for their choice.
 4. **Listening or reading.** With a voice provider, one audio clip with questions. Without one, a short reading with a rewrite task. Follow the matching format in `lesson-format.md`. Across the exercise, use every new word in a reusable phrase.
 
-**Bring older words back.** In written translation and the last exercise, reuse words from the parts 3, 7, and 14 lines back in the **Done** log, counting from its end, where the last line is 1. Aim for one or two words from each, choosing the ones that fit the scene. Use what fits and leave the rest. This is exposure for the learner, with nothing to track or score.
+**Bring older words back.** In written translation and the last exercise, reuse words from the lines 3, 7, 14, 30, and 60 back in the **Done** log, counting from its end, where the last line is 1. Skip the distances the log doesn’t reach yet; across levels the whole log counts. Pick the words by turn, not by what fits most easily, so every word of a line gets its turn over the visits:
+
+- Line 3 back gives its 1st word, 7 back its 2nd, 14 back its 3rd, 30 back its 4th, 60 back its 5th. When a line is shorter, keep counting from its start again (in a three-word line, the 4th is the 1st).
+- A line with more than five words gives two words per visit: the 1st and 2nd, then the 3rd and 4th, and so on.
+- If the word whose turn it is can’t fit any prompt or the text, take the next one in the line.
+- Use at most six of these words in a part. When there are more, drop the ones from the nearest lines first: the review already covered the line just before.
+
+This is exposure for the learner, with nothing to track or score.
 
 At the end of the part, save the **Done** line, **Next**, and the words to reinforce. Close with one short line that names what comes next, such as “Next time: HSK 2, Lesson 1, part 2.” Begin another part in the same chat only if the learner asks.
 
+**When a lesson ends.** If the part just saved was the last part of a lesson with two or more parts, say in the closing line that the lesson is complete and offer a short wrap-up, now or next time. The wrap-up is a role-play of the lesson’s situation: you play the other person, writing in Mandarin with the meaning under each line, and the learner replies in Mandarin, for four to six turns that call on blocks from every part of the lesson. Correct each reply with the written-translation format. It is standalone practice: it leaves **Next** and **Done** as they are. Offer it once; if the learner moves on, don’t bring it up again.
+
 When asked for a specific lesson or part, begin it from the start. Treat one other than the saved **Next** as standalone practice unless the learner asks to change their course position. When asked to review a lesson, use its lines in the **Done** log. Give extra exercises on the requested point during the lesson.
+
+**On request.** These leave **Next** and **Done** as they are.
+
+- **Extra reading.** A short text in the reading format of `lesson-format.md`, written only with words from the **Done** log and the levels below, plus a rewrite task.
+- **Flashcards.** The words of the parts asked for, and their chunks, in one code block with one card per line: Hanzi, a tab, pinyin, a tab, meaning in the learner’s language. Say in one line that it can be saved as a text file and imported into Anki or another flashcard app.

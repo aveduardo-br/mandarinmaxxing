@@ -78,7 +78,7 @@ Without audio there is nothing to set up. You read the text instead.
 ## What it doesn't do
 
 - It doesn't check your pronunciation or tones. Speaking practice is up to you.
-- It doesn't replace flashcards for long-term memory. Older words come back inside lessons, but the skill doesn't track every word you've missed.
+- It doesn't replace flashcards for long-term memory. Older words come back inside lessons, but the skill doesn't schedule every word for you. Ask for flashcards and it gives you a part's words ready to import into Anki.
 - It doesn't promise fluency or a passing exam score. It covers the vocabulary. The exam also tests grammar, handwriting, and speaking.
 
 ## Help improve it

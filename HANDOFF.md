@@ -46,8 +46,10 @@ Estado da skill na versão 0.4.0 (novembro de 2026) e o que vem depois. Leia int
 
 **Revisão**
 
-- Sem fila nem pontuação. A parte anterior volta na revisão, e palavras de 3, 7 e 14 linhas atrás no registro `Done` voltam dentro dos exercícios.
-- `To reinforce` guarda até dez palavras em que o aluno precisou de ajuda na última parte.
+- Sem fila nem pontuação. A parte anterior volta na revisão, e palavras de 3, 7, 14, 30 e 60 linhas atrás no registro `Done` voltam dentro dos exercícios, no máximo seis por parte.
+- As palavras antigas são escolhidas por rodízio (a linha de 3 atrás dá a 1ª palavra, a de 7 atrás a 2ª…), não pelo que encaixa mais fácil. Simulação nos mapas, ritmo 5: com a regra antiga, 13 a 18% das palavras voltavam depois da revisão da parte seguinte; com a nova, 70 a 94%. Repetição espaçada de verdade para cada palavra não cabe numa aula; para isso a skill entrega cartões para o Anki quando o aluno pede.
+- `To reinforce` guarda até dez palavras ou chunks em que o aluno precisou de ajuda. O item só sai quando o aluno acerta sem ajuda.
+- Ao terminar uma aula com duas ou mais partes, a skill oferece um fechamento: role-play da situação, de quatro a seis falas, sem mudar `Next`.
 
 **Onde o curso fica salvo**
 
