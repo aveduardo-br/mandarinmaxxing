@@ -4,15 +4,14 @@ Usage: python3 tools/review_coverage.py skills/mandarinmaxxing/maps/hsk-1.md [pa
 
 Builds the parts from the map's Split lines (pace 3, 5 or 7, default 5), then
 applies "Bring older words back": lines 3, 7, 14, 30 and 60 back in the Done
-log, words chosen by turn (two per visit for lines over five words), at most
-six per part, dropping the nearest lines first. The review of the previous
+log, one word per line, chosen by turn (at most five per part). The review of the previous
 part is not counted. Reports the share of words that come back at least once
 and at least twice, and the average number of older words per part.
 """
 import sys
 
 OFFSETS = [3, 7, 14, 30, 60]
-CAP = 6
+CAP = 5
 
 
 def parts(path, pace):
@@ -48,7 +47,7 @@ def simulate(ps):
             if j < 0:
                 continue
             n = len(ps[j])
-            per = 1 if n <= 5 else 2
+            per = 1
             for t in range(per):
                 picks.append((off, j, ((k - 1) * per + t) % n))
         picks.sort(key=lambda p: -p[0])  # farthest first, so nearest are dropped

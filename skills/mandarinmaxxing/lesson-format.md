@@ -8,7 +8,7 @@ Formats for the parts of a lesson. Read this once per chat, before the first les
 - **Title once.** When a part starts with the vocabulary table, the table’s heading is the title and no title line goes above it. When a part starts with review, the title line opens the review and the table’s heading repeats it later. With the Markdown fallback, the title goes in a bold line above the table.
 - **No commentary on the plan.** State the title and teach. Leave out remarks about how the lesson is divided, why a part has the number of words it has, or what the map says, unless the learner asks. One short line before the table, such as “Here are the new words”, is fine.
 - **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Take them from the **Labels** line and the **Lessons** list in `course.md`.
-- **Prompts.** Put the counter on its own bold line and the sentence to translate as plain text under it, with a blank line between them. In the review the counter counts the whole review, such as **Review 2 of 7**. In the rounds it names the round and counts to five, such as **Round 2 · 3 of 5**, using the saved label for round. Open each round with one bold line that names it, such as **Round 2 · Full actions**. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” before the first review prompt and again before the first prompt of round 1, and nowhere else.
+- **Prompts.** Put the counter on its own bold line and the sentence to translate as plain text under it, with a blank line between them. In the review the counter counts the whole review, such as **Review 2 of 7**. In the rounds it names the round and counts to five, such as **Round 2 · 3 of 5**, using the saved label for round. Open each round with one bold line that names it with the saved round name, such as **Round 2 · Full actions**. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” before the first review prompt and again before the first prompt of round 1, and nowhere else.
 
 ## Write Mandarin the same way everywhere
 
@@ -51,7 +51,7 @@ The Hanzi use a handwriting-style Kaiti in mainland standard forms, so the first
 </style>
 ```
 
-Under the table, add a one-line usage note only for a word whose use the meaning cell can’t show: two words that translate the same way (帮 and 帮忙), or a word that needs a pattern (让 + person + verb).
+Under the table, add a one-line usage note only for a word whose use the meaning cell can’t show: two words that translate the same way (帮 and 帮忙), or a word that needs a pattern (让 + person + verb). Give a polite form a meaning that says who it is for, such as 您 = “you (to sir or madam)”, so a prompt can call for it. When two words of a part translate the same way (没关系 and 没事), give each prompt a context that fits only one, or accept both.
 
 If the chat can’t embed HTML, use a selectable Markdown table in the message. Enlarge Hanzi through inline math where rendering and selection are confirmed, for example `$\LARGE\text{公交车}$` in Codex desktop. Use bold Hanzi when the interface supports standard text formatting only.
 
@@ -85,9 +85,9 @@ Up to two clips, sent one at a time: the dictation first, then the narration. Ea
 - **Generate once.** Ask the provider for a single take. On the first clip of a course, choose the voice and save it in `course.md`: with ElevenLabs, use Sarah (voice ID `EXAVITQu4vr4xnSDxMaL`) unless the learner asks for another; with another provider, or if Sarah isn’t in the voice list, pick one clear, neutral voice from the provider’s own list. Set the language to Chinese when the provider has that setting. Never run a generation again to retry or to get a variation unless the learner asks: each run spends their credits.
 - **Keep the script out of the message.** Share it with pinyin and a translation only after the learner answers, or if they ask.
 
-**Dictation.** Three to five short sentences, each a thing someone might say, built from the part’s words and older ones. Write them as separate sentences so the voice pauses between them. Send the clip under a bold title such as **Dictation 1**, and ask the learner to write each sentence they hear, numbered, in Hanzi or pinyin. They can replay it as often as they like. Correct each sentence with the written-translation format, then show the script.
+**Dictation.** Three to five short sentences, each a thing one person says in a single turn, built from the part’s words and older ones. Never put both sides of an exchange in one sentence (not 谢谢，不客气). Write them as separate sentences so the voice pauses between them. Send the clip under a bold title with the saved label for dictation and its number, such as **Dictation 1**, and ask the learner to write each sentence they hear, numbered, in Hanzi or pinyin. They can replay it as often as they like. Correct each sentence with the written-translation format, then show the script.
 
-**Narration.** One person speaking in the first person about their own day, plan, or something that happened, in a concrete scene: three to eight sentences, 20 to 40 seconds at a clear pace. The speaker never addresses a listener, asks the listener anything, or quotes anyone; a conversation, or half of one, is not a narration. Send the clip labeled by number and scene, such as **Audio 1 · At the tea shop**, with the questions in the same message so the learner can read them before playing: what happened, what the speaker wanted or plans, what a chunk meant in context. Ask for all the answers together, then mark each correct or incorrect.
+**Narration.** One person speaking in the first person about their own day, plan, or something that happened, in a concrete scene: three to eight sentences, 20 to 40 seconds at a clear pace. The speaker never addresses a listener, asks the listener anything, or quotes anyone; a conversation, or half of one, is not a narration. Send the clip labeled with the saved label for audio, its number and the scene, such as **Audio 1 · At the tea shop**, with the questions in the same message so the learner can read them before playing: what happened, what the speaker wanted or plans, what a chunk meant in context. Ask for all the answers together, then mark each correct or incorrect.
 
 Use the narration only once the learner has met enough words to fill about 20 seconds. Before that, the dictation alone is the listening step.
 
@@ -97,6 +97,6 @@ Send one short closing message after the last exercise:
 
 - What comes next, such as “Next time: HSK 1, Lesson 11, part 3.”
 - When the part was the last part of a lesson with two or more parts, one line saying the lesson is complete and offering the wrap-up role-play, now or next time, such as “Lesson 11 is complete. Want a quick role-play of this situation now, or next time?”
-- When the session ran well under an hour, an offer to start the next part now.
+- An offer to start the next part now. The learner decides; parts with few words end well before the hour.
 
 Leave out a summary of the part and any comment on how it was divided.
