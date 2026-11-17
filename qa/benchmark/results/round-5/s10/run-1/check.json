@@ -1,0 +1,75 @@
+{
+ "run": "/home/claude/mm-bench/round-5/s10/run-1",
+ "turns": 50,
+ "tutor_turns": 25,
+ "new_done_lines": [
+  "1-04.3"
+ ],
+ "taught_words": 5,
+ "next": "Lesson 05, part 1 of 3",
+ "to_reinforce": "我不会, 汉语",
+ "known_jump_start": false,
+ "review_counter": [
+  6
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 21,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 4,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 31,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 46,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 8.0,
+  "1": 5.8,
+  "2": 7.0,
+  "3": 16.0
+ },
+ "older_words": {
+  "scheduled": [
+   "是",
+   "对不起"
+  ],
+  "used": [
+   "是",
+   "对不起"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": true,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}
