@@ -2,12 +2,14 @@ The same HSK words, reorganized around everyday conversations.
 
 **What's new**
 
-Small fixes from a benchmark of HSK 2 and HSK 4 lessons:
+Fixes from a 19-part benchmark of the HSK 1 jump start with a simulated student who really didn't know the language (`qa/benchmark/results/cipher-1/`):
 
-- No two exercises in a part share the same sentence frame with only a name or a time swapped, including the review.
-- The first two rounds are never shorter than the review, so the level holds through the whole part.
-- Sentences use spoken Mandarin, not written-register verbs.
-- The listening step tells a new scene instead of retelling an exercise.
+- The sentence you translate says exactly what the Mandarin answer says: no extra "and", "but" or "already" you'd have no way to translate.
+- Hints, examples, readings and audio only use words you've already met.
+- When a part teaches two words for the same thing (中文 and 汉语), you get asked for each one, not only the one you prefer.
+- If your answer is right but skips the new word, the tutor names it and asks for it again in the same round.
+- Usage notes cover words used in a way the table doesn't show, such as 不 alone meaning "no".
+- Round names always come from your saved labels.
 
 **Install**
 

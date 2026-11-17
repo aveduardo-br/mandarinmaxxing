@@ -8,13 +8,13 @@ Formats for the parts of a lesson. Read this once per chat, before the first les
 - **Title once.** When a part starts with the vocabulary table, the table’s heading is the title and no title line goes above it. When a part starts with review, the title line opens the review and the table’s heading repeats it later. With the Markdown fallback, the title goes in a bold line above the table.
 - **No commentary on the plan.** State the title and teach. Leave out remarks about how the lesson is divided, why a part has the number of words it has, or what the map says, unless the learner asks. One short line before the table, such as “Here are the new words”, is fine.
 - **Same words every time.** Use one word for “lesson”, one for “part”, and one name for each lesson through the whole course. Take them from the **Labels** line and the **Lessons** list in `course.md`.
-- **Prompts.** Put the counter on its own bold line and the sentence to translate as plain text under it, with a blank line between them. In the review the counter counts the whole review, such as **Review 2 of 7**. In the rounds it names the round and counts to five, such as **Round 2 · 3 of 5**, using the saved label for round. Open each round with one bold line that names it with the saved round name, such as **Round 2 · Full actions**. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” before the first review prompt and again before the first prompt of round 1, and nowhere else.
+- **Prompts.** Put the counter on its own bold line and the sentence to translate as plain text under it, with a blank line between them. In the review the counter counts the whole review, such as **Review 2 of 7**. In the rounds it names the round and counts to five, such as **Round 2 · 3 of 5**, using the saved label for round from **Labels** in `course.md`, never a synonym. Open each round with one bold line that names it with the saved round name, such as **Round 2 · Full actions**. Keep the prompt out of blockquotes so it reads at full strength. Say “Translate into Mandarin” before the first review prompt and again before the first prompt of round 1, and nowhere else.
 
 ## Write Mandarin the same way everywhere
 
 Outside the vocabulary table, every piece of Mandarin follows one pattern: **Hanzi in bold**, *pinyin in italics*, meaning in plain text.
 
-- A chunk or a corrected sentence takes three lines: the Hanzi in bold, the pinyin in italics under it, and the meaning in the learner’s language under that. Use hard line breaks so the three lines don’t run together. Put the chunk list under one bold line with the saved label for useful phrases; when a word in a chunk can be swapped, say which in its meaning line. A breakdown, when the chunk has one, is a fourth line in plain text: 你好 = 你 (you) + 好 (good).
+- A chunk or a corrected sentence takes three lines: the Hanzi in bold, the pinyin in italics under it, and the meaning in the learner’s language under that. Use hard line breaks so the three lines don’t run together. Put the chunk list under one bold line with the saved label for useful phrases; when a word in a chunk can be swapped, say which in its meaning line, and give as an example only a word the learner has met. A breakdown, when the chunk has one, is a fourth line in plain text: 你好 = 你 (you) + 好 (good).
 - A word inside a sentence is written inline: **超市** (*chāoshì*, supermarket). A word the learner has known since earlier parts needs only the bold Hanzi, unless it is the point of the correction.
 - Reading texts stay as plain Hanzi, with no pinyin.
 - Never italicize or strike through Hanzi.
@@ -51,7 +51,7 @@ The Hanzi use a handwriting-style Kaiti in mainland standard forms, so the first
 </style>
 ```
 
-Under the table, add a one-line usage note only for a word whose use the meaning cell can’t show: two words that translate the same way (帮 and 帮忙), or a word that needs a pattern (让 + person + verb). Give a polite form a meaning that says who it is for, such as 您 = “you (to sir or madam)”, so a prompt can call for it. When a new word translates the same way as another word of the part or a word already met (没关系 and 没事, 以为 and 觉得), give each prompt a context that fits only one, such as the contrast that shows a belief was wrong, or accept both.
+Under the table, add a one-line usage note only for a word whose use the meaning cell can’t show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), or a word the exercises will use in a role the meaning doesn’t show (不 alone as a reply: “no”). Give a polite form a meaning that says who it is for, such as 您 = “you (to sir or madam)”, so a prompt can call for it. When a new word translates the same way as another word of the part or a word already met (没关系 and 没事, 以为 and 觉得), give each prompt a context that fits only one, such as the contrast that shows a belief was wrong, or accept both. When the learner keeps choosing one (中文 over 汉语), ask for the other by name in the next prompt that fits and again in the next part’s review.
 
 If the chat can’t embed HTML, use a selectable Markdown table in the message. Enlarge Hanzi through inline math where rendering and selection are confirmed, for example `$\LARGE\text{公交车}$` in Codex desktop. Use bold Hanzi when the interface supports standard text formatting only.
 
@@ -59,7 +59,7 @@ If the chat can’t embed HTML, use a selectable Markdown table in the message. 
 
 Use plain Markdown for all feedback and the Mandarin pattern above. Blockquotes are reserved for one thing: showing back what the learner wrote in a correction.
 
-- **Correct and natural.** Confirm briefly and move to the next prompt. Accept any natural version that meets the request, including a standard variant such as 没有关系 for 没关系; if you wanted the other form, name it in one line. If a valid alternative uses a different expression, acknowledge it, name the chunk you were after, and bring it back in a later prompt.
+- **Correct and natural.** Confirm briefly and move to the next prompt. Accept any natural version that meets the request, including a standard variant such as 没有关系 for 没关系; if you wanted the other form, name it in one line. If the accepted answer leaves out a new word of the part (的, 多大了), name the word and bring it back in a prompt of the same round. If a valid alternative uses a different expression, acknowledge it, name the chunk you were after, and bring it back in a later prompt.
 - **Correct meaning, noticeably unnatural phrasing.** Acknowledge that the meaning is right. Show a more natural version in Hanzi with pinyin directly below it and briefly explain the change.
 - **Incorrect.** Use this order. First a short opener and “You wrote:”, then the learner’s whole answer in a blockquote. Next, one line that points only at the part that went wrong: the word or chunk to use in its place in bold, its pinyin in italics, and a short reason. For a slip of word order, show the stretch in the right order. Use one such line per fix, even when one fix settles two slips. Then the full corrected sentence once, as bold Hanzi, italic pinyin, and plain meaning on three lines. Follow with the next prompt. Leave out a word-by-word breakdown of the parts the learner got right.
 
@@ -81,7 +81,7 @@ Up to two clips, sent one at a time: the dictation first, then the narration. Ea
 
 **Before any clip.**
 
-- **Review the script.** Read it through: the Mandarin sounds natural, it uses only words the learner has met, and the new words of the part are in it.
+- **Review the script.** Read it through: the Mandarin sounds natural, the new words of the part are in it, and every word is in the **Done** log, this part’s table or the levels below (check them one by one: a word the learner hasn’t met, such as 家 before its lesson, is easy to miss).
 - **Generate once.** Ask the provider for a single take. On the first clip of a course, choose the voice and save it in `course.md`: with ElevenLabs, use Sarah (voice ID `EXAVITQu4vr4xnSDxMaL`) unless the learner asks for another; with another provider, or if Sarah isn’t in the voice list, pick one clear, neutral voice from the provider’s own list. Set the language to Chinese when the provider has that setting. Never run a generation again to retry or to get a variation unless the learner asks: each run spends their credits.
 - **Keep the script out of the message.** Share it with pinyin and a translation only after the learner answers, or if they ask.
 
