@@ -27,3 +27,20 @@ Each scenario gives the starting `course.md` (or none), the student's first mess
 - Teach Lesson 22. Decline anything optional.
 - Stop after the tutor's closing message.
 - What it tests: the jump start question, route confirmation, and that prompts use only met words (jump start plus Lesson 22) and not words from Lessons 8 to 21.
+
+## s6-hsk3-mid
+
+- Starting `course.md`: `scenarios/s6-course.md` (HSK 3, Lessons 1 to 17 done, 47 parts; next is Lesson 18 part 1). The learner started at HSK 3, so HSK 1 and 2 count as met.
+- First message: `próxima aula`
+- Teach the whole part. Decline anything optional.
+- Stop after the tutor's closing message.
+- What it tests: whether the review and the rounds rise to an intermediate level (longer sentences, HSK 1 to 3 words), older words from up to 30 parts back, natural Mandarin at HSK 3.
+
+## s7-jump-hsk3
+
+- Starting `course.md`: `scenarios/s7-course.md` (HSK 3, Lessons 1 to 6 done, jump start finished; next is Lesson 7 part 1).
+- First message: `quero ir para a aula 30`
+- If the tutor asks what comes after Lesson 30, answer `depois volta para a aula 7`.
+- Teach the first part of Lesson 30. Decline anything optional.
+- Stop after the tutor's closing message.
+- What it tests: a jump inside a level whose jump start is done (no jump start question), a review at the course's level although the last part reviewed is from Lesson 6, and prompts with no words from Lessons 7 to 29.

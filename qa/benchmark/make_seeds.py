@@ -10,9 +10,17 @@ PT = ['Cumprimentar e agradecer', 'Dizer o que você quer', 'Dizer quem você é
       'Falar do trabalho', 'Ficar doente']
 MAP = 'skills/mandarinmaxxing/maps/hsk-1.md'
 
-def lessons(pace_idx=1):
+PT3 = ['Dar sua opinião', 'Contar o que aconteceu', 'Fazer um plano', 'Falar dos seus hábitos', 'Pôr a conversa em dia',
+       'Família e vizinhos', 'Descrever um amigo', 'Dizer como você se sente', 'Dizer quando foi', 'Feriados e visitas',
+       'Comer fora', 'Comprar comida', 'Comer em casa', 'Provar roupas', 'Mudar de casa', 'Arrumar e se aprontar',
+       'Cuidar da saúde', 'Perder o celular ou o cartão', 'E-mail e mensagens', 'Falar das estações', 'Um dia ao ar livre',
+       'No zoológico', 'Achar o caminho', 'Lugares no mapa', 'Pegar trem ou avião', 'No hotel', 'Ler placas e avisos',
+       'Sua turma', 'Fazer a lição de casa', 'Falar das suas notas', 'Na biblioteca', 'Estudar fora', 'No escritório',
+       'Resolver um problema', 'Esportes e jogos', 'Shows e música', 'Do que você gosta']
+
+def lessons(pace_idx=1, path=None):
     out, cur = [], None
-    for line in open(MAP, encoding='utf-8'):
+    for line in open(path or MAP, encoding='utf-8'):
         if line.startswith('## '):
             cur = {'n': int(line[3:5]), 'blocks': []}; out.append(cur)
         elif line.startswith('Split:'):
@@ -21,17 +29,18 @@ def lessons(pace_idx=1):
             cur['blocks'].append(line[2:].split())
     return out
 
-def course(done_until, next_line, route='01–22', extra='', reinforce=''):
-    ls = lessons()
+def course(done_until, next_line, route='01–22', extra='', reinforce='', level=1):
+    ls = lessons(path=f'skills/mandarinmaxxing/maps/hsk-{level}.md')
+    names = PT if level == 1 else PT3
     done = []
     for l in ls:
         i = 0
         for p, size in enumerate(l['split'], 1):
             ws = sum(l['blocks'][i:i + size], []); i += size
-            done.append((f"1-{l['n']:02d}.{p}", ws))
+            done.append((f"{level}-{l['n']:02d}.{p}", ws))
     lines = [d for d in done][:done_until]
     head = f"""# mandarinmaxxing course
-- Syllabus: HSK 3.0 (2025-11), level 1
+- Syllabus: HSK 3.0 (2025-11), level {level}
 - Pace: about 5 words per part
 - Language: Português
 - Labels: Aula, parte, Revisão, Bateria, Exercício, Escuta, Leitura, Frases úteis, Largada
@@ -41,7 +50,7 @@ def course(done_until, next_line, route='01–22', extra='', reinforce=''):
 - To reinforce: {reinforce}
 {extra}
 ## Lessons
-""" + '\n'.join(f"{l['n']:02d} {PT[l['n']-1]} ({len(l['split'])} {'parte' if len(l['split'])==1 else 'partes'})" for l in ls) + "\n\n## Done\n" + '\n'.join(f"{k} | {' '.join(w)}" for k, w in lines) + '\n'
+""" + '\n'.join(f"{l['n']:02d} {names[l['n']-1]} ({len(l['split'])} {'parte' if len(l['split'])==1 else 'partes'})" for l in ls) + "\n\n## Done\n" + '\n'.join(f"{k} | {' '.join(w)}" for k, w in lines) + '\n'
     return head.replace('\n\n## Lessons', '\n## Lessons'), len(lines)
 
 if __name__ == '__main__':
@@ -56,3 +65,15 @@ if __name__ == '__main__':
     s5, n5 = course(2, 'Lesson 02, part 1 of 2')
     open(os.path.join(d, 's5-course.md'), 'w', encoding='utf-8').write(s5)
     print('s2 done lines', n2, '| s5 done lines', n5)
+    # S6: HSK 3, lessons 01-17 done; next is 18.1 (learner started at HSK 3, so HSK 1-2 count as met)
+    l3 = lessons(path='skills/mandarinmaxxing/maps/hsk-3.md')
+    k6 = sum(len(l['split']) for l in l3 if l['n'] <= 17)
+    p18 = len(next(l for l in l3 if l['n'] == 18)['split'])
+    s6, n6 = course(k6, f'Lesson 18, part 1 of {p18}', route='01–37', level=3, reinforce='一定 打算')
+    open(os.path.join(d, 's6-course.md'), 'w', encoding='utf-8').write(s6)
+    # S7: HSK 3, lessons 01-06 done (jump start finished); learner jumps to 30
+    k7 = sum(len(l['split']) for l in l3 if l['n'] <= 6)
+    p7 = len(next(l for l in l3 if l['n'] == 7)['split'])
+    s7, n7 = course(k7, f'Lesson 07, part 1 of {p7}', route='01–37', level=3)
+    open(os.path.join(d, 's7-course.md'), 'w', encoding='utf-8').write(s7)
+    print('s6 done lines', n6, '| s7 done lines', n7)

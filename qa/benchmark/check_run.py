@@ -35,9 +35,22 @@ def done_words(path):
     return words, lines
 
 
-def jump_start_words():
+def course_level(text):
+    m = re.search(r'^- Syllabus: .*level (\d)', text, flags=re.M)
+    return int(m.group(1)) if m else 1
+
+
+def lower_level_words(level):
+    out = set()
+    for n in range(1, level):
+        for line in list(open(f'skills/mandarinmaxxing/syllabus/hsk-{n}.csv', encoding='utf-8'))[1:]:
+            out.add(re.sub(r'\d+$', '', line.split(',')[1]))
+    return out
+
+
+def jump_start_words(level=1):
     out, js = set(), False
-    for line in open(MAP, encoding='utf-8'):
+    for line in open(f'skills/mandarinmaxxing/maps/hsk-{level}.md', encoding='utf-8'):
         if line.startswith('## '):
             js = '| jump-start |' in line
         elif line.startswith('- ') and js:
@@ -61,7 +74,8 @@ def main(run, start):
     known_js = 'Known: jump start' in course
     new_lines = end_lines[len(start_lines):]
     taught = set(w for _, ws in new_lines for w in ws)
-    known = start_words | taught | (jump_start_words() if known_js else set())
+    level = course_level(course)
+    known = start_words | taught | lower_level_words(level) | (jump_start_words(level) if known_js else set())
     known_chars = set(''.join(known))
 
     ts = turns(f'{run}/transcript.md')
@@ -90,6 +104,26 @@ def main(run, start):
     for r, k, n in re.findall(r'\*\*(?:Bateria|Round)\s+(\d)\s*·\s*(\d+)\s+(?:de|of)\s+(\d+)\*\*', '\n'.join(tutor)):
         rounds.setdefault(int(r), set()).add((int(k), int(n)))
     round_summary = {r: {'max_index': max(k for k, _ in v), 'denominators': sorted({n for _, n in v})} for r, v in sorted(rounds.items())}
+
+    # sentence length: Hanzi per expected answer in the review (before round 1) and in each round
+    def avg(xs):
+        return round(sum(xs) / len(xs), 1) if xs else None
+    rounds_at = [(i, int(m.group(1))) for i, msg in enumerate(tutor) for m in re.finditer(r'\*\*(?:Bateria|Round)\s+(\d)\s*·\s*\d+\s+(?:de|of)', msg)]
+    def round_of(i):
+        r = None
+        for j, k in rounds_at:
+            if j <= i:
+                r = k
+        return r
+    lengths = {'review': [], 1: [], 2: [], 3: []}
+    first_r = rounds_at[0][0] if rounds_at else 10**9
+    for i, e in expected:
+        n_han = len(HAN.findall(e.split('(')[0]))
+        if i < first_r:
+            lengths['review'].append(n_han)
+        elif round_of(i) in lengths:
+            lengths[round_of(i)].append(n_han)
+    sentence_length = {str(k): avg(v) for k, v in lengths.items()}
 
     # coverage of new words in expected answers after round 1 starts
     first_round_turn = next((i for i, m in enumerate(tutor) if re.search(r'\*\*(?:Bateria|Round)\s+1', m)), None)
@@ -140,6 +174,7 @@ def main(run, start):
         'new_word_coverage_min': min(coverage.values()) if coverage else None,
         'new_words_under_3': [w for w, c in coverage.items() if c < 3],
         'audio': audio,
+        'avg_hanzi_per_expected_answer': sentence_length,
         'older_words': older,
         'flags': flags,
     }

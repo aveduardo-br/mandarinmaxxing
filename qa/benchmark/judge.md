@@ -13,6 +13,8 @@ For each transcript, score each dimension from 1 to 5 and quote the evidence (tu
 7. **Flow and closing.** The part follows the five steps in order; the closing message says what comes next and makes the offers the skill requires (next part when the session ran short, wrap-up at the end of a multi-part lesson); the tutor doesn't comment on how the lesson was divided.
 8. **Session length.** Estimate how long a real learner would take, in minutes, from the number and size of the exchanges, and say whether that fits the skill's target of about an hour (a short jump start part is expected to end early and offer the next part).
 
+9. **Level fit.** The review and the rounds sound like the learner's level, not like the first lessons of a course: sentences as long and varied as the met words allow, with the review at the same level as round 2 even when the word under review is simple. Not counted in the total.
+
 Then give each transcript a one-paragraph verdict: what a learner would get from it, and the single change to the skill that would most improve it.
 
 After all transcripts, write a short **cross-run summary**: problems that appear in more than one run (these point at the skill's instructions, not at chance), problems seen only once, and the three changes to `SKILL.md` or `lesson-format.md` you would make first, quoting the line to change.
