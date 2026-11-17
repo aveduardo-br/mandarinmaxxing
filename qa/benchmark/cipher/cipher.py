@@ -23,6 +23,22 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 MAP_FILE = os.path.join(HERE, '.secret-map.json')
 HAN = r'一-鿿'
 TONED = 'āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ'
+PLAIN = str.maketrans('āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü', 'aaaaeeeeiiiioooouuuuvvvvv')
+INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w', '']
+FINALS = ['iang', 'iong', 'uang', 'ueng', 'ang', 'eng', 'ing', 'ong', 'ian', 'iao', 'uai', 'uan', 'van', 'ai', 'ei', 'ao', 'ou',
+          'an', 'en', 'in', 'un', 'vn', 'ia', 'ie', 'iu', 'ua', 'uo', 'ui', 've', 'er', 'a', 'o', 'e', 'i', 'u', 'v']
+SYLL = re.compile('^(?:(?:' + '|'.join(INITIALS[:-1]) + ')?(?:' + '|'.join(FINALS) + '))+$')
+
+
+def is_pinyin(span):
+    """True when every word of the span is made of pinyin syllables (tones optional) and at
+    least one has a tone mark, so Portuguese italics like *Frases úteis* are left alone."""
+    words = re.findall(r"[A-Za-z" + TONED + "ü']+", span)
+    if not words or not any(c in TONED for c in span):
+        return False
+    if re.search(r'[ãõçâêôàÃÕÇ]', span):
+        return False
+    return all(SYLL.match(w.lower().replace("'", '').translate(PLAIN)) for w in words)
 CONS = 'bdfgklmnprstvz'
 VOWS = 'aeiou'
 
@@ -32,7 +48,7 @@ def _token(word, used):
     salt = 0
     while True:
         h = hashlib.sha1(f'{word}:{salt}'.encode()).digest()
-        tok = ''.join(CONS[h[2 * i] % len(CONS)] + VOWS[h[2 * i + 1] % len(VOWS)] for i in range(n_syll))
+        tok = ''.join(CONS[h[2 * i] % len(CONS)] + VOWS[h[2 * i + 1] % len(VOWS)] for i in range(n_syll)) + 'q'
         if tok not in used:
             used.add(tok)
             return tok
@@ -91,7 +107,7 @@ def encode(text, table):
     # Pinyin is written in italics (lesson-format.md) and in the table's Pinyin column; Portuguese
     # shares the accented letters, so nothing outside those two places is touched.
     text = re.sub(r'<!--.*?-->', '', text, flags=re.S)
-    text = re.sub(r'\*[^*\n]*[' + TONED + r'][^*\n]*\*', '', text)
+    text = re.sub(r'(?<!\*)\*(?!\*)([^*\n]+?)(?<!\*)\*(?!\*)', lambda m: '' if is_pinyin(m.group(1)) else m.group(0), text)
     text = _drop_pinyin_columns(text)
     text = re.sub(r'\(\s*,\s*', '(', text)
     text = re.sub(r'\(\s*\)', '', text)
@@ -110,7 +126,8 @@ def encode(text, table):
 
 def decode(text, table):
     back = {v: k for k, v in table.items()}
-    out = re.sub(r'\b[a-z]{4,12}\b', lambda m: back.get(m.group(0), m.group(0)), text)
+    # every token ends in q, which no Portuguese word does, so Portuguese is never touched
+    out = re.sub(r'\b[a-z]+q\b', lambda m: back.get(m.group(0), m.group(0)), text)
     out = re.sub(f'(?<=[{HAN}]) (?=[{HAN}])', '', out)
     return re.sub(f'(?<=[{HAN}]) (?=[，。！？、；：])', '', out)
 

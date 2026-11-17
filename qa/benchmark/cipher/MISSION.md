@@ -24,6 +24,8 @@ E, em vez de uma parte solta, são as 19 partes do jump start do HSK 1 (aulas 1 
 
 ## Uma parte, passo a passo
 
+O piloto mostrou que funciona melhor com **um agente coordenador por parte**: ele cria o professor e o aluno, faz a troca abaixo lá dentro e só devolve um resumo, para a sua conversa não encher.
+
 Para cada parte `NN` (de 01 a 19):
 
 1. Crie `part-NN/` e copie `course/course.md` para `part-NN/course-start.md` (na parte 01 ele ainda não existe; pule).
@@ -73,6 +75,7 @@ Leia também os `[NÃO SEI]` nas transcrições: cada um é ou um furo da skill 
 
 - O aluno não esquece: ele tem o caderno e anota o que quiser. O teste mostra se a skill ensina e traz de volta o que deveria, não quanto uma pessoa reteria.
 - Os códigos vêm com espaço entre as palavras, o que facilita para o aluno (em chinês não há espaço).
+- O ditado e a narração chegam ao aluno como texto cifrado: ele "ouve" lendo. O ditado vira cópia e não mede nada aqui; as perguntas da narração medem só leitura.
 - A cifra troca só as palavras: a ordem e a gramática continuam sendo do mandarim, e as palavras gramaticais (了, 的, 吗, classificadores) também viram códigos. O modelo que faz o aluno conhece a gramática do chinês e pode perceber que é chinês disfarçado. Por isso um acerto de uma regra que a skill nunca mostrou não prova que ela ensinou; um erro ou um `[NÃO SEI]` é o sinal confiável.
 - O ambiente não é o app do Claude: tabela em Markdown e áudio como texto.
 - Custo esperado: perto de 150 mil tokens por parte só para o professor, mais o aluno. As 19 partes devem passar de 3 milhões.
