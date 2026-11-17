@@ -139,6 +139,11 @@ Notas do juiz (de 35) ao longo das rodadas: de 25 a 30 na 0.5.0 para 29 a 34 nas
 - **Seção "Your course":** ainda fala em uma aula por dia; o Eduardo decidiu não mudar por enquanto.
 - **Formulação sobre a prova**, ainda em aberto no `messaging.md`: a lista da skill (syllabus de novembro de 2025) vale para as provas regulares do HSK 1 a 6 a partir de 13 de dezembro de 2026.
 
+- **Seção nova "como foi feito"** (pedido do Eduardo em 17/11/2026): uma seção curta lá embaixo, antes do FAQ, explicando o processo para mostrar que há método. O texto completo está no README da skill ("How it's made"). Cuidado: dizer só o que foi feito; as aulas simuladas mostram que a skill segue o método, não quanto alguém aprende. Opções propostas, ainda sem escolha (seguir o processo de copy: mostrar, ele escolhe, depois atualizar o Paper):
+  - **A · "How it's made"**, um parágrafo: "The course isn't improvised. Every official word of each level was placed in a situation, in small groups that make sentences together, and a script checks that none is missing or repeated. Before each version, the skill teaches simulated lessons that are checked by script and by a separate AI reviewer: only words you've met, every new word practised several times, older words coming back. That shows the lessons follow the method. How much you remember comes from people using it, and every test is public on GitHub."
+  - **B · "Tested before you study"**, com números no texto: "2,000 words in 660 small groups, each with a test sentence that uses only words taught so far. 53 simulated lessons across HSK 1 to 4, including one where the student saw the language as made-up words and knew only what it was taught: 95 words taught, all 95 came back. It checks the method, not your memory; that part comes from people using it."
+  - **C · "Not improvised"**, texto curto e três números em ladrilhos (660 groups · 53 simulated lessons · 95 of 95 words came back), no visual das outras seções.
+
 **5. Conferências pendentes.**
 - O conector do ElevenLabs numa **conta gratuita** (os testes foram numa conta Creator).
 

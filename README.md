@@ -85,6 +85,16 @@ Without audio there is nothing to set up. You read the text instead.
 - It doesn't replace flashcards for long-term memory. Older words come back inside lessons, but the skill doesn't schedule every word for you. Ask for flashcards and it gives you a part's words ready to import into Anki.
 - It doesn't promise fluency or a passing exam score. It covers the vocabulary. The exam also tests grammar, handwriting, and speaking.
 
+## How it's made
+
+The course isn't improvised lesson by lesson. Two things are built and checked before anyone studies with them.
+
+**The maps.** Every official word of a level is placed once, in groups of two to four words that make sentences together, inside a situation you can actually talk about. Words that look alike or belong to the same category go in different groups, so they don't blur. A script checks that no word is missing or repeated. Each of the 660 groups in HSK 1 to 4 has a test sentence that uses only words taught by that point, and two independent reviews went through every group.
+
+**The lessons.** Before each version, the skill teaches simulated lessons, and the results are checked two ways: by script (only words you've met, every new word practised at least three times, older words coming back, your progress saved correctly) and by a separate AI reviewer that reads each lesson against the method. So far that's 34 simulated lessons across HSK 1 to 4, plus one run of all 19 parts of the HSK 1 jump start with a simulated student who saw the language as made-up words, so it really knew nothing but what it was taught. In that run, 95 words were taught and every one came back in later parts.
+
+What this shows: the lessons follow the method. What it doesn't show: how much you'll remember. That part comes from people using it, which is why feedback matters. Everything is in [`qa/benchmark/`](qa/benchmark/), including every simulated lesson.
+
 ## Help improve it
 
 This is a personal project, and it gets better with use. If a lesson felt off, a word landed in the wrong situation, or the install steps didn't match what you saw, [open an issue](https://github.com/aveduardo-br/mandarinmaxxing/issues). Corrections to a lesson map are especially welcome.
@@ -109,6 +119,7 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | `skills/mandarinmaxxing/syllabus/` | The official word lists, levels 1 to 6 |
 | `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table |
 | `qa/anchors/` | One test sentence for every group of words in a map. The skill doesn't read these |
+| `qa/benchmark/` | Simulated lessons used to test each version: scenarios, scripts, results |
 | `tools/` | Scripts that check the maps and the test sentences, and build the ZIP |
 
 To check a map and build the ZIP locally, run these from the repository root:
