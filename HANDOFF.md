@@ -92,7 +92,7 @@ A meta é 1 hora por dia (decisão do Eduardo: menos que isso não dá progresso
 
 Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivinhar por capturas de tela.
 
-**Benchmark.** `qa/benchmark/` tem os cenários, o roteiro das simulações, o roteiro do juiz e o script de correção. Rodar antes de cada versão nova: um agente por cenário e rodada (`runner.md`), `check_run.py` em cada pasta, e um juiz independente por cenário (`judge.md`). A rodada 1 (0.5.0) está em `qa/benchmark/results/round-1/`, com o resumo no `README.md` de lá. Cada bug novo vira um cenário.
+**Benchmark.** `qa/benchmark/` tem os cenários, o roteiro das simulações, o roteiro do juiz e o script de correção. Rodar antes de cada versão nova: um agente por cenário e rodada (`runner.md`), `check_run.py` em cada pasta, e um juiz independente por cenário (`judge.md`). A rodada 1 (0.5.0) está em `qa/benchmark/results/round-1/`, com o resumo no `README.md` de lá. Cada bug novo vira um cenário. Para um aluno que realmente não sabe a língua, `qa/benchmark/cipher/MISSION.md` descreve o benchmark do aluno cifrado (jump start do HSK 1 em sequência, com as palavras trocadas por códigos); ainda não foi rodado.
 
 ## Ao publicar
 
