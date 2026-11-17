@@ -1,11 +1,13 @@
 # Handoff: skill mandarinmaxxing
 
-Estado da skill na versão 0.5.4 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
+Estado da skill na versão 0.5.5 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
 
-**Situação:** 0.5.4 publicada. Passou por quatro rodadas de benchmark com aulas simuladas e pelo aluno cifrado (o jump start do HSK 1 inteiro, 19 partes, com um aluno que não sabia a língua) (`qa/benchmark/results/`), cobrindo HSK 1 a 4, mas ainda não por uma pessoa fazendo um curso inteiro. O Eduardo testou a 0.5.1 e achou a revisão simples demais depois de pular para uma aula adiantada; a 0.5.2 corrige isso (rodada 3). Os ajustes finais de cada versão entraram sem nova rodada, e o README de cada rodada diz quais.
+**Situação:** 0.5.5 publicada. Passou por quatro rodadas de benchmark com aulas simuladas e pelo aluno cifrado (o jump start do HSK 1 inteiro, 19 partes, com um aluno que não sabia a língua) (`qa/benchmark/results/`), cobrindo HSK 1 a 4, mas ainda não por uma pessoa fazendo um curso inteiro. O Eduardo testou a 0.5.1 e achou a revisão simples demais depois de pular para uma aula adiantada; a 0.5.2 corrige isso (rodada 3). Os ajustes finais de cada versão entraram sem nova rodada, e o README de cada rodada diz quais.
 
 - **Converse com o Eduardo em português.** O `SKILL.md`, o `lesson-format.md` e o README são em inglês.
 - **Mostre opções antes de mudanças grandes** e teste com aulas reais. O Eduardo valida vendo.
+- **Julgue as ideias do Eduardo.** Ele traz ideias para alinhar juntos, não ordens: diga quando discordar e por quê.
+- **Publicar é decisão dele.** Mudar a versão no `plugin.json` e subir na `main` publica uma release; faça só quando ele pedir.
 - **Pesquise antes de afirmar.** Limites de ferramenta, de conector ou de plano só valem depois de testados.
 
 ## O norte
@@ -102,15 +104,43 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 - A tabela de vocabulário carrega a fonte pelo jsDelivr, de um commit fixo deste repositório. Se o arquivo da fonte mudar, atualize o endereço em `lesson-format.md`.
 - Avisar o que mudou, para a copy do site ser reescrita.
 
+## Versões de novembro de 2026
+
+- **0.5.0:** partes de cerca de 1 hora (revisão longa, três baterias de 5, ditado e narração), rodízio de palavras antigas, fechamento com role-play, extras sob pedido (leitura, flashcards para o Anki).
+- **0.5.1:** correções da rodada 1 do benchmark: primeiras partes com menos baterias, ditado com uma fala por frase, oferta da próxima parte sempre, contador da revisão fixo, rodízio de uma palavra por linha.
+- **0.5.2:** a revisão segue o nível do curso (o Eduardo achou a revisão simples demais depois de pular para uma aula adiantada) e, depois de um pulo antes do fim do jump start, usa as palavras do jump start. Cenários do HSK 3.
+- **0.5.3:** sem estrutura repetida na parte, baterias 1 e 2 nunca mais curtas que a revisão, registro falado, escuta com cena nova. Cenários do HSK 2 e 4.
+- **0.5.4:** furos achados pelo aluno cifrado: o enunciado diz só o que a resposta diz, palavras vistas também em dicas e roteiros, sinônimos pedidos pelo nome, resposta sem a palavra nova volta na mesma bateria.
+- **0.5.5:** com poucas palavras, menos exercícios em vez de repetir; o "senhor" para pedir 您 só dentro da frase.
+
+Notas do juiz (de 35) ao longo das rodadas: de 25 a 30 na 0.5.0 para 29 a 34 nas versões seguintes. O HSK 4 tirou as melhores (34 e 33); as primeiras partes do curso e o HSK 2 são os mais irregulares. Detalhes em `qa/benchmark/results/`.
+
 ## O que falta
 
-1. **Testar a 0.5.4 com uma pessoa.** Pontos a olhar: se as frases da bateria 3 parecem frases de verdade, se a sessão chega perto de 1 hora, se 15 frases mais a revisão cansam (o primeiro corte seria a bateria 3 virar opcional no jump start), e se o ditado da aula 1 funciona. Se mexer na skill de novo, rodar o benchmark nos cenários afetados (não precisa de rodada completa). Há cenários dos HSK 1 a 4; o HSK 2 foi o mais irregular (33 e 28), então vale olhar primeiro se mexer em algo.
-2. **Testar com aluno de verdade.** A versão 0.4.0 publicou os mapas do HSK 2 a 4 e o HSK 1 revisado. O que foi conferido está em "Como os mapas foram conferidos", abaixo; nada disso substitui uma pessoa fazendo as aulas. O HSK 1 mudou só dentro dos blocos: números, nomes e totais de partes (97 / 58 / 42) são os mesmos da 0.3.0.
-3. **Mapas do HSK 5 e 6.** Sem mapa, a skill monta um na hora a partir da lista oficial, sem revisão humana.
-4. **Site.** Reescrever a copy para esta versão e fazer a página de instalação: os quatro passos e uma seção "Áudio (opcional)", com os nomes reais dos botões.
-5. **Confirmar com uma conta gratuita do ElevenLabs** que o conector funciona. Os testes foram feitos numa conta Creator.
-6. **Formulação sobre a prova**, ainda em aberto no `messaging.md`.
-7. **Site: 1 hora por dia.** A seção "Your course" fala em uma aula por dia e calcula datas com isso. Na 0.5 a unidade é uma parte de cerca de 1 hora por dia; ajustar a copy e o FAQ.
+**1. Validar com gente (a prioridade).** Tudo acima foi medido com aulas simuladas, que mostram se a skill segue o método, mas não se ele ensina.
+- O Eduardo e um amigo fazem umas cinco partes cada, o amigo começando do zero (o começo do curso foi o que mais mudou).
+- Pontos a olhar: se uma hora cansa, se as baterias ficam repetitivas depois de alguns dias, se a revisão continua no nível depois de pulos, se o ditado da aula 1 faz sentido.
+- Quando algo soar estranho, pedir à skill o relatório do que ela fez e transformar o caso num cenário do benchmark.
+
+**2. Skill: o que ainda não está bom.**
+- **Naturalidade do mandarim** é a nota mais baixa em todas as rodadas (3 a 4 de 5): frases com cara de tradução, sequências com 可是 ou 所以 que não fecham. A regra de conferir antes de mandar existe; falta saber se ela basta.
+- **As primeiras partes** (3 a 9 palavras) oscilam entre 27 e 33. A 0.5.5 deixa dar menos exercícios em vez de repetir; ainda não testado.
+- **O HSK 2** foi o mais irregular (33 e 28): baterias abaixo do nível da revisão e 位 usado onde não cabe.
+- **Ajustes sem rodada própria:** os finais da 0.5.1, 0.5.2 e 0.5.3, e os da 0.5.5. Se mexer na skill de novo, rodar ao menos `s1`, `s8` e `s10`.
+
+**3. Skill: ideias aprovadas que ainda não foram feitas.**
+- **Prova de fechamento:** no fim de uma aula ou de um nível, uma prova curta com palavras antigas sorteadas do registro. Serve ao aluno e dá dado real de retenção.
+- **Instalação mais simples** que o ZIP (o Eduardo acha o ZIP e o `npx` complicados para o aluno).
+- **Mapas do HSK 5 e 6:** hoje a skill monta o mapa na hora, com as nossas regras. Um cenário de benchmark que confira o mapa gerado com `check_map.py` ainda não foi feito; é barato e é onde a skill trabalha sem rede.
+
+**4. Site** (repositório `aveduardo-br/mandarinmaxxing-site`).
+- **Card 04 (áudio):** o texto já fala em ditado e narração de uma pessoa, mas o exemplo ainda é o diálogo de duas vozes. Gerar o áudio novo com a Sarah e refazer os tempos em `DialogueCard.astro`.
+- **"Lesson" × "part":** no site, "lesson" é o que se faz num dia; no README da skill, isso é "part". Alinhar, provavelmente adaptando o README.
+- **Seção "Your course":** ainda fala em uma aula por dia; o Eduardo decidiu não mudar por enquanto.
+- **Formulação sobre a prova**, ainda em aberto no `messaging.md`: a lista da skill (syllabus de novembro de 2025) vale para as provas regulares do HSK 1 a 6 a partir de 13 de dezembro de 2026.
+
+**5. Conferências pendentes.**
+- O conector do ElevenLabs numa **conta gratuita** (os testes foram numa conta Creator).
 
 ## Como fazer o mapa de um nível
 
