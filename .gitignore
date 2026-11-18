@@ -3,3 +3,4 @@
 .env
 .env.*
 /download/
+__pycache__/

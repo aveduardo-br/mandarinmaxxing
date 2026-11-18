@@ -1,8 +1,10 @@
 # Handoff: skill mandarinmaxxing
 
-Estado da skill na versão 0.5.5 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
+Estado da skill na versão 0.5.6 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
 
-**Situação:** 0.5.5 publicada. Passou por quatro rodadas de benchmark com aulas simuladas e pelo aluno cifrado (o jump start do HSK 1 inteiro, 19 partes, com um aluno que não sabia a língua) (`qa/benchmark/results/`), cobrindo HSK 1 a 4, mas ainda não por uma pessoa fazendo um curso inteiro. O Eduardo testou a 0.5.1 e achou a revisão simples demais depois de pular para uma aula adiantada; a 0.5.2 corrige isso (rodada 3). Os ajustes finais de cada versão entraram sem nova rodada, e o README de cada rodada diz quais.
+**Revisão de lançamento (18/11/2026):** o que foi conferido, o que foi corrigido e o que falta para divulgar está em `LAUNCH.md`, no repositório `aveduardo-br/mandarinmaxxing-site`.
+
+**Situação:** 0.5.6 publicada (as aulas são as da 0.5.5; a 0.5.6 só leva a licença para dentro do ZIP). Passou por quatro rodadas de benchmark com aulas simuladas e pelo aluno cifrado (o jump start do HSK 1 inteiro, 19 partes, com um aluno que não sabia a língua) (`qa/benchmark/results/`), cobrindo HSK 1 a 4, mas ainda não por uma pessoa fazendo um curso inteiro. O Eduardo testou a 0.5.1 e achou a revisão simples demais depois de pular para uma aula adiantada; a 0.5.2 corrige isso (rodada 3). Os ajustes finais de cada versão entraram sem nova rodada, e o README de cada rodada diz quais.
 
 - **Converse com o Eduardo em português.** O `SKILL.md`, o `lesson-format.md` e o README são em inglês.
 - **Mostre opções antes de mudanças grandes** e teste com aulas reais. O Eduardo valida vendo.
@@ -112,6 +114,7 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 - **0.5.3:** sem estrutura repetida na parte, baterias 1 e 2 nunca mais curtas que a revisão, registro falado, escuta com cena nova. Cenários do HSK 2 e 4.
 - **0.5.4:** furos achados pelo aluno cifrado: o enunciado diz só o que a resposta diz, palavras vistas também em dicas e roteiros, sinônimos pedidos pelo nome, resposta sem a palavra nova volta na mesma bateria.
 - **0.5.5:** com poucas palavras, menos exercícios em vez de repetir; o "senhor" para pedir 您 só dentro da frase.
+- **0.5.6:** nada muda nas aulas. O LICENSE passa a ir dentro da pasta da skill (`tools/build.sh` copia o da raiz; edite sempre o da raiz), o `SKILL.md` ganha o campo `license`, e o README avisa do pré-requisito de execução de código (Settings → Capabilities).
 
 Notas do juiz (de 35) ao longo das rodadas: de 25 a 30 na 0.5.0 para 29 a 34 nas versões seguintes. O HSK 4 tirou as melhores (34 e 33); as primeiras partes do curso e o HSK 2 são os mais irregulares. Detalhes em `qa/benchmark/results/`.
 

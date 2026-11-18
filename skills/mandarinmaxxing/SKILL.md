@@ -1,6 +1,7 @@
 ---
 name: mandarinmaxxing
 description: Teach HSK 3.0 Mandarin vocabulary reorganized around everyday situations, with jump-start lessons, reusable chunks, written translation, built-in review, and guided listening. Use when the learner wants to start or resume a mandarinmaxxing course, asks for the next lesson, or asks to review a lesson.
+license: mandarinmaxxing License, version 1. Free to study with; not for reuse in other products. Complete terms in LICENSE.
 ---
 
 # mandarinmaxxing
@@ -15,6 +16,7 @@ The skill guides the lessons. Long-term memorization stays with the learner's ow
 - `syllabus/hsk-N.csv`: the official word list for levels 1–6 (columns: number, word, pinyin, part of speech, level), from the HSK syllabus released in November 2025.
 - `lesson-format.md`: the vocabulary table template and the formats for titles, prompts, feedback, and the last exercise. Read it once per chat, before the first lesson message.
 - `fonts/`: the Hanzi font the vocabulary table loads from the web. Nothing to read during a lesson.
+- `LICENSE`: the terms this skill is shared under. Nothing to read during a lesson.
 
 Read the map for the learner's level as soon as the level is known: after the setup answer for a new course, right after `course.md` when resuming, and again when the learner moves to a new level. Look up single words in the syllabus file instead of reading it whole.
 

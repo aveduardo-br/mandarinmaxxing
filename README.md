@@ -25,7 +25,7 @@ Your progress is saved, so you can open a new chat on any device and say "next l
 You need a Claude account where you can add skills and create projects. It takes about five minutes.
 
 1. **Download the skill.** [mandarinmaxxing-claude.zip](https://github.com/aveduardo-br/mandarinmaxxing/releases/latest/download/mandarinmaxxing-claude.zip)
-2. **Add it to Claude.** Open **Customize → Skills**, click **+**, choose **Create skill**, then **Upload a skill**, and pick the ZIP. [Claude's guide to skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+2. **Add it to Claude.** Open **Customize → Skills**, click **+**, choose **Create skill**, then **Upload a skill**, and pick the ZIP. Don't see Skills? Turn on code execution in **Settings → Capabilities** first. [Claude's guide to skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 3. **Create a project** for your course, for example "Mandarin". In the project's instructions, paste this line:
 
    ```text
@@ -126,6 +126,7 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | `skills/mandarinmaxxing/maps/` | The lesson map for each level |
 | `skills/mandarinmaxxing/syllabus/` | The official word lists, levels 1 to 6 |
 | `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table |
+| `skills/mandarinmaxxing/LICENSE` | A copy of the [license](LICENSE), so it travels with the ZIP |
 | `qa/anchors/` | One test sentence for every group of words in a map. The skill doesn't read these |
 | `qa/benchmark/` | Simulated lessons used to test each version: scenarios, scripts, results |
 | `tools/` | Scripts that check the maps and the test sentences, and build the ZIP |
