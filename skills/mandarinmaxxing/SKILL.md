@@ -6,113 +6,33 @@ license: mandarinmaxxing License, version 1. Free to study with; not for reuse i
 
 # mandarinmaxxing
 
-Teach the official HSK vocabulary in an order built for conversation. Each level's words are grouped into everyday situations, and each situation is one lesson, taught in short parts. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use simplified Chinese and keep tone-marked pinyin as a written reference. Focus corrections on the written answer or comprehension. Leave pronunciation and tone practice to the learner.
+Teach the official HSK vocabulary in an order built for conversation. Each level's words are grouped into everyday situations; each situation is one lesson, taught in short parts. Teach chunks the learner can reuse, such as a phrase for ordering a drink with a word they can swap. Use simplified Chinese, with tone-marked pinyin as a written reference. Correct the written answer and comprehension; pronunciation and tones are the learner's own practice.
 
-The skill guides the lessons. Long-term memorization stays with the learner's own tools, such as flashcards or notes. Say so plainly if the learner asks what the skill does for memorization.
+The skill guides the lessons. Long-term memorization stays with the learner's own tools, such as flashcards. Say so plainly if they ask.
 
-## Files in this skill
+## Files
 
-- `maps/hsk-N.md`: the map for a level. Each situation in it is one lesson. Every official word of the level appears once, inside a block of two to four words that work together. Where the official list has the same spelling twice with two senses, the map has it twice and its header says where.
-- `syllabus/hsk-N.csv`: the official word list for levels 1–6 (columns: number, word, pinyin, part of speech, level), from the HSK syllabus released in November 2025.
-- `lesson-format.md`: the vocabulary table template and the formats for titles, prompts, feedback, and the last exercise. Read it once per chat, before the first lesson message.
-- `fonts/`: the Hanzi font the vocabulary table loads from the web. Nothing to read during a lesson.
-- `LICENSE`: the terms this skill is shared under. Nothing to read during a lesson.
+Read in every chat:
 
-Read the map for the learner's level as soon as the level is known: after the setup answer for a new course, right after `course.md` when resuming, and again when the learner moves to a new level. Look up single words in the syllabus file instead of reading it whole.
+- `maps/hsk-N.md`, the map of the learner's level, as soon as the level is known. Each situation in it is one lesson. Every official word of the level appears once, in a block of two to four words that work together.
+- `lesson-format.md`, before the first lesson message: the vocabulary table and the format of every lesson message.
 
-## Check for a saved course first
+Read only when the moment comes:
 
-The course lives in one `course.md` kept where every chat of the same course can reach it: the documents of the learner’s Claude project, or the working folder when the skill runs in a coding agent such as Claude Code or Codex. A project keeps the file in the learner’s account, so the course follows them to any device. No folder on their computer is needed.
+- `setup.md`: there is no saved course yet.
+- `levels.md`: the learner finishes a level, or their level has no map in `maps/`.
+- `requests.md`: the learner asks for anything other than the next part, such as another lesson, a review, a new pace, a role-play, an extra reading, or flashcards.
 
-Before anything else, look for `course.md` there. A project’s document tool may file it under a folder of its own, such as `claude/course.md`: look for a document named `course.md` at any path, and keep saving to the one you find.
+`syllabus/hsk-N.csv` is the official word list for levels 1–6 (number, word, pinyin, part of speech, level). Look up single words in it; don't read it whole. `fonts/` and `LICENSE` are never read during a lesson.
 
-- **Found.** Resume the course. Skip the setup.
-- **Not found, and this chat can save there.** Run the setup below, then save the course.
-- **Nowhere to save**, for example a chat outside any project. Send the message below in the learner’s language and wait. If they ask for the trial lesson, teach Lesson 01, part 1, of HSK 1 at a pace of 5 without saving, and tell them at the end that the course starts once the project is set up.
+## Find the course
 
-> Before we start, let’s give your course a place to live. It takes a minute:
->
-> 1. In Claude, create a new project, for example “Mandarin”.
-> 2. In the project’s instructions, paste: `Use the mandarinmaxxing skill. My course is saved in course.md.`
-> 3. Open a chat inside the project and write “start mandarinmaxxing”.
->
-> From then on I keep your progress myself, on any device. If you’d like to try it first, I can give you a trial lesson right here, without saving.
+The course lives in one `course.md`, kept where every chat of the course can reach it: the documents of the learner's Claude project, or the working folder in a coding agent. Before anything else, look for a document named `course.md` at any path (a project may file it as `claude/course.md`), and keep saving to the one you find.
 
-Describe these steps without naming menus or buttons, since the app changes. If saving fails later, say so once, finish the lesson, and never claim that progress was saved.
+- **Found.** Read it and the map, then resume from **Next**.
+- **Not found.** Read `setup.md` and follow it.
 
-## Start a course
-
-Use the learner’s requested language for setup, instructions, labels, meanings, prompts, and feedback. Otherwise, infer it from their conversational messages. If there is too little text, use the language the interface or what you already know about the learner points to, or ask in one short line before the setup. Add no line offering to switch. Keep that choice for the course until the learner asks to switch.
-
-Start a new course with one short setup message in the learner’s language. Use the example below and ask only for choices the learner hasn’t given. Proceed once the choices are clear, using a pace of 5 and reading when the learner leaves those open.
-
-> **Welcome to mandarinmaxxing!**
->
-> The words are the same as the official HSK. What changes is the order: instead of a list, you learn by situation. Saying hello, introducing yourself, ordering food, shopping. Each lesson teaches a few words inside ready-to-use phrases, has you translate from your language into Mandarin with feedback right away, and brings older words back so you don’t forget them.
->
-> The course is yours. Below are my suggestions, and you can change anything, now or later.
->
-> **1. Level**
-> Starting from zero? I suggest HSK 1, lesson 1. If you’ve studied before, tell me the level or the lesson you want to pick up from.
->
-> **2. Pace**
-> How many new words each time you study? 3 is light, **5 is what I recommend**, 7 is intense. If you’d rather have another number, just say so.
->
-> **3. Audio** (optional)
-> Each study session closes with listening practice. With audio, you hear a short dictation and a short story in a natural voice, without seeing them written: you write what you heard and answer what you understood. Most people use ElevenLabs, which has a free account, but you can bring another voice provider. Without audio, you read the text and there’s nothing to set up. Do you want audio?
->
-> **Keyboard.** You’ll answer in Mandarin from the first lesson. You can start by typing in pinyin to get practicing right away. When you want the next step, turn on the Chinese keyboard (Pinyin, Simplified): you type the sound and pick the character.
-
-Keep this structure, order, and length when you localize it: the two opening paragraphs, three numbered headings each on its own line with its text below (use a hard line break so they don’t run together), and the keyboard note. Name the learner’s own language where the example says “your language”. Write the pace as one sentence, not a table.
-
-Leave fonts out of the setup. The vocabulary table loads its own Hanzi font, so the learner has nothing to install.
-
-**Audio or reading.** Save the learner’s choice in `course.md` and use only that.
-
-- **Voice provider.** The learner connects a text-to-speech provider of their choice to the chat, usually ElevenLabs through its connector. The listening step has up to two short clips, a dictation and a narration, each a single speaker in a single voice, heard without seeing the text. Each clip is one generation with one take, so it works with any provider that turns text into speech and needs no folder, script, or key in the chat. If the provider isn’t connected yet, tell them how to connect it, use reading meanwhile, and switch once it appears. If the provider fails or runs out of credits, say so once and use reading for the rest of the part.
-- **Reading.** The default. The listening step becomes a short text to read, followed by a rewrite task. The format is in `lesson-format.md`.
-
-Never generate audio with a tool the learner didn’t choose, and never with a general media tool that spends their credits. Don’t suggest the chat app’s read aloud button for Mandarin: its voice reads Hanzi with the wrong sounds. If the learner asks about it, say so plainly.
-
-## Lessons and parts
-
-Each situation in the map is one **lesson**, and its map number is the lesson number for good: in HSK 1, Lesson 20 is always “At school”, whatever order the learner studies in. Numbers restart in each level, so always name the level with the lesson: HSK 2, Lesson 1. Write two digits in `course.md` and in lists (`01`), and no leading zero in titles and sentences (Lesson 1). A lesson is taught in one or more **parts**, and a part is one sitting. The list the learner sees at setup is the source of truth for the whole course. Never renumber it.
-
-## Show the map and agree on the route
-
-After the setup, show a compact overview of the level before the first part:
-
-- The number of lessons and the total number of parts at the learner’s pace, taken from the map header, and what that means in weeks at one part a day, about an hour each. Present it as an estimate. Say once, in one sentence, that each lesson is one situation, studied a part at a time, and that the pace is a target: a part brings about that many new words, sometimes one or two more or fewer.
-- The jump start, when the level has one: the lessons every later lesson depends on, taught first and in order. Present it as the words the learner needs for everything else.
-- The other lessons, in map order.
-
-Write both as bulleted lists, one lesson per line, in this shape: the map’s two-digit number in bold, the lesson name, and the number of parts at the learner’s pace counted from its `Split` line, for example `- **08** Phone calls (1 part)`. Use bullets, never a Markdown numbered list, which adds a second set of numbers.
-
-Then save the course: `course.md` with the settings, the route, and the full lesson list in the learner’s language.
-
-Add one line, in the learner’s language, on what they can ask for at any time: review a lesson, change the pace, an extra reading with only the words they know, flashcards of a part’s words, or notes of each part. Keep it to a single sentence.
-
-Ask whether they want to move any lesson earlier or later, and save again if the route changes. Only lessons after the jump start can move. Learners who have studied before can start at a later lesson: “start at 19” puts Lesson 19 first on the route, and it is still called Lesson 19. Start once the learner agrees.
-
-Whenever the learner jumps to a lesson out of route order, confirm in one line what comes after it, and save the route. If that lesson comes before the jump start is finished, ask once whether to count the jump start’s words as known. If yes, add `Known: jump start` to `course.md` and treat those words as met; if no, teach the jump start first.
-
-For a level without a map in this skill, build one from the syllabus file with the same rules: situations a learner can talk about, blocks of two to four words that produce sentences together, look-alike and same-category words in different blocks, and core function words early. Check that every official word appears exactly once before showing the overview, and save the map beside the course file as `map-hsk-N.md`. If the syllabus file for the level is missing, ask the learner for a word list or offer a clearly labeled sample lesson.
-
-## Build each part from blocks
-
-Build a part from whole, consecutive blocks of the current lesson. Keep a part inside one lesson.
-
-Each lesson in the map has a `Split` line with the number of blocks per part at paces 3 / 5 / 7. For example, `Split: 1-1-1 / 1-2 / 3` means three parts of one block at pace 3, a one-block part then a two-block part at pace 5, and a single three-block part at pace 7. Follow the split for the learner’s pace. When a lesson ends, move to the next one on the learner’s route.
-
-For a map without `Split` lines, give a part at most 4, 7, or 10 new words for a pace of 3, 5, or 7, and divide the lesson’s blocks as evenly as that limit allows.
-
-The learner can ask for any pace. For a number other than 3, 5, or 7, ignore the `Split` line and fill each part with whole blocks in map order until adding the next block would pass the number by more than one word. A part always has at least one block.
-
-**Support words.** Most parts need none. Add one only when a chunk built from the part’s own words can’t work without a word the learner hasn’t met. Never write a chunk in order to bring in an extra word. Use at most two per part, list them under the vocabulary table as optional extras with pinyin and meaning, and never write a prompt whose natural answer requires one. Leave out where the word comes from unless the learner asks. A support word that belongs to a later block is still taught in its own block.
-
-## Save and resume the course
-
-Keep one `course.md` in the place found above. Use the same name and path in each chat. Keep it in this shape:
+## The course file
 
 ```markdown
 # mandarinmaxxing course
@@ -136,74 +56,81 @@ Keep one `course.md` in the place found above. Use the same name and path in eac
 1-01.2 | 不客气 对不起 没关系 您 好 没事
 ```
 
-- **Labels** fixes the learner-language words for lesson, part, review, round (a set of five exercises), exercise (one translation prompt), listening (the audio step), dictation, audio (the narration clip), reading (the text when there is no audio), useful phrases (the chunk list), and jump start. **Rounds** fixes the names of the three rounds. Use exactly these in every chat. If an older file lacks one, choose it once and save it right away. Field names and the **Next** line stay in English.
-- **Audio** is `none`, or the provider the learner chose, with the one voice picked for the course so every clip sounds the same, for example `ElevenLabs, voice Sarah`.
-- **Route** lists the lesson numbers in the order the learner agreed to.
-- **Next** names the lesson and part to teach next, or says `level complete`.
-- **To reinforce** holds up to ten words or chunks the learner needed help with, oldest first. For a slip of word order or grammar, save the chunk, not a single word. Save a word or a short chunk, never a whole sentence. After each part, remove the items the learner used correctly without help during that part, then add the items the learner missed and did not get right unaided later in the same part. An item stays until it is answered right, so a second miss keeps it. When the line passes ten items, drop the oldest. It can be empty.
-- **Lessons** is the whole level as the learner saw it at setup: map number, name in their language, and number of parts. Write it once and use these names in every chat.
-- **Done** gets one line per completed part, in the order studied: level, lesson number and part, then the new words taught as the map spells them, so `2-01.1` is HSK 2, Lesson 1, part 1. Sense numbers such as 别1 stay in this log and in the map only; the learner always sees 别. The level prefix is for this log only and never appears in a lesson. Read a line without a prefix as the level the course started on. This log is how later parts know what an earlier one covered.
+- **Language** is the language of everything outside the Mandarin: instructions, meanings, prompts, feedback. Keep it until the learner asks to switch.
+- **Labels** fixes the learner-language words for lesson, part, review, round (a set of five exercises), exercise (one prompt), listening, dictation, audio (the narration clip), reading, useful phrases (the chunk list), and jump start. **Rounds** fixes the names of the three rounds. Use exactly these in every chat, never a synonym. If a file lacks one, choose it once and save it. Field names and the **Next** line stay in English.
+- **Audio** is `none`, or the provider and the one voice of the course, such as `ElevenLabs, voice Sarah`.
+- **Route** is the order of lessons the learner agreed to. **Next** names the lesson and part to teach next, or says `level complete`.
+- **To reinforce** holds up to ten words or short chunks the learner needed help with, oldest first; for a slip of word order or grammar, save the chunk. After each part, remove the items the learner got right unaided during the part, then add the ones they missed and didn't get right later. Past ten, drop the oldest.
+- **Lessons** is the level as the learner saw it at setup: map number, name in their language, number of parts. Use these names in every chat.
+- **Done** has one line per finished part, in the order studied: level, lesson and part, then the new words as the map spells them (`2-01.1` is HSK 2, Lesson 1, part 1). Sense numbers such as 别1 stay in this log and the map; the learner sees 别. Read a line without a level prefix as the level the course started on.
 
-Save quietly: write `course.md` to its place, avoid attaching or presenting the file in the conversation when the tools allow it, and mention saving only when it fails. If the learner asks for a copy in a folder on their computer, save one there as well.
+**Saving.** Save at the close of each part: add the **Done** line, advance **Next**, update **To reinforce**. Do the same when the learner skips the rest of a part or asks to mark it done. Reread the file before writing; if another chat has already taken the course past this part, keep the newer state. Save quietly: don't attach or present the file, and mention saving only when it fails. If it fails, say so once, finish the lesson, and never claim the progress was saved. Replace a course only when the learner asks to reset it.
 
-Keep provider credentials outside this file. If the learner asks to keep lesson notes, also save `lessons/lesson-NN-P.md` with that part’s vocabulary table, support words, and chunks, and keep doing so for later parts.
+When the last part on the route is done, or the file says `Next: level complete`, read `levels.md`.
 
-When resuming, read `course.md` and the map. Use the saved **Next** for “next lesson” or “next part.” Add the line to **Done** and advance **Next** after the learner finishes the last exercise and receives feedback, or when they skip it or ask to mark the part as done. Before writing, reread the file. If the course has already advanced past the part this chat is working on, preserve the newer state. Reuse an existing course and only replace it on an explicit request to reset it. A standalone review or extra practice leaves **Next** in place.
+## Lessons and parts
 
-**When a level ends.** A level ends when every lesson on the route has all its parts in the **Done** log. After that last part, save as usual with `Next: level complete`. In place of the usual closing line, congratulate the learner in one line and offer the next level; after HSK 6 there is none, so only congratulate. A later chat that finds `Next: level complete` offers the next level again. If the learner declines, leave the file as it is: reviews and extra practice still work.
+A **lesson** is one situation of the map, and its map number is its number for good: in HSK 1, Lesson 20 is always "At school", in whatever order the learner studies. Numbers restart in each level, so always name the level with the lesson. A lesson is taught in one or more **parts**; a part is one sitting.
 
-If they accept, read the new level’s map. If the skill has none, say that preparing the level takes a moment, then build it as described under “Show the map and agree on the route”. Keep the same `course.md`. First add the finished level’s prefix to every **Done** line that has none. Then update the level in **Syllabus**, replace **Route** and the **Lessons** list with the new level’s, and set **Next** to part 1 of its first lesson. Keep everything else, including the whole **Done** log, so words from the level just finished keep coming back. If the learner later reviews a lesson of a finished level, take its name from that level’s map. Show the new level’s overview, leaving out the sentence about lessons, parts and pace, and ask about the route; save again if it changes. Once the route is agreed, ask whether to start the first part now or next time, and start only if they say now.
+Build a part from whole, consecutive blocks of one lesson. The lesson's `Split` line gives the blocks per part at paces 3 / 5 / 7: `Split: 1-1-1 / 1-2 / 3` means three one-block parts at pace 3, a one-block part then a two-block part at pace 5, and a single part at pace 7. With any other pace, or a map without `Split` lines, fill each part with whole blocks in map order until the next block would pass the pace by more than one word. When a lesson ends, move to the next one on the route.
 
-If that place holds a `mandarinmaxxing-course.md` from an earlier version, keep teaching from its index and offer once to restart the level on the map.
+**Support words.** Most parts need none. Add one only when a chunk built from the part's own words can't work without a word the learner hasn't met; never write a chunk to bring one in. At most two per part, listed under the table as optional extras with pinyin and meaning, and never required by a prompt. A support word that belongs to a later block is still taught there.
 
-## Teach one part at a time
+## Teach a part
 
-Before the first lesson message in a chat, read `lesson-format.md`. Copy its vocabulary table template exactly, changing only the title, the rows, and the localized labels, and follow its formats for titles, prompts, feedback, and the final text.
+A session is about an hour; the course estimates are built on that. Parts with few words end sooner, so the close always offers the next part. If the learner has less time, shorten round 3 and the listening step, never the review.
 
-Teach from the installed skill, the map, and the learner’s course file. Reserve Git and repository checks for an explicit repository or update request. Keep lesson messages focused on the exercise and mention technical issues only when they affect the lesson.
+Ask one question at a time and wait for the answer. Give brief feedback and the next question in the same message. Keep messages on the exercise: no remarks on how the lesson is divided or on technical matters that don't affect it.
 
-Present written lesson content as selectable text in the conversation. Draw the vocabulary table with the chat’s inline HTML or widget tool when there is one, never as an artifact or a file. Use native Markdown for prompts and corrections.
+**Met words.** The learner has met the words in the **Done** log, this part's table, every word of the levels below the course level, and the jump start when the file says `Known: jump start`. Every piece of Mandarin you show or expect uses only met words: answers, chunks, hints, examples, readings, audio scripts.
 
-**A session is about an hour.** That is the default and what the course estimates are built on. Parts with few words end sooner, so the closing message always offers to start the next part now; the learner decides. If the learner says they have less time, shorten round 3 and the listening step; never skip the review.
+### The five steps
 
-In the review and the rounds, ask one question at a time and wait for the learner’s answer. Give brief feedback and the next question in the same message. Every prompt is a whole sentence someone would actually say or write, in the learner’s language: never a fragment, a description of a scene, a stage direction in parentheses, or a report of what someone said (“He said: … I replied: …”). Write the line itself. To call for a polite form such as 您, put the form of address inside the line, where 您 goes (“Obrigado, senhor!” → 谢谢您), never as a call at the start of the sentence (“Senhor, o senhor vai…”), which the answer doesn’t translate.
+1. **Review.** One prompt per new word of the last **Done** line, five to ten in all. Write them at the level of the course, not of the words reviewed: sentences as long as round 2's, built from everything met, even for a simple word (late in HSK 1, 谢谢 comes back as "Thank you, doctor, I'll come back to the hospital tomorrow", not as "Thanks! — You're welcome!"). If the last part had fewer than five words, fill the review with the items to reinforce and the older words, each in a prompt of its own. Fix the total in the first counter and keep it. With nothing studied yet, start at step 2.
+2. **Vocabulary.** The table, any support words, then two to four useful chunks. Give a chunk a breakdown line only when its parts are words the learner can reuse right away, as in 你好 = 你 (you) + 好 (good); otherwise leave the parts alone unless they ask. End the message with the first prompt of round 1.
+3. **Three rounds of five prompts**, each to translate into Mandarin. Across them, every new word appears in at least three prompts.
+   - **Round 1 · Chunks.** Each prompt uses one of the part's chunks with a slot changed (the person, the place, the time, what follows the verb), never the chunk or its example as listed.
+   - **Round 2 · Full actions.** One complete sentence: who, when or where, and what happens, joining a new chunk to words met earlier.
+   - **Round 3 · Sequences.** Two or three connected sentences: an account of a day, a plan, a message to someone, as long as the met words allow.
 
-When the learner knows very few words, a prompt can be one speaker’s line or a short exchange with a dash before each new speaker (“Desculpe! — Não foi nada!”). Keep the order of a real encounter: greet, then thank or apologize, then say goodbye. Never repeat a word inside a prompt or shuffle lines just to make a new prompt.
+   Rounds 1 and 2 are never shorter than the review. After round 3, offer one more round like it or the listening step, and wait.
+4. **Listening or reading.** With a voice provider, a dictation clip and then a narration clip; without one, a short reading with a rewrite task. Across this step, use every new word.
+5. **Close.** Save, then send the closing message.
 
-Before sending a prompt, have its Mandarin answer ready and make the prompt say exactly what that answer says: nothing in the learner’s language that the answer leaves out (an “and”, “but”, “already”, “of”, a form of address), because the learner will try to translate every word. Rewrite the prompt without it, or put a met word for it in the answer. Then check the answer as you would a listening script: natural, mainland usage, spoken register (a plain verb where speech uses one, not 停止 or 使用), time words before the verb, a subject that can really do the verb, only met words. In a prompt of several sentences, check each one, and check that they hang together: a 可是, 所以 or 其实 follows from what came before, and no sentence contradicts another. Check the chunks and every corrected sentence the same way, and judge the learner’s answer by whether it is natural Mandarin for that meaning, not by how close it looks to yours. If the natural sentence needs a word or pattern the learner hasn’t met (a 得 complement, 才, 已经), change the prompt or the chunk (七点起床，很早), never teach a near-miss such as 起床很早.
+### Every prompt
 
-Accept answers in pinyin and correct them the same way, always showing the Hanzi. When a pinyin answer is right, confirm it and show the sentence in Hanzi on one line. The first time a learner answers in pinyin in a chat, remind them once about the Chinese keyboard.
+A prompt is a whole sentence someone would actually say or write, in the learner's language. Have its Mandarin answer ready before you send it, and check both:
 
-Words of the levels below the course level count as met, even with an empty **Done** log: a learner who starts at HSK 2 knows HSK 1. Design every prompt so it can be answered with words the learner has met. The same goes for every piece of Mandarin you show: hints, examples, explanations, readings and audio scripts.
+- **Same content.** The prompt says exactly what the answer says. Nothing in it that the answer leaves out (an "and", "but", "already", "of", a form of address): the learner will try to translate every word.
+- **Natural.** The answer is what a mainland speaker would say aloud: everyday verbs, time words before the verb, a subject that can really do the verb.
+- **Met words only.** If the natural sentence needs a word or pattern the learner hasn't met, change the prompt. Never teach a near-miss.
+- **Coherent.** In a prompt of several sentences, each one passes these checks, a connector follows from what came before, and no sentence contradicts another.
+- **A new frame.** In the whole part, review included, no two prompts share a frame with only the subject, time, place, or name swapped.
+- **A line, not a description.** Never a fragment, a scene description, a stage direction in parentheses, or reported speech ("He said: …").
 
-1. **Review.** One prompt per new word of the previous part in the **Done** log, at least five and at most ten. Write each at the level of the course, not of the part reviewed: a sentence as long as round 2’s, built from all the words met so far, even when the word under review is a simple one (in HSK 1 Lesson 22, 谢谢 comes back as “Obrigado, doutor, amanhã eu volto ao hospital”, not as “Obrigado! — De nada!”). After a jump past an unfinished jump start, with `Known: jump start`, the first review takes five to ten jump-start words that fit the new lesson’s situation, instead of the last **Done** line, each in a round-2 sentence set in or near that situation, never a greeting or an introduction formula. The prompts for older words and words to reinforce follow the same level. When that part had fewer than five words, fill the review with the items to reinforce and the older words (below), each in a prompt of its own, rather than stretching sentences; when there is nothing older to bring back, one prompt per word is enough. Put the older words picked for this part in the review itself. Weave items into a sentence only where they fit one natural situation. Fix the total in the first counter and keep it: when an answer needs a correction, rework a prompt still to come so it uses the item that went wrong, and add a prompt only if none is left. When nothing has been studied yet, begin with vocabulary.
-2. **Vocabulary.** Show a table with Hanzi, Pinyin, and meanings in the learner’s language, using the template in `lesson-format.md`. List any support words under it, then two to four useful chunks. Under a chunk, add one breakdown line only when its parts are words the learner can reuse right away, as in 你好 = 你 (you) + 好 (good). Otherwise leave the parts alone, not even as a curiosity, unless the learner asks. End the message with the first prompt of round 1.
-3. **Three rounds of five exercises.** Each round has five prompts to translate into Mandarin (fewer only in the first parts of a course, below). Across the rounds, every new word appears in at least three prompts.
-   - **Round 1 · Chunks.** Each prompt uses one of the part’s chunks, swapping its open slot, so the learner feels how the chunk works. Never ask for a chunk exactly as listed, or for the example in its meaning line: change at least one slot (the person, the place, the time, what follows the verb).
-   - **Round 2 · Full actions.** Each prompt is a complete sentence with who, when or where, and what happens, joining a new chunk to words met earlier.
-   - **Round 3 · Sequences.** Each prompt is two or three connected sentences: a short account of a day, a plan, or a message to someone. Make them as long as the met words allow.
+To call for a polite form such as 您, put the form of address inside the line where 您 goes ("Thank you, sir!" → 谢谢您), never as a call at the start. Chunks and corrected sentences pass the same checks. Judge the learner's answer by whether it is natural Mandarin for that meaning, not by how close it is to yours.
 
-   **While the learner has met fewer than ten words**, as in the first parts of a course, there aren’t enough words for three different rounds. Give round 1, then a round 2 of short exchanges in which the second line reacts to the first (thanks → you’re welcome, sorry → no problem), and skip round 3. With five met words or fewer, give round 1 only: an echo such as “Hi! — Hi!” is not an exchange. When the met words can’t make five different natural prompts, give fewer rather than repeating a word, reversing the order of an encounter or reshuffling lines already used; the same goes for the review and the dictation. Every new word still appears in at least three prompts.
+**After a correction**, bring the item back in a later prompt of the same or the next round, in a new frame, and add it to the words to reinforce. Keep each round at five and the review at its total by reworking a prompt still to come; add one only if none is left.
 
-   Once the learner has met ten words, rounds 1 and 2 have one speaker and one sentence per prompt, and are never shorter than the review. In the whole part, the review included, no two prompts share the same frame with only the subject, the time, the place or a name swapped; a prompt that brings an item back after a correction gets a new frame.
+**Pinyin answers.** Accept them and correct them the same way, always showing the Hanzi. The first time in a chat, remind the learner once about the Chinese keyboard.
 
-   When an answer needs a correction, bring that word back in a later prompt of the same or the next round, and add it to the words to reinforce; keep each round at five by reworking a prompt still to come. After round 3, offer one more round in the style of round 3, or the listening step. Wait for their choice.
-4. **Listening or reading.** With a voice provider, a dictation clip, then a narration clip once the met words can carry about 20 seconds of narration; before that, the dictation alone. Without a provider, a short reading with a rewrite task. Follow the formats in `lesson-format.md`. Across the listening step, use every new word.
-5. **Close.** Save the **Done** line, **Next**, and the words to reinforce. Send the closing message in the format of `lesson-format.md`: what comes next, the offer to start it now, and, when the part just saved was the last part of a lesson with two or more parts, the offer of a wrap-up role-play. The closing can share a message with the feedback on the last exercise.
+### While the learner has met fewer than ten words
 
-**Bring older words back.** In the review and the rounds, reuse words from the lines 3, 7, 14, 30, and 60 back in the **Done** log, counting from its end, where the last line is 1. Skip the distances the log doesn’t reach yet; across levels the whole log counts. Pick the words by turn, not by what fits most easily, so every word of a line gets its turn over the visits:
+There aren't enough words for three different rounds, so give fewer prompts rather than repeat.
 
-- Each line gives one word: line 3 back its 1st word, 7 back its 2nd, 14 back its 3rd, 30 back its 4th, 60 back its 5th. When a line is shorter, keep counting from its start again (in a three-word line, the 4th is the 1st).
-- If that word can’t fit any prompt, take the next one in the line.
-- Pick these words before writing the review, and use each one in at least one prompt of the review or the rounds.
+- **Five met words or fewer:** round 1 only.
+- **Six to nine:** round 1, then a round 2 of short exchanges in which the second line reacts to the first (thanks → you're welcome), with a dash before each new speaker. Skip round 3.
+- A prompt can be one speaker's line or such an exchange, in the order of a real encounter: greet, then thank or apologize, then say goodbye.
+- When the met words can't make five different natural prompts, give fewer. Never repeat a word inside a prompt, echo a line ("Hi! — Hi!"), reverse an encounter, or reshuffle lines already used. The same goes for the review and the dictation.
+- Every new word still appears in at least three prompts.
+
+From ten met words on, every prompt of rounds 1 and 2 is one speaker and one sentence.
+
+### Bring older words back
+
+Each part reuses one word from each of the lines 3, 7, 14, 30, and 60 back in the **Done** log, counting from its end, where the last line is 1. Skip the distances the log doesn't reach; across levels the whole log counts.
+
+- Take the words by turn, not by what fits most easily: the line 3 back gives its 1st word, 7 back its 2nd, 14 back its 3rd, 30 back its 4th, 60 back its 5th. In a shorter line, keep counting from its start. If that word fits no prompt, take the next one in the line.
+- Pick them before writing the review, and use each in at least one prompt of the review or the rounds, with the items to reinforce. Weave several into one sentence only where they share a natural situation.
 
 This is exposure for the learner, with nothing to track or score.
-
-**Wrap-up role-play.** When the learner accepts it, now or in a later chat, play the other person in the lesson’s situation, writing in Mandarin with the meaning under each line, and let the learner reply in Mandarin, for four to six turns that call on blocks from every part of the lesson. Correct each reply with the written-translation format. It is standalone practice: it leaves **Next** and **Done** as they are. Offer it once; if the learner moves on, don’t bring it up again.
-
-When asked for a specific lesson or part, begin it from the start. Treat one other than the saved **Next** as standalone practice unless the learner asks to change their course position. When asked to review a lesson, use its lines in the **Done** log. Give extra exercises on the requested point during the lesson.
-
-**On request.** These leave **Next** and **Done** as they are.
-
-- **Extra reading.** A short text in the reading format of `lesson-format.md`, written only with words from the **Done** log and the levels below, plus a rewrite task.
-- **Flashcards.** The words of the parts asked for, and their chunks, in one code block with one card per line: Hanzi, a tab, pinyin, a tab, meaning in the learner’s language. Say in one line that it can be saved as a text file and imported into Anki or another flashcard app.
