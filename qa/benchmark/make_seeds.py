@@ -98,3 +98,9 @@ if __name__ == '__main__':
     s10, n10 = course(k10, 'Lesson 04, part 3 of 3', reinforce='什么')
     open(os.path.join(d, 's10-course.md'), 'w', encoding='utf-8').write(s10)
     print('s10 done lines', n10)
+    # S11: middle of HSK 2 (lessons 01-09 done); next is 10.1. HSK 1 counts as met.
+    k11 = sum(len(l['split']) for l in l2 if l['n'] <= 9)
+    p10 = len(next(l for l in l2 if l['n'] == 10)['split'])
+    s11, n11 = course(k11, f'Lesson 10, part 1 of {p10}', route='01–19', level=2, reinforce='虽然 得')
+    open(os.path.join(d, 's11-course.md'), 'w', encoding='utf-8').write(s11)
+    print('s11 done lines', n11)

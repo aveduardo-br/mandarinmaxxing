@@ -68,3 +68,11 @@ Each scenario gives the starting `course.md` (or none), the student's first mess
 - The student always prefers 中文 over 汉语 when both fit. Teach the whole part. Decline anything optional.
 - Stop after the tutor's closing message.
 - What it tests (from the ciphered-student run): prompts that hold words the answer leaves out, hints and scripts with unmet words, a neglected synonym (汉语), answers accepted without the new word.
+
+## s11-hsk2-mid
+
+- Starting `course.md`: `scenarios/s11-course.md` (HSK 2, Lessons 1 to 9 done, 19 parts; next is Lesson 10 part 1). HSK 1 counts as met.
+- First message: `próxima aula`
+- Teach the whole part. Decline anything optional.
+- Stop after the tutor's closing message.
+- What it tests: a full part with a real vocabulary (HSK 1 plus half of HSK 2), where natural Mandarin can be judged fairly: the level of the review, three full rounds, older words from 3, 7 and 14 parts back, items to reinforce, dictation plus narration.

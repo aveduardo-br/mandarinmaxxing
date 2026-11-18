@@ -34,3 +34,27 @@ Pelo script: nenhuma palavra não vista nas respostas esperadas, nenhum `[NÃO S
 - **Role-play:** 没关系 como resposta a 谢谢 foi marcado errado; e a skill não diz se erro do role-play entra no `To reinforce`.
 
 As doze dúvidas de instrução que a simulação anotou estão em `s1/run-1/run-notes.md`; as três mudanças que o juiz faria primeiro, no fim de `s1/judge.md`.
+
+## s11: meio do HSK 2, as duas versões lado a lado
+
+O Eduardo apontou que o `s1` é fraco para medir naturalidade (com três palavras não há frase natural possível). Cenário novo, `s11`: HSK 2 com as aulas 1 a 9 feitas (19 partes, mais o HSK 1 inteiro), aula 10 parte 1 (地铁 站 离 远), parte completa. A mesma aula foi simulada com a 0.5.6 (`s11/run-a`, skill no commit `571b0cb`) e com a `v0.6-lean` (`s11/run-b`). Um juiz só leu as duas sem saber qual era de qual versão.
+
+| | 0.5.6 (run-a) | v0.6-lean (run-b) |
+|---|---|---|
+| Nota do juiz (/35) | 32 | 35 |
+| Mandarim natural | 4 | 5 |
+| Frases inteiras | 5 | 5 |
+| Progressão das baterias | 4 | 5 |
+| Só palavras vistas | 5 | 5 |
+| Correções | 5 | 5 |
+| Escuta | 4 | 5 |
+| Fluxo e fechamento | 5 | 5 |
+| Adequação ao nível (fora do total) | 4 | 5 |
+| Frases em mandarim apontadas pelo juiz | 6 de ~46 | 3 de ~45 |
+| Duração estimada | ~55 min | ~50 min |
+
+Pelo script, nas duas: nenhuma palavra não vista, nenhum `[NÃO SEI]`, as três palavras antigas do rodízio usadas, ditado e narração, `course.md` certo. Os três candidatos a palavra não vista (十分, 就是, 车站) são falsos positivos de 十分钟, 旁边就是 e 火车站.
+
+**Como ler.** A diferença aparece onde o planejamento deveria agir: a 0.5.6 repetiu estruturas (8 dos 15 exercícios das baterias giram em "X 离 Y 远") e o ditado reaproveitou frases da parte; a versão nova variou as estruturas e o ditado veio todo novo. Mas é uma simulação de cada, e no HSK 2 a mesma versão já tirou 33 e 28 (rodada 4). O resultado aponta na direção certa; não é prova.
+
+**O que as duas têm em comum** (problema da skill, não da simulação): 站 quase só aparece dentro de 地铁站; o padrão 离…远 domina; e a skill não diz se erro do ditado entra no `To reinforce` (cada simulação decidiu de um jeito).

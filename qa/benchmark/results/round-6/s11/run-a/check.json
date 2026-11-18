@@ -1,0 +1,79 @@
+{
+ "run": "qa/benchmark/results/round-6/s11/run-a",
+ "turns": 48,
+ "tutor_turns": 24,
+ "new_done_lines": [
+  "2-10.1"
+ ],
+ "taught_words": 4,
+ "next": "Lesson 10, part 2 of 2",
+ "to_reinforce": "离 后面",
+ "known_jump_start": false,
+ "review_counter": [
+  5
+ ],
+ "rounds": {
+  "1": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "2": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  },
+  "3": {
+   "max_index": 5,
+   "denominators": [
+    5
+   ]
+  }
+ },
+ "expected_answers": 20,
+ "unknown_hanzi_outside_table": {},
+ "unknown_hanzi_in_expected_answers": [],
+ "unmet_word_candidates (check by hand: substring match, e.g. 今天下午 contains 天下)": [
+  "十分"
+ ],
+ "student_nao_sei": 0,
+ "new_word_coverage_min": 8,
+ "new_words_under_3": [],
+ "audio": [
+  {
+   "kind": "dictation",
+   "chars": 44,
+   "addresses_listener": null
+  },
+  {
+   "kind": "narration",
+   "chars": 88,
+   "addresses_listener": false
+  }
+ ],
+ "avg_hanzi_per_expected_answer": {
+  "review": 14.2,
+  "1": 16.2,
+  "2": 13.0,
+  "3": 24.4
+ },
+ "older_words": {
+  "scheduled": [
+   "走",
+   "手",
+   "有时"
+  ],
+  "used": [
+   "走",
+   "手",
+   "有时"
+  ]
+ },
+ "flags": {
+  "wrapup_offered": false,
+  "jump_start_question": false,
+  "next_part_offered": true
+ }
+}
