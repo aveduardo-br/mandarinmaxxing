@@ -2,6 +2,8 @@
 
 **The same HSK words, reorganized around everyday conversations.**
 
+**Website:** [mandarinmaxxing.vercel.app](https://mandarinmaxxing.vercel.app). See how a lesson works, with examples from every level, before you install.
+
 A Claude skill for learning Mandarin vocabulary. The words are the same as the official HSK. What changes is the order: instead of a list, you learn by situation. Saying hello, introducing yourself, ordering food, shopping.
 
 I built this skill for myself. The textbook order felt slow to me, with words that didn't belong together in the same lesson, and I wanted to be able to talk about one thing at a time. I keep improving it as I study, and I'm sharing it in case it helps you too. No method is wrong. This is one option for people who like to study this way.
