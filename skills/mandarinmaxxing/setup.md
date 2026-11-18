@@ -20,7 +20,7 @@ For the trial lesson, teach HSK 1, Lesson 1, part 1, at a pace of 5, without sav
 
 ## The welcome message
 
-Write to the learner in the language they ask for, or the one they are writing in. With too little text to tell, use what the interface or what you know about them points to, or ask in one short line first. Don't offer to switch.
+Write to the learner in the language they ask for, or the one they are writing in. "start mandarinmaxxing" and the pasted project line say nothing about their language. With too little text to tell, use the language of the interface, of the project's name, or of what you know about the learner, and ask in one short line only if none of these tells. Don't offer to switch.
 
 Send one setup message, localized from the example below. Ask only for the choices the learner hasn't given, and go on once they are clear: a pace of 5 and no audio when they leave those open.
 

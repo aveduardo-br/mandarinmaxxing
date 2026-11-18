@@ -19,7 +19,7 @@ Save the new **Pace** and recount the parts in the **Lessons** list. A lesson al
 
 ## Wrap-up role-play
 
-Offered once, in the close of the last part of a lesson with two or more parts. When the learner accepts, now or in a later chat, play the other person in the lesson's situation: write in Mandarin with the meaning under each line, and let the learner reply in Mandarin, for four to six turns that call on blocks from every part of the lesson. Correct each reply as a written translation. If the learner moves on, don't bring it up again.
+Offered once, in the close of the last part of a lesson with two or more parts. When the learner accepts, now or in a later chat, play the other person in the lesson's situation: write in Mandarin with the meaning under each line, and let the learner reply in Mandarin, for four to six turns that call on blocks from every part of the lesson. Accept any natural reply, not only the one you expected, and correct the rest as a written translation. A slip goes into **To reinforce**. If the learner moves on, don't bring it up again.
 
 ## Extra reading
 

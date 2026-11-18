@@ -61,7 +61,7 @@ The course lives in one `course.md`, kept where every chat of the course can rea
 - **Audio** is `none`, or the provider and the one voice of the course, such as `ElevenLabs, voice Sarah`.
 - **Known** is absent in most courses. `- Known: jump start` appears after a jump past an unfinished jump start (see `requests.md`).
 - **Route** is the order of lessons the learner agreed to. **Next** names the lesson and part to teach next, or says `level complete`.
-- **To reinforce** holds up to ten words or short chunks the learner needed help with, oldest first; for a slip of word order or grammar, save the chunk. After each part, remove the items the learner got right unaided during the part, then add the ones they missed and didn't get right later. Past ten, drop the oldest.
+- **To reinforce** holds up to ten words or short chunks the learner needed help with, oldest first; for a slip of word order or grammar, save the chunk. After each part, remove the items the learner got right unaided during the part, then add the ones they missed anywhere in it (review, rounds, dictation, rewrite) and didn't get right later. Past ten, drop the oldest.
 - **Lessons** is the level as the learner saw it at setup: map number, name in their language, number of parts. Use these names in every chat.
 - **Done** has one line per finished part, in the order studied: level, lesson and part, then the new words as the map spells them (`2-01.1` is HSK 2, Lesson 1, part 1). Sense numbers such as 别1 stay in this log and the map; the learner sees 别. Read a line without a level prefix as the level the course started on.
 
@@ -99,8 +99,8 @@ The plan is a draft. When an answer needs a correction, rework a prompt still to
 ### The five steps
 
 1. **Review.** One prompt per new word of the last **Done** line, five to ten in all. Write them at the level of the course, not of the words reviewed: sentences as long as round 2's, built from everything met, even for a simple word (late in HSK 1, 谢谢 comes back as "Thank you, doctor, I'll come back to the hospital tomorrow", not as "Thanks! — You're welcome!"). If the last part had fewer than five words, fill the review with the items to reinforce and the older words, each in a prompt of its own. Fix the total in the first counter and keep it. With nothing studied yet, start at step 2.
-2. **Vocabulary.** The table, any support words, then two to four useful chunks. Give a chunk a breakdown line only when its parts are words the learner can reuse right away, as in 你好 = 你 (you) + 好 (good); otherwise leave the parts alone unless they ask. End the message with the first prompt of round 1.
-3. **Three rounds of five prompts**, each to translate into Mandarin. Across them, every new word appears in at least three prompts.
+2. **Vocabulary.** The table, any support words, then two to four useful chunks. A chunk is a phrase the learner can reuse, longer than a single table word wherever the met words allow, and every chunk listed is practised in round 1. Give a chunk a breakdown line only when its parts are words the learner can reuse right away, as in 你好 = 你 (you) + 好 (good); otherwise leave the parts alone unless they ask. End the message with the first prompt of round 1.
+3. **Three rounds of five prompts**, each to translate into Mandarin. Across them, every new word appears in at least three prompts. A word that is natural on its own is used on its own at least once, not only inside a longer word (站 in 坐两站, not only in 地铁站); a word that lives mostly in compounds can stay in them.
    - **Round 1 · Chunks.** Each prompt uses one of the part's chunks with a slot changed (the person, the place, the time, what follows the verb), never the chunk or its example as listed.
    - **Round 2 · Full actions.** One complete sentence: who, when or where, and what happens, joining a new chunk to words met earlier.
    - **Round 3 · Sequences.** Two or three connected sentences: an account of a day, a plan, a message to someone, as long as the met words allow.
@@ -134,7 +134,9 @@ There aren't enough words for three different rounds, so give fewer prompts rath
 - **Six to nine:** round 1, then a round 2 of short exchanges in which the second line reacts to the first (thanks → you're welcome), with a dash before each new speaker. Skip round 3.
 - A prompt can be one speaker's line or such an exchange, in the order of a real encounter: greet, then thank or apologize, then say goodbye.
 - When the met words can't make five different natural prompts, give fewer. Never repeat a word inside a prompt, echo a line ("Hi! — Hi!"), reverse an encounter, or reshuffle lines already used. The same goes for the review and the dictation.
-- Every new word still appears in at least three prompts.
+- Naturalness comes before the count. If a new word fits only two natural prompts, give it two: it comes back in the next part's review.
+- A chunk with no slot to change is asked as listed.
+- After the last round given, go straight to the listening step.
 
 From ten met words on, every prompt of rounds 1 and 2 is one speaker and one sentence.
 
