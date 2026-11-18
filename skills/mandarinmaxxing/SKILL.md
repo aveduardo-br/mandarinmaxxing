@@ -23,7 +23,7 @@ Read only when the moment comes:
 - `levels.md`: the learner finishes a level, or their level has no map in `maps/`.
 - `requests.md`: the learner asks for anything other than the next part, such as another lesson, a review, a new pace, a role-play, an extra reading, or flashcards.
 
-`syllabus/hsk-N.csv` is the official word list for levels 1–6 (number, word, pinyin, part of speech, level). Look up single words in it; don't read it whole. `fonts/` and `LICENSE` are never read during a lesson.
+`check_plan.py` checks a planned part's vocabulary; you run it, you don't read it. `syllabus/hsk-N.csv` is the official word list for levels 1–6 (number, word, pinyin, part of speech, level). Look up single words in it; don't read it whole. `fonts/` and `LICENSE` are never read during a lesson.
 
 ## Find the course
 
@@ -75,7 +75,7 @@ A **lesson** is one situation of the map, and its map number is its number for g
 
 Build a part from whole, consecutive blocks of one lesson. The lesson's `Split` line gives the blocks per part at paces 3 / 5 / 7: `Split: 1-1-1 / 1-2 / 3` means three one-block parts at pace 3, a one-block part then a two-block part at pace 5, and a single part at pace 7. With any other pace, or a map without `Split` lines, fill each part with whole blocks in map order until the next block would pass the pace by more than one word. When a lesson ends, move to the next one on the route.
 
-**Support words.** Most parts need none. Add one only when a chunk built from the part's own words can't work without a word the learner hasn't met; never write a chunk to bring one in. At most two per part, listed under the table as optional extras with pinyin and meaning, and never required by a prompt. A support word that belongs to a later block is still taught there.
+**Support words.** Most parts need none. Add one only when a chunk built from the part's own words can't work without a word the learner hasn't met; never write a chunk to bring one in. At most two per part, listed under the table as optional extras with pinyin and meaning, and never required by a prompt. A met word used in a new role, such as 杯 as a measure word when the learner knows 杯子, is a support word too. A support word that belongs to a later block is still taught there.
 
 ## Teach a part
 
@@ -91,8 +91,9 @@ Before the first message of a part, draft the whole part privately: in your reas
 
 1. **List** the new words, the older words due back, and the items to reinforce.
 2. **Write the Mandarin first.** Every answer of the review and the rounds, the chunks, and the reading or the audio scripts, as a mainland speaker would say them, with met words only.
-3. **Count.** The review's sentences are as long as round 2's. Every new word is in at least three prompts. Every older word and item to reinforce is used. No two sentences share a frame.
-4. **Then write each prompt** in the learner's language, as a translation of its answer.
+3. **Count.** The review's sentences are as long as round 2's. Every new word is in at least three prompts of the rounds, counted after the chunk slots are swapped. Every older word and item to reinforce is used. Outside round 1, no two sentences share a frame.
+4. **Check the vocabulary.** Where you can run code, write the plan to a scratch file in the format shown at the top of `check_plan.py` and run `python3 check_plan.py plan.txt`. It lists characters no met word covers and new words in fewer than three round lines. Rewrite those sentences, or list the word as a support word, and run it again, twice at most; what still stands after that is your call. Where you can't run code, check each sentence word by word yourself.
+5. **Then write each prompt** in the learner's language, as a translation of its answer.
 
 The plan is a draft. When an answer needs a correction, rework a prompt still to come.
 
@@ -101,11 +102,11 @@ The plan is a draft. When an answer needs a correction, rework a prompt still to
 1. **Review.** One prompt per new word of the last **Done** line, five to ten in all. Write them at the level of the course, not of the words reviewed: sentences as long as round 2's, built from everything met, even for a simple word (late in HSK 1, 谢谢 comes back as "Thank you, doctor, I'll come back to the hospital tomorrow", not as "Thanks! — You're welcome!"). If the last part had fewer than five words, fill the review with the items to reinforce and the older words, each in a prompt of its own. Fix the total in the first counter and keep it. With nothing studied yet, start at step 2.
 2. **Vocabulary.** The table, any support words, then two to four useful chunks. A chunk is a phrase the learner can reuse, longer than a single table word wherever the met words allow, and every chunk listed is practised in round 1. Give a chunk a breakdown line only when its parts are words the learner can reuse right away, as in 你好 = 你 (you) + 好 (good); otherwise leave the parts alone unless they ask. End the message with the first prompt of round 1.
 3. **Three rounds of five prompts**, each to translate into Mandarin. Across them, every new word appears in at least three prompts. A word that is natural on its own is used on its own at least once, not only inside a longer word (站 in 坐两站, not only in 地铁站); a word that lives mostly in compounds can stay in them.
-   - **Round 1 · Chunks.** Each prompt uses one of the part's chunks with a slot changed (the person, the place, the time, what follows the verb), never the chunk or its example as listed.
+   - **Round 1 · Chunks.** Each prompt uses one of the part's chunks with a slot changed (the person, the place, the time, what follows the verb), never the chunk as listed. Spread the five prompts across the chunks.
    - **Round 2 · Full actions.** One complete sentence: who, when or where, and what happens, joining a new chunk to words met earlier.
    - **Round 3 · Sequences.** Two or three connected sentences: an account of a day, a plan, a message to someone, as long as the met words allow.
 
-   The sentences of rounds 1 and 2 are never shorter than the review's sentences. After round 3, offer one more round like it or the listening step, and wait.
+   Round 1 can be short, since it drills the chunks. Round 2's sentences are never shorter than the review's. After round 3, offer one more round like it or the listening step, and wait.
 4. **Listening or reading.** With a voice provider, a dictation clip and then a narration clip; without one, a short reading with a rewrite task. Across this step, use every new word.
 5. **Close.** Save, then send the closing message.
 
@@ -117,7 +118,7 @@ A prompt is a whole sentence someone would actually say or write, in the learner
 - **Natural.** The answer is what a mainland speaker would say aloud: everyday verbs, time words before the verb, a subject that can really do the verb.
 - **Met words only.** If the natural sentence needs a word or pattern the learner hasn't met, change the prompt. Never teach a near-miss.
 - **Coherent.** In a prompt of several sentences, each one passes these checks, a connector follows from what came before, and no sentence contradicts another.
-- **A new frame.** In the review and in rounds 2 and 3, no two prompts share a frame with only the subject, time, place, or name swapped. Round 1 repeats a chunk's frame by design: give one chunk at most two prompts, and change a different slot in each.
+- **A new frame.** In the review and in rounds 2 and 3, no two prompts share a frame with only the subject, time, place, or name swapped. Round 1 repeats a chunk's frame by design: when a chunk comes up twice, change a different slot each time.
 - **A line, not a description.** Never a fragment, a scene description, a stage direction in parentheses, or reported speech ("He said: …").
 
 To call for a polite form such as 您, put the form of address inside the line where 您 goes ("Thank you, sir!" → 谢谢您), never as a call at the start. Chunks and corrected sentences pass the same checks. Judge the learner's answer by whether it is natural Mandarin for that meaning, not by how close it is to yours.

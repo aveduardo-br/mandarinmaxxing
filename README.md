@@ -124,6 +124,7 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | `skills/mandarinmaxxing/SKILL.md` | How a lesson works: parts, review, exercises, saving |
 | `skills/mandarinmaxxing/setup.md`, `levels.md`, `requests.md` | Starting a course, changing level, and what you can ask for. Read only when needed |
 | `skills/mandarinmaxxing/lesson-format.md` | How each message of a lesson looks |
+| `skills/mandarinmaxxing/check_plan.py` | A script the skill runs on each planned part: only words you've met, every new word practised three times |
 | `skills/mandarinmaxxing/maps/` | The lesson map for each level |
 | `skills/mandarinmaxxing/syllabus/` | The official word lists, levels 1 to 6 |
 | `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table |

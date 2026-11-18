@@ -11,7 +11,7 @@ How each message of a lesson looks. Take the words for lesson, part, review, rou
 
 Outside the vocabulary table: **Hanzi in bold**, *pinyin in italics*, meaning in plain text. Italics are for pinyin only. Never italicize or strike through Hanzi.
 
-- **A chunk or a corrected sentence** takes three lines, with hard line breaks: the Hanzi, the pinyin, the meaning. Put the chunk list under one bold line with the label for useful phrases. When a word in a chunk can be swapped, say which in its meaning line, with a met word as the example. A breakdown, when the chunk has one, is a fourth line in plain text: 你好 = 你 (you) + 好 (good).
+- **A chunk or a corrected sentence** takes three lines, with hard line breaks: the Hanzi, the pinyin, the meaning. Put the chunk list under one bold line with the label for useful phrases. When a word in a chunk can be swapped, say which in its meaning line, without giving the swap: round 1 is where the learner tries it. A breakdown, when the chunk has one, is a fourth line in plain text: 你好 = 你 (you) + 好 (good).
 - **A word inside a sentence** is written inline: **超市** (*chāoshì*, supermarket). A word known since earlier parts needs only the bold Hanzi, unless it is the point of the correction.
 - **Reading texts** stay as plain Hanzi, with no pinyin.
 
