@@ -1,18 +1,21 @@
 # Handoff: skill mandarinmaxxing
 
-Estado da skill na versão 0.5.6 (novembro de 2026) e o que vem depois. Leia inteiro antes de mexer.
+Estado da skill em 18/11/2026 e o que vem depois. Leia inteiro antes de mexer.
 
-**Revisão de lançamento (18/11/2026):** o que foi conferido, o que foi corrigido e o que falta para divulgar está em `LAUNCH.md`, no repositório `aveduardo-br/mandarinmaxxing-site`.
+**Onde está cada coisa**
 
-**Branch `v0.6-lean` (18/11/2026, não publicada):** reescrita enxuta da skill. O que toda aula lê (`SKILL.md` + `lesson-format.md`) foi de 7.226 para 4.090 palavras; setup, troca de nível e pedidos do aluno foram para `setup.md`, `levels.md` e `requests.md`. Passo novo: planejar a parte inteira em privado antes de ensinar, com o mandarim primeiro. Saíram o curso da versão antiga, as notas por parte em arquivo e o fallback de tabela com matemática inline. Benchmark de um cenário em `qa/benchmark/results/round-6/` (29 de 35 no `s1`, dentro da variação). Depois entraram correções de duas análises externas (conflitos de regra) e o `check_plan.py`: a skill grava a parte planejada num rascunho e o script aponta caracteres fora do vocabulário visto e palavras novas com menos de três aparições nas baterias (testado nas quatro sessões de um teste de mesa de outra IA: achou 杯, 房子, 难 e a falta de 游泳, sem falso positivo). O `plugin.json` segue em 0.5.6: publicar é decisão do Eduardo. O resto deste arquivo descreve a 0.5.6.
+- **`main` e a release publicada: 0.5.6.** É o que quem baixa a skill recebe.
+- **Branch `v0.6-lean`: a próxima versão, não publicada.** Reescrita enxuta feita em 18/11/2026. Este documento descreve a branch. O `plugin.json` dela ainda diz 0.5.6 de propósito: subir a versão e juntar na `main` publica a release, e isso é decisão do Eduardo, depois de ele testar uma parte de verdade.
+- **Revisão de lançamento do site:** `LAUNCH.md`, no repositório `aveduardo-br/mandarinmaxxing-site`.
 
-**Situação:** 0.5.6 publicada (as aulas são as da 0.5.5; a 0.5.6 só leva a licença para dentro do ZIP). Passou por quatro rodadas de benchmark com aulas simuladas e pelo aluno cifrado (o jump start do HSK 1 inteiro, 19 partes, com um aluno que não sabia a língua) (`qa/benchmark/results/`), cobrindo HSK 1 a 4, mas ainda não por uma pessoa fazendo um curso inteiro. O Eduardo testou a 0.5.1 e achou a revisão simples demais depois de pular para uma aula adiantada; a 0.5.2 corrige isso (rodada 3). Os ajustes finais de cada versão entraram sem nova rodada, e o README de cada rodada diz quais.
+**Como trabalhar com o Eduardo**
 
-- **Converse com o Eduardo em português.** O `SKILL.md`, o `lesson-format.md` e o README são em inglês.
-- **Mostre opções antes de mudanças grandes** e teste com aulas reais. O Eduardo valida vendo.
-- **Julgue as ideias do Eduardo.** Ele traz ideias para alinhar juntos, não ordens: diga quando discordar e por quê.
-- **Publicar é decisão dele.** Mudar a versão no `plugin.json` e subir na `main` publica uma release; faça só quando ele pedir.
+- **Converse em português.** Os arquivos da skill e o README são em inglês.
+- **Mostre o plano antes de mudanças grandes** e espere o ok. Ele valida vendo.
+- **Julgue as ideias dele.** Ele traz ideias para alinhar juntos, não ordens: diga quando discordar e por quê.
+- **Publicar é decisão dele.**
 - **Pesquise antes de afirmar.** Limites de ferramenta, de conector ou de plano só valem depois de testados.
+- **Ele não lê hanzi com fluência:** mostre sempre o significado ao lado.
 
 ## O norte
 
@@ -23,55 +26,59 @@ Estado da skill na versão 0.5.6 (novembro de 2026) e o que vem depois. Leia int
 - Skill enxuta: instalar e usar tem que ser o mais simples possível. Nada de pasta no computador, script ou chave colada no chat.
 - Mensagem e tom: `docs/messaging.md` no repositório `aveduardo-br/mandarinmaxxing-site`.
 
-## Como a skill funciona hoje
+## Como a skill funciona (branch `v0.6-lean`)
+
+**O princípio da reescrita.** A 0.5.6 tinha crescido por remendo: cada rodada de benchmark acrescentava regras, e o que toda aula lia chegou a 7.226 palavras. A branch corta isso para cerca de 4.400, com o mesmo método e o mesmo formato de `course.md`. **Cuidado para não repetir o ciclo:** toda análise acha alguma coisa e todo achado quer virar regra. Antes de acrescentar uma regra, veja se dá para resolver tirando ou reescrevendo outra.
 
 **Arquivos** (`skills/mandarinmaxxing/`)
 
-- `SKILL.md`: setup, mapa, partes, revisão, salvar e retomar.
-- `lesson-format.md`: formato de cada mensagem da aula (título, tabela, correção, leitura, áudio). A skill lê uma vez por chat.
-- `maps/hsk-N.md`: o mapa de um nível. Existem os do HSK 1 a 4.
-- `syllabus/hsk-1..6.csv`: lista oficial de novembro de 2025.
-- `fonts/`: fonte Kaiti (LXGW WenKai GB Lite) recortada para os 1.940 hanzi do HSK 1 a 6.
+| Arquivo | Quando a skill lê | O que tem |
+|---|---|---|
+| `SKILL.md` | Todo chat | Achar e retomar o curso, o `course.md`, montar a parte, planejar, os cinco passos, regras de enunciado, palavras antigas |
+| `lesson-format.md` | Todo chat com aula | Título, tabela com a fonte, correção, leitura, ditado e narração, fechamento |
+| `maps/hsk-N.md` | Todo chat | O mapa do nível (HSK 1 a 4) |
+| `setup.md` | Só em curso novo | Passos do projeto, mensagem de boas-vindas, visão do nível e rota |
+| `levels.md` | Só no fim de um nível ou em nível sem mapa | Passagem de nível, montar o mapa do HSK 5 e 6 |
+| `requests.md` | Só quando o aluno pede algo fora da próxima parte | Pular de aula, revisar, trocar o ritmo, volta depois de pausa, role-play, leitura extra, flashcards |
+| `check_plan.py` | Nunca lê; roda | Confere o vocabulário da parte planejada |
+| `syllabus/hsk-1..6.csv` | Consulta palavra por palavra | Lista oficial de novembro de 2025 |
+| `fonts/` | Nunca | Fonte Kaiti recortada para os 1.940 hanzi do HSK 1 a 6 |
 
 **Aula e parte**
 
-- Cada situação do mapa é uma **aula**, com número fixo. A aula 20 é sempre "Na escola", em qualquer ordem de estudo.
-- A aula é dada em **partes**. O ritmo (3, 5, 7 ou outro número) conta palavras novas por parte.
-- O mapa agrupa as palavras em blocos de 2 a 4. A linha `Split` de cada aula diz quantos blocos entram em cada parte nos ritmos 3 / 5 / 7.
-- HSK 1: 300 palavras, 22 aulas, 98 blocos. Partes nos ritmos 3 / 5 / 7: 97 / 58 / 42. As aulas 01 a 07 são o jump start.
-- HSK 2: 200 palavras, 19 aulas. Partes: 66 / 38 / 29. Jump start 01 a 04.
-- HSK 3: 500 palavras, 37 aulas. Partes: 168 / 94 / 69. Jump start 01 a 04.
-- HSK 4: 1.000 palavras, 56 aulas. Partes: 319 / 173 / 130. Jump start 01 a 05.
-- A numeração recomeça em 01 a cada nível. Para o aluno, o título sempre leva o nível: "HSK 2 · Aula 1". No registro `Done` do `course.md` a linha leva o prefixo do nível (`2-01.1`).
-- Ao terminar um nível, a skill oferece o seguinte no mesmo `course.md` e mantém o registro `Done`, para as palavras do nível anterior continuarem voltando.
+- Cada situação do mapa é uma **aula**, com número fixo. A aula é dada em **partes**; o ritmo (3, 5, 7 ou outro número) é a meta de palavras novas por parte.
+- O mapa agrupa as palavras em blocos de 2 a 4, e a linha `Split` diz quantos blocos entram em cada parte nos ritmos 3 / 5 / 7. Para outro ritmo, ou mapa sem `Split`, a skill enche a parte com blocos inteiros até passar do ritmo em mais de uma palavra.
+- **O ritmo é meta, não contagem.** Medido nos mapas: no ritmo 5 o tamanho mais comum de parte é 6 palavras (vai de 3 a 7); no ritmo 7 vai até 10 (no HSK 4, 54 de 130 partes têm 9 ou 10). O `setup.md` diz isso ao mostrar o nível; a mensagem de boas-vindas aprovada continua com "3 leve, 5 recomendado, 7 intenso".
+- Totais: HSK 1, 300 palavras, 22 aulas, partes 97 / 58 / 42, jump start 01 a 07. HSK 2, 200 palavras, 19 aulas, 66 / 38 / 29, jump start 01 a 04. HSK 3, 500 palavras, 37 aulas, 168 / 94 / 69, jump start 01 a 04. HSK 4, 1.000 palavras, 56 aulas, 319 / 173 / 130, jump start 01 a 05.
+- A numeração recomeça em 01 a cada nível; o título sempre leva o nível. No `Done` a linha leva o prefixo do nível (`2-01.1`).
 
 **Uma parte, cerca de uma hora**
 
-A meta é 1 hora por dia (decisão do Eduardo: menos que isso não dá progresso de verdade). Se a parte acaba antes, como no jump start e no ritmo 3, a skill oferece a próxima parte na mesma sessão.
+0. **Planejamento (novo).** Antes da primeira mensagem, a skill monta a parte inteira em privado: lista as palavras, escreve todo o mandarim primeiro, confere as contagens, roda o `check_plan.py` e só então escreve os enunciados como tradução das respostas.
+1. **Revisão:** uma frase por palavra da parte anterior, de 5 a 10, no nível do curso.
+2. **Vocabulário:** tabela, palavras de apoio e de dois a quatro chunks. O chunk diz qual pedaço pode trocar, sem dar a troca pronta.
+3. **Três baterias de 5:** chunks (pode ser curta), ação completa (nunca mais curta que a revisão), sequência. Cada palavra nova em pelo menos três exercícios.
+4. **Escuta:** ditado e narração de uma voz; sem áudio, leitura com reescrita. Nas primeiras partes, quando o vocabulário não dá para um relato, a leitura vira "o que tu diria em cada momento da situação".
+5. **Fechamento:** salvar, dizer o que vem depois e oferecer a próxima parte.
 
-1. Revisão: uma frase longa por palavra da parte anterior, de 5 a 10, com as palavras antigas e as de reforço dentro dessas frases.
-2. Vocabulário: tabela e chunks. A decomposição (你好 = 你 + 好) só aparece quando as peças servem agora; senão, nem como curiosidade.
-3. Três baterias de 5: chunks, ação completa, sequência (2–3 frases ligadas). Cada palavra nova aparece em pelo menos três frases, porque cinco a sete recuperações fixam melhor que uma a três (Nakata, 2017). O aluno pode pedir mais uma bateria.
-4. Escuta: ditado e narração de uma pessoa só, em primeira pessoa, sem diálogo. A narração só entra quando o vocabulário dá para uns 20 segundos. Sem áudio, leitura com reescrita, também de uma pessoa só.
-5. Fechamento: o que vem depois e, no fim de uma aula com duas ou mais partes, o role-play da situação.
+**Com menos de dez palavras vistas** há um bloco próprio de regras: menos baterias, menos exercícios em vez de repetir, e a naturalidade vem antes da contagem de três aparições.
 
-**Revisão**
+**O conferidor (`check_plan.py`).** A skill grava a parte planejada num rascunho (nível, palavras novas, palavras de apoio, o `Done` colado e as frases) e roda o script. Ele aponta caracteres que nenhuma palavra vista cobre e palavras novas em menos de três linhas das baterias. Confere só vocabulário, não naturalidade. Onde não há execução de código, a skill confere à mão. Testado sozinho nas quatro sessões de um teste de mesa feito por outra IA: achou 杯 (classificador), 房子 e 难 (HSK 3) e a falta de 游泳, sem falso positivo.
 
-- Sem fila nem pontuação. A parte anterior volta na revisão, e uma palavra de cada linha 3, 7, 14, 30 e 60 atrás no registro `Done` volta dentro dos exercícios (no máximo cinco por parte). A skill escolhe essas palavras antes de escrever a revisão.
-- As palavras antigas são escolhidas por rodízio (a linha de 3 atrás dá a 1ª palavra, a de 7 atrás a 2ª…), não pelo que encaixa mais fácil. Simulação nos mapas, ritmo 5: com a regra da 0.4.0, 13 a 18% das palavras voltavam depois da revisão da parte seguinte; com a da 0.5.1, de 49 a 73% (`tools/review_coverage.py`). A 0.5.0 tinha duas palavras por visita (68 a 80% no papel), mas no benchmark o professor usou só 2 a 4 das 6 previstas; a regra simples troca cobertura no papel por uma regra que o modelo segue. Repetição espaçada de verdade para cada palavra não cabe numa aula; para isso a skill entrega cartões para o Anki quando o aluno pede.
-- `To reinforce` guarda até dez palavras ou chunks em que o aluno precisou de ajuda. O item só sai quando o aluno acerta sem ajuda.
-- Ao terminar uma aula com duas ou mais partes, a skill oferece um fechamento: role-play da situação, de quatro a seis falas, sem mudar `Next`.
+**Revisão de palavras antigas**
+
+- Sem fila nem pontuação. A parte anterior volta na revisão, e uma palavra de cada linha 3, 7, 14, 30 e 60 atrás no `Done` volta dentro dos exercícios, escolhida por rodízio.
+- `To reinforce` guarda até dez palavras ou chunks em que o aluno precisou de ajuda, em qualquer passo (revisão, baterias, ditado, reescrita, role-play).
+- Repetição espaçada de verdade fica com o Anki; a skill entrega os cartões quando o aluno pede.
 
 **Onde o curso fica salvo**
 
-- Um único `course.md` nos documentos do projeto do Claude (a ferramenta do projeto costuma gravar em `claude/course.md`). Acompanha o aluno em qualquer aparelho.
-- Uma pasta do computador ligada ao projeto serve só de leitura, não de gravação. Não depender dela.
+- Um único `course.md` nos documentos do projeto do Claude. A skill só salva no fim da parte.
 - Fora de um projeto, a skill mostra os três passos para criar um e oferece uma aula de teste sem salvar.
 
 **Áudio**
 
-- Opcional. Até dois clipes por parte (ditado e narração), uma voz, uma geração cada, uma tomada. No teste, cada clipe gastou de 18 a 45 créditos: uns 3 mil por mês num ritmo diário, dentro da conta gratuita.
-- Padrão: ElevenLabs pelo conector do Claude, voz Sarah (`EXAVITQu4vr4xnSDxMaL`), idioma marcado como chinês.
+- Opcional. Até dois clipes por parte (ditado e narração), uma voz, uma geração cada. Padrão: ElevenLabs pelo conector, voz Sarah (`EXAVITQu4vr4xnSDxMaL`).
 - A skill nunca gera áudio com ferramenta que o aluno não escolheu e nunca repete uma geração por conta própria.
 
 ## Decisões e por quê
@@ -88,6 +95,14 @@ A meta é 1 hora por dia (decisão do Eduardo: menos que isso não dá progresso
 - **Ditado antes da narração** (0.5.0). Na aula 1 o áudio tinha 5 segundos, porque três palavras não fazem uma narração. O ditado funciona com pouco vocabulário. No teste, uma narração saiu como meia conversa (uma atendente falando com um cliente subentendido); a regra agora proíbe falar com alguém ou citar alguém.
 - **Revisão espaçada dentro da aula tem limite** (0.5.0). Simulação nos quatro mapas: para cada palavra voltar duas vezes, cada parte precisaria de 10 a 14 palavras antigas. O rodízio de uma palavra por linha faz de 49 a 73% das palavras voltarem pelo menos uma vez, contra 13 a 18% na regra da 0.4.0. A repetição espaçada de cada palavra fica com o Anki, e a skill entrega os cartões quando o aluno pede. Para refazer a conta depois de mudar um mapa ou a regra: `python3 tools/review_coverage.py skills/mandarinmaxxing/maps/hsk-N.md 5`.
 
+- **Reescrita enxuta** (18/11/2026). Saíram de vez: o curso da versão antiga (`mandarinmaxxing-course.md`), as notas de cada parte em arquivo, a cópia do curso numa pasta do computador, a tabela com matemática inline e as instruções repetidas. Ninguém usava a skill ainda, então não há curso antigo para manter.
+- **Planejar a parte antes de ensinar** (18/11/2026). Regras que valem para a parte inteira (três aparições, estruturas variadas, nível da revisão) eram conferidas no improviso, um exercício por vez. No meio do HSK 2, lado a lado, a versão com planejamento tirou 35 de 35 e a 0.5.6 tirou 32; uma simulação de cada, dentro da variação.
+- **Conferidor por script** (18/11/2026). Foi descartado no começo por medo de falso positivo e depois adotado: um teste de mesa de outra IA usou palavra não vista em 3 de 4 partes. A checagem "a frase pode ser montada só com palavras vistas" não dá o falso positivo da busca por palavras de nível acima (今天下午 contém 天下).
+- **Sem salvar no meio da parte.** O Eduardo decidiu: o chat fica guardado e o aluno volta nele.
+- **Sem acompanhar domínio de cada palavra nem gramática.** Duas análises externas pediram; o Eduardo mantém a skill leve, com o `To reinforce` e o Anki. O ponto da gramática (ensinar 了 uma vez não ensina todos os usos) é verdadeiro e fica para depois do teste com gente.
+- **Troca de ritmo vale a partir da próxima aula**, para as partes já feitas não mudarem de número.
+- **Palavra fora do composto:** uma palavra que é natural sozinha aparece sozinha ao menos uma vez (站 em 坐两站); a que vive em compostos pode ficar neles. O Eduardo tinha dúvida; ficou a regra branda.
+
 ## Como testar
 
 1. `python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-1.md` confere o mapa contra a lista oficial.
@@ -102,7 +117,7 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 
 ## Ao publicar
 
-- Publicar é automático: mude a versão em `plugin.json`, atualize o `release-notes.md` e envie para o `main`. A automação em `.github/workflows/release.yml` confere os mapas, gera o ZIP e cria a release com a tag. O README aponta para `releases/latest`.
+- Publicar é automático: mude a versão em `plugin.json`, atualize o `release-notes.md` e envie para o `main`. Para a branch: juntar `v0.6-lean` na `main`, com a versão 0.6.0. A automação em `.github/workflows/release.yml` confere os mapas, gera o ZIP e cria a release com a tag. O README aponta para `releases/latest`.
 - Mudança na skill sem mudar a versão não gera release nova: quem baixa continua recebendo o ZIP da última versão.
 - As sessões do Claude não conseguem criar tags nem releases direto neste repositório. É a automação que faz isso.
 - A tabela de vocabulário carrega a fonte pelo jsDelivr, de um commit fixo deste repositório. Se o arquivo da fonte mudar, atualize o endereço em `lesson-format.md`.
@@ -117,21 +132,26 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 - **0.5.4:** furos achados pelo aluno cifrado: o enunciado diz só o que a resposta diz, palavras vistas também em dicas e roteiros, sinônimos pedidos pelo nome, resposta sem a palavra nova volta na mesma bateria.
 - **0.5.5:** com poucas palavras, menos exercícios em vez de repetir; o "senhor" para pedir 您 só dentro da frase.
 - **0.5.6:** nada muda nas aulas. O LICENSE passa a ir dentro da pasta da skill (`tools/build.sh` copia o da raiz; edite sempre o da raiz), o `SKILL.md` ganha o campo `license`, e o README avisa do pré-requisito de execução de código (Settings → Capabilities).
+- **Branch `v0.6-lean` (não publicada, futura 0.6.0):** reescrita enxuta, arquivos `setup.md`, `levels.md` e `requests.md`, planejamento da parte, `check_plan.py`, correções de duas análises externas e de um teste de mesa. Detalhes acima e em `qa/benchmark/results/round-6/README.md`.
 
-Notas do juiz (de 35) ao longo das rodadas: de 25 a 30 na 0.5.0 para 29 a 34 nas versões seguintes. O HSK 4 tirou as melhores (34 e 33); as primeiras partes do curso e o HSK 2 são os mais irregulares. Detalhes em `qa/benchmark/results/`.
+Notas do juiz (de 35) ao longo das rodadas: de 25 a 30 na 0.5.0 para 29 a 34 nas versões seguintes, e 29 (`s1`) e 35 (`s11`) na branch. O HSK 4 tirou as melhores (34 e 33); as primeiras partes do curso e o HSK 2 são os mais irregulares. Detalhes em `qa/benchmark/results/`.
 
 ## O que falta
 
-**1. Validar com gente (a prioridade).** Tudo acima foi medido com aulas simuladas, que mostram se a skill segue o método, mas não se ele ensina.
-- O Eduardo e um amigo fazem umas cinco partes cada, o amigo começando do zero (o começo do curso foi o que mais mudou).
-- Pontos a olhar: se uma hora cansa, se as baterias ficam repetitivas depois de alguns dias, se a revisão continua no nível depois de pulos, se o ditado da aula 1 faz sentido.
+**1. O Eduardo testar uma parte de verdade com a branch (a prioridade).** É o que falta para publicar a 0.6.0. O ZIP de teste sai de `sh tools/build.sh`. O `course.md` dele continua valendo, porque o formato não mudou. O que só o app mostra:
+- Se o Claude abre `setup.md`, `levels.md` e `requests.md` na hora certa.
+- Se ele grava o rascunho e roda o `check_plan.py` sozinho, e quanto isso atrasa a primeira mensagem da parte.
+- Se uma hora cansa e se as baterias ficam repetitivas depois de alguns dias (pendência antiga).
+- Depois dele, um amigo começando do zero: o começo do curso foi o que mais mudou.
 - Quando algo soar estranho, pedir à skill o relatório do que ela fez e transformar o caso num cenário do benchmark.
 
-**2. Skill: o que ainda não está bom.**
-- **Naturalidade do mandarim** é a nota mais baixa em todas as rodadas (3 a 4 de 5): frases com cara de tradução, sequências com 可是 ou 所以 que não fecham. A regra de conferir antes de mandar existe; falta saber se ela basta.
-- **As primeiras partes** (3 a 9 palavras) oscilam entre 27 e 33. A 0.5.5 deixa dar menos exercícios em vez de repetir; ainda não testado.
-- **O HSK 2** foi o mais irregular (33 e 28): baterias abaixo do nível da revisão e 位 usado onde não cabe.
-- **Ajustes sem rodada própria:** os finais da 0.5.1, 0.5.2 e 0.5.3, e os da 0.5.5. Se mexer na skill de novo, rodar ao menos `s1`, `s8` e `s10`.
+**2. Skill: o que foi medido e o que não foi** (rodada 6, `qa/benchmark/results/round-6/`).
+- **`s1` (curso novo, HSK 1):** 29 de 35, contra 27 da 0.5.4. Naturalidade segue em 3 nas primeiras partes; com três palavras não há frase natural possível, e o Eduardo considera o HSK 1 fraco para medir isso.
+- **`s11` (meio do HSK 2), lado a lado, juiz às cegas:** 0.5.6 tirou 32, a branch tirou 35. Uma simulação de cada; no HSK 2 a mesma versão já tirou 33 e 28.
+- **`s11` de novo, depois de todas as correções (`run-c`), só pelo script, sem juiz:** a skill gravou o rascunho e rodou o conferidor por conta própria (duas vezes, as duas OK), nenhuma palavra não vista, cada palavra nova em pelo menos seis exercícios, rodízio 3 de 3, `course.md` certo.
+- **Sem simulação própria:** a leitura das primeiras partes sem áudio (o `s1` roda com áudio), a troca de ritmo, a volta depois de pausa, os níveis 3 e 4, a passagem de nível e o mapa gerado do HSK 5 e 6. Se mexer na skill de novo, rodar ao menos `s1` e `s11`.
+- **Ambiguidades conhecidas, deixadas como estão de propósito** (anotadas pelas simulações; resolver só se aparecerem em uso real): duas frases sobre quando um item entra no `To reinforce` (na hora da correção ou só no fechamento); erro na narração não é citado; os cenários antigos têm nomes de aula em inglês com curso em português.
+- **Gramática:** o `Done` registra palavras, não construções. Ensinar 了 uma vez não ensina todos os usos. Fica para depois do teste com gente.
 
 **3. Skill: ideias aprovadas que ainda não foram feitas.**
 - **Prova de fechamento:** no fim de uma aula ou de um nível, uma prova curta com palavras antigas sorteadas do registro. Serve ao aluno e dá dado real de retenção.

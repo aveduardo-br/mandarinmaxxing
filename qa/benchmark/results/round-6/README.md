@@ -58,3 +58,12 @@ Pelo script, nas duas: nenhuma palavra não vista, nenhum `[NÃO SEI]`, as três
 **Como ler.** A diferença aparece onde o planejamento deveria agir: a 0.5.6 repetiu estruturas (8 dos 15 exercícios das baterias giram em "X 离 Y 远") e o ditado reaproveitou frases da parte; a versão nova variou as estruturas e o ditado veio todo novo. Mas é uma simulação de cada, e no HSK 2 a mesma versão já tirou 33 e 28 (rodada 4). O resultado aponta na direção certa; não é prova.
 
 **O que as duas têm em comum** (problema da skill, não da simulação): 站 quase só aparece dentro de 地铁站; o padrão 离…远 domina; e a skill não diz se erro do ditado entra no `To reinforce` (cada simulação decidiu de um jeito).
+
+## s11 de novo, depois das correções (`s11/run-c`)
+
+Depois das duas análises externas e do teste de mesa, a skill ganhou o `check_plan.py` e várias correções de regra. Uma simulação do `s11` para ver se o conferidor funciona dentro de uma aula. Só o script, sem juiz: não há nota para comparar com as de cima.
+
+- A skill gravou o rascunho (`s11/run-c/scratch/plan.txt`, 28 linhas) e rodou o conferidor duas vezes; as duas deram OK. Entre uma e outra, trocou sozinha uma frase da revisão que repetia a estrutura de outra.
+- Nenhuma palavra não vista, nenhum `[NÃO SEI]`, cada palavra nova em pelo menos seis exercícios, rodízio 3 de 3, ditado e narração, `course.md` certo.
+- Tamanho médio das respostas: revisão 17,4, bateria 1 7,6, bateria 2 15,4, bateria 3 23,4. A bateria 1 ficou curta, como a regra nova permite; a bateria 2 ficou um pouco abaixo da revisão.
+- As frases refeitas no meio da aula, depois de um erro do aluno, foram conferidas à mão e não pelo script.
