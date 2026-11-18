@@ -54,7 +54,7 @@ Then the skill shows you the full list of lessons for your level and how long it
 
 The skill writes in the language you write in. Ask if you want another one.
 
-**What you can ask for.** At any time: review a lesson, change the pace, a shorter session, one more round of exercises, an extra reading with only the words you know, flashcards of a part's words ready to import into Anki, or notes of each part.
+**What you can ask for.** At any time: review a lesson, change the pace, a shorter session, one more round of exercises, an extra reading with only the words you know, or flashcards of a part's words ready to import into Anki.
 
 **Keyboard.** You answer in Mandarin from the first lesson. You can start by typing pinyin. When you want the next step, turn on your device's Chinese keyboard (Pinyin, Simplified): you type the sound and pick the character.
 
@@ -121,7 +121,8 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 
 | Path | What it is |
 |---|---|
-| `skills/mandarinmaxxing/SKILL.md` | How the course works: setup, lessons, review, saving |
+| `skills/mandarinmaxxing/SKILL.md` | How a lesson works: parts, review, exercises, saving |
+| `skills/mandarinmaxxing/setup.md`, `levels.md`, `requests.md` | Starting a course, changing level, and what you can ask for. Read only when needed |
 | `skills/mandarinmaxxing/lesson-format.md` | How each message of a lesson looks |
 | `skills/mandarinmaxxing/maps/` | The lesson map for each level |
 | `skills/mandarinmaxxing/syllabus/` | The official word lists, levels 1 to 6 |

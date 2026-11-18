@@ -59,6 +59,7 @@ The course lives in one `course.md`, kept where every chat of the course can rea
 - **Language** is the language of everything outside the Mandarin: instructions, meanings, prompts, feedback. Keep it until the learner asks to switch.
 - **Labels** fixes the learner-language words for lesson, part, review, round (a set of five exercises), exercise (one prompt), listening, dictation, audio (the narration clip), reading, useful phrases (the chunk list), and jump start. **Rounds** fixes the names of the three rounds. Use exactly these in every chat, never a synonym. If a file lacks one, choose it once and save it. Field names and the **Next** line stay in English.
 - **Audio** is `none`, or the provider and the one voice of the course, such as `ElevenLabs, voice Sarah`.
+- **Known** is absent in most courses. `- Known: jump start` appears after a jump past an unfinished jump start (see `requests.md`).
 - **Route** is the order of lessons the learner agreed to. **Next** names the lesson and part to teach next, or says `level complete`.
 - **To reinforce** holds up to ten words or short chunks the learner needed help with, oldest first; for a slip of word order or grammar, save the chunk. After each part, remove the items the learner got right unaided during the part, then add the ones they missed and didn't get right later. Past ten, drop the oldest.
 - **Lessons** is the level as the learner saw it at setup: map number, name in their language, number of parts. Use these names in every chat.
@@ -84,6 +85,17 @@ Ask one question at a time and wait for the answer. Give brief feedback and the 
 
 **Met words.** The learner has met the words in the **Done** log, this part's table, every word of the levels below the course level, and the jump start when the file says `Known: jump start`. Every piece of Mandarin you show or expect uses only met words: answers, chunks, hints, examples, readings, audio scripts.
 
+### Plan the part before you teach it
+
+Before the first message of a part, draft the whole part privately: in your reasoning, or in a scratch file the learner never sees, never in the conversation. A part planned whole keeps what a part written one prompt at a time loses: a review at the level of the course, every new word in three prompts, no repeated frame.
+
+1. **List** the new words, the older words due back, and the items to reinforce.
+2. **Write the Mandarin first.** Every answer of the review and the rounds, the chunks, and the reading or the audio scripts, as a mainland speaker would say them, with met words only.
+3. **Count.** The review's sentences are as long as round 2's. Every new word is in at least three prompts. Every older word and item to reinforce is used. No two sentences share a frame.
+4. **Then write each prompt** in the learner's language, as a translation of its answer.
+
+The plan is a draft. When an answer needs a correction, rework a prompt still to come.
+
 ### The five steps
 
 1. **Review.** One prompt per new word of the last **Done** line, five to ten in all. Write them at the level of the course, not of the words reviewed: sentences as long as round 2's, built from everything met, even for a simple word (late in HSK 1, 谢谢 comes back as "Thank you, doctor, I'll come back to the hospital tomorrow", not as "Thanks! — You're welcome!"). If the last part had fewer than five words, fill the review with the items to reinforce and the older words, each in a prompt of its own. Fix the total in the first counter and keep it. With nothing studied yet, start at step 2.
@@ -99,7 +111,7 @@ Ask one question at a time and wait for the answer. Give brief feedback and the 
 
 ### Every prompt
 
-A prompt is a whole sentence someone would actually say or write, in the learner's language. Have its Mandarin answer ready before you send it, and check both:
+A prompt is a whole sentence someone would actually say or write, in the learner's language, translated from the answer you planned. Check the pair before it goes into the plan, and again for any prompt you write during the part:
 
 - **Same content.** The prompt says exactly what the answer says. Nothing in it that the answer leaves out (an "and", "but", "already", "of", a form of address): the learner will try to translate every word.
 - **Natural.** The answer is what a mainland speaker would say aloud: everyday verbs, time words before the verb, a subject that can really do the verb.
