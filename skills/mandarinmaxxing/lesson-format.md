@@ -69,6 +69,8 @@ One message, in this order:
 - The text: three to six short sentences in plain Hanzi, one person telling in the first person what they did, plan, or what happened. No dialogue, quoted lines, pinyin, or translation.
 - A bold line such as **Your turn**, then the task: rewrite the text with a few changes you name (another day, another thing to buy, another price), chosen so the learner writes the part's new words again. No comprehension questions: the learner can see the text.
 
+**While the met words can't carry a first-person account**, as in the first parts of a course, skip the text. Under the same title, name two to four moments of the lesson's situation in the learner's language (you arrive, someone hands you something, you leave) and ask what they would say in each, in Mandarin.
+
 Correct the rewrite as a written translation. One text per part, with every new word in it; a second only when the new words don't fit one scene.
 
 ### Listening (with a voice provider)

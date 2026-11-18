@@ -105,7 +105,7 @@ The plan is a draft. When an answer needs a correction, rework a prompt still to
    - **Round 2 · Full actions.** One complete sentence: who, when or where, and what happens, joining a new chunk to words met earlier.
    - **Round 3 · Sequences.** Two or three connected sentences: an account of a day, a plan, a message to someone, as long as the met words allow.
 
-   Rounds 1 and 2 are never shorter than the review. After round 3, offer one more round like it or the listening step, and wait.
+   The sentences of rounds 1 and 2 are never shorter than the review's sentences. After round 3, offer one more round like it or the listening step, and wait.
 4. **Listening or reading.** With a voice provider, a dictation clip and then a narration clip; without one, a short reading with a rewrite task. Across this step, use every new word.
 5. **Close.** Save, then send the closing message.
 
@@ -117,7 +117,7 @@ A prompt is a whole sentence someone would actually say or write, in the learner
 - **Natural.** The answer is what a mainland speaker would say aloud: everyday verbs, time words before the verb, a subject that can really do the verb.
 - **Met words only.** If the natural sentence needs a word or pattern the learner hasn't met, change the prompt. Never teach a near-miss.
 - **Coherent.** In a prompt of several sentences, each one passes these checks, a connector follows from what came before, and no sentence contradicts another.
-- **A new frame.** In the whole part, review included, no two prompts share a frame with only the subject, time, place, or name swapped.
+- **A new frame.** In the review and in rounds 2 and 3, no two prompts share a frame with only the subject, time, place, or name swapped. Round 1 repeats a chunk's frame by design: give one chunk at most two prompts, and change a different slot in each.
 - **A line, not a description.** Never a fragment, a scene description, a stage direction in parentheses, or reported speech ("He said: …").
 
 To call for a polite form such as 您, put the form of address inside the line where 您 goes ("Thank you, sir!" → 谢谢您), never as a call at the start. Chunks and corrected sentences pass the same checks. Judge the learner's answer by whether it is natural Mandarin for that meaning, not by how close it is to yours.

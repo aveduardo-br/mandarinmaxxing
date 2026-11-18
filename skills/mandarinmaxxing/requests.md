@@ -15,7 +15,11 @@ Use the lesson's lines in the **Done** log: a review-style set of prompts for it
 
 ## Change the pace
 
-Save the new **Pace** and recount the parts in the **Lessons** list. A lesson already begun divides its remaining blocks at the new pace.
+Save the new **Pace**. It takes effect at the next lesson: a lesson already begun finishes at the old pace, so the parts in **Done** keep their numbers. Recount the parts of the lessons not yet started in the **Lessons** list.
+
+## Back after a break
+
+When the learner says they have been away for weeks, offer a review of the last two or three lessons studied before the next part. They decide.
 
 ## Wrap-up role-play
 

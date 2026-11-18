@@ -49,7 +49,7 @@ Keep this structure, order, and length: the two opening paragraphs, three number
 
 Read the map, then show a compact overview before the first part:
 
-- The number of lessons and the total number of parts at the learner's pace, from the map header, and what that means in weeks at one part a day, about an hour each. Present it as an estimate. Say once, in one sentence, that each lesson is one situation studied a part at a time, and that the pace is a target: a part brings about that many new words, sometimes one or two more or fewer.
+- The number of lessons and the total number of parts at the learner's pace, from the map header, and what that means in weeks at one part a day, about an hour each. Present it as an estimate. Say once, in one sentence, that each lesson is one situation studied a part at a time, and that the pace is a target, not a count: words that work together stay together, so a part often brings one or two words more or fewer, and at pace 7 up to three more.
 - The jump start, when the level has one: the lessons every later lesson depends on, taught first and in order.
 - The other lessons, in map order.
 
