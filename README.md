@@ -99,7 +99,13 @@ What this shows: the lessons follow the method. What it doesn't show: how much y
 
 ## Help improve it
 
-This is a personal project, and it gets better with use. If a lesson felt off, a word landed in the wrong situation, or the install steps didn't match what you saw, [open an issue](https://github.com/aveduardo-br/mandarinmaxxing/issues). Corrections to a lesson map are especially welcome.
+The skill gets better when the people who study with it say what felt off: a word in the wrong situation, a lesson that dragged, a situation that's missing. Open [an issue](https://github.com/aveduardo-br/mandarinmaxxing/issues), in any language. [CONTRIBUTING.md](CONTRIBUTING.md) has the details.
+
+## Free forever, and yours to keep
+
+The skill is free, and it stays free. Study with it, change your own copy, read how it's made, help improve it.
+
+The one thing you can't do is take the maps and the lesson texts to build something else, or feed them to an AI to mass-produce copies. That's what the [license](LICENSE) is for: it protects what this project and its community build. The method itself is yours to borrow. If you want to make your own course by situation, start from your own words.
 
 ## Other ways to run it
 
