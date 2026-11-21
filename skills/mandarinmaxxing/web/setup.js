@@ -104,7 +104,10 @@
       current: function () { return g.buttons()[g.at]; },
       value: function () {
         var b = g.current();
-        return (b.getAttribute('data-value') || b.textContent).trim().replace(/\s+/g, ' ');
+        var small = b.querySelector('small');
+        var label = (b.firstChild && b.firstChild.nodeType === 3 ? b.firstChild.textContent : b.textContent).trim();
+        var text = b.getAttribute('data-value') || (small ? label + ' (' + small.textContent.trim() + ')' : label);
+        return text.replace(/\s+/g, ' ');
       }
     };
     first.forEach(function (b) { b.type = 'button'; });
