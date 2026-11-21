@@ -13,8 +13,8 @@
   var css =
     R + '{--soft:var(--text-secondary,color-mix(in srgb,currentColor 65%,transparent));--line:var(--border,color-mix(in srgb,currentColor 15%,transparent));--off:color-mix(in srgb,currentColor 10%,transparent);--offfg:color-mix(in srgb,currentColor 55%,transparent);--onoff:color-mix(in srgb,currentColor 88%,transparent);padding:4px 0 20px}' +
     R + ' h2{font-size:16px;font-weight:600;margin:0 0 8px}' +
-    R + ' p{margin:0 0 12px;font-size:15px;line-height:1.7}' +
-    R + ' details:last-of-type{margin-bottom:20px}' +
+    R + ' p{margin:0 0 20px;font-size:15px;line-height:1.7}' +
+    R + ' details:last-of-type{margin-bottom:32px}' +
     R + '[data-home] details:first-of-type{margin-top:28px}' +
     R + '[data-home] details:last-of-type{margin-bottom:0}' +
     R + ' summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:6px 0;font-size:14px;font-weight:600;user-select:none}' +
@@ -25,33 +25,35 @@
     R + ' summary:hover .mm-t:not(.on) svg{fill:currentColor}' +
     R + ' .mm-t.on{background:' + ORANGE + '}' +
     R + ' .mm-t.on svg{fill:' + INK + ';transform:scaleY(-1)}' +
-    R + ' details>:not(summary){margin-left:40px;color:var(--soft);font-size:14px}' +
+    R + ' details>:not(summary){margin:0 0 0 40px;color:var(--soft);font-size:14px}' +
     R + ' details>:last-child{padding-bottom:6px}' +
-    R + ' fieldset{border:0;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:2px;min-width:0}' +
-    R + ' legend{padding:0;margin:0 0 6px;font-size:13px;font-weight:500;line-height:20px;color:var(--soft)}' +
-    // the host styles every button (border, radius, background) and wins over plain rules, so these are !important
-    R + ' fieldset button{' + imp('box-sizing:border-box;cursor:pointer;width:auto;min-width:36px;height:36px;margin:0;padding:0 14px;display:inline-flex;flex-direction:row;align-items:baseline;justify-content:center;gap:7px;white-space:nowrap;font:inherit;font-size:14px;font-weight:600;line-height:36px;border:0;border-radius:0;box-shadow:none;background:var(--off);color:var(--onoff);transition:background-color .12s ease,color .12s ease') + '}' +
-    R + ' fieldset[data-square] button{' + imp('width:36px;padding:0') + '}' +
-    R + ' fieldset button small{font-size:13px;font-weight:500;opacity:.78}' +
-    R + ' fieldset button:hover{' + imp('background:color-mix(in srgb,' + ORANGE + ' 38%,transparent);color:inherit') + '}' +
-    R + ' fieldset button[disabled],' + R + ' fieldset button[disabled]:hover{' + imp('cursor:default;background:transparent;color:var(--offfg);outline:1px dashed var(--offfg);outline-offset:-1px') + '}' +
-    R + ' fieldset button[data-note]{' + imp('background:transparent;color:var(--offfg);outline:1px dashed var(--offfg);outline-offset:-1px') + '}' +
-    R + ' fieldset button[data-note][aria-pressed="true"]{' + imp('outline:0') + '}' +
-    R + ' .mm-note{flex-basis:100%;margin:8px 0 0;font-size:13px;line-height:20px;color:var(--soft)}' +
+    R + ' fieldset{border:0;padding:0;margin:0 0 28px;display:flex;flex-wrap:wrap;gap:4px 24px;min-width:0}' +
+    R + ' legend{padding:0;margin:0 0 8px;font-size:13px;font-weight:500;line-height:20px;color:var(--soft)}' +
     R + ' legend small{font-weight:400;margin-left:8px;opacity:.8}' +
-    R + ' fieldset button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:2px}' +
-    R + ' fieldset button[aria-pressed="true"],' + R + ' fieldset button[aria-pressed="true"]:hover{' + imp('background:' + ORANGE + ';color:' + INK) + '}' +
-    R + ' .mm-go{' + imp('box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:36px;margin:6px 0 0;padding:0 16px;font:inherit;font-size:14px;font-weight:600;border:0;border-radius:0;box-shadow:none;transform:none;background:' + ORANGE + ';color:' + INK) + '}' +
-    R + ' .mm-go:focus-visible{outline:1px dashed currentColor;outline-offset:2px}' +
-    R + ' nav{display:flex;flex-wrap:wrap;gap:2px;margin:0 0 20px}' +
-    R + ' nav button{' + imp('box-sizing:border-box;cursor:pointer;height:36px;margin:0;padding:0 14px;display:inline-flex;align-items:center;white-space:nowrap;font:inherit;font-size:14px;font-weight:600;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:var(--off);color:var(--onoff);transition:background-color .12s ease') + '}' +
-    R + ' nav button:hover{' + imp('background:color-mix(in srgb,' + ORANGE + ' 38%,transparent)') + '}' +
-    R + ' nav button[data-primary],' + R + ' nav button[data-primary]:hover{' + imp('background:' + ORANGE + ';color:' + INK) + '}' +
-    R + ' nav button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:2px}' +
+    // the host styles every button (border, radius, background) and wins over plain rules, so these are !important
+    // a choice is plain text with a small tile in front of it; the tile of the chosen one is orange
+    R + ' fieldset button{' + imp('box-sizing:border-box;cursor:pointer;width:auto;height:28px;margin:0;padding:0;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font:inherit;font-size:14px;font-weight:500;line-height:28px;border:0;border-radius:0;box-shadow:none;transform:none;background:transparent;color:var(--soft);transition:color .12s ease') + '}' +
+    R + ' fieldset button small{font-size:13px;font-weight:400;margin-left:-2px;opacity:.85}' +
+    R + ' fieldset button:hover,' + R + ' fieldset button[aria-pressed="true"]{' + imp('color:inherit') + '}' +
+    R + ' fieldset button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:3px}' +
+    R + ' .mm-m{flex:none;width:10px;height:10px;background:color-mix(in srgb,currentColor 24%,transparent);transition:background-color .12s ease}' +
+    R + ' fieldset button:hover .mm-m{background:color-mix(in srgb,' + ORANGE + ' 45%,transparent)}' +
+    R + ' fieldset button[data-note] .mm-m,' + R + ' fieldset button[disabled] .mm-m{background:transparent;outline:1px dashed var(--offfg);outline-offset:-1px}' +
+    R + ' fieldset button[aria-pressed="true"] .mm-m{background:' + ORANGE + ';outline:0}' +
+    R + ' fieldset button[disabled]{' + imp('cursor:default;color:var(--offfg)') + '}' +
+    R + ' .mm-note{flex-basis:100%;margin:6px 0 0;font-size:13px;line-height:20px;color:var(--soft)}' +
+    // one filled button per card: the main action. The other actions are plain text
+    R + ' .mm-go,' + R + ' nav button[data-primary]{' + imp('box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:36px;margin:0;padding:0 16px;font:inherit;font-size:14px;font-weight:600;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:' + ORANGE + ';color:' + INK) + '}' +
+    R + ' .mm-go:focus-visible,' + R + ' nav button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:3px}' +
+    R + ' nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin:0 0 32px}' +
+    R + ' nav button{' + imp('box-sizing:border-box;cursor:pointer;height:36px;margin:0;padding:0;display:inline-flex;align-items:center;white-space:nowrap;font:inherit;font-size:14px;font-weight:500;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:transparent;color:var(--soft);transition:color .12s ease') + '}' +
+    R + ' nav button:hover{' + imp('color:inherit') + '}' +
+    R + ' nav button[data-primary]:hover{' + imp('color:' + INK) + '}' +
     R + ' [data-progress]{margin:0 0 8px;font-size:14px;color:var(--soft)}' +
-    R + ' .mm-bar{display:flex;flex-wrap:wrap;gap:2px;margin:0 0 16px}' +
+    R + ' .mm-bar{display:flex;flex-wrap:wrap;gap:2px;margin:0 0 24px}' +
     R + ' .mm-bar i{width:8px;height:8px;background:var(--off)}' +
     R + ' .mm-bar i.on{background:' + ORANGE + '}' +
+    R + '[data-home] .mm-go[hidden]{' + imp('display:none') + '}' +
     R + ' .mm-out{margin:12px 0 0;font-size:13px;color:var(--soft)}';
   var style = document.createElement('style');
   style.textContent = css;
@@ -104,9 +106,8 @@
     g.buttons().forEach(function (b) {
       var on = b === g.current();
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      var bg = on ? ORANGE : (b === hot ? 'color-mix(in srgb,' + ORANGE + ' 38%,transparent)' : '');
-      if (bg) b.style.setProperty('background', bg, 'important'); else b.style.removeProperty('background');
-      if (on) b.style.setProperty('color', INK, 'important'); else b.style.removeProperty('color');
+      var m = b.querySelector('.mm-m');
+      if (m) m.style.background = on ? ORANGE : '';
     });
     // a choice can carry a note, shown under its group while it is the one chosen
     var el = g.el(), note = el.querySelector('.mm-note'), text = g.current().getAttribute('data-note');
@@ -118,7 +119,8 @@
     if (calm || !pair[0].animate) { paint(g); return; }
     g.busy = true;
     var left = pair.length;
-    pair.forEach(function (b) {
+    pair.forEach(function (button) {
+      var b = button.querySelector('.mm-m') || button;
       var a = b.animate([{ transform: 'scaleY(1)' }, { transform: 'scaleY(0)' }], { duration: DUR, easing: CLOSE, fill: 'forwards' });
       a.onfinish = function () {
         a.cancel();
@@ -127,7 +129,6 @@
       };
     });
   }
-  var hot = null;
   function live() { return document.getElementById('mandarinmaxxing-setup') || root; }
   Array.prototype.forEach.call(root.querySelectorAll('fieldset'), function (f, index) {
     var legend = f.querySelector('legend');
@@ -143,12 +144,20 @@
       value: function () {
         var b = g.current();
         var small = b.querySelector('small');
-        var label = (b.firstChild && b.firstChild.nodeType === 3 ? b.firstChild.textContent : b.textContent).trim();
+        var label = '';
+        for (var k = 0; k < b.childNodes.length; k++) if (b.childNodes[k].nodeType === 3) label += b.childNodes[k].textContent;
+        label = label.trim();
         var text = b.getAttribute('data-value') || (small ? label + ' (' + small.textContent.trim() + ')' : label);
         return text.replace(/\s+/g, ' ');
       }
     };
-    first.forEach(function (b) { b.type = 'button'; });
+    first.forEach(function (b) {
+      b.type = 'button';
+      var m = document.createElement('span');
+      m.className = 'mm-m';
+      m.setAttribute('aria-hidden', 'true');
+      b.insertBefore(m, b.firstChild);
+    });
     groups.push(g);
     paint(g);
   });
@@ -172,6 +181,7 @@
       if (prev === b) return;
       g.at = g.buttons().indexOf(b);
       turn(g, [prev, b]);
+      showSave();
       report();
       return;
     }
@@ -192,15 +202,16 @@
     if (live().hasAttribute('data-preview') || typeof sendPrompt !== 'function') { say(text); return; }
     sendPrompt(text);
   }
-  document.addEventListener('mouseover', function (e) {
-    var b = buttonAt(e);
-    if (b === hot) return;
-    hot = b;
-    groups.forEach(paint);
-  });
-
   var go = root.querySelector('[data-start]');
   if (go) { go.type = 'button'; go.classList.add('mm-go'); }
+  function changed() {
+    return groups.some(function (g, i) { return g.name + ': ' + g.value() !== initial[i]; });
+  }
+  function showSave() {
+    var r = live(), b = r.querySelector('[data-start]');
+    if (b && r.hasAttribute('data-home')) b.hidden = !changed();
+  }
+  showSave();
   function say(text) {
     var r = live(), out = r.querySelector('.mm-out');
     if (!out) {
