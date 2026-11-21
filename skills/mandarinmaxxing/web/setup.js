@@ -14,11 +14,10 @@
     R + '{--soft:var(--text-secondary,color-mix(in srgb,currentColor 65%,transparent));--line:var(--border,color-mix(in srgb,currentColor 15%,transparent));--off:color-mix(in srgb,currentColor 10%,transparent);--offfg:color-mix(in srgb,currentColor 55%,transparent);--onoff:color-mix(in srgb,currentColor 88%,transparent);padding:4px 0 20px}' +
     R + ' h2{font-size:16px;font-weight:600;margin:0 0 8px}' +
     R + ' p{margin:0 0 12px;font-size:15px;line-height:1.7}' +
-    R + ' details{border-top:1px solid var(--line)}' +
-    R + ' details:last-of-type{border-bottom:1px solid var(--line);margin-bottom:20px}' +
-    R + '[data-home] details:first-of-type{margin-top:24px}' +
+    R + ' details:last-of-type{margin-bottom:20px}' +
+    R + '[data-home] details:first-of-type{margin-top:28px}' +
     R + '[data-home] details:last-of-type{margin-bottom:0}' +
-    R + ' summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:10px 0;font-size:14px;font-weight:600;user-select:none}' +
+    R + ' summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:6px 0;font-size:14px;font-weight:600;user-select:none}' +
     R + ' summary::-webkit-details-marker{display:none}' +
     R + ' summary:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:-2px}' +
     R + ' .mm-t{flex:none;display:grid;place-items:center;width:28px;height:28px;background:var(--off)}' +
