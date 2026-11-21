@@ -134,7 +134,7 @@ Para depurar, peça à skill um relatório do que ela leu e fez em vez de adivin
 - Publicar é automático: mude a versão em `plugin.json`, atualize o `release-notes.md` e envie para o `main`. Para a branch: juntar `v0.6-lean` na `main`, com a versão 0.6.0. A automação em `.github/workflows/release.yml` confere os mapas, gera o ZIP e cria a release com a tag. O README aponta para `releases/latest`.
 - Mudança na skill sem mudar a versão não gera release nova: quem baixa continua recebendo o ZIP da última versão.
 - As sessões do Claude não conseguem criar tags nem releases direto neste repositório. É a automação que faz isso.
-- A tabela de vocabulário carrega a fonte pelo jsDelivr, de um commit fixo deste repositório. Se o arquivo da fonte mudar, atualize o endereço em `lesson-format.md`.
+- A tabela de vocabulário carrega `web/vocab.js` pelo jsDelivr, de um commit fixo deste repositório (21/11/2026). O script traz o estilo, a fonte Kaiti (da pasta `fonts/` do mesmo commit) e a animação de traços no hover, com a biblioteca Hanzi Writer. A skill escreve só o título, as linhas e a linha do `<script>`. **Se `web/vocab.js` ou a fonte mudar, suba o commit e atualize o endereço em `lesson-format.md`.** Testado pelo Eduardo no app em 21/11: tabela, hover e fonte funcionaram. Próxima ideia no mesmo caminho: o setup em tópicos colapsáveis com botões (protótipos no chat de 21/11, desenho ainda em aberto).
 - Avisar o que mudou, para a copy do site ser reescrita.
 
 ## Versões de novembro de 2026

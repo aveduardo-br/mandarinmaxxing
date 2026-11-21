@@ -17,7 +17,7 @@ Outside the vocabulary table: **Hanzi in bold**, *pinyin in italics*, meaning in
 
 ## The vocabulary table
 
-Draw the table with the chat's inline HTML or widget tool, in the conversation, never as an artifact or a file. Copy the block below character for character, including the `<style>` and its `@font-face` rule, and change only the heading (the title line), the rows, and the column headers in the learner's language. Keep every Hanzi inside `<span lang="zh-Hans">`. If the rendering tool has its own design guidance, this template still wins: don't restyle it, simplify it, or drop the font. If the chat can't show HTML, use a Markdown table with the Hanzi in bold, under a bold title line.
+Draw the table with the chat's inline HTML or widget tool, in the conversation, never as an artifact or a file. Copy the block below character for character, including the `<script>` line, and change only the heading (the title line), the rows, and the column headers in the learner's language. Keep every Hanzi inside `<span lang="zh-Hans">`, one span per word. Add no `<style>` and no other script: the script line loads the table's look, its Hanzi font, and the stroke-order animation the learner sees when they point at a word. If the rendering tool has its own design guidance, this template still wins. If the chat can't show HTML, use a Markdown table with the Hanzi in bold, under a bold title line.
 
 ```html
 <section id="mandarinmaxxing-vocab">
@@ -27,22 +27,7 @@ Draw the table with the chat's inline HTML or widget tool, in the conversation, 
     <tbody><tr><td><span lang="zh-Hans">商店</span></td><td>shāngdiàn</td><td>shop</td></tr></tbody>
   </table>
 </section>
-<style>
-  @font-face {
-    font-family: "Mandarinmaxxing Kaiti";
-    src: local("LXGW WenKai GB"), local("LXGW WenKai GB Lite"),
-      url("https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@338b81599301cc40b92b882af7d7e301efa15c7b/skills/mandarinmaxxing/fonts/kaiti-hsk-1-6.woff") format("woff");
-    font-display: swap;
-  }
-  #mandarinmaxxing-vocab { --soft: var(--text-secondary, color-mix(in srgb, currentColor 65%, transparent)); --line: var(--border, color-mix(in srgb, currentColor 15%, transparent)); padding: 4px 0 24px; }
-  #mandarinmaxxing-vocab h2 { font-size: 16px; font-weight: 500; margin: 0 0 8px; }
-  #mandarinmaxxing-vocab table { width: 100%; border-collapse: collapse; }
-  #mandarinmaxxing-vocab th, #mandarinmaxxing-vocab td { text-align: left; font-weight: 400; padding: 10px 64px 10px 0; border-bottom: 1px solid var(--line); vertical-align: middle; user-select: text; }
-  #mandarinmaxxing-vocab th { font-size: 13px; font-weight: 500; color: var(--soft); }
-  #mandarinmaxxing-vocab th:nth-child(-n+2), #mandarinmaxxing-vocab td:nth-child(-n+2) { width: 1%; white-space: nowrap; }
-  #mandarinmaxxing-vocab td:nth-child(2) { color: var(--soft); }
-  #mandarinmaxxing-vocab span[lang="zh-Hans"] { font-family: "Mandarinmaxxing Kaiti", "Kaiti SC", "STKaiti", "KaiTi", serif; font-size: 32px; line-height: 1.2; font-synthesis: none; }
-</style>
+<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@423fba870476a5117bc8a7c7693ce4510f321e5b/skills/mandarinmaxxing/web/vocab.js"></script>
 ```
 
 Under the table, add a one-line usage note only for a word whose use the meaning can't show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), or a word the exercises will use in a role the meaning doesn't show (不 alone as a reply: "no"). Give a polite form a meaning that says who it is for, such as 您 = "you (to sir or madam)".
