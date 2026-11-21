@@ -9,6 +9,7 @@
   var CLOSE = 'cubic-bezier(.6,0,.8,.3)', OPEN = 'cubic-bezier(.2,.7,.2,1)';
   var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var R = '#mandarinmaxxing-setup';
+  function imp(d) { return d.split(';').join(' !important;') + ' !important'; }
   var css =
     R + '{--soft:var(--text-secondary,color-mix(in srgb,currentColor 65%,transparent));--line:var(--border,color-mix(in srgb,currentColor 15%,transparent));--off:color-mix(in srgb,currentColor 10%,transparent);--offfg:color-mix(in srgb,currentColor 55%,transparent);padding:4px 0 20px}' +
     R + ' h2{font-size:16px;font-weight:500;margin:0 0 8px}' +
@@ -27,13 +28,14 @@
     R + ' details>:last-child{padding-bottom:6px}' +
     R + ' fieldset{border:0;padding:0;margin:0 0 18px;display:flex;flex-wrap:wrap;gap:2px}' +
     R + ' legend{padding:0;margin:0 0 8px;font-size:13px;color:var(--soft)}' +
-    R + ' fieldset button{all:unset;box-sizing:border-box;cursor:pointer;width:112px;height:56px;padding:0 8px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.25;border-radius:0;background:var(--off);color:var(--soft);transition:background-color .12s ease,color .12s ease}' +
-    R + ' fieldset[data-square] button{width:56px}' +
-    R + ' fieldset button small{font-size:11px;opacity:.75}' +
-    R + ' fieldset button:hover{background:color-mix(in srgb,' + ORANGE + ' 38%,transparent);color:inherit}' +
+    // the host styles every button (border, radius, background) and wins over plain rules, so these are !important
+    R + ' fieldset button{' + imp('box-sizing:border-box;cursor:pointer;width:112px;height:56px;margin:0;padding:0 8px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font:inherit;font-size:13px;font-weight:400;line-height:1.25;border:0;border-radius:0;box-shadow:none;transform:none;background:var(--off);color:var(--offfg);transition:background-color .12s ease,color .12s ease') + '}' +
+    R + ' fieldset[data-square] button{' + imp('width:56px') + '}' +
+    R + ' fieldset button small{font-size:11px;opacity:.8}' +
+    R + ' fieldset button:hover{' + imp('background:color-mix(in srgb,' + ORANGE + ' 38%,transparent);color:inherit') + '}' +
     R + ' fieldset button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:2px}' +
-    R + ' fieldset button[aria-pressed="true"],' + R + ' fieldset button[aria-pressed="true"]:hover{background:' + ORANGE + ';color:' + INK + '}' +
-    R + ' .mm-go{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:40px;padding:0 18px;border-radius:0;font-size:14px;font-weight:500;background:' + ORANGE + ';color:' + INK + '}' +
+    R + ' fieldset button[aria-pressed="true"],' + R + ' fieldset button[aria-pressed="true"]:hover{' + imp('background:' + ORANGE + ';color:' + INK) + '}' +
+    R + ' .mm-go{' + imp('box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:40px;margin:0;padding:0 18px;font:inherit;font-size:14px;font-weight:500;border:0;border-radius:0;box-shadow:none;transform:none;background:' + ORANGE + ';color:' + INK) + '}' +
     R + ' .mm-go:focus-visible{outline:1px dashed currentColor;outline-offset:2px}' +
     R + ' .mm-out{margin:12px 0 0;font-size:13px;color:var(--soft)}';
   var style = document.createElement('style');
@@ -67,8 +69,9 @@
     g.buttons().forEach(function (b) {
       var on = b === g.current();
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      b.style.background = on ? ORANGE : (b === hot ? 'color-mix(in srgb,' + ORANGE + ' 38%,transparent)' : '');
-      b.style.color = on ? INK : '';
+      var bg = on ? ORANGE : (b === hot ? 'color-mix(in srgb,' + ORANGE + ' 38%,transparent)' : '');
+      if (bg) b.style.setProperty('background', bg, 'important'); else b.style.removeProperty('background');
+      if (on) b.style.setProperty('color', INK, 'important'); else b.style.removeProperty('color');
     });
   }
   var hot = null;
