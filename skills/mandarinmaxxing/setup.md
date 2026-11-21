@@ -16,13 +16,13 @@ If it can't, for example a chat outside any project, send the message below in t
 >
 > From then on I keep your progress myself, on any device. If you'd like to try it first, I can give you a trial lesson right here, without saving.
 
-For the trial lesson, teach HSK 1, Lesson 1, part 1, at a pace of 5, without saving, and say at the end that the course starts once the project is set up.
+For the trial lesson, teach HSK 1, Lesson 1, at a pace of 5, without saving, and say at the end that the course starts once the project is set up.
 
 ## The welcome message
 
 Write to the learner in the language they ask for, or the one they are writing in. "start mandarinmaxxing" and the pasted project line say nothing about their language. With too little text to tell, use the language of the interface, of the project's name, or of what you know about the learner, and ask in one short line only if none of these tells. Don't offer to switch.
 
-Send one setup message, localized from the example below. Ask only for the choices the learner hasn't given, and go on once they are clear: a pace of 5 and no audio when they leave those open.
+Send one setup message, localized from the example below. Ask only for the choices the learner hasn't given, and go on once they are clear: a pace of 5 and no audio when they leave those open. If they ask for HSK 5 or 6, read `levels.md`.
 
 > **Welcome to mandarinmaxxing!**
 >
@@ -34,14 +34,14 @@ Send one setup message, localized from the example below. Ask only for the choic
 > Starting from zero? I suggest HSK 1, lesson 1. If you've studied before, tell me the level or the lesson you want to pick up from.
 >
 > **2. Pace**
-> How many new words each time you study? 3 is light, **5 is what I recommend**, 7 is intense. If you'd rather have another number, just say so.
+> How many new words each time you study? Light is 3 or 4, **recommended is 5 to 7**, intense is 7 to 10. Some days bring fewer, because words that work together stay together. If you'd rather have another number, just say so.
 >
 > **3. Audio** (optional)
 > Each study session closes with listening practice. With audio, you hear a short dictation and a short story in a natural voice, without seeing them written: you write what you heard and answer what you understood. Most people use ElevenLabs, which has a free account, but you can bring another voice provider. Without audio, you read the text and there's nothing to set up. Do you want audio?
 >
 > **Keyboard.** You'll answer in Mandarin from the first lesson. You can start by typing in pinyin to get practicing right away. When you want the next step, turn on the Chinese keyboard (Pinyin, Simplified): you type the sound and pick the character.
 
-Keep this structure, order, and length: the two opening paragraphs, three numbered headings each on its own line with its text below (use a hard line break), and the keyboard note. Name the learner's own language where the example says "your language". Don't mention fonts: the table loads its own.
+Keep this structure, order, and length: the two opening paragraphs, three numbered headings each on its own line with its text below (use a hard line break), and the keyboard note. Name the learner's own language where the example says "your language". Don't mention fonts: the table loads its own. Save light, recommended and intense as a **Pace** of 3, 5 and 7.
 
 **Audio.** If the learner wants audio, they connect a text-to-speech provider to the chat themselves, usually ElevenLabs through its connector. If it isn't connected yet, tell them how, use reading meanwhile, and switch once it appears. Save the choice in **Audio**.
 
@@ -49,7 +49,7 @@ Keep this structure, order, and length: the two opening paragraphs, three number
 
 Read the map, then show a compact overview before the first part:
 
-- The number of lessons and the total number of parts at the learner's pace, from the map header, and what that means in weeks at one part a day, about an hour each. Present it as an estimate. Say once, in one sentence, that each lesson is one situation studied a part at a time, and that the pace is a target, not a count: words that work together stay together, so a part often brings one or two words more or fewer, and at pace 7 up to three more.
+- The number of lessons and the total number of parts at the learner's pace, from the map header, and what that means in weeks at one part a day, about an hour each. Present it as an estimate. Say once, in one sentence, that each lesson is one situation studied a part at a time.
 - The jump start, when the level has one: the lessons every later lesson depends on, taught first and in order.
 - The other lessons, in map order.
 
@@ -59,6 +59,6 @@ Then:
 
 1. Save `course.md` in the shape given in `SKILL.md`: the settings, the route in map order, the full lesson list in the learner's language, and `Next` at part 1 of the first lesson.
 2. Add one sentence on what they can ask for at any time: review a lesson, change the pace, an extra reading with only the words they know, or flashcards of a part's words.
-3. Ask whether they want to move any lesson earlier or later. Only lessons after the jump start can move. A learner who has studied before can start at a later lesson: "start at 19" puts Lesson 19 first, and it is still called Lesson 19 (see "Another lesson" in `requests.md`). Save again if the route changes.
+3. Ask where they want to start and whether to move any lesson earlier or later. A learner starting from zero starts at Lesson 1. A learner who has studied before reads the list and picks the lesson to start from: "start at 19" puts Lesson 19 first, and it is still called Lesson 19 (see "Another lesson" in `requests.md`). Only lessons after the jump start can move. Save again if the route changes.
 
 Start the first part once the learner agrees.

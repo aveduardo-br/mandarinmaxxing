@@ -20,10 +20,10 @@ Read in every chat:
 Read only when the moment comes:
 
 - `setup.md`: there is no saved course yet.
-- `levels.md`: the learner finishes a level, or their level has no map in `maps/`.
+- `levels.md`: the learner finishes a level, or asks for HSK 5 or 6, which have no map yet.
 - `requests.md`: the learner asks for anything other than the next part, such as another lesson, a review, a new pace, a role-play, an extra reading, or flashcards.
 
-`check_plan.py` checks a planned part's vocabulary; you run it, you don't read it. `syllabus/hsk-N.csv` is the official word list for levels 1–6 (number, word, pinyin, part of speech, level). Look up single words in it; don't read it whole. `fonts/` and `LICENSE` are never read during a lesson.
+`check_plan.py` checks a planned part's vocabulary; you run it, you don't read it. The course covers HSK 1 to 4. `syllabus/hsk-N.csv` is the official word list for levels 1–6 (number, word, pinyin, part of speech, level). Look up single words in it; don't read it whole. `fonts/` and `LICENSE` are never read during a lesson.
 
 ## Find the course
 
@@ -61,7 +61,7 @@ The course lives in one `course.md`, kept where every chat of the course can rea
 - **Audio** is `none`, or the provider and the one voice of the course, such as `ElevenLabs, voice Sarah`.
 - **Known** is absent in most courses. `- Known: jump start` appears after a jump past an unfinished jump start (see `requests.md`).
 - **Route** is the order of lessons the learner agreed to. **Next** names the lesson and part to teach next, or says `level complete`.
-- **To reinforce** holds up to ten words or short chunks the learner needed help with, oldest first; for a slip of word order or grammar, save the chunk. After each part, remove the items the learner got right unaided during the part, then add the ones they missed anywhere in it (review, rounds, dictation, rewrite) and didn't get right later. Past ten, drop the oldest.
+- **To reinforce** holds up to ten words or short chunks the learner needed help with, oldest first; for a slip of word order or grammar, save the chunk. After each part, remove the items the learner got right unaided during the part, then add the ones they missed anywhere in it (review, rounds, dictation, rewrite) and didn't get right later: an item's last answer in the part decides. Past ten, drop the oldest.
 - **Lessons** is the level as the learner saw it at setup: map number, name in their language, number of parts. Use these names in every chat.
 - **Done** has one line per finished part, in the order studied: level, lesson and part, then the new words as the map spells them (`2-01.1` is HSK 2, Lesson 1, part 1). Sense numbers such as 别1 stay in this log and the map; the learner sees 别. Read a line without a level prefix as the level the course started on.
 
@@ -87,19 +87,19 @@ Ask one question at a time and wait for the answer. Give brief feedback and the 
 
 ### Plan the part before you teach it
 
-Before the first message of a part, draft the whole part privately: in your reasoning, or in a scratch file the learner never sees, never in the conversation. A part planned whole keeps what a part written one prompt at a time loses: a review at the level of the course, every new word in three prompts, no repeated frame.
+Before the first message of a part, draft the whole part privately, never in the conversation. Where you can write files, the plan goes in a scratch file, `plan.txt`, so it is still there at the last exercise; otherwise keep it in your reasoning. A part planned whole keeps what a part written one prompt at a time loses: a review at the level of the course, every new word in three prompts, no repeated frame.
 
 1. **List** the new words, the older words due back, and the items to reinforce.
 2. **Write the Mandarin first.** Every answer of the review and the rounds, the chunks, and the reading or the audio scripts, as a mainland speaker would say them, with met words only.
 3. **Count.** The review's sentences are as long as round 2's. Every new word is in at least three prompts of the rounds, counted after the chunk slots are swapped. Every older word and item to reinforce is used. Outside round 1, no two sentences share a frame.
-4. **Check the vocabulary.** Where you can run code, write the plan to a scratch file in the format shown at the top of `check_plan.py` and run `python3 check_plan.py plan.txt`. It lists characters no met word covers and new words in fewer than three round lines. Rewrite those sentences, or list the word as a support word, and run it again, twice at most; what still stands after that is your call. Where you can't run code, check each sentence word by word yourself.
-5. **Then write each prompt** in the learner's language, as a translation of its answer.
+4. **Check the vocabulary.** Where you can run code, write `plan.txt` in the format shown at the top of `check_plan.py` and run `python3 check_plan.py plan.txt`. It lists characters no met word covers, new words in fewer than three round lines, and, under CHECK, stretches that met words cover but that are also a word the learner hasn't met (要是 from 要 and 是). Rewrite those sentences, or list the word as a support word, and run it again, twice at most; what still stands after that is your call. Where you can't run code, check each sentence word by word yourself.
+5. **Then write each prompt** in the learner's language, as a translation of its answer, and add the prompts to `plan.txt` under their answers. Teach from that file.
 
 The plan is a draft. When an answer needs a correction, rework a prompt still to come.
 
 ### The five steps
 
-1. **Review.** One prompt per new word of the last **Done** line, five to ten in all. Write them at the level of the course, not of the words reviewed: sentences as long as round 2's, built from everything met, even for a simple word (late in HSK 1, 谢谢 comes back as "Thank you, doctor, I'll come back to the hospital tomorrow", not as "Thanks! — You're welcome!"). If the last part had fewer than five words, fill the review with the items to reinforce and the older words, each in a prompt of its own. Fix the total in the first counter and keep it. With nothing studied yet, start at step 2.
+1. **Review.** One prompt per new word of the last **Done** line, five to ten in all; when the met words are too few for that many different prompts, an exchange between two speakers can carry two of the words, and fewer than five prompts is fine. Write them at the level of the course, not of the words reviewed: sentences as long as round 2's wherever the words met before this part allow, built from everything met, even for a simple word (late in HSK 1, 谢谢 comes back as "Thank you, doctor, I'll come back to the hospital tomorrow", not as "Thanks! — You're welcome!"). If the last part had fewer than five words, fill the review with the items to reinforce and the older words, each in a prompt of its own. Fix the total in the first counter and keep it. With nothing studied yet, start at step 2.
 2. **Vocabulary.** The table, any support words, then two to four useful chunks. A chunk is a phrase the learner can reuse, longer than a single table word wherever the met words allow, and every chunk listed is practised in round 1. Give a chunk a breakdown line only when its parts are words the learner can reuse right away, as in 你好 = 你 (you) + 好 (good); otherwise leave the parts alone unless they ask. End the message with the first prompt of round 1.
 3. **Three rounds of five prompts**, each to translate into Mandarin. Across them, every new word appears in at least three prompts. A word that is natural on its own is used on its own at least once, not only inside a longer word (站 in 坐两站, not only in 地铁站); a word that lives mostly in compounds can stay in them.
    - **Round 1 · Chunks.** Each prompt uses one of the part's chunks with a slot changed (the person, the place, the time, what follows the verb), never the chunk as listed. Spread the five prompts across the chunks.
@@ -123,7 +123,7 @@ A prompt is a whole sentence someone would actually say or write, in the learner
 
 To call for a polite form such as 您, put the form of address inside the line where 您 goes ("Thank you, sir!" → 谢谢您), never as a call at the start. Chunks and corrected sentences pass the same checks. Judge the learner's answer by whether it is natural Mandarin for that meaning, not by how close it is to yours.
 
-**After a correction**, bring the item back in a later prompt of the same or the next round, in a new frame, and add it to the words to reinforce. Keep each round at five and the review at its total by reworking a prompt still to come; add one only if none is left.
+**After a correction**, bring the item back in a later prompt of the same or the next round, in a new frame. Whether it goes to **To reinforce** is decided at the close, as described under the course file. Keep each round at five and the review at its total by reworking a prompt still to come; add one only if none is left.
 
 **Pinyin answers.** Accept them and correct them the same way, always showing the Hanzi. The first time in a chat, remind the learner once about the Chinese keyboard.
 
@@ -133,7 +133,7 @@ There aren't enough words for three different rounds, so give fewer prompts rath
 
 - **Five met words or fewer:** round 1 only.
 - **Six to nine:** round 1, then a round 2 of short exchanges in which the second line reacts to the first (thanks → you're welcome), with a dash before each new speaker. Skip round 3.
-- A prompt can be one speaker's line or such an exchange, in the order of a real encounter: greet, then thank or apologize, then say goodbye.
+- A prompt can be one speaker's line or such an exchange, in the order of a real encounter: greet, then thank or apologize, then say goodbye. One speaker's line holds one reaction (谢谢您！), or two that people really say together (好，再见！): never a greeting glued to an apology or to thanks (你好，对不起！), and never two words that mean the same (没事，没关系。).
 - When the met words can't make five different natural prompts, give fewer. Never repeat a word inside a prompt, echo a line ("Hi! — Hi!"), reverse an encounter, or reshuffle lines already used. The same goes for the review and the dictation.
 - Naturalness comes before the count. If a new word fits only two natural prompts, give it two: it comes back in the next part's review.
 - A chunk with no slot to change is asked as listed.

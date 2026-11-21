@@ -47,7 +47,7 @@ If you start the skill outside a project, it shows you these same steps and offe
 The first message asks three things. They are suggestions, and you can change any of them later by asking.
 
 - **Level.** New to Mandarin? Start with HSK 1, lesson 1. If you've studied before, name the level or the lesson you want to pick up from.
-- **Pace.** How many new words each part brings: 3 is light, 5 is the recommended pace, 7 is intense. Any other number works too. A part is built for about an hour; when one ends early, as in the first lessons, the skill offers the next part right away.
+- **Pace.** How many new words each part brings: light is 3 or 4, recommended is 5 to 7, intense is 7 to 10. Any other number works too. A part is built for about an hour; when one ends early, as in the first lessons, the skill offers the next part right away.
 - **Audio.** Optional. See below.
 
 Then the skill shows you the full list of lessons for your level and how long it should take. You can move lessons around before you start, for example to study food before phone calls.
@@ -75,10 +75,10 @@ Without audio there is nothing to set up. You read the text instead.
 ## What it covers
 
 - **HSK 1 to 4 are ready.** 2,000 words in 134 lessons: HSK 1 has 300 words in 22 lessons, HSK 2 has 200 in 19, HSK 3 has 500 in 37, and HSK 4 has 1,000 in 56.
-- **How long it takes.** At the recommended pace, HSK 1 is 58 parts, about two months at one part (an hour) a day. HSK 2 is 38 parts, HSK 3 is 94, and HSK 4 is 173. The skill shows the estimate for your own pace when you start.
+- **How long it takes.** At the recommended pace, HSK 1 is 57 parts, about two months at one part (an hour) a day. HSK 2 is 38 parts, HSK 3 is 94, and HSK 4 is 173. The skill shows the estimate for your own pace when you start.
 - **Each level opens with a jump start.** In HSK 1 it's greetings, saying what you want, saying who you are. In the later levels it's the connecting words every other lesson uses, such as "because", "already" and "if".
 - **Finish a level and the course moves on to the next.** Words from the level you finished keep coming back.
-- **HSK 5 and 6.** The official word lists are included. Their lesson maps aren't written yet, so the skill builds a map for your level when you start it.
+- **HSK 5 and 6 aren't ready yet.** Their official word lists are included, but their lesson maps aren't written, and the skill doesn't improvise one.
 - **The word list** is the HSK syllabus released in November 2025, levels 1 to 6. Every word of a level appears once in its map.
 
 ## What it doesn't do

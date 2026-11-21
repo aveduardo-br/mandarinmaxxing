@@ -1,0 +1,55 @@
+LEVEL 1
+NEW 我 要 水 茶 你 吗 不
+DONE
+1-01.1 | 你好 再见 谢谢 不客气 对不起 没关系 您 好 没事
+PLAN
+review: 您好，对不起！
+Olá, senhora, desculpa!
+review: — 谢谢！ — 不客气，再见！
+— Obrigado! — De nada, tchau!
+review: 没关系，谢谢您！
+Não tem problema, obrigada, senhor!
+review: — 对不起！ — 好，没事。
+— Desculpa! — Tá bom, não foi nada.
+review: 你好，谢谢！
+Oi, obrigado!
+chunk: 我要水。
+Eu quero água.
+chunk: 你要茶吗？
+Você quer chá?
+chunk: 我不要茶。
+Eu não quero chá.
+round1: 我要茶。
+Eu quero chá.
+round1: 你要水吗？
+Você quer água?
+round1: 我不要水。
+Eu não quero água.
+round1: 您要茶吗？
+A senhora quer chá?
+round1: 我不要，谢谢。
+Eu não quero, obrigado.
+round2: 你好，我要水，谢谢。
+Oi, eu quero água, obrigada.
+round2: 对不起，我不要茶。
+Desculpa, eu não quero chá.
+round2: 您好，您要水吗？
+Olá, o senhor quer água?
+round2: 没关系，我要茶。
+Não tem problema, eu quero chá.
+round2: 谢谢，我不要茶，我要水。
+Obrigado, eu não quero chá, eu quero água.
+round3: 你好！你要水吗？我要茶。
+Oi! Você quer água? Eu quero chá.
+round3: 对不起，我不要水。你要吗？
+Desculpa, eu não quero água. Você quer?
+round3: 您好！您要茶吗？我不要。
+Olá! A senhora quer chá? Eu não quero.
+round3: 我要水，你要茶。你不要茶吗？对不起！
+Eu quero água, você quer chá. Você não quer chá? Desculpa!
+round3: 你不要水吗？好，没事。再见！
+Você não quer água? Tá bom, tudo bem. Tchau!
+listening: 对不起，您要水吗？
+listening: 我不要，谢谢你。
+listening: 好，我要茶，谢谢。
+listening: 您不要茶吗？

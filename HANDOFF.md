@@ -49,7 +49,7 @@ Estado da skill em 18/11/2026 e o que vem depois. Leia inteiro antes de mexer.
 - Cada situação do mapa é uma **aula**, com número fixo. A aula é dada em **partes**; o ritmo (3, 5, 7 ou outro número) é a meta de palavras novas por parte.
 - O mapa agrupa as palavras em blocos de 2 a 4, e a linha `Split` diz quantos blocos entram em cada parte nos ritmos 3 / 5 / 7. Para outro ritmo, ou mapa sem `Split`, a skill enche a parte com blocos inteiros até passar do ritmo em mais de uma palavra.
 - **O ritmo é meta, não contagem.** Medido nos mapas: no ritmo 5 o tamanho mais comum de parte é 6 palavras (vai de 3 a 7); no ritmo 7 vai até 10 (no HSK 4, 54 de 130 partes têm 9 ou 10). O `setup.md` diz isso ao mostrar o nível; a mensagem de boas-vindas aprovada continua com "3 leve, 5 recomendado, 7 intenso".
-- Totais: HSK 1, 300 palavras, 22 aulas, partes 97 / 58 / 42, jump start 01 a 07. HSK 2, 200 palavras, 19 aulas, 66 / 38 / 29, jump start 01 a 04. HSK 3, 500 palavras, 37 aulas, 168 / 94 / 69, jump start 01 a 04. HSK 4, 1.000 palavras, 56 aulas, 319 / 173 / 130, jump start 01 a 05.
+- Totais: HSK 1, 300 palavras, 22 aulas, partes 96 / 57 / 41, jump start 01 a 07. HSK 2, 200 palavras, 19 aulas, 66 / 38 / 29, jump start 01 a 04. HSK 3, 500 palavras, 37 aulas, 168 / 94 / 69, jump start 01 a 04. HSK 4, 1.000 palavras, 56 aulas, 319 / 173 / 130, jump start 01 a 05.
 - A numeração recomeça em 01 a cada nível; o título sempre leva o nível. No `Done` a linha leva o prefixo do nível (`2-01.1`).
 
 **Uma parte, cerca de uma hora**
@@ -102,6 +102,20 @@ Estado da skill em 18/11/2026 e o que vem depois. Leia inteiro antes de mexer.
 - **Sem acompanhar domínio de cada palavra nem gramática.** Duas análises externas pediram; o Eduardo mantém a skill leve, com o `To reinforce` e o Anki. O ponto da gramática (ensinar 了 uma vez não ensina todos os usos) é verdadeiro e fica para depois do teste com gente.
 - **Troca de ritmo vale a partir da próxima aula**, para as partes já feitas não mudarem de número.
 - **Palavra fora do composto:** uma palavra que é natural sozinha aparece sozinha ao menos uma vez (站 em 坐两站); a que vive em compostos pode ficar neles. O Eduardo tinha dúvida; ficou a regra branda.
+
+## Revisão de 21/11/2026 (na branch, ainda sem publicar)
+
+Decisões do Eduardo: o aluno usa a skill no computador (celular é bônus); HSK 5 e 6 ficam como "ainda não tem", sem mapa montado no chat; quem já estudou escolhe o nível, vê as aulas mapeadas e decide de onde partir; sessão curta só se decide depois do teste dele.
+
+- **O plano da parte fica em `plan.txt`**, com os enunciados embaixo das respostas, e a aula é dada a partir dele. Antes podia ficar só no raciocínio, que não é garantido até o último exercício.
+- **`check_plan.py`:** linha `NAMES` para nomes próprios (北京 e 小王 eram acusados) e lista `CHECK` para palavra não vista formada por palavras vistas inteiras (要是, 前天, 后天, 还是 passavam). Nas transcrições do `s11` e do `s8` a lista só acusou 就是.
+- **`To reinforce`:** uma regra só, a do fechamento da parte.
+- **HSK 5 e 6:** `levels.md` não manda mais montar mapa; a skill avisa que ainda não tem e oferece o HSK 4.
+- **Primeira sessão maior:** a aula 01 do HSK 1 passou de `1-1-1 / 1-2 / 1-2` para `2-1 / 3 / 3`, para a primeira parte já ter trocas de verdade. Totais do HSK 1: 96 / 57 / 41. **O site ainda mostra 97 / 58 / 42 na seção "Your course".**
+- **Ritmo com a faixa real** no setup e no README: leve 3 ou 4, recomendado 5 a 7, intenso 7 a 10 (salvo como Pace 3, 5 e 7). **A copy do site ainda diz 3, 5, 7.**
+- **Flashcards:** continuam só quando o aluno pede (decisão do Eduardo).
+- **Rodada 7 do benchmark** (`qa/benchmark/results/round-7/`): 29 de 35 nas sete dimensões de sempre, igual à rodada 6. O plano em arquivo funcionou; a naturalidade das primeiras partes continua em 3 (palavras de reação coladas). A regra contra as falas coladas entrou depois e ainda não foi simulada.
+- **Ficou para depois:** revisão dos mapas por falante nativo, instalação mais simples (depois da 0.6.0), sessão curta (depois do teste do Eduardo), site (junto com a 0.6.0).
 
 ## Como testar
 
