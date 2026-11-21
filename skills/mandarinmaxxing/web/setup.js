@@ -16,6 +16,8 @@
     R + ' p{margin:0 0 12px;font-size:15px;line-height:1.7}' +
     R + ' details{border-top:1px solid var(--line)}' +
     R + ' details:last-of-type{border-bottom:1px solid var(--line);margin-bottom:20px}' +
+    R + '[data-home] details:first-of-type{margin-top:24px}' +
+    R + '[data-home] details:last-of-type{margin-bottom:0}' +
     R + ' summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:10px 0;font-size:14px;font-weight:600;user-select:none}' +
     R + ' summary::-webkit-details-marker{display:none}' +
     R + ' summary:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:-2px}' +
@@ -42,6 +44,15 @@
     R + ' fieldset button[aria-pressed="true"],' + R + ' fieldset button[aria-pressed="true"]:hover{' + imp('background:' + ORANGE + ';color:' + INK) + '}' +
     R + ' .mm-go{' + imp('box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:36px;margin:6px 0 0;padding:0 16px;font:inherit;font-size:14px;font-weight:600;border:0;border-radius:0;box-shadow:none;transform:none;background:' + ORANGE + ';color:' + INK) + '}' +
     R + ' .mm-go:focus-visible{outline:1px dashed currentColor;outline-offset:2px}' +
+    R + ' nav{display:flex;flex-wrap:wrap;gap:2px;margin:0 0 20px}' +
+    R + ' nav button{' + imp('box-sizing:border-box;cursor:pointer;height:36px;margin:0;padding:0 14px;display:inline-flex;align-items:center;white-space:nowrap;font:inherit;font-size:14px;font-weight:600;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:var(--off);color:var(--onoff);transition:background-color .12s ease') + '}' +
+    R + ' nav button:hover{' + imp('background:color-mix(in srgb,' + ORANGE + ' 38%,transparent)') + '}' +
+    R + ' nav button[data-primary],' + R + ' nav button[data-primary]:hover{' + imp('background:' + ORANGE + ';color:' + INK) + '}' +
+    R + ' nav button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:2px}' +
+    R + ' [data-progress]{margin:0 0 8px;font-size:14px;color:var(--soft)}' +
+    R + ' .mm-bar{display:flex;flex-wrap:wrap;gap:2px;margin:0 0 16px}' +
+    R + ' .mm-bar i{width:8px;height:8px;background:var(--off)}' +
+    R + ' .mm-bar i.on{background:' + ORANGE + '}' +
     R + ' .mm-out{margin:12px 0 0;font-size:13px;color:var(--soft)}';
   var style = document.createElement('style');
   style.textContent = css;
@@ -66,6 +77,25 @@
     s.insertBefore(tile, s.firstChild);
     d.addEventListener('toggle', function () { flip(tile, d.open); });
   });
+
+  // "14/57" on a line draws a row of tiles under it: the parts done and the parts to go
+  var prog = root.querySelector('[data-progress]');
+  if (prog) {
+    var nums = (prog.getAttribute('data-progress') || '').split('/');
+    var done = parseInt(nums[0], 10) || 0, total = Math.min(parseInt(nums[1], 10) || 0, 400);
+    if (total) {
+      var bar = document.createElement('div');
+      bar.className = 'mm-bar';
+      bar.setAttribute('aria-hidden', 'true');
+      for (var n = 0; n < total; n++) {
+        var cell = document.createElement('i');
+        if (n < done) cell.className = 'on';
+        bar.appendChild(cell);
+      }
+      prog.parentNode.insertBefore(bar, prog.nextSibling);
+    }
+  }
+  Array.prototype.forEach.call(root.querySelectorAll('nav button'), function (b) { b.type = 'button'; });
 
   // The choices. State lives on the group, events are delegated from the document, and the colours are
   // also set inline, so a choice still works if the host re-renders the block or drops a style rule.
@@ -123,6 +153,7 @@
     groups.push(g);
     paint(g);
   });
+  var initial = groups.map(function (g) { return g.name + ': ' + g.value(); });
   function groupOf(b) {
     for (var i = 0; i < groups.length; i++) if (groups[i].buttons().indexOf(b) > -1) return groups[i];
     return null;
@@ -145,12 +176,23 @@
       report();
       return;
     }
+    var cut = e.target && e.target.closest ? e.target.closest('#mandarinmaxxing-setup nav button') : null;
+    if (cut) { send(cut.getAttribute('data-send') || cut.textContent.trim()); return; }
     var go = e.target && e.target.closest ? e.target.closest('#mandarinmaxxing-setup [data-start]') : null;
     if (!go) return;
-    var text = groups.map(function (g) { return g.name + ': ' + g.value(); }).join('. ') + '.';
+    var now = groups.map(function (g) { return g.name + ': ' + g.value(); });
+    // at home only what changed is sent, and nothing is sent when nothing changed
+    if (live().hasAttribute('data-home')) {
+      now = now.filter(function (line, i) { return line !== initial[i]; });
+      if (!now.length) { say(go.getAttribute('data-same') || ''); return; }
+    }
+    var lead = go.getAttribute('data-lead');
+    send((lead ? lead + ' ' : '') + now.join('. ') + '.');
+  });
+  function send(text) {
     if (live().hasAttribute('data-preview') || typeof sendPrompt !== 'function') { say(text); return; }
     sendPrompt(text);
-  });
+  }
   document.addEventListener('mouseover', function (e) {
     var b = buttonAt(e);
     if (b === hot) return;
@@ -162,7 +204,12 @@
   if (go) { go.type = 'button'; go.classList.add('mm-go'); }
   function say(text) {
     var r = live(), out = r.querySelector('.mm-out');
-    if (!out) { out = document.createElement('p'); out.className = 'mm-out'; r.appendChild(out); }
+    if (!out) {
+      out = document.createElement('p');
+      out.className = 'mm-out';
+      var after = r.querySelector('[data-start]');
+      if (after) after.parentNode.insertBefore(out, after.nextSibling); else r.appendChild(out);
+    }
     out.textContent = text;
   }
   // In a preview, one line under the card says what the script sees, to debug a host that swallows events.
