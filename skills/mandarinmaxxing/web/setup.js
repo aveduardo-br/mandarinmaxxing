@@ -29,7 +29,7 @@
     R + ' fieldset{border:0;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:2px;min-width:0}' +
     R + ' legend{padding:0;margin:0 0 6px;font-size:13px;font-weight:500;line-height:20px;color:var(--soft)}' +
     // the host styles every button (border, radius, background) and wins over plain rules, so these are !important
-    R + ' fieldset button{' + imp('box-sizing:border-box;cursor:pointer;width:auto;min-width:36px;height:36px;margin:0;padding:0 14px;display:inline-flex;flex-direction:row;align-items:baseline;justify-content:center;gap:7px;white-space:nowrap;font:inherit;font-size:14px;font-weight:600;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:var(--off);color:var(--onoff);transition:background-color .12s ease,color .12s ease') + '}' +
+    R + ' fieldset button{' + imp('box-sizing:border-box;cursor:pointer;width:auto;min-width:36px;height:36px;margin:0;padding:0 14px;display:inline-flex;flex-direction:row;align-items:baseline;justify-content:center;gap:7px;white-space:nowrap;font:inherit;font-size:14px;font-weight:600;line-height:36px;border:0;border-radius:0;box-shadow:none;background:var(--off);color:var(--onoff);transition:background-color .12s ease,color .12s ease') + '}' +
     R + ' fieldset[data-square] button{' + imp('width:36px;padding:0') + '}' +
     R + ' fieldset button small{font-size:13px;font-weight:500;opacity:.78}' +
     R + ' fieldset button:hover{' + imp('background:color-mix(in srgb,' + ORANGE + ' 38%,transparent);color:inherit') + '}' +
@@ -66,12 +66,27 @@
   // also set inline, so a choice still works if the host re-renders the block or drops a style rule.
   var groups = [];
   function paint(g) {
+    if (g.busy) return;
     g.buttons().forEach(function (b) {
       var on = b === g.current();
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
       var bg = on ? ORANGE : (b === hot ? 'color-mix(in srgb,' + ORANGE + ' 38%,transparent)' : '');
       if (bg) b.style.setProperty('background', bg, 'important'); else b.style.removeProperty('background');
       if (on) b.style.setProperty('color', INK, 'important'); else b.style.removeProperty('color');
+    });
+  }
+  // a choice turns like every tile: the old and the new one close, change colour, and open again
+  function turn(g, pair) {
+    if (calm || !pair[0].animate) { paint(g); return; }
+    g.busy = true;
+    var left = pair.length;
+    pair.forEach(function (b) {
+      var a = b.animate([{ transform: 'scaleY(1)' }, { transform: 'scaleY(0)' }], { duration: DUR, easing: CLOSE, fill: 'forwards' });
+      a.onfinish = function () {
+        a.cancel();
+        if (--left === 0) { g.busy = false; paint(g); }
+        b.animate([{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }], { duration: DUR, easing: OPEN });
+      };
     });
   }
   var hot = null;
@@ -111,8 +126,10 @@
       var g = groupOf(b);
       if (!g) return;
       clicks++;
+      var prev = g.current();
+      if (prev === b) return;
       g.at = g.buttons().indexOf(b);
-      paint(g);
+      turn(g, [prev, b]);
       report();
       return;
     }
