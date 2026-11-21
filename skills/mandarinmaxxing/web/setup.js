@@ -27,12 +27,13 @@
     R + ' details>:last-child{padding-bottom:6px}' +
     R + ' fieldset{border:0;padding:0;margin:0 0 18px;display:flex;flex-wrap:wrap;gap:2px}' +
     R + ' legend{padding:0;margin:0 0 8px;font-size:13px;color:var(--soft)}' +
-    R + ' fieldset button{all:unset;box-sizing:border-box;cursor:pointer;min-height:36px;padding:6px 14px;display:inline-flex;flex-direction:column;justify-content:center;font-size:14px;line-height:1.3;background:var(--off);color:var(--soft)}' +
-    R + ' fieldset button small{font-size:12px;opacity:.75}' +
-    R + ' fieldset button:hover{color:inherit}' +
+    R + ' fieldset button{all:unset;box-sizing:border-box;cursor:pointer;width:112px;height:56px;padding:0 8px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.25;border-radius:0;background:var(--off);color:var(--soft);transition:background-color .12s ease,color .12s ease}' +
+    R + ' fieldset[data-square] button{width:56px}' +
+    R + ' fieldset button small{font-size:11px;opacity:.75}' +
+    R + ' fieldset button:hover{background:color-mix(in srgb,' + ORANGE + ' 38%,transparent);color:inherit}' +
     R + ' fieldset button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:2px}' +
-    R + ' fieldset button[aria-pressed="true"]{background:' + ORANGE + ';color:' + INK + '}' +
-    R + ' .mm-go{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:10px;height:36px;padding:0 16px;font-size:14px;font-weight:500;background:' + ORANGE + ';color:' + INK + '}' +
+    R + ' fieldset button[aria-pressed="true"],' + R + ' fieldset button[aria-pressed="true"]:hover{background:' + ORANGE + ';color:' + INK + '}' +
+    R + ' .mm-go{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:40px;padding:0 18px;border-radius:0;font-size:14px;font-weight:500;background:' + ORANGE + ';color:' + INK + '}' +
     R + ' .mm-go:focus-visible{outline:1px dashed currentColor;outline-offset:2px}' +
     R + ' .mm-out{margin:12px 0 0;font-size:13px;color:var(--soft)}';
   var style = document.createElement('style');
@@ -67,7 +68,7 @@
     var group = { name: legend ? legend.textContent.trim() : '', value: '' };
     function pick(b) {
       buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      group.value = (b.getAttribute('data-value') || b.firstChild.textContent || b.textContent).trim();
+      group.value = (b.getAttribute('data-value') || b.firstChild.textContent || b.textContent).trim().replace(/\s+/g, ' ');
     }
     buttons.forEach(function (b) {
       b.type = 'button';
