@@ -33,6 +33,8 @@
     R + ' fieldset[data-square] button{' + imp('width:36px;padding:0') + '}' +
     R + ' fieldset button small{font-size:13px;font-weight:500;opacity:.78}' +
     R + ' fieldset button:hover{' + imp('background:color-mix(in srgb,' + ORANGE + ' 38%,transparent);color:inherit') + '}' +
+    R + ' fieldset button[disabled],' + R + ' fieldset button[disabled]:hover{' + imp('cursor:default;background:transparent;color:var(--offfg);outline:1px dashed var(--offfg);outline-offset:-1px') + '}' +
+    R + ' legend small{font-weight:400;margin-left:8px;opacity:.8}' +
     R + ' fieldset button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:2px}' +
     R + ' fieldset button[aria-pressed="true"],' + R + ' fieldset button[aria-pressed="true"]:hover{' + imp('background:' + ORANGE + ';color:' + INK) + '}' +
     R + ' .mm-go{' + imp('box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:36px;margin:6px 0 0;padding:0 16px;font:inherit;font-size:14px;font-weight:600;border:0;border-radius:0;box-shadow:none;transform:none;background:' + ORANGE + ';color:' + INK) + '}' +
@@ -97,7 +99,7 @@
     if (!first.length) return;
     var start = first.indexOf(f.querySelector('button[data-on]'));
     var g = {
-      name: legend ? legend.textContent.trim() : '',
+      name: legend ? (legend.firstChild && legend.firstChild.nodeType === 3 ? legend.firstChild.textContent : legend.textContent).trim() : '',
       at: start < 0 ? 0 : start,
       el: function () { return live().querySelectorAll('fieldset')[index] || f; },
       buttons: function () { return Array.prototype.slice.call(g.el().querySelectorAll('button')); },
@@ -119,7 +121,7 @@
     return null;
   }
   function buttonAt(e) {
-    var t = e.target && e.target.closest ? e.target.closest('#mandarinmaxxing-setup fieldset button') : null;
+    var t = e.target && e.target.closest ? e.target.closest('#mandarinmaxxing-setup fieldset button:not([disabled])') : null;
     return t;
   }
   var clicks = 0;
