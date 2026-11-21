@@ -34,6 +34,9 @@
     R + ' fieldset button small{font-size:13px;font-weight:500;opacity:.78}' +
     R + ' fieldset button:hover{' + imp('background:color-mix(in srgb,' + ORANGE + ' 38%,transparent);color:inherit') + '}' +
     R + ' fieldset button[disabled],' + R + ' fieldset button[disabled]:hover{' + imp('cursor:default;background:transparent;color:var(--offfg);outline:1px dashed var(--offfg);outline-offset:-1px') + '}' +
+    R + ' fieldset button[data-note]{' + imp('background:transparent;color:var(--offfg);outline:1px dashed var(--offfg);outline-offset:-1px') + '}' +
+    R + ' fieldset button[data-note][aria-pressed="true"]{' + imp('outline:0') + '}' +
+    R + ' .mm-note{flex-basis:100%;margin:8px 0 0;font-size:13px;line-height:20px;color:var(--soft)}' +
     R + ' legend small{font-weight:400;margin-left:8px;opacity:.8}' +
     R + ' fieldset button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:2px}' +
     R + ' fieldset button[aria-pressed="true"],' + R + ' fieldset button[aria-pressed="true"]:hover{' + imp('background:' + ORANGE + ';color:' + INK) + '}' +
@@ -76,6 +79,10 @@
       if (bg) b.style.setProperty('background', bg, 'important'); else b.style.removeProperty('background');
       if (on) b.style.setProperty('color', INK, 'important'); else b.style.removeProperty('color');
     });
+    // a choice can carry a note, shown under its group while it is the one chosen
+    var el = g.el(), note = el.querySelector('.mm-note'), text = g.current().getAttribute('data-note');
+    if (text && !note) { note = document.createElement('p'); note.className = 'mm-note'; el.appendChild(note); }
+    if (note) { note.textContent = text || ''; note.style.display = text ? '' : 'none'; }
   }
   // a choice turns like every tile: the old and the new one close, change colour, and open again
   function turn(g, pair) {
