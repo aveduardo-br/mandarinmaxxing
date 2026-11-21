@@ -60,38 +60,91 @@
     d.addEventListener('toggle', function () { flip(tile, d.open); });
   });
 
+  // The choices. State lives on the group, events are delegated from the document, and the colours are
+  // also set inline, so a choice still works if the host re-renders the block or drops a style rule.
   var groups = [];
-  root.querySelectorAll('fieldset').forEach(function (f) {
-    var buttons = Array.prototype.slice.call(f.querySelectorAll('button'));
-    if (!buttons.length) return;
-    var legend = f.querySelector('legend');
-    var group = { name: legend ? legend.textContent.trim() : '', value: '' };
-    function pick(b) {
-      buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      group.value = (b.getAttribute('data-value') || b.firstChild.textContent || b.textContent).trim().replace(/\s+/g, ' ');
-    }
-    buttons.forEach(function (b) {
-      b.type = 'button';
-      b.addEventListener('click', function () { pick(b); });
+  function paint(g) {
+    g.buttons().forEach(function (b) {
+      var on = b === g.current();
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.style.background = on ? ORANGE : (b === hot ? 'color-mix(in srgb,' + ORANGE + ' 38%,transparent)' : '');
+      b.style.color = on ? INK : '';
     });
-    pick(f.querySelector('button[data-on]') || buttons[0]);
-    groups.push(group);
+  }
+  var hot = null;
+  function live() { return document.getElementById('mandarinmaxxing-setup') || root; }
+  Array.prototype.forEach.call(root.querySelectorAll('fieldset'), function (f, index) {
+    var legend = f.querySelector('legend');
+    var first = Array.prototype.slice.call(f.querySelectorAll('button'));
+    if (!first.length) return;
+    var start = first.indexOf(f.querySelector('button[data-on]'));
+    var g = {
+      name: legend ? legend.textContent.trim() : '',
+      at: start < 0 ? 0 : start,
+      el: function () { return live().querySelectorAll('fieldset')[index] || f; },
+      buttons: function () { return Array.prototype.slice.call(g.el().querySelectorAll('button')); },
+      current: function () { return g.buttons()[g.at]; },
+      value: function () {
+        var b = g.current();
+        return (b.getAttribute('data-value') || b.textContent).trim().replace(/\s+/g, ' ');
+      }
+    };
+    first.forEach(function (b) { b.type = 'button'; });
+    groups.push(g);
+    paint(g);
+  });
+  function groupOf(b) {
+    for (var i = 0; i < groups.length; i++) if (groups[i].buttons().indexOf(b) > -1) return groups[i];
+    return null;
+  }
+  function buttonAt(e) {
+    var t = e.target && e.target.closest ? e.target.closest('#mandarinmaxxing-setup fieldset button') : null;
+    return t;
+  }
+  var clicks = 0;
+  document.addEventListener('click', function (e) {
+    var b = buttonAt(e);
+    if (b) {
+      var g = groupOf(b);
+      if (!g) return;
+      clicks++;
+      g.at = g.buttons().indexOf(b);
+      paint(g);
+      report();
+      return;
+    }
+    var go = e.target && e.target.closest ? e.target.closest('#mandarinmaxxing-setup [data-start]') : null;
+    if (!go) return;
+    var text = groups.map(function (g) { return g.name + ': ' + g.value(); }).join('. ') + '.';
+    if (live().hasAttribute('data-preview') || typeof sendPrompt !== 'function') { say(text); return; }
+    sendPrompt(text);
+  });
+  document.addEventListener('mouseover', function (e) {
+    var b = buttonAt(e);
+    if (b === hot) return;
+    hot = b;
+    groups.forEach(paint);
   });
 
   var go = root.querySelector('[data-start]');
-  if (go) {
-    go.type = 'button';
-    go.classList.add('mm-go');
-    var out = document.createElement('p');
-    out.className = 'mm-out';
-    go.parentNode.insertBefore(out, go.nextSibling);
-    go.addEventListener('click', function () {
-      var text = groups.map(function (g) { return g.name + ': ' + g.value; }).join('. ') + '.';
-      if (root.hasAttribute('data-preview') || typeof sendPrompt !== 'function') {
-        out.textContent = text;
-        return;
-      }
-      sendPrompt(text);
-    });
+  if (go) { go.type = 'button'; go.classList.add('mm-go'); }
+  function say(text) {
+    var r = live(), out = r.querySelector('.mm-out');
+    if (!out) { out = document.createElement('p'); out.className = 'mm-out'; r.appendChild(out); }
+    out.textContent = text;
   }
+  // In a preview, one line under the card says what the script sees, to debug a host that swallows events.
+  function report() {
+    var r = live();
+    if (!r.hasAttribute('data-debug')) return;
+    var b = r.querySelector('fieldset button');
+    var box = b.getBoundingClientRect();
+    var top = document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2);
+    say('debug · clicks ' + clicks + ' · same block ' + (r === root) + ' · style ' + !!r.querySelector('style') +
+      ' · pressed ' + r.querySelectorAll('button[aria-pressed="true"]').length +
+      ' · on top ' + (top ? top.tagName.toLowerCase() : 'none') +
+      ' · bg ' + getComputedStyle(b).backgroundColor);
+  }
+  report();
+  setTimeout(report, 1500);
 })();
