@@ -11,12 +11,12 @@
   var R = '#mandarinmaxxing-setup';
   function imp(d) { return d.split(';').join(' !important;') + ' !important'; }
   var css =
-    R + '{--soft:var(--text-secondary,color-mix(in srgb,currentColor 65%,transparent));--line:var(--border,color-mix(in srgb,currentColor 15%,transparent));--off:color-mix(in srgb,currentColor 10%,transparent);--offfg:color-mix(in srgb,currentColor 55%,transparent);padding:4px 0 20px}' +
-    R + ' h2{font-size:16px;font-weight:500;margin:0 0 8px}' +
+    R + '{--soft:var(--text-secondary,color-mix(in srgb,currentColor 65%,transparent));--line:var(--border,color-mix(in srgb,currentColor 15%,transparent));--off:color-mix(in srgb,currentColor 10%,transparent);--offfg:color-mix(in srgb,currentColor 55%,transparent);--onoff:color-mix(in srgb,currentColor 88%,transparent);padding:4px 0 20px}' +
+    R + ' h2{font-size:16px;font-weight:600;margin:0 0 8px}' +
     R + ' p{margin:0 0 12px;font-size:15px;line-height:1.7}' +
     R + ' details{border-top:1px solid var(--line)}' +
     R + ' details:last-of-type{border-bottom:1px solid var(--line);margin-bottom:20px}' +
-    R + ' summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:10px 0;font-size:14px;font-weight:500;user-select:none}' +
+    R + ' summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:10px 0;font-size:14px;font-weight:600;user-select:none}' +
     R + ' summary::-webkit-details-marker{display:none}' +
     R + ' summary:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:-2px}' +
     R + ' .mm-t{flex:none;display:grid;place-items:center;width:28px;height:28px;background:var(--off)}' +
@@ -27,15 +27,15 @@
     R + ' details>:not(summary){margin-left:40px;color:var(--soft);font-size:14px}' +
     R + ' details>:last-child{padding-bottom:6px}' +
     R + ' fieldset{border:0;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:2px;min-width:0}' +
-    R + ' legend{padding:0;margin:0 0 6px;font-size:13px;line-height:20px;color:var(--soft)}' +
+    R + ' legend{padding:0;margin:0 0 6px;font-size:13px;font-weight:500;line-height:20px;color:var(--soft)}' +
     // the host styles every button (border, radius, background) and wins over plain rules, so these are !important
-    R + ' fieldset button{' + imp('box-sizing:border-box;cursor:pointer;width:auto;min-width:36px;height:36px;margin:0;padding:0 14px;display:inline-flex;flex-direction:row;align-items:baseline;justify-content:center;gap:7px;white-space:nowrap;font:inherit;font-size:14px;font-weight:500;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:var(--off);color:var(--offfg);transition:background-color .12s ease,color .12s ease') + '}' +
+    R + ' fieldset button{' + imp('box-sizing:border-box;cursor:pointer;width:auto;min-width:36px;height:36px;margin:0;padding:0 14px;display:inline-flex;flex-direction:row;align-items:baseline;justify-content:center;gap:7px;white-space:nowrap;font:inherit;font-size:14px;font-weight:600;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:var(--off);color:var(--onoff);transition:background-color .12s ease,color .12s ease') + '}' +
     R + ' fieldset[data-square] button{' + imp('width:36px;padding:0') + '}' +
-    R + ' fieldset button small{font-size:13px;font-weight:400;opacity:.7}' +
+    R + ' fieldset button small{font-size:13px;font-weight:500;opacity:.78}' +
     R + ' fieldset button:hover{' + imp('background:color-mix(in srgb,' + ORANGE + ' 38%,transparent);color:inherit') + '}' +
     R + ' fieldset button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:2px}' +
     R + ' fieldset button[aria-pressed="true"],' + R + ' fieldset button[aria-pressed="true"]:hover{' + imp('background:' + ORANGE + ';color:' + INK) + '}' +
-    R + ' .mm-go{' + imp('box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:36px;margin:6px 0 0;padding:0 16px;font:inherit;font-size:14px;font-weight:500;border:0;border-radius:0;box-shadow:none;transform:none;background:' + ORANGE + ';color:' + INK) + '}' +
+    R + ' .mm-go{' + imp('box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:36px;margin:6px 0 0;padding:0 16px;font:inherit;font-size:14px;font-weight:600;border:0;border-radius:0;box-shadow:none;transform:none;background:' + ORANGE + ';color:' + INK) + '}' +
     R + ' .mm-go:focus-visible{outline:1px dashed currentColor;outline-offset:2px}' +
     R + ' .mm-out{margin:12px 0 0;font-size:13px;color:var(--soft)}';
   var style = document.createElement('style');
