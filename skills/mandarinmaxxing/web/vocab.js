@@ -1,4 +1,4 @@
-/* mandarinmaxxing vocabulary table: style, Hanzi font and stroke-order animation on hover.
+/* mandarinmaxxing vocabulary table: style, Hanzi font, stroke-order animation on hover, and the word's sound on click.
    Loaded by the table template in lesson-format.md. Without this file the table still reads as a plain table. */
 (function () {
   var root = document.getElementById('mandarinmaxxing-vocab');
@@ -23,6 +23,32 @@
   style.textContent = css;
   root.appendChild(style);
 
+  // One recording per word lives in the mandarinmaxxing-audio repository, named with the word itself.
+  // A click plays it; a word with no recording yet stays silent. When this address changes, update it here.
+  var AUDIO = 'https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing-audio@cb005e4adfa852280b33fded8c27ae6edeae6d0e/audio/';
+  // Words with two readings: the reading that has the plain file name. Any other reading is word_pinyin.
+  var READINGS = {"还":"ha2i","好":"ha3o","看":"ka4n","只":"zhi1","啊":"a","长":"cha2ng","地":"de","得":"de","过":"guo4","头":"to2u","着":"zhe","地方":"di4fang","干":"ga4n","为":"we4i","行":"xi2ng","中":"zho1ng","种":"zho3ng","背":"be1i","重":"cho2ng","待":"da1i","当":"da1ng","倒":"da4o","结果":"jie2guo3","空":"ko1ng","量":"lia2ng","落":"luo4","数":"shu4","转":"zhua3n","冲":"cho1ng","处":"chu3","调":"dia4o","划":"hua2","系":"ji4","结":"jie2","扇":"sha1n","炸":"zha2","卷":"jua3n","露":"lo4u","散":"sa3n","吐":"tu3"};
+  var TONE = { '\u0304': '1', '\u0301': '2', '\u030c': '3', '\u0300': '4' };
+  function toneAscii(pinyin) {
+    var out = [], text = (pinyin || '').split('/')[0].toLowerCase().normalize('NFD');
+    for (var i = 0; i < text.length; i++) {
+      var ch = text.charAt(i);
+      if (TONE[ch]) out.push(TONE[ch]);
+      else if (ch === '\u0308') out[out.length - 1] = 'v';
+      else if (ch >= 'a' && ch <= 'z') out.push(ch);
+    }
+    return out.join('');
+  }
+  var player = null;
+  function speak(word) {
+    if (!word.sound || typeof Audio === 'undefined') return;
+    if (player) { player.pause(); }
+    player = new Audio(AUDIO + encodeURIComponent(word.sound) + '.mp3');
+    player.onerror = function () { word.sound = ''; };  // no recording for this word: don't ask again
+    var started = player.play();
+    if (started && started.catch) started.catch(function () {});
+  }
+
   var HAN = /[㐀-鿿]/;
   var words = [];
   root.querySelectorAll('span[lang="zh-Hans"]').forEach(function (w) {
@@ -39,7 +65,12 @@
       w.appendChild(c);
       if (HAN.test(ch)) cells.push({ el: c, ch: ch, writer: null });
     });
-    words.push({ el: w, cells: cells, busy: false });
+    var row = w.closest ? w.closest('tr') : null;
+    var said = row && row.children[1] ? toneAscii(row.children[1].textContent) : '';
+    var sound = READINGS[text] && said && READINGS[text] !== said ? text + '_' + said : text;
+    var word = { el: w, cells: cells, busy: false, sound: HAN.test(text) ? sound : '' };
+    words.push(word);
+    w.addEventListener('click', function () { speak(word); });
   });
 
   function play(word) {
