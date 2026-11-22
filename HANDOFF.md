@@ -132,6 +132,17 @@ Decisões do Eduardo: o aluno usa a skill no computador (celular é bônus); HSK
 - **Se `web/setup.js` ou `web/vocab.js` mudar,** suba o commit e atualize o endereço em `setup.md` (duas vezes) ou em `lesson-format.md`.
 - No arquivo há também um letreiro em ladrilhos (o MANDARIN do hero do site), sem uso: reduzido para o chat ficou difícil de ler.
 
+## Som das palavras na tabela (22/11/2026, na branch `v0.6-lean`, ainda sem publicar)
+
+- **O que é:** clicar num hanzi da tabela toca a gravação da palavra. O hover continua só desenhando os traços.
+- **Onde ficam os áudios:** repositório `aveduardo-br/mandarinmaxxing-audio`, um MP3 por palavra com o próprio hanzi no nome (`audio/你好.mp3`), servido pelo jsDelivr de um commit fixo. O endereço está no começo de `web/vocab.js` (`AUDIO`). Palavra sem gravação fica em silêncio.
+- **Como são feitos:** lá, `scripts/generate.py` roda pelo GitHub Actions (botão "Run workflow", por nível, com teto de caracteres), com a chave `ELEVENLABS_API_KEY` nos secrets. Voz Sarah, modelo `eleven_v4` (o Eduardo ouviu três modelos e escolheu o v4 "disparado"). Cada arquivo é cortado, nivelado, transcrito para conferência e anotado em `status.csv`.
+- **Estado:** HSK 1 inteiro gravado (300 palavras, 0,98 MB) e aprovado de ouvido pelo Eduardo. HSK 2 a 6 por gravar.
+- **A régua dele:** o áudio é apoio, não verdade absoluta: o tom muda dentro da frase e a gravação da palavra solta é só referência.
+- **Revisão:** feita no chat, com um widget que lê o `status.csv` pelo jsDelivr, toca cada arquivo e devolve a lista das ruins. A conferência por transcrição erra muito em palavra de uma sílaba (ouve 爱 como "I"); essas vão para uma lista "ouvir".
+- **Pendente:** as 40 palavras com duas leituras (好, 得, 重…). A leitura que aparece primeiro na lista tem o nome simples; a outra espera uma linha em `special.csv` (arquivo `palavra_pinyin.mp3`, que o `vocab.js` já sabe pedir). Em alguns casos a leitura "padrão" pela ordem da lista não é a que a voz dá ao hanzi sozinho (重, 只): rever antes de gravar o HSK 4.
+- **Limite do ambiente:** as sessões do Claude não baixam arquivos do ElevenLabs nem leem os secrets; disparar o workflow e ler o log funcionam pelo `gh`.
+
 ## Como testar
 
 1. `python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-1.md` confere o mapa contra a lista oficial.

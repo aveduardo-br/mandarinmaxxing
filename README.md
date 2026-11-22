@@ -128,7 +128,7 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | `skills/mandarinmaxxing/maps/` | The lesson map for each level |
 | `skills/mandarinmaxxing/syllabus/` | The official word lists, levels 1 to 6 |
 | `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table |
-| `skills/mandarinmaxxing/web/` | The scripts the lesson's HTML blocks load: the vocabulary table (its look, the font, the stroke-order animation on hover) and the setup and course screens |
+| `skills/mandarinmaxxing/web/` | The scripts the lesson's HTML blocks load: the vocabulary table (its look, the font, the stroke-order animation on hover, the word's sound on click) and the setup and course screens |
 | `skills/mandarinmaxxing/check_map.py` | A script the skill runs on a map it builds for HSK 5 or 6: every official word once |
 | `skills/mandarinmaxxing/LICENSE` | A copy of the [license](LICENSE), so it travels with the ZIP |
 | `qa/anchors/` | One test sentence for every group of words in a map. The skill doesn't read these |
@@ -146,5 +146,6 @@ sh tools/build.sh
 ## Credits
 
 - Word lists: the HSK syllabus published by the Center for Language Education and Cooperation, converted from the mirror at [ofou/hsk](https://github.com/ofou/hsk) (MIT License). Details in [`syllabus/SOURCE.md`](skills/mandarinmaxxing/syllabus/SOURCE.md).
+- Word recordings: one per word, in [mandarinmaxxing-audio](https://github.com/aveduardo-br/mandarinmaxxing-audio), generated with ElevenLabs. HSK 1 is recorded; the other levels follow.
 - Stroke-order animation: [Hanzi Writer](https://hanziwriter.org) (MIT License), with stroke data from [Make Me a Hanzi](https://github.com/skishore/makemeahanzi).
 - Hanzi font: [LXGW WenKai GB](https://github.com/lxgw/LxgwWenkaiGB), under the SIL Open Font License. Details in [`fonts/SOURCE.md`](skills/mandarinmaxxing/fonts/SOURCE.md).

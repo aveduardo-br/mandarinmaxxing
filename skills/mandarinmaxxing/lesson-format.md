@@ -17,7 +17,7 @@ Outside the vocabulary table: **Hanzi in bold**, *pinyin in italics*, meaning in
 
 ## The vocabulary table
 
-Draw the table with the chat's inline HTML or widget tool, in the conversation, never as an artifact or a file. Copy the block below character for character, including the `<script>` line, and change only the heading (the title line), the rows, and the column headers in the learner's language. Keep every Hanzi inside `<span lang="zh-Hans">`, one span per word. Add no `<style>` and no other script: the script line loads the table's look, its Hanzi font, and the stroke-order animation the learner sees when they point at a word. If the rendering tool has its own design guidance, this template still wins. If the chat can't show HTML, use a Markdown table with the Hanzi in bold, under a bold title line.
+Draw the table with the chat's inline HTML or widget tool, in the conversation, never as an artifact or a file. Copy the block below character for character, including the `<script>` line, and change only the heading (the title line), the rows, and the column headers in the learner's language. Keep every Hanzi inside `<span lang="zh-Hans">`, one span per word. Add no `<style>` and no other script: the script line loads the table's look, its Hanzi font, the stroke-order animation the learner sees when they point at a word, and the word's sound when they click it. If the rendering tool has its own design guidance, this template still wins. If the chat can't show HTML, use a Markdown table with the Hanzi in bold, under a bold title line.
 
 ```html
 <section id="mandarinmaxxing-vocab">
@@ -27,7 +27,7 @@ Draw the table with the chat's inline HTML or widget tool, in the conversation, 
     <tbody><tr><td><span lang="zh-Hans">商店</span></td><td>shāngdiàn</td><td>shop</td></tr></tbody>
   </table>
 </section>
-<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@423fba870476a5117bc8a7c7693ce4510f321e5b/skills/mandarinmaxxing/web/vocab.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@65d1cb7c1e3195ed0db85563ef35c7631ed26eb0/skills/mandarinmaxxing/web/vocab.js"></script>
 ```
 
 Under the table, add a one-line usage note only for a word whose use the meaning can't show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), or a word the exercises will use in a role the meaning doesn't show (不 alone as a reply: "no"). Give a polite form a meaning that says who it is for, such as 您 = "you (to sir or madam)".
