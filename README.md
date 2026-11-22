@@ -44,7 +44,7 @@ If you start the skill outside a project, it shows you these same steps and offe
 
 ## Set up your course
 
-The first message asks three things. They are suggestions, and you can change any of them later by asking.
+The first message is a short card with three choices. They are suggestions, and you can change any of them later: type `setup` in any chat of the course to see where you are and change them.
 
 - **Level.** New to Mandarin? Start with HSK 1, lesson 1. If you've studied before, name the level or the lesson you want to pick up from.
 - **Pace.** How many new words each part brings: light is 3 or 4, recommended is 5 to 7, intense is 7 to 10. Any other number works too. A part is built for about an hour; when one ends early, as in the first lessons, the skill offers the next part right away.
@@ -78,7 +78,7 @@ Without audio there is nothing to set up. You read the text instead.
 - **How long it takes.** At the recommended pace, HSK 1 is 57 parts, about two months at one part (an hour) a day. HSK 2 is 38 parts, HSK 3 is 94, and HSK 4 is 173. The skill shows the estimate for your own pace when you start.
 - **Each level opens with a jump start.** In HSK 1 it's greetings, saying what you want, saying who you are. In the later levels it's the connecting words every other lesson uses, such as "because", "already" and "if".
 - **Finish a level and the course moves on to the next.** Words from the level you finished keep coming back.
-- **HSK 5 and 6 aren't ready yet.** Their official word lists are included, but their lesson maps aren't written, and the skill doesn't improvise one.
+- **HSK 5 and 6.** The official word lists are included. Their lesson maps aren't written yet, so the skill builds one when you start the level and checks it by script against the list. Expect it to be rougher than levels 1 to 4.
 - **The word list** is the HSK syllabus released in November 2025, levels 1 to 6. Every word of a level appears once in its map.
 
 ## What it doesn't do
@@ -128,7 +128,8 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | `skills/mandarinmaxxing/maps/` | The lesson map for each level |
 | `skills/mandarinmaxxing/syllabus/` | The official word lists, levels 1 to 6 |
 | `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table |
-| `skills/mandarinmaxxing/web/` | The script the vocabulary table loads: its look, the font, and the stroke-order animation on hover |
+| `skills/mandarinmaxxing/web/` | The scripts the lesson's HTML blocks load: the vocabulary table (its look, the font, the stroke-order animation on hover) and the setup and course screens |
+| `skills/mandarinmaxxing/check_map.py` | A script the skill runs on a map it builds for HSK 5 or 6: every official word once |
 | `skills/mandarinmaxxing/LICENSE` | A copy of the [license](LICENSE), so it travels with the ZIP |
 | `qa/anchors/` | One test sentence for every group of words in a map. The skill doesn't read these |
 | `qa/benchmark/` | Simulated lessons used to test each version: scenarios, scripts, results |

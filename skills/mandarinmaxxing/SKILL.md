@@ -19,11 +19,11 @@ Read in every chat:
 
 Read only when the moment comes:
 
-- `setup.md`: there is no saved course yet.
-- `levels.md`: the learner finishes a level, or asks for HSK 5 or 6, which have no map yet.
-- `requests.md`: the learner asks for anything other than the next part, such as another lesson, a review, a new pace, a role-play, an extra reading, or flashcards.
+- `setup.md`: there is no saved course yet, or the learner writes "setup" to see their course screen.
+- `levels.md`: the learner finishes a level, or their level is HSK 5 or 6, which have no map in `maps/` yet.
+- `requests.md`: the learner asks for anything other than the next part, such as another lesson, a review, a new pace or level, a role-play, an extra reading, or flashcards.
 
-`check_plan.py` checks a planned part's vocabulary; you run it, you don't read it. The course covers HSK 1 to 4. `syllabus/hsk-N.csv` is the official word list for levels 1–6 (number, word, pinyin, part of speech, level). Look up single words in it; don't read it whole. `fonts/`, `web/` and `LICENSE` are never read during a lesson.
+`check_plan.py` checks a planned part's vocabulary and `check_map.py` a map you build; you run them, you don't read them. `syllabus/hsk-N.csv` is the official word list for levels 1–6 (number, word, pinyin, part of speech, level). Look up single words in it; don't read it whole. `fonts/`, `web/` and `LICENSE` are never read during a lesson.
 
 ## Find the course
 

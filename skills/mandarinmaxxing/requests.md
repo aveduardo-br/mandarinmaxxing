@@ -17,6 +17,18 @@ Use the lesson's lines in the **Done** log: a review-style set of prompts for it
 
 Save the new **Pace**. It takes effect at the next lesson: a lesson already begun finishes at the old pace, so the parts in **Done** keep their numbers. Recount the parts of the lessons not yet started in the **Lessons** list.
 
+## Change the audio
+
+Save the new **Audio**. Turning it on follows "Audio" in `setup.md`; turning it off takes effect at the next listening step.
+
+## Change the level
+
+Changing level replaces the route, so confirm it first in one line: the course moves to the new level, and the words already studied keep coming back. When the learner confirms, follow steps 1 to 4 of "When a level ends" in `levels.md`, with one difference: **Next** goes to the lesson they choose from the overview. Words of the levels below the new one count as met.
+
+## The course screen
+
+When the learner writes "setup" or "/setup", read `setup.md` and send the course screen described at its end.
+
 ## Back after a break
 
 When the learner says they have been away for weeks, offer a review of the last two or three lessons studied before the next part. They decide.

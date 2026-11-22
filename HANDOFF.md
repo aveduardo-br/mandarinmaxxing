@@ -110,12 +110,27 @@ Decisões do Eduardo: o aluno usa a skill no computador (celular é bônus); HSK
 - **O plano da parte fica em `plan.txt`**, com os enunciados embaixo das respostas, e a aula é dada a partir dele. Antes podia ficar só no raciocínio, que não é garantido até o último exercício.
 - **`check_plan.py`:** linha `NAMES` para nomes próprios (北京 e 小王 eram acusados) e lista `CHECK` para palavra não vista formada por palavras vistas inteiras (要是, 前天, 后天, 还是 passavam). Nas transcrições do `s11` e do `s8` a lista só acusou 就是.
 - **`To reinforce`:** uma regra só, a do fechamento da parte.
-- **HSK 5 e 6:** `levels.md` não manda mais montar mapa; a skill avisa que ainda não tem e oferece o HSK 4.
+- **HSK 5 e 6:** em 21/11 a skill passou a dizer "ainda não tem"; em 22/11 o Eduardo reabriu e eles voltaram a ser montados na hora, agora com `check_map.py` (ver a seção da tela de setup).
 - **Primeira sessão maior:** a aula 01 do HSK 1 passou de `1-1-1 / 1-2 / 1-2` para `2-1 / 3 / 3`, para a primeira parte já ter trocas de verdade. Totais do HSK 1: 96 / 57 / 41. **O site ainda mostra 97 / 58 / 42 na seção "Your course".**
 - **Ritmo com a faixa real** no setup e no README: leve 3 ou 4, recomendado 5 a 7, intenso 7 a 10 (salvo como Pace 3, 5 e 7). **A copy do site ainda diz 3, 5, 7.**
 - **Flashcards:** continuam só quando o aluno pede (decisão do Eduardo).
 - **Rodada 7 do benchmark** (`qa/benchmark/results/round-7/`): 29 de 35 nas sete dimensões de sempre, igual à rodada 6. O plano em arquivo funcionou; a naturalidade das primeiras partes continua em 3 (palavras de reação coladas). A regra contra as falas coladas entrou depois e ainda não foi simulada.
 - **Ficou para depois:** revisão dos mapas por falante nativo, instalação mais simples (depois da 0.6.0), sessão curta (depois do teste do Eduardo), site (junto com a 0.6.0).
+
+## Tela de setup e tela do curso (21 e 22/11/2026, na branch)
+
+**O que é.** A mensagem de boas-vindas em texto virou um cartão em HTML, e o mesmo cartão tem um segundo estado, a tela do curso, que o aluno chama escrevendo "setup". Os dois modelos estão em `setup.md`; o visual e o comportamento vêm de `web/setup.js`, carregado pelo jsDelivr de um commit fixo, como a tabela.
+
+- **Curso novo:** letreiro MANDARINMAXXING em ASCII com "for Claude", "Welcome to mandarinmaxxing!", dois parágrafos, três perguntas dobradas (aula, áudio, teclado), as escolhas (nível, ritmo, áudio) e o botão "See my lessons".
+- **Tela do curso:** porcentagem e partes feitas, a próxima aula com três atalhos (continuar, revisar uma aula, pular para uma aula) e as mesmas escolhas marcadas como estão no curso. "Save changes" só aparece quando algo muda e manda só o que mudou.
+- **Estilo aprovado pelo Eduardo:** opções em texto com um ladrilho pequeno na frente (cinza, laranja quando escolhida, girando como os ladrilhos do site), um só botão cheio por tela, rótulos de seção em maiúsculas pequenas, sem linhas divisórias. Ele rejeitou os botões em bloco cheio ("poluído"), a fileira de ladrilhos do progresso e o FAQ na tela do curso.
+- **Os botões mandam mensagens** pelo `sendPrompt` do chat; a skill também aceita a resposta digitada. **Ainda não testado no app:** o envio de verdade (as prévias só mostravam o texto) e se "/setup" chega como mensagem.
+- **O chat estiliza todo `<button>`** e ganha de regras comuns: por isso o `setup.js` usa `!important` nos botões. Animações não podem ter `transform` com `!important`.
+- **HSK 5 e 6 voltaram a ser montados na hora** (o Eduardo reabriu a decisão de 21/11): no cartão têm marcador tracejado e uma nota ao serem escolhidos; a skill monta o mapa e confere com `check_map.py` (toda palavra oficial uma vez, blocos de 2 a 4).
+- **Trocar de nível ou de áudio** pela tela do curso: regras novas em `requests.md`.
+- **Tabela de vocabulário:** `web/vocab.js` (estilo, fonte e animação de traços no hover com a Hanzi Writer), testada pelo Eduardo no app.
+- **Se `web/setup.js` ou `web/vocab.js` mudar,** suba o commit e atualize o endereço em `setup.md` (duas vezes) ou em `lesson-format.md`.
+- No arquivo há também um letreiro em ladrilhos (o MANDARIN do hero do site), sem uso: reduzido para o chat ficou difícil de ler.
 
 ## Como testar
 
