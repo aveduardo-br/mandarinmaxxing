@@ -4,8 +4,8 @@ Estado da skill em 18/11/2026 e o que vem depois. Leia inteiro antes de mexer.
 
 **Onde está cada coisa**
 
-- **`main` e a release publicada: 0.5.6.** É o que quem baixa a skill recebe.
-- **Branch `v0.6-lean`: a próxima versão, não publicada.** Reescrita enxuta feita em 18/11/2026. Este documento descreve a branch. O `plugin.json` dela ainda diz 0.5.6 de propósito: subir a versão e juntar na `main` publica a release, e isso é decisão do Eduardo, depois de ele testar uma parte de verdade.
+- **`main` e a release publicada: 0.6.0** (22/11/2026). O Eduardo testou a branch `v0.6-lean` no app (tela de setup, botões, aula) e mandou publicar. A branch foi juntada na `main`; o que este documento descreve como "a branch" é a versão publicada.
+- **O site ainda descreve a 0.5:** totais do HSK 1 (agora 96 / 57 / 41), ritmo como "3, 5, 7" (agora leve 3 ou 4, recomendado 5 a 7, intenso 7 a 10), e não mostra a tela de setup nem a animação de traços.
 - **Revisão de lançamento do site:** `LAUNCH.md`, no repositório `aveduardo-br/mandarinmaxxing-site`.
 
 **Como trabalhar com o Eduardo**
