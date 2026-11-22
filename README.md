@@ -75,7 +75,7 @@ Without audio there is nothing to set up. You read the text instead.
 ## What it covers
 
 - **HSK 1 to 4 are ready.** 2,000 words in 134 lessons: HSK 1 has 300 words in 22 lessons, HSK 2 has 200 in 19, HSK 3 has 500 in 37, and HSK 4 has 1,000 in 56.
-- **How long it takes.** At the recommended pace, HSK 1 is 57 parts, about two months at one part (an hour) a day. HSK 2 is 38 parts, HSK 3 is 94, and HSK 4 is 173. The skill shows the estimate for your own pace when you start.
+- **How long it takes.** At the recommended pace, HSK 1 is 58 parts, about two months at one part (an hour) a day. HSK 2 is 38 parts, HSK 3 is 94, and HSK 4 is 173. The skill shows the estimate for your own pace when you start.
 - **Each level opens with a jump start.** In HSK 1 it's greetings, saying what you want, saying who you are. In the later levels it's the connecting words every other lesson uses, such as "because", "already" and "if".
 - **Finish a level and the course moves on to the next.** Words from the level you finished keep coming back.
 - **HSK 5 and 6.** The official word lists are included. Their lesson maps aren't written yet, so the skill builds one when you start the level and checks it by script against the list. Expect it to be rougher than levels 1 to 4.

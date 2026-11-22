@@ -16,7 +16,7 @@ If it can't, for example a chat outside any project, send the message below in t
 >
 > From then on I keep your progress myself, on any device. If you'd like to try it first, I can give you a trial lesson right here, without saving.
 
-For the trial lesson, teach HSK 1, Lesson 1, at a pace of 5, without saving, and say at the end that the course starts once the project is set up.
+For the trial lesson, teach HSK 1, Lesson 1, part 1, at a pace of 5, without saving, and say at the end that the course starts once the project is set up.
 
 ## The welcome card
 

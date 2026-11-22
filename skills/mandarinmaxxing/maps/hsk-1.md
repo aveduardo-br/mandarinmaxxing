@@ -1,9 +1,9 @@
 # HSK 1 map
 
-Source: HSK syllabus released 2025-11 (300 words). Each situation is one lesson, numbered as below: 22 lessons. Parts at paces 3 / 5 / 7: 96 / 57 / 41. Lessons 01–07 are the jump start. Lesson 01 opens with a longer part on purpose: three words alone can't make a real exchange. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 本1.
+Source: HSK syllabus released 2025-11 (300 words). Each situation is one lesson, numbered as below: 22 lessons. Parts at paces 3 / 5 / 7: 96 / 58 / 41. Lessons 01–07 are the jump start. Lesson 01 opens with two blocks on purpose: three words alone can't make a real exchange, and six give three (hello and goodbye, thanks and you're welcome, sorry and no problem). Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 本1.
 
 ## 01 | jump-start | Say hello and thank you
-Split: 2-1 / 3 / 3
+Split: 2-1 / 2-1 / 3
 - 你好 再见 谢谢
 - 不客气 对不起 没关系
 - 您 好 没事

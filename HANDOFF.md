@@ -4,8 +4,8 @@ Estado da skill em 18/11/2026 e o que vem depois. Leia inteiro antes de mexer.
 
 **Onde está cada coisa**
 
-- **`main` e a release publicada: 0.6.0** (22/11/2026). O Eduardo testou a branch `v0.6-lean` no app (tela de setup, botões, aula) e mandou publicar. A branch foi juntada na `main`; o que este documento descreve como "a branch" é a versão publicada.
-- **O site ainda descreve a 0.5:** totais do HSK 1 (agora 96 / 57 / 41), ritmo como "3, 5, 7" (agora leve 3 ou 4, recomendado 5 a 7, intenso 7 a 10), e não mostra a tela de setup nem a animação de traços.
+- **`main` e a release publicada: 0.6.1** (22/11/2026). A 0.6.1 só muda a aula 1 do HSK 1: o Eduardo testou a aula 1 inteira numa sessão (nove palavras) e achou vocabulário demais; ela voltou a duas partes nos ritmos 3 e 5, seis palavras e depois três (`Split: 2-1 / 2-1 / 3`), como a aula 1 do HSK Standard Course, que tem seis palavras. Totais do HSK 1: 96 / 58 / 41. A 0.6.0 saiu no mesmo dia. O Eduardo testou a branch `v0.6-lean` no app (tela de setup, botões, aula) e mandou publicar. A branch foi juntada na `main`; o que este documento descreve como "a branch" é a versão publicada.
+- **O site ainda descreve a 0.5:** totais do HSK 1 (agora 96 / 58 / 41; o 58 do ritmo recomendado já bate, o 97 e o 42 não), ritmo como "3, 5, 7" (agora leve 3 ou 4, recomendado 5 a 7, intenso 7 a 10), e não mostra a tela de setup nem a animação de traços.
 - **Revisão de lançamento do site:** `LAUNCH.md`, no repositório `aveduardo-br/mandarinmaxxing-site`.
 
 **Como trabalhar com o Eduardo**
@@ -49,7 +49,7 @@ Estado da skill em 18/11/2026 e o que vem depois. Leia inteiro antes de mexer.
 - Cada situação do mapa é uma **aula**, com número fixo. A aula é dada em **partes**; o ritmo (3, 5, 7 ou outro número) é a meta de palavras novas por parte.
 - O mapa agrupa as palavras em blocos de 2 a 4, e a linha `Split` diz quantos blocos entram em cada parte nos ritmos 3 / 5 / 7. Para outro ritmo, ou mapa sem `Split`, a skill enche a parte com blocos inteiros até passar do ritmo em mais de uma palavra.
 - **O ritmo é meta, não contagem.** Medido nos mapas: no ritmo 5 o tamanho mais comum de parte é 6 palavras (vai de 3 a 7); no ritmo 7 vai até 10 (no HSK 4, 54 de 130 partes têm 9 ou 10). O `setup.md` diz isso ao mostrar o nível; a mensagem de boas-vindas aprovada continua com "3 leve, 5 recomendado, 7 intenso".
-- Totais: HSK 1, 300 palavras, 22 aulas, partes 96 / 57 / 41, jump start 01 a 07. HSK 2, 200 palavras, 19 aulas, 66 / 38 / 29, jump start 01 a 04. HSK 3, 500 palavras, 37 aulas, 168 / 94 / 69, jump start 01 a 04. HSK 4, 1.000 palavras, 56 aulas, 319 / 173 / 130, jump start 01 a 05.
+- Totais: HSK 1, 300 palavras, 22 aulas, partes 96 / 58 / 41, jump start 01 a 07. HSK 2, 200 palavras, 19 aulas, 66 / 38 / 29, jump start 01 a 04. HSK 3, 500 palavras, 37 aulas, 168 / 94 / 69, jump start 01 a 04. HSK 4, 1.000 palavras, 56 aulas, 319 / 173 / 130, jump start 01 a 05.
 - A numeração recomeça em 01 a cada nível; o título sempre leva o nível. No `Done` a linha leva o prefixo do nível (`2-01.1`).
 
 **Uma parte, cerca de uma hora**
