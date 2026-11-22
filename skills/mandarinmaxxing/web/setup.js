@@ -56,10 +56,85 @@
     R + ' [data-progress]{margin:0;font-size:14px;line-height:22px;color:var(--soft)}' +
     R + ' [data-progress] strong{font-weight:600;color:var(--text-primary,currentColor);margin-right:8px}' +
     R + '[data-home] .mm-go[hidden]{' + imp('display:none') + '}' +
+    R + ' .mm-w{margin:4px 0 28px;max-width:440px}' +
+    R + ' .mm-w svg{display:block;width:100%;height:auto;overflow:visible}' +
+    R + ' .mm-w rect{fill:currentColor;opacity:.3}' +
+    R + ' .mm-w .x rect{fill:' + ORANGE + ';opacity:1}' +
+    R + ' .mm-w text{fill:' + INK + ';font-size:2px;font-weight:700;text-anchor:middle}' +
+    R + ' .mm-w pre{margin:0;padding:0;border:0;background:none;overflow:hidden;font-family:ui-monospace,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace;font-size:8.6px;line-height:1.18;letter-spacing:0;white-space:pre;color:' + ORANGE + '}' +
+    R + ' .mm-w.a{max-width:none}' +
+    R + ' .mm-w span{display:block;margin-top:10px;font-size:12px;line-height:16px;letter-spacing:.04em;color:var(--offfg)}' +
     R + ' .mm-out{margin:12px 0 0;font-size:13px;color:var(--soft)}';
   var style = document.createElement('style');
   style.textContent = css;
   root.appendChild(style);
+
+  // The wordmark: MANDARIN in the tiles of the site's hero, MAXXING in seven tiles over its bottom edge.
+  // An element with data-wordmark gets it drawn above its own text, which stays as the caption.
+  var MARK = [
+    '.............................###########......##..............................',
+    '.....................####....#############....##....########..................',
+    '................#....####....#############...####...#########.###.............',
+    '..........##...####..#####...######...####..######..################..........',
+    '.........###..######.#####...######....############.###....#########..........',
+    '###.....####.#############...######....#######..#######....###########.....###',
+    '####...#########.###########.######....######....######....############...####',
+    '######.########....#########.######....######....######....############.######',
+    '###############....#####.###.######....########..#############################',
+    '########..#####...######.##########....######################.######.#########',
+    '###.####..##############..#########...##############################..####.###',
+    '###..##...##############..###################....######....#########...#...###',
+    '###.......##############..###############.###....######....#########.......###',
+    '###.......#####....#####....############..###....######....#########.......###',
+    '###.......#####....####..............................##....#########.......###',
+    '###.......####................................................######.......###',
+    '###.......##......................................................##.......###',
+    '###........................................................................###',
+    '##.........................................................................###'
+  ];
+  // data-wordmark="ascii" draws the name as a terminal banner instead
+  var BANNER = [
+    "███╗   ███╗ █████╗ ███╗   ██╗██████╗  █████╗ ██████╗ ██╗███╗   ██╗███╗   ███╗ █████╗ ██╗  ██╗██╗  ██╗██╗███╗   ██╗ ██████╗",
+    "████╗ ████║██╔══██╗████╗  ██║██╔══██╗██╔══██╗██╔══██╗██║████╗  ██║████╗ ████║██╔══██╗╚██╗██╔╝╚██╗██╔╝██║████╗  ██║██╔════╝",
+    "██╔████╔██║███████║██╔██╗ ██║██║  ██║███████║██████╔╝██║██╔██╗ ██║██╔████╔██║███████║ ╚███╔╝  ╚███╔╝ ██║██╔██╗ ██║██║  ███╗",
+    "██║╚██╔╝██║██╔══██║██║╚██╗██║██║  ██║██╔══██║██╔══██╗██║██║╚██╗██║██║╚██╔╝██║██╔══██║ ██╔██╗  ██╔██╗ ██║██║╚██╗██║██║   ██║",
+    "██║ ╚═╝ ██║██║  ██║██║ ╚████║██████╔╝██║  ██║██║  ██║██║██║ ╚████║██║ ╚═╝ ██║██║  ██║██╔╝ ██╗██╔╝ ██╗██║██║ ╚████║╚██████╔╝",
+    "╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝"
+  ];
+  var mark = root.querySelector('[data-wordmark]');
+  if (mark && mark.getAttribute('data-wordmark') === 'ascii') {
+    var line = mark.textContent.trim();
+    mark.className = 'mm-w a';
+    mark.innerHTML = '<pre role="img" aria-label="mandarinmaxxing"></pre>' + (line ? '<span></span>' : '');
+    mark.querySelector('pre').textContent = BANNER.join('\n');
+    if (line) mark.querySelector('span').textContent = line;
+    // the banner is 123 characters wide: its font shrinks until the whole line fits the card
+    var pre = mark.querySelector('pre');
+    var fit = function () {
+      var size = 9;
+      pre.style.fontSize = size + 'px';
+      while (size > 4 && pre.scrollWidth > pre.clientWidth + 1) { size -= 0.2; pre.style.fontSize = size + 'px'; }
+    };
+    fit();
+    window.addEventListener('resize', fit);
+  } else if (mark) {
+    var caption = mark.textContent.trim(), out = '', NS = ' xmlns="http://www.w3.org/2000/svg"';
+    MARK.forEach(function (row, y) {
+      for (var x = 0; x < row.length; x++) if (row.charAt(x) === '#') out += '<rect x="' + x + '" y="' + y + '" width=".84" height=".84"/>';
+    });
+    var size = 3, gap = 0.3, left = (MARK[0].length - (7 * size + 6 * gap)) / 2, top = MARK.length - 3.4;
+    out += '<g class="x">';
+    'MAXXING'.split('').forEach(function (ch, i) {
+      var x = left + i * (size + gap);
+      out += '<rect x="' + x.toFixed(2) + '" y="' + top + '" width="' + size + '" height="' + size + '"/>' +
+        '<text x="' + (x + size / 2).toFixed(2) + '" y="' + (top + 2.2).toFixed(2) + '">' + ch + '</text>';
+    });
+    out += '</g>';
+    mark.className = 'mm-w';
+    mark.innerHTML = '<svg' + NS + ' viewBox="0 0 ' + MARK[0].length + ' ' + (top + size).toFixed(2) + '" role="img" aria-label="mandarinmaxxing">' + out + '</svg>' +
+      (caption ? '<span></span>' : '');
+    if (caption) mark.querySelector('span').textContent = caption;
+  }
 
   var ARROW = '<svg viewBox="0 0 7 6" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h1v3h-1zM1 3h1v1h-1zM5 3h1v1h-1zM2 4h3v1h-3zM3 3h1v3h-1z"/></svg>';
   function flip(tile, on) {
