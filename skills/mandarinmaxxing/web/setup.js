@@ -12,9 +12,12 @@
   function imp(d) { return d.split(';').join(' !important;') + ' !important'; }
   var css =
     R + '{--soft:var(--text-secondary,color-mix(in srgb,currentColor 65%,transparent));--line:var(--border,color-mix(in srgb,currentColor 15%,transparent));--off:color-mix(in srgb,currentColor 10%,transparent);--offfg:color-mix(in srgb,currentColor 55%,transparent);--onoff:color-mix(in srgb,currentColor 88%,transparent);padding:4px 0 20px}' +
-    R + ' h2{font-size:16px;font-weight:600;margin:0 0 8px}' +
-    R + ' p{margin:0 0 20px;font-size:15px;line-height:1.7}' +
-    R + ' details:last-of-type{margin-bottom:32px}' +
+    // three levels: the card's title, a small label over each section, and the name of each choice
+    R + ' h2{font-size:20px;font-weight:600;line-height:28px;margin:0 0 6px}' +
+    R + ' h3{font-size:11px;font-weight:600;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--offfg);margin:36px 0 14px}' +
+    R + ' p b{font-weight:600;color:var(--text-primary,currentColor)}' +
+    R + ' p{margin:0 0 12px;font-size:15px;line-height:1.7}' +
+    R + ' details:last-of-type{margin-bottom:0}' +
     R + '[data-home] details:first-of-type{margin-top:28px}' +
     R + '[data-home] details:last-of-type{margin-bottom:0}' +
     R + ' summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:6px 0;font-size:14px;font-weight:600;user-select:none}' +
@@ -27,9 +30,9 @@
     R + ' .mm-t.on svg{fill:' + INK + ';transform:scaleY(-1)}' +
     R + ' details>:not(summary){margin:0 0 0 40px;color:var(--soft);font-size:14px}' +
     R + ' details>:last-child{padding-bottom:6px}' +
-    R + ' fieldset{border:0;padding:0;margin:0 0 28px;display:flex;flex-wrap:wrap;gap:4px 24px;min-width:0}' +
-    R + ' legend{padding:0;margin:0 0 8px;font-size:13px;font-weight:500;line-height:20px;color:var(--soft)}' +
-    R + ' legend small{font-weight:400;margin-left:8px;opacity:.8}' +
+    R + ' fieldset{border:0;padding:0;margin:0 0 22px;display:flex;flex-wrap:wrap;gap:4px 24px;min-width:0}' +
+    R + ' legend{padding:0;margin:0 0 4px;font-size:14px;font-weight:600;line-height:22px;color:var(--text-primary,inherit)}' +
+    R + ' legend small{font-size:13px;font-weight:400;margin-left:8px;color:var(--soft)}' +
     // the host styles every button (border, radius, background) and wins over plain rules, so these are !important
     // a choice is plain text with a small tile in front of it; the tile of the chosen one is orange
     R + ' fieldset button{' + imp('box-sizing:border-box;cursor:pointer;width:auto;height:28px;margin:0;padding:0;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font:inherit;font-size:14px;font-weight:500;line-height:28px;border:0;border-radius:0;box-shadow:none;transform:none;background:transparent;color:var(--soft);transition:color .12s ease') + '}' +
@@ -43,16 +46,15 @@
     R + ' fieldset button[disabled]{' + imp('cursor:default;color:var(--offfg)') + '}' +
     R + ' .mm-note{flex-basis:100%;margin:6px 0 0;font-size:13px;line-height:20px;color:var(--soft)}' +
     // one filled button per card: the main action. The other actions are plain text
-    R + ' .mm-go,' + R + ' nav button[data-primary]{' + imp('box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:36px;margin:0;padding:0 16px;font:inherit;font-size:14px;font-weight:600;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:' + ORANGE + ';color:' + INK) + '}' +
+    R + ' .mm-go,' + R + ' nav button[data-primary]{' + imp('box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;height:36px;margin:6px 0 0;padding:0 16px;font:inherit;font-size:14px;font-weight:600;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:' + ORANGE + ';color:' + INK) + '}' +
     R + ' .mm-go:focus-visible,' + R + ' nav button:focus-visible{outline:1px dashed ' + ORANGE + ';outline-offset:3px}' +
-    R + ' nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin:0 0 32px}' +
+    R + ' nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin:16px 0 0}' +
     R + ' nav button{' + imp('box-sizing:border-box;cursor:pointer;height:36px;margin:0;padding:0;display:inline-flex;align-items:center;white-space:nowrap;font:inherit;font-size:14px;font-weight:500;line-height:36px;border:0;border-radius:0;box-shadow:none;transform:none;background:transparent;color:var(--soft);transition:color .12s ease') + '}' +
     R + ' nav button:hover{' + imp('color:inherit') + '}' +
+    R + ' nav button[data-primary]{' + imp('margin:0') + '}' +
     R + ' nav button[data-primary]:hover{' + imp('color:' + INK) + '}' +
-    R + ' [data-progress]{margin:0 0 8px;font-size:14px;color:var(--soft)}' +
-    R + ' .mm-bar{display:flex;flex-wrap:wrap;gap:2px;margin:0 0 24px}' +
-    R + ' .mm-bar i{width:8px;height:8px;background:var(--off)}' +
-    R + ' .mm-bar i.on{background:' + ORANGE + '}' +
+    R + ' [data-progress]{margin:0;font-size:14px;line-height:22px;color:var(--soft)}' +
+    R + ' [data-progress] strong{font-weight:600;color:var(--text-primary,currentColor);margin-right:8px}' +
     R + '[data-home] .mm-go[hidden]{' + imp('display:none') + '}' +
     R + ' .mm-out{margin:12px 0 0;font-size:13px;color:var(--soft)}';
   var style = document.createElement('style');
@@ -79,21 +81,15 @@
     d.addEventListener('toggle', function () { flip(tile, d.open); });
   });
 
-  // "14/57" on a line draws a row of tiles under it: the parts done and the parts to go
+  // "14/57" on a line puts the share done, as a percentage, in front of it
   var prog = root.querySelector('[data-progress]');
   if (prog) {
     var nums = (prog.getAttribute('data-progress') || '').split('/');
-    var done = parseInt(nums[0], 10) || 0, total = Math.min(parseInt(nums[1], 10) || 0, 400);
+    var done = parseInt(nums[0], 10) || 0, total = parseInt(nums[1], 10) || 0;
     if (total) {
-      var bar = document.createElement('div');
-      bar.className = 'mm-bar';
-      bar.setAttribute('aria-hidden', 'true');
-      for (var n = 0; n < total; n++) {
-        var cell = document.createElement('i');
-        if (n < done) cell.className = 'on';
-        bar.appendChild(cell);
-      }
-      prog.parentNode.insertBefore(bar, prog.nextSibling);
+      var pct = document.createElement('strong');
+      pct.textContent = Math.round(100 * done / total) + '%';
+      prog.insertBefore(pct, prog.firstChild);
     }
   }
   Array.prototype.forEach.call(root.querySelectorAll('nav button'), function (b) { b.type = 'button'; });
