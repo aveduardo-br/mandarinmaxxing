@@ -58,7 +58,7 @@ The course lives in one `course.md`, kept where every chat of the course can rea
 
 - **Language** is the language of everything outside the Mandarin: instructions, meanings, prompts, feedback. Keep it until the learner asks to switch.
 - **Labels** fixes the learner-language words for lesson, part, review, round (a set of five exercises), exercise (one prompt), listening, dictation, audio (the narration clip), reading, useful phrases (the chunk list), and jump start. **Rounds** fixes the names of the three rounds. Use exactly these in every chat, never a synonym. If a file lacks one, choose it once and save it. Field names and the **Next** line stay in English.
-- **Audio** is `none`, or the provider and the one voice of the course, such as `ElevenLabs, voice Sarah`.
+- **Audio** is `none`, or the provider and the one voice of the course, such as `ElevenLabs, voice Yun`.
 - **Known** is absent in most courses. `- Known: jump start` appears after a jump past an unfinished jump start (see `requests.md`).
 - **Route** is the order of lessons the learner agreed to. **Next** names the lesson and part to teach next, or says `level complete`.
 - **To reinforce** holds up to ten words or short chunks the learner needed help with, oldest first; for a slip of word order or grammar, save the chunk. After each part, remove the items the learner got right unaided during the part, then add the ones they missed anywhere in it (review, rounds, dictation, rewrite) and didn't get right later: an item's last answer in the part decides. Past ten, drop the oldest.

@@ -68,7 +68,7 @@ Most people use ElevenLabs, which has a free account:
 2. In Claude, open **Customize → Connectors**, find **ElevenLabs**, and connect it.
 3. Tell the skill you want audio.
 
-Each part generates up to two short clips in one voice. The skill uses a voice called Sarah by default, and you can ask for another. You can also bring a different voice provider.
+Each part generates up to two short clips in one voice. The skill uses a native Mandarin voice called Yun by default, the same one you hear when you click a word in the table, and you can ask for another. You can also bring a different voice provider.
 
 Without audio there is nothing to set up. You read the text instead.
 
