@@ -1,6 +1,11 @@
 The same HSK words, reorganized around everyday conversations.
 
-**What's new in 0.6.1**
+**What's new in 0.7.0**
+
+- **Hear every word.** Click a word in the vocabulary table and you hear it, in a native Mandarin voice. Every word of HSK 1 to 4 has a recording. The recordings are a reference for a word said alone; in a sentence, tones can shift.
+- **One voice for the whole course.** Dictations and stories now use the same native voice, Yun, when your ElevenLabs account can use it. A course already running keeps its voice; ask for the change if you want it.
+
+**From 0.6.1**
 
 - **A lighter first lesson.** HSK 1 lesson 1 is back to two sittings at the light and recommended paces: six words first (hello and goodbye, thanks and you're welcome, sorry and no problem), then three. Nine words in one sitting was too much for a first day. HSK 1 is 58 parts at the recommended pace.
 
