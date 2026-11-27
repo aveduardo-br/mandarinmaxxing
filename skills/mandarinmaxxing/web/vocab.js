@@ -25,7 +25,7 @@
 
   // One recording per word lives in the mandarinmaxxing-audio repository, named with the word itself.
   // A click plays it; a word with no recording yet stays silent. When this address changes, update it here.
-  var AUDIO = 'https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing-audio@3c510ebb7a9c912e4463ddf2f2c3342a0458a990/audio/';
+  var AUDIO = 'https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing-audio@5370f72d27e7acfbabb3d181db790f801841a98b/audio/';
   // Words with two readings: the reading that has the plain file name. Any other reading is word_pinyin.
   var READINGS = {"还":"ha2i","好":"ha3o","看":"ka4n","只":"zhi1","啊":"a","长":"cha2ng","地":"de","得":"de","过":"guo4","头":"to2u","着":"zhe","地方":"di4fang","干":"ga4n","为":"we4i","行":"xi2ng","中":"zho1ng","种":"zho3ng","背":"be1i","重":"cho2ng","待":"da1i","当":"da1ng","倒":"da4o","结果":"jie2guo3","空":"ko1ng","量":"lia2ng","落":"luo4","数":"shu4","转":"zhua3n","冲":"cho1ng","处":"chu3","调":"dia4o","划":"hua2","系":"ji4","结":"jie2","扇":"sha1n","炸":"zha2","卷":"jua3n","露":"lo4u","散":"sa3n","吐":"tu3"};
   var TONE = { '\u0304': '1', '\u0301': '2', '\u030c': '3', '\u0300': '4' };
