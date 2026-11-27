@@ -27,7 +27,7 @@ Draw the table with the chat's inline HTML or widget tool, in the conversation, 
     <tbody><tr><td><span lang="zh-Hans">商店</span></td><td>shāngdiàn</td><td>shop</td></tr></tbody>
   </table>
 </section>
-<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@65d1cb7c1e3195ed0db85563ef35c7631ed26eb0/skills/mandarinmaxxing/web/vocab.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@254daadc9f609cfe8d4a603e192f3073313cf571/skills/mandarinmaxxing/web/vocab.js"></script>
 ```
 
 Under the table, add a one-line usage note only for a word whose use the meaning can't show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), or a word the exercises will use in a role the meaning doesn't show (不 alone as a reply: "no"). Give a polite form a meaning that says who it is for, such as 您 = "you (to sir or madam)".
