@@ -78,7 +78,7 @@ Estado da skill em 18/11/2026 e o que vem depois. Leia inteiro antes de mexer.
 
 **Áudio**
 
-- Opcional. Até dois clipes por parte (ditado e narração), uma voz, uma geração cada. Padrão: ElevenLabs pelo conector, voz Sarah (`EXAVITQu4vr4xnSDxMaL`).
+- Opcional. Até dois clipes por parte (ditado e narração), uma voz, uma geração cada. Padrão: ElevenLabs pelo conector, voz Yun (`4AfodMgwXps9oZFhHzoj`, nativa, a mesma da tabela); Sarah (`EXAVITQu4vr4xnSDxMaL`) se a conta do aluno não puder usar a Yun, que é voz da biblioteca (não testado em conta gratuita).
 - A skill nunca gera áudio com ferramenta que o aluno não escolheu e nunca repete uma geração por conta própria.
 
 ## Decisões e por quê
@@ -136,7 +136,7 @@ Decisões do Eduardo: o aluno usa a skill no computador (celular é bônus); HSK
 
 - **O que é:** clicar num hanzi da tabela toca a gravação da palavra. O hover continua só desenhando os traços.
 - **Onde ficam os áudios:** repositório `aveduardo-br/mandarinmaxxing-audio`, um MP3 por palavra com o próprio hanzi no nome (`audio/你好.mp3`), servido pelo jsDelivr de um commit fixo. O endereço está no começo de `web/vocab.js` (`AUDIO`). Palavra sem gravação fica em silêncio.
-- **Como são feitos:** lá, `scripts/generate.py` roda pelo GitHub Actions (botão "Run workflow", por nível, com teto de caracteres), com a chave `ELEVENLABS_API_KEY` nos secrets. Voz Sarah, modelo `eleven_v4` (o Eduardo ouviu três modelos e escolheu o v4 "disparado"). Cada arquivo é cortado, nivelado, transcrito para conferência e anotado em `status.csv`.
+- **Como são feitos:** lá, `scripts/generate.py` roda pelo GitHub Actions (botão "Run workflow", por nível, com teto de caracteres), com a chave `ELEVENLABS_API_KEY` nos secrets. Voz Yun (`4AfodMgwXps9oZFhHzoj`) desde 27/11/2026: a Sarah é voz americana e errava palavras soltas (20 ruins só no HSK 4); o idioma `zh` sempre foi aceito, o problema era a voz. HSK 1–4 regravados, 1.989 de 1.992 leituras com áudio (faltam 过 guo, 得 děi, 着 zháo), todas as marcadas ouvidas e aprovadas pelo Eduardo. Duas leituras: grava-se um caractere homófono de leitura única (`special.csv`). Modelo `eleven_v4` (o Eduardo ouviu três modelos e escolheu o v4 "disparado"). Cada arquivo é cortado, nivelado, transcrito para conferência e anotado em `status.csv`.
 - **Estado (27/11/2026):** HSK 1 a 4 gravados, 1.978 palavras, 6,8 MB. HSK 1 aprovado de ouvido pelo Eduardo; do 2 ao 4 ele ouviu uma amostra e achou tudo bom, e disse que é coisa demais para revisar sozinho. As 52 suspeitas da conferência foram regravadas com até três tomadas: 32 passaram, 20 continuam marcadas (parte é homófono, como 不便 / 不变; 办理 sai repetida três vezes). HSK 5 e 6 ficam para quando forem mapeados.
 - **A régua dele:** o áudio é apoio, não verdade absoluta: o tom muda dentro da frase e a gravação da palavra solta é só referência.
 - **Revisão:** feita no chat, com um widget que lê o `status.csv` pelo jsDelivr, toca cada arquivo e devolve a lista das ruins. A conferência por transcrição erra muito em palavra de uma sílaba (ouve 爱 como "I"); essas vão para uma lista "ouvir".
@@ -199,7 +199,7 @@ Notas do juiz (de 35) ao longo das rodadas: de 25 a 30 na 0.5.0 para 29 a 34 nas
 - **Mapas do HSK 5 e 6:** hoje a skill monta o mapa na hora, com as nossas regras. Um cenário de benchmark que confira o mapa gerado com `check_map.py` ainda não foi feito; é barato e é onde a skill trabalha sem rede.
 
 **4. Site** (repositório `aveduardo-br/mandarinmaxxing-site`).
-- **Card 04 (áudio):** o texto já fala em ditado e narração de uma pessoa, mas o exemplo ainda é o diálogo de duas vozes. Gerar o áudio novo com a Sarah e refazer os tempos em `DialogueCard.astro`.
+- **Card 04 (áudio):** o texto já fala em ditado e narração de uma pessoa, mas o exemplo ainda é o diálogo de duas vozes. Gerar o áudio novo com a Yun e refazer os tempos em `DialogueCard.astro`.
 - **"Lesson" × "part":** no site, "lesson" é o que se faz num dia; no README da skill, isso é "part". Alinhar, provavelmente adaptando o README.
 - **Seção "Your course":** ainda fala em uma aula por dia; o Eduardo decidiu não mudar por enquanto.
 - **Formulação sobre a prova**, ainda em aberto no `messaging.md`: a lista da skill (syllabus de novembro de 2025) vale para as provas regulares do HSK 1 a 6 a partir de 13 de dezembro de 2026.
