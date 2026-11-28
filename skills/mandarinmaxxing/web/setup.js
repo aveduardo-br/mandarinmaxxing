@@ -271,7 +271,11 @@
     send((lead ? lead + ' ' : '') + now.filter(Boolean).join('. ') + '.');
   });
   function send(text) {
-    if (live().hasAttribute('data-preview') || typeof sendPrompt !== 'function') { say(text); return; }
+    if (live().hasAttribute('data-preview') || typeof sendPrompt !== 'function') {
+      // the chat can't take the click: show the line and ask the learner to send it themselves
+      say(((live().getAttribute('data-manual') || '') + ' ' + text).trim());
+      return;
+    }
     sendPrompt(text);
   }
   var go = root.querySelector('[data-start]');

@@ -32,15 +32,24 @@
   // Readings with no recording yet: silent, since the plain file would teach the wrong sound.
   var SILENT = {"过":["guo"],"得":["de3i"],"着":["zha2o"]};
   var TONE = { '\u0304': '1', '\u0301': '2', '\u030c': '3', '\u0300': '4' };
+  // huán and huan2 both give hua2n: the tone digit goes after the vowel that carries the mark
+  function numbered(syllable, tone) {
+    var at = syllable.search(/[ae]/);
+    if (at < 0) at = syllable.indexOf('ou');
+    if (at < 0) { var m = syllable.match(/[aeiouv](?=[^aeiouv]*$)/); at = m ? m.index : -1; }
+    return at < 0 ? syllable : syllable.slice(0, at + 1) + tone + syllable.slice(at + 1);
+  }
   function toneAscii(pinyin) {
-    var out = [], text = (pinyin || '').split('/')[0].toLowerCase().normalize('NFD');
+    var out = [], syllable = '', text = (pinyin || '').split('/')[0].toLowerCase().normalize('NFD');
     for (var i = 0; i < text.length; i++) {
       var ch = text.charAt(i);
-      if (TONE[ch]) out.push(TONE[ch]);
-      else if (ch === '\u0308') out[out.length - 1] = 'v';
-      else if (ch >= 'a' && ch <= 'z') out.push(ch);
+      if (TONE[ch]) syllable += TONE[ch];
+      else if (ch === '\u0308') syllable = syllable.slice(0, -1) + 'v';
+      else if (ch >= 'a' && ch <= 'z') syllable += ch;
+      else if (ch >= '1' && ch <= '4' && !/\d/.test(syllable)) { out.push(numbered(syllable, ch)); syllable = ''; }
+      else if (ch === '5' || ch === '0') { out.push(syllable); syllable = ''; }
     }
-    return out.join('');
+    return out.join('') + syllable;
   }
   var player = null;
   function speak(word) {

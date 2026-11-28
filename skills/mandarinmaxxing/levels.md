@@ -11,7 +11,7 @@ A later chat that finds `Next: level complete` offers the next level again. If t
 If they accept:
 
 1. Run `python3 course.py overview <new level> <pace>` for the new level's lessons.
-2. Keep the same `course.md`. Add the finished level's prefix to every **Done** line that has none. Update the level in **Syllabus**, replace **Route** and the **Lessons** list with the new level's, and set **Next** to part 1 of its first lesson. Keep everything else, including the whole **Done** log, so words from the finished level keep coming back.
+2. Keep the same `course.md`. Add the finished level's prefix to every **Done** line that has none. Update the level in **Syllabus**, replace **Route** and the **Lessons** list with the new level's, and set **Next** to part 1 of its first lesson. Keep everything else, including the whole **Done** log, so words from the finished level keep coming back. The `(known)` marks belong to the list you replace: if the learner ever returns to that level, ask again which lessons they know.
 3. Show the new level's overview as in `setup.md`, leaving out the sentence about lessons, parts and pace, and ask about the route. Save again if it changes.
 4. Ask whether to start the first part now or next time, and start only if they say now.
 

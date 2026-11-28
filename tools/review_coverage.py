@@ -1,70 +1,47 @@
-"""Simulate how often older words come back under the rules in SKILL.md.
+"""Measure how often older words come back, with the same choice the lessons use.
 
-Usage: python3 tools/review_coverage.py skills/mandarinmaxxing/maps/hsk-1.md [pace]
+Usage: python3 tools/review_coverage.py LEVEL [PACE]
 
-Builds the parts from the map's Split lines (pace 3, 5 or 7, default 5), then
-applies "Bring older words back": lines 3, 7, 14, 30 and 60 back in the Done
-log, one word per line, chosen by turn (at most five per part). The review of the previous
-part is not counted. Reports the share of words that come back at least once
-and at least twice, and the average number of older words per part.
+Walks a level part by part at a pace (3, 5 or 7, default 5), in map order, and asks
+skills/mandarinmaxxing/course.py for the older words each part would be offered
+(`older_candidates`: two candidates from the lines 3, 7, 14, 30 and 60 back). It reports
+the share of words that are offered at least once, and the share that come back when the
+tutor always takes the first candidate or always the second. The review of the previous
+part is not counted. The tutor may skip a line when neither word fits, so these are upper
+bounds, and distances are counted in parts, not in days.
 """
+import importlib.util
+import os
 import sys
 
-OFFSETS = [3, 7, 14, 30, 60]
-CAP = 5
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+spec = importlib.util.spec_from_file_location('course', os.path.join(ROOT, 'skills', 'mandarinmaxxing', 'course.py'))
+course = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(course)
 
 
-def parts(path, pace):
-    idx = {3: 0, 5: 1, 7: 2}[pace]
-    out, split, blocks = [], None, []
-
-    def flush():
-        if split is None:
-            return
-        i = 0
-        for size in (int(x) for x in split[idx].split('-')):
-            out.append(sum(blocks[i:i + size], []))
-            i += size
-
-    for line in open(path, encoding='utf-8'):
-        if line.startswith('## '):
-            flush()
-            split, blocks = None, []
-        elif line.startswith('Split:'):
-            split = [x.strip() for x in line[6:].split('/')]
-        elif line.startswith('- ') and split is not None:
-            blocks.append(line[2:].split())
-    flush()
-    return out
-
-
-def simulate(ps):
-    seen, loads = {}, []
-    for i in range(len(ps)):
-        picks = []  # (offset, line, word index)
-        for k, off in enumerate(OFFSETS, 1):
-            j = i - off
-            if j < 0:
-                continue
-            n = len(ps[j])
-            per = 1
-            for t in range(per):
-                picks.append((off, j, ((k - 1) * per + t) % n))
-        picks.sort(key=lambda p: -p[0])  # farthest first, so nearest are dropped
-        picks = picks[:CAP]
-        for _, j, w in picks:
-            seen[(j, w)] = seen.get((j, w), 0) + 1
-        loads.append(len(picks))
-    words = [(j, w) for j in range(len(ps)) for w in range(len(ps[j]))]
-    once = sum(seen.get(x, 0) >= 1 for x in words) / len(words)
-    twice = sum(seen.get(x, 0) >= 2 for x in words) / len(words)
-    return once, twice, sum(loads) / len(loads)
+def main(level, pace=5):
+    idx = course.PACES.index(pace)
+    done, offered, first, second, loads = [], set(), set(), set(), []
+    for lesson in course.read_map(level):
+        for k, blocks in enumerate(course.split_parts(lesson, idx), 1):
+            picks = course.older_candidates(done)
+            loads.append(len(picks))
+            for back, line, pick in picks:
+                key = line['raw']
+                offered.update((key, w) for w in pick)
+                first.add((key, pick[0]))
+                second.add((key, pick[-1] if len(pick) <= 2 else pick[1]))
+            words = [w for b in blocks for w in b]
+            done.append({'words': words, 'raw': f"{level}-{lesson['num']}.{k}"})
+    total = sum(len(d['words']) for d in done)
+    print(f'HSK {level}, pace {pace}: {len(done)} parts, {total} words')
+    print(f'  offered at least once: {len(offered) / total:.0%}')
+    print(f'  come back if the tutor always takes the first candidate: {len(first) / total:.0%}; always the second: {len(second) / total:.0%}')
+    print(f'  older-word lines per part: {sum(loads) / len(loads):.1f} on average, {max(loads)} at most')
 
 
 if __name__ == '__main__':
-    path = sys.argv[1]
-    pace = int(sys.argv[2]) if len(sys.argv) > 2 else 5
-    ps = parts(path, pace)
-    once, twice, load = simulate(ps)
-    print(f'{len(ps)} parts at pace {pace}: {once:.0%} of words come back at least once, '
-          f'{twice:.0%} at least twice; {load:.1f} older words per part on average')
+    if len(sys.argv) < 2:
+        sys.exit(__doc__)
+    main(int(sys.argv[1]), int(sys.argv[2]) if len(sys.argv) > 2 else 5)

@@ -4,7 +4,7 @@ Read this when there is no `course.md` yet, or when the learner writes "setup" (
 
 ## Is there a place to save?
 
-If this chat can save a document where later chats will find it (a Claude project, or a working folder in a coding agent), go to the welcome card.
+If this chat can save a document where later chats will find it (a Claude project, or a working folder in a coding agent), go to the welcome card. After the first save of a new course, read the saved document again: if the course isn't there, say plainly that this chat can't keep the course, and offer the trial lesson.
 
 If it can't, for example a chat outside any project, send the message below in the learner's language and wait. Describe the steps without naming menus or buttons, since the app changes.
 
@@ -22,10 +22,10 @@ For the trial lesson, teach HSK 1, Lesson 1, part 1, without saving: its words a
 
 Write to the learner in the language they ask for, or the one they are writing in. "start mandarinmaxxing" and the pasted project line say nothing about their language. With too little text to tell, use the language of the interface, of the project's name, or of what you know about the learner, and ask in one short line only if none of these tells. Don't offer to switch.
 
-Send the card below as the whole setup message, drawn with the chat's inline HTML or widget tool, in the conversation, never as an artifact or a file. Copy it character for character, including the `<script>` line, and change only the text: translate every visible text into the learner's language, and the `data-value` and `data-note` texts with it. Keep `for Claude`, the name mandarinmaxxing, and every tag and attribute as they are. Add no `<style>` and no other script: the script line loads the card's look, the banner, and what the buttons do. If the rendering tool has its own design guidance, this template still wins.
+Send the card below as the whole setup message, drawn with the chat's inline HTML or widget tool, in the conversation, never as an artifact or a file. Copy it character for character, including the `<script>` line, and change only the text: translate every visible text into the learner's language, and the `data-value`, `data-note` and `data-manual` texts with it. Keep `for Claude`, the name mandarinmaxxing, and every tag and attribute as they are. Add no `<style>` and no other script: the script line loads the card's look, the banner, and what the buttons do. If the rendering tool has its own design guidance, this template still wins.
 
 ```html
-<section id="mandarinmaxxing-setup">
+<section id="mandarinmaxxing-setup" data-manual="Send this line in the chat:">
   <div data-wordmark="ascii">for Claude</div>
   <h2>Welcome to mandarinmaxxing!</h2>
   <p>The same HSK words, reorganized around everyday conversations. You learn one situation at a time (saying hello, ordering food, shopping), you answer in Mandarin from the first lesson, and your progress is saved from one chat to the next.</p>
@@ -51,6 +51,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
     <button data-on data-value="off, reading instead">Off</button><button data-value="on, with ElevenLabs">On<small>ElevenLabs</small></button>
   </fieldset>
   <button data-start>See my lessons</button>
+  <p>Or just type your choices, such as: HSK 1, recommended, no audio.</p>
 </section>
 <script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@v0.8.0/skills/mandarinmaxxing/web/setup.js"></script>
 ```
@@ -88,7 +89,7 @@ Start the first part once the learner agrees.
 When a learner with a saved course writes "setup" or "/setup", send this card, filled from `course.md`. The same rules as the welcome card: copy it exactly, translate only the text.
 
 ```html
-<section id="mandarinmaxxing-setup" data-home>
+<section id="mandarinmaxxing-setup" data-home data-manual="Send this line in the chat:">
   <h2>Your course</h2>
   <p data-progress="10/58">HSK 1 · 10 of 58 parts done</p>
   <h3>Next lesson</h3>
@@ -107,11 +108,12 @@ When a learner with a saved course writes "setup" or "/setup", send this card, f
     <button data-on data-value="off, reading instead">Off</button><button data-value="on, with ElevenLabs">On<small>ElevenLabs</small></button>
   </fieldset>
   <button data-start data-lead="Change my course." data-same="Nothing changed yet.">Save changes</button>
+  <p>Or just type what you want, such as: continue, or change my pace to light.</p>
 </section>
 <script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@v0.8.0/skills/mandarinmaxxing/web/setup.js"></script>
 ```
 
-- `data-progress` is the parts done and the parts in the level, as two numbers: the **Done** lines of the current level, and the sum of the parts in the **Lessons** list (a lesson marked `(known)` has no parts to count). The script writes the percentage; don't write one yourself.
+- `data-progress` is the parts done and the parts in the level, as two numbers: the first line that `python3 course.py progress <course.md>` prints. Lessons marked `(known)` are out of both. The card's script writes the percentage; don't write one yourself.
 - The lesson line comes from **Next** and the **Lessons** list. With `Next: level complete`, say so in that line and make the first button offer the next level.
 - Put `data-on` on the level, pace and audio the file holds. An older file with a pace other than 3, 5 or 7 gets it on the nearest.
 - The three buttons at the top send their `data-send` text, translated: answer each as the request it is. "Continue" asks for the part in **Next**.

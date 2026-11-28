@@ -11,10 +11,10 @@ Read this when the learner asks for something other than the next part. Unless a
 
 Where to start is the learner's choice: the first lesson, the middle of the jump start, or any lesson after it. When a jump leaves jump-start lessons unstudied, name those lessons, with a few of the words each one teaches (`python3 course.py overview <level> <pace>` lists them), and ask once which of them the learner already knows.
 
-- **The ones they know:** mark each of those lessons `(known)` in the **Lessons** list and take it off the route. Do the same for any other lesson the learner says they know. Their words count as met, and the brief of each part lists them so you can remind the learner.
+- **The ones they know:** mark each of those lessons `(known)` in the **Lessons** list and take it off the route. If **Next** pointed to one of them, set it to what `python3 course.py progress <course.md>` gives. Do the same for any other lesson the learner says they know. Their words count as met, and the brief of each part lists them so you can remind the learner.
 - **The ones they don't:** those jump-start lessons come first, before the lesson they asked for: the later lessons are built on their words.
 
-A lesson marked `(known)` can still be studied later: remove the mark, write its parts again (from `course.py overview`), and put it on the route: first, with **Next** at its first part, if the learner wants it now; otherwise after the lesson in progress. A lesson already begun stays begun: its **Done** lines show which part comes next when the route returns to it.
+A lesson marked `(known)` can still be studied later: remove the mark, write its parts again (from `course.py overview`), and put it on the route, first if the learner wants it now and otherwise after the lesson in progress. If they want it now, set **Next** to its first part not yet in **Done**: `python3 course.py part <course.md> --lesson N` names it. To go through parts already studied is practice, and changes nothing in the file. A lesson already begun stays begun: the script works out which part comes next from its **Done** lines.
 
 ## Review a lesson
 
@@ -22,7 +22,7 @@ Use the lesson's lines in the **Done** log: a review-style set of prompts for it
 
 ## Change the pace
 
-Save the new **Pace**: 3, 5 or 7. It takes effect at the next lesson: a lesson already begun finishes at the old pace, and `course.py` works that out from **Next**. Recount the parts of the lessons not yet started in the **Lessons** list, from `python3 course.py overview <level> <pace>`.
+Save the new **Pace**: 3, 5 or 7. It takes effect at the next lesson: a lesson already begun finishes at the old pace, and `course.py` works that out from its **Done** lines. Recount the parts of the lessons not yet started in the **Lessons** list, from `python3 course.py overview <level> <pace>`.
 
 ## Change the audio
 

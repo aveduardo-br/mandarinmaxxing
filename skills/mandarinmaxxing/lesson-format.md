@@ -45,7 +45,7 @@ Plain Markdown. Blockquotes are reserved for showing back what the learner wrote
 
 ## Listening or reading
 
-Use what **Audio** in `course.md` says, and only that. With a provider, read `audio.md`. With `none`, the step is the reading below. Don't suggest the chat app's read aloud button: its voice reads Hanzi with the wrong sounds, and say so if they ask.
+Use what **Audio** in `course.md` says, and only that. With a provider, read `audio.md`. With `none`, the step is the reading below. Don't offer the chat app's read aloud button in place of audio: it isn't made for Mandarin, and its tones can come out wrong.
 
 ### Reading
 

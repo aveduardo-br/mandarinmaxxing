@@ -133,13 +133,14 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | `skills/mandarinmaxxing/LICENSE` | A copy of the [license](LICENSE), so it travels with the ZIP |
 | `qa/anchors/` | One test sentence for every group of words in a map. The skill doesn't read these |
 | `qa/benchmark/` | Simulated lessons used to test each version: scenarios, scripts, results |
-| `tools/` | Scripts that check the maps and the test sentences, and build the ZIP |
+| `tools/` | Scripts that check the maps and the test sentences, test the skill's own scripts, print editorial warnings about the maps, and build the ZIP |
 
 To check a map and build the ZIP locally, run these from the repository root:
 
 ```sh
 python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-1.md
 python3 tools/check_anchors.py 1
+python3 tools/test_scripts.py
 sh tools/build.sh
 ```
 
