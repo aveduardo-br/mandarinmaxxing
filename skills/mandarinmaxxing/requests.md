@@ -4,17 +4,17 @@ Read this when the learner asks for something other than the next part. Unless a
 
 ## Another lesson
 
-- **A specific lesson or part.** Teach it from its start. If it isn't the saved **Next**, it is standalone practice, unless the learner asks to change their place in the course.
-- **Changing the route.** When the learner jumps to a lesson out of route order ("go to Lesson 22", "start at 19"), the lesson keeps its number. Unless they say otherwise, the lessons jumped over follow it on the route, in map order. Confirm that in one line and save the route.
+- **Practising a lesson or part** ("let me practise Lesson 9 again"). Teach it from its start as standalone practice: **Next** and **Done** stay as they are.
+- **Changing the route.** When the learner jumps to a lesson out of route order ("go to Lesson 22", "start at 19"), the lesson keeps its number. Unless they say otherwise, the lessons jumped over follow it on the route, in map order. Confirm that in one line, save the route, and set **Next** to the first part of that lesson.
 
 ## Skip lessons the learner already knows
 
-Where to start is the learner's choice: the first lesson, the middle of the jump start, or any lesson after it. When a jump leaves jump-start lessons unstudied, ask once whether they already know those words.
+Where to start is the learner's choice: the first lesson, the middle of the jump start, or any lesson after it. When a jump leaves jump-start lessons unstudied, name those lessons, with a few of the words each one teaches, and ask once which of them the learner already knows.
 
-- **If yes**, mark each of those lessons `(known)` in the **Lessons** list and take it off the route. Do the same for any other lesson the learner says they know. Their words count as met, and `SKILL.md` says how to remind the learner of them.
-- **If no**, those jump-start lessons come first: the later lessons are built on their words.
+- **The ones they know:** mark each of those lessons `(known)` in the **Lessons** list and take it off the route. Do the same for any other lesson the learner says they know. Their words count as met, and `SKILL.md` says how to remind the learner of them.
+- **The ones they don't:** those jump-start lessons come first, before the lesson they asked for: the later lessons are built on their words.
 
-A lesson marked `(known)` can still be studied later: remove the mark, count its parts again, and put it back on the route.
+A lesson marked `(known)` can still be studied later: remove the mark, count its parts again, and put it on the route, first if the learner wants it now and otherwise after the lesson in progress. A lesson already begun stays begun: its **Done** lines show which part comes next when the route returns to it.
 
 ## Review a lesson
 

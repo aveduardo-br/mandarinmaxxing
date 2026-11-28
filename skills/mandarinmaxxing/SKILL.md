@@ -72,7 +72,7 @@ When the last part on the route is done, or the file says `Next: level complete`
 
 ## Lessons and parts
 
-A **lesson** is one situation of the map, and its map number is its number for good: in HSK 1, Lesson 20 is always "At school", in whatever order the learner studies. Numbers restart in each level, so always name the level with the lesson. A lesson is taught in one or more **parts**; a part is one sitting, from about twenty minutes to about an hour depending on how many words it brings.
+A **lesson** is one situation of the map, and its map number is its number for good: in HSK 1, Lesson 20 is always "At school", in whatever order the learner studies. Numbers restart in each level, so always name the level with the lesson. A lesson is taught in one or more **parts**; a part is one sitting, from about ten minutes for the very first ones to about an hour, depending on how many words it brings and how many the learner already has.
 
 Build a part from whole, consecutive blocks of one lesson. The lesson's `Split` line gives the blocks per part at paces 3 / 5 / 7: `Split: 1-1-1 / 1-2 / 3` means three one-block parts at pace 3, a one-block part then a two-block part at pace 5, and a single part at pace 7. With any other pace, or a map without `Split` lines, fill each part with whole blocks in map order until the next block would pass the pace by more than one word; a part always has at least one block. When a lesson ends, move to the next one on the route.
 
@@ -84,7 +84,7 @@ Give one exercise at a time and wait for the answer. Give brief feedback and the
 
 **Met words.** The learner has met every word of the levels below the course level, the words in the **Done** log, and the words of the lessons marked `(known)`. This part's table counts from the vocabulary step on: the review comes before it and never uses its words. Every piece of Mandarin you show or expect uses only met words: answers, chunks, hints, examples, readings, audio scripts.
 
-**Known, but never shown.** The course never showed the words of a lesson marked `(known)`. When a part's Mandarin uses some of them, list those under the table as a reminder, with pinyin and meaning, four at most per part.
+**Known, but never shown.** The course never showed the words of a lesson marked `(known)`. Use four of them at most in a part, and list the ones the part uses under the table as a reminder, with pinyin and meaning, in every part that uses them.
 
 **Naturalness comes before every count.** The numbers below are what a part aims for. When the met words can't make that many different natural prompts, give fewer. Never repeat a prompt, pad one, or bend a sentence to reach a number.
 
@@ -114,10 +114,10 @@ The plan is a draft. When an answer needs a correction, rework a prompt still to
 2. **Vocabulary.** The table, any support words and known-word reminders, then two to four useful chunks. A chunk is a phrase the learner can reuse, longer than a single table word wherever the met words allow, and every chunk listed is practised in round 1. Give a chunk a breakdown line only when its parts are words of this part's table or words met before, as in 开车 = 开 (drive) + 车 (car); otherwise leave the parts alone unless they ask. End the message with the first prompt of round 1.
 3. **Three rounds**, each prompt to translate into Mandarin. A word that is natural on its own is used on its own at least once, not only inside a longer word (站 in 坐两站, not only in 地铁站); a word that lives mostly in compounds can stay in them.
    - **Round 1 · Chunks.** Each prompt uses one of the part's chunks with a slot changed (the person, the place, the time, what follows the verb), never the chunk as listed. Spread the prompts across the chunks. These sentences can be short.
-   - **Round 2 · Full actions.** One complete sentence: who does what, with a time or a place when the learner has the words for one, joining a new chunk to words met earlier. Never shorter than the review's sentences.
+   - **Round 2 · Full actions.** One complete sentence: who does what, with a time or a place when the learner has the words for one, joining a new chunk to words met earlier.
    - **Round 3 · Sequences.** Two or three connected sentences: an account of a day, a plan, a message to someone, as long as the met words allow.
 
-   After round 3, offer one more round like it or the listening step, and wait.
+   After a full round 3, offer one more round like it or the listening step, and wait; after a shorter one, go straight to the listening step.
 4. **Listening or reading**, as `lesson-format.md` describes. Across this step, use every new word that fits.
 5. **Close.** Save, then send the closing message.
 
@@ -140,7 +140,7 @@ To call for a polite form such as 您, put the form of address inside the line w
 
 ### While the learner has met fewer than twenty words
 
-The first parts of a course from zero can't fill rounds of full sentences, and with so few words a line asked three times is the same exercise three times. So these parts are shorter (fifteen to thirty minutes) and practise each line in more than one way. Write `EARLY` in `plan.txt`: the count of three prompts per word doesn't apply.
+Count the words met before the part, without its table. The first parts of a course from zero can't fill rounds of full sentences, and with so few words a line asked three times is the same exercise three times. So these parts are short (ten to twenty minutes) and practise each line in more than one way. Write `EARLY` in `plan.txt`: the count of three prompts per word doesn't apply.
 
 - **Two more kinds of exercise** join the translation:
   - **Meaning.** Show a line in Mandarin, with its pinyin, and ask what it means.
@@ -149,7 +149,9 @@ The first parts of a course from zero can't fill rounds of full sentences, and w
   A line is asked once at most in each kind, so it can come back as meaning, as a reply and as a translation, never twice the same way.
 - **Round 1** uses meaning and reply exercises. **Round 2** asks for translations: one speaker's line, or a short exchange in which the second line reacts to the first, with a dash before each speaker. **Round 3** is given only when the words make two connected sentences; otherwise go from round 2 to the listening step.
 - Lines follow a real encounter: greet, then thank or apologize, then say goodbye. One speaker's line holds one reaction (谢谢您！), or two that people really say together (好，再见！): never a greeting glued to an apology or to thanks (你好，对不起！), never two words that mean the same (没事，没关系。), never an echo ("Hi! — Hi!").
-- A chunk with no slot to change is asked as listed.
+- A chunk with no slot to change is asked as listed. An exchange of two lines can be listed as a chunk.
+- **The review** asks the last part's lines in a kind they weren't asked in, or inside a new exchange with words met since, and can have fewer prompts than that part had words.
+- Open these rounds with their number alone (**Round 1**): the names in **Rounds** describe the usual rounds.
 
 From twenty met words on, the usual rounds apply and every prompt of rounds 1 and 2 is one speaker and one sentence.
 

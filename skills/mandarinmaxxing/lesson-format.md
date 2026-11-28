@@ -5,7 +5,7 @@ How each message of a lesson looks. Take the words for lesson, part, review, rou
 ## Titles and prompts
 
 - **Title.** Each part opens with one bold line in the learner's language: `HSK 1 · Lesson 20 · At school · part 1 of 2`. Level first, no leading zero, and no "part 1 of 1" for a single-part lesson. When a part starts with the vocabulary table, the table's heading is the title and no line goes above it. When it starts with the review, the title opens the review and the table's heading repeats it.
-- **Prompts.** The counter goes on its own bold line and the sentence to translate in plain text under it, after a blank line, never in a blockquote. In the review the counter counts the whole review: **Review 2 of 7**. In the rounds it names the round and counts to the round's total: **Round 2 · 3 of 4**. Open each round with one bold line naming it: **Round 2 · Full actions**. Say "Translate into Mandarin" before the first review prompt and before the first prompt of round 1, and nowhere else.
+- **Prompts.** The counter goes on its own bold line and the sentence to translate in plain text under it, after a blank line, never in a blockquote. In the review the counter counts the whole review: **Review 2 of 7**. In the rounds it names the round and counts to the round's total: **Round 2 · 3 of 4**. Open each round with one bold line naming it: **Round 2 · Full actions**. Say "Translate into Mandarin" before the first translation prompt of the review and before the first one of the rounds, and nowhere else.
 - **Meaning and reply exercises**, in the first parts of a course, take the same counter. Say what to do in one short line before the first of each kind ("What does it mean?", "What do you answer?"). A meaning exercise shows the line as **Hanzi** and *pinyin*. A reply exercise shows the other person's line on three lines: Hanzi, pinyin, meaning.
 
 ## Mandarin, written the same way everywhere
@@ -31,7 +31,7 @@ Draw the table with the chat's inline HTML or widget tool, in the conversation, 
 <script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@3c37ff22ccbd28484770bda859d8142a907d7a9d/skills/mandarinmaxxing/web/vocab.js"></script>
 ```
 
-Under the table, add a one-line usage note only for a word whose use the meaning can't show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), or a word the exercises will use in a role the meaning doesn't show (不 alone as a reply: "no"). Give a polite form a meaning that says who it is for, such as 您 = "you (to sir or madam)".
+Under the table, add a one-line usage note only for a word whose use the meaning can't show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), a word the exercises will use in a role the meaning doesn't show (不 alone as a reply: "no"), or a word whose tone changes in the chunks (不 is said *bú* before a fourth tone). Give a polite form a meaning that says who it is for, such as 您 = "you (to sir or madam)".
 
 **Words that translate the same way** (没关系 and 没事, 中文 and 汉语): give each prompt a context that fits only one, or accept both. When the learner keeps choosing one, ask for the other by name in the next prompt that fits and again in the next part's review.
 

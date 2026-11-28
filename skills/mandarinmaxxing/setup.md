@@ -32,7 +32,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
   <p>Choose your level and pace below. Nothing here is final: type "setup" to come back to this screen.</p>
   <h3>Before you start</h3>
   <details><summary>What does a lesson look like?</summary>
-    <p>A review of last time, new words inside ready-to-use phrases, three rounds of translation from your language into Mandarin with feedback right away, and a listening or reading step to close. From twenty minutes to an hour, depending on how many words the part brings; the very first ones are the shortest.</p>
+    <p>A review of last time, new words inside ready-to-use phrases, three rounds of translation from your language into Mandarin with feedback right away, and a listening or reading step to close. The very first lessons take ten or fifteen minutes, because you know almost no words yet. After that, from half an hour to an hour, depending on how many words the part brings.</p>
   </details>
   <details><summary>Do I need audio?</summary>
     <p>No. With audio, you hear a short dictation and a short story in a natural voice, through your own ElevenLabs account, which has a free plan. Without audio, you read a text instead and there's nothing to set up.</p>
@@ -52,7 +52,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
   </fieldset>
   <button data-start>See my lessons</button>
 </section>
-<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@1aabecc2fa8efb78a801b0764149745900aaa09e/skills/mandarinmaxxing/web/setup.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@3c37ff22ccbd28484770bda859d8142a907d7a9d/skills/mandarinmaxxing/web/setup.js"></script>
 ```
 
 - `data-on` marks the choice that starts selected: HSK 1, recommended, audio off. If the learner already named a level, a pace or audio, move `data-on` to what they said.
@@ -108,7 +108,7 @@ When a learner with a saved course writes "setup" or "/setup", send this card, f
   </fieldset>
   <button data-start data-lead="Change my course." data-same="Nothing changed yet.">Save changes</button>
 </section>
-<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@1aabecc2fa8efb78a801b0764149745900aaa09e/skills/mandarinmaxxing/web/setup.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@3c37ff22ccbd28484770bda859d8142a907d7a9d/skills/mandarinmaxxing/web/setup.js"></script>
 ```
 
 - `data-progress` is the parts done and the parts in the level, as two numbers: the **Done** lines of the current level, and the sum of the parts in the **Lessons** list (a lesson marked `(known)` has no parts to count). The script writes the percentage; don't write one yourself.

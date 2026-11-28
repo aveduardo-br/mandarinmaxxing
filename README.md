@@ -10,7 +10,7 @@ I built this skill for myself. The textbook order felt slow to me, with words th
 
 ## How a lesson works
 
-Each lesson is one situation, such as **Shopping and paying**. You study it in parts, a few new words at a time. A part takes from twenty minutes to about an hour: the practice follows the number of new words, and the very first parts, when you know almost nothing yet, are the shortest. If you have less time, ask for a shorter session.
+Each lesson is one situation, such as **Shopping and paying**. You study it in parts, a few new words at a time. The very first parts take ten or fifteen minutes, because you know almost no words yet. After that a part takes from half an hour to about an hour: the practice follows the number of new words. If you have less time, ask for a shorter session.
 
 1. **Review.** One sentence to translate for each word of your last part. Older words come back inside these sentences, so you don't forget them.
 2. **New words.** A table with Hanzi, pinyin, and the meaning in your language, plus a few ready-to-use phrases.
