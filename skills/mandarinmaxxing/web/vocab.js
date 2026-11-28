@@ -26,8 +26,11 @@
   // One recording per word lives in the mandarinmaxxing-audio repository, named with the word itself.
   // A click plays it; a word with no recording yet stays silent. When this address changes, update it here.
   var AUDIO = 'https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing-audio@ab7d5a5bb4816ebae105ea9c58b1f8d541268f9f/audio/';
-  // Words with two readings: the reading that has the plain file name. Any other reading is word_pinyin.
-  var READINGS = {"还":"ha2i","好":"ha3o","看":"ka4n","只":"zhi1","啊":"a","长":"cha2ng","地":"de","得":"de","过":"guo4","头":"to2u","着":"zhe","地方":"di4fang","干":"ga4n","为":"we4i","行":"xi2ng","中":"zho1ng","种":"zho3ng","背":"be1i","重":"cho2ng","待":"da1i","当":"da1ng","倒":"da4o","结果":"jie2guo3","空":"ko1ng","量":"lia2ng","落":"luo4","数":"shu4","转":"zhua3n","冲":"cho1ng","处":"chu3","调":"dia4o","划":"hua2","系":"ji4","结":"jie2","扇":"sha1n","炸":"zha2","卷":"jua3n","露":"lo4u","散":"sa3n","吐":"tu3"};
+  // Words with a second reading. A word's plain file is its first reading; a row whose pinyin is one of the
+  // readings listed here plays word_pinyin instead. Any other pinyin plays the plain file, however it is written.
+  var OTHER = {"还":["hua2n"],"只":["zhi3"],"啊":["a1"],"地":["di4"],"得":["de2"],"长":["zha3ng"],"干":["ga1n"],"种":["zho4ng"],"重":["zho4ng"],"空":["ko4ng"],"为":["we2i"]};
+  // Readings with no recording yet: silent, since the plain file would teach the wrong sound.
+  var SILENT = {"过":["guo"],"得":["de3i"],"着":["zha2o"]};
   var TONE = { '\u0304': '1', '\u0301': '2', '\u030c': '3', '\u0300': '4' };
   function toneAscii(pinyin) {
     var out = [], text = (pinyin || '').split('/')[0].toLowerCase().normalize('NFD');
@@ -44,7 +47,6 @@
     if (!word.sound || typeof Audio === 'undefined') return;
     if (player) { player.pause(); }
     player = new Audio(AUDIO + encodeURIComponent(word.sound) + '.mp3');
-    player.onerror = function () { word.sound = ''; };  // no recording for this word: don't ask again
     var started = player.play();
     if (started && started.catch) started.catch(function () {});
   }
@@ -52,7 +54,7 @@
   var HAN = /[㐀-鿿]/;
   var words = [];
   root.querySelectorAll('span[lang="zh-Hans"]').forEach(function (w) {
-    var text = w.textContent.trim();
+    var text = w.textContent.trim().replace(/\d+$/, '');  // 会1 is shown and played as 会
     w.textContent = '';
     w.setAttribute('tabindex', '0');
     w.setAttribute('aria-label', text);
@@ -67,7 +69,8 @@
     });
     var row = w.closest ? w.closest('tr') : null;
     var said = row && row.children[1] ? toneAscii(row.children[1].textContent) : '';
-    var sound = READINGS[text] && said && READINGS[text] !== said ? text + '_' + said : text;
+    var sound = OTHER[text] && OTHER[text].indexOf(said) > -1 ? text + '_' + said : text;
+    if (SILENT[text] && SILENT[text].indexOf(said) > -1) sound = '';
     var word = { el: w, cells: cells, busy: false, sound: HAN.test(text) ? sound : '' };
     words.push(word);
     w.addEventListener('click', function () { speak(word); });

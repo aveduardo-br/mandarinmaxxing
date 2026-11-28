@@ -5,7 +5,9 @@ Usage: python3 check_plan.py plan.txt
 plan.txt, written by the tutor and never shown to the learner:
 
     LEVEL 2
-    KNOWN jump start        (only if course.md has that line)
+    KNOWN 01 02 03          (only if course.md marks lessons as known: their numbers)
+    MAP map-hsk-5.md        (only for a level whose map you built: its path)
+    EARLY                   (only while the learner has met fewer than twenty words)
     NEW 地铁 站 离 远
     SUPPORT 杯              (only if the part has support words)
     NAMES 北京 小王         (only if the plan uses names of people or places)
@@ -20,14 +22,17 @@ plan.txt, written by the tutor and never shown to the learner:
     chunk: ...
 
 One Mandarin sentence or text per PLAN line. A line that has no Hanzi, such as the
-prompt in the learner's language written under its answer, is skipped. The script reports:
+prompt in the learner's language written under its answer, is skipped; so is a line
+with Japanese kana or Korean letters. The script reports:
 - NOT MET: characters that no met word covers (met: the levels below LEVEL, DONE, NEW,
-  SUPPORT, and the level's jump start when KNOWN is given; NAMES are allowed)
+  SUPPORT, and the lessons KNOWN lists; NAMES are allowed). A review line is checked
+  without NEW and SUPPORT: the review comes before the table.
 - CHECK: stretches that met words cover but that are also an official word the learner
   hasn't met, such as 要是 from 要 and 是. Keep one only if you mean its parts.
-- new words that appear in fewer than three round lines
+- new words that appear in fewer than three round lines, alone or inside a longer word
+  (not reported with EARLY)
 
-It checks vocabulary only. Whether a sentence is natural is still the tutor's call.
+It exits with 1 when it reports NOT MET or a count, and 0 otherwise. It checks vocabulary only. Whether a sentence is natural is still the tutor's call.
 """
 import os
 import re
@@ -35,6 +40,13 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 HAN = re.compile(r'[一-鿿]+')
+OTHER_SCRIPT = re.compile(r'[぀-ヿ가-힯]')  # kana, hangul: a prompt, not Mandarin
+ALWAYS = {'没'}  # in every list only inside 没有, 没事, 没关系, and said alone all the time
+
+
+def with_plain_er(words):
+    """面条儿 is also met as 面条: the final 儿 is optional in writing."""
+    return words | {w[:-1] for w in words if len(w) > 1 and w.endswith('儿')}
 
 
 def clean(word):
@@ -56,14 +68,17 @@ def lower_levels(level):
     return out
 
 
-def jump_start(level):
+def known_lessons(level, numbers, mapfile):
+    """Words of the lessons the course counts as known. `numbers` holds two-digit lesson
+    numbers; empty means every jump-start lesson (the older `KNOWN jump start`)."""
     out, inside = set(), False
-    path = os.path.join(HERE, 'maps', f'hsk-{level}.md')
+    path = mapfile or os.path.join(HERE, 'maps', f'hsk-{level}.md')
     if not os.path.exists(path):
+        print(f'KNOWN: no map at {path}; give its path on a MAP line.')
         return out
     for line in open(path, encoding='utf-8'):
         if line.startswith('## '):
-            inside = '| jump-start |' in line
+            inside = line[3:5] in numbers if numbers else '| jump-start |' in line
         elif line.startswith('- ') and inside:
             out |= words_in(line[2:])
     return out
@@ -109,17 +124,28 @@ def segment(run, vocab, longest):
 
 
 def main(path):
-    level, known, new, support, names, done, plan = 1, False, set(), set(), set(), set(), []
-    section = None
+    level, known, new, support, names, done, plan = 1, None, set(), set(), set(), set(), []
+    section, mapfile, early = None, None, False
     for raw in open(path, encoding='utf-8'):
-        line = raw.strip()
+        line = raw.strip().replace('：', ':')
         if not line:
             continue
         head = line.split()[0].upper().rstrip(':')
+        if section == 'PLAN':
+            head = ''  # nothing in the plan is a command: a prompt may start with any word
+        elif section == 'DONE' and head != 'PLAN':
+            head = ''
         if head == 'LEVEL':
-            level = int(re.search(r'\d', line).group())
+            found = re.search(r'\d+', line)
+            if not found:
+                sys.exit('LEVEL needs a number, such as: LEVEL 2')
+            level = int(found.group())
         elif head == 'KNOWN':
-            known = True
+            known = set(n.zfill(2) for n in re.findall(r'\d+', line))
+        elif head == 'MAP':
+            mapfile = line[3:].lstrip(': ').strip()
+        elif head == 'EARLY':
+            early = True
         elif head == 'NEW':
             new |= words_in(line[3:].lstrip(': '))
         elif head == 'SUPPORT':
@@ -131,24 +157,28 @@ def main(path):
         elif section == 'DONE':
             done |= words_in(line.split('|', 1)[-1])
         elif section == 'PLAN':
+            if OTHER_SCRIPT.search(line):
+                continue
             label, _, text = line.partition(':')
             if not HAN.search(text) or HAN.search(label):
                 label, text = '', line
             if HAN.search(text):
-                plan.append((label.strip().lower(), text.strip()))
+                plan.append((label.strip().lower().replace(' ', ''), text.strip()))
 
-    met = lower_levels(level) | done | new | support
-    if known:
-        met |= jump_start(level)
-    vocab = met | names
+    before = lower_levels(level) | done | ALWAYS
+    if known is not None:
+        before |= known_lessons(level, known, mapfile)
+    before = with_plain_er(before) | names
+    vocab = before | with_plain_er(new | support)
     longest = max((len(w) for w in vocab), default=1)
     later = {w for w in all_levels() - vocab if len(w) > 1}
 
     unmet, check, counts = [], {}, {w: 0 for w in new}
     for label, text in plan:
         seen, missing = set(), []
+        allowed = before if label.startswith('review') else vocab
         for run in HAN.findall(text):
-            tokens, miss = segment(run, vocab, longest)
+            tokens, miss = segment(run, allowed, longest)
             seen.update(tokens)
             missing += miss
             if not miss:
@@ -161,12 +191,13 @@ def main(path):
         if missing:
             unmet.append((''.join(dict.fromkeys(missing)), label, text))
         if label.startswith('round'):
-            for w in new & seen:
-                counts[w] += 1
+            for w in new:
+                if w in seen or w in text or (w.endswith('儿') and len(w) > 1 and w[:-1] in text):
+                    counts[w] += 1
 
     if not plan:
         print('No PLAN lines found.')
-        return
+        return 1
     if unmet:
         print('NOT MET (rewrite the sentence, or list the word as a support word):')
         for chars, label, text in unmet:
@@ -176,16 +207,17 @@ def main(path):
         for w, texts in check.items():
             more = f' (and {len(texts) - 1} more lines)' if len(texts) > 1 else ''
             print(f'  {w}  in: {texts[0]}{more}')
-    under = sorted((c, w) for w, c in counts.items() if c < 3)
+    under = [] if early else sorted((c, w) for w, c in counts.items() if c < 3)
     if under:
         print('NEW WORDS IN FEWER THAN THREE ROUND LINES:')
         for c, w in under:
             print(f'  {w}: {c}')
     if not unmet and not under and not check:
-        print(f'OK: {len(plan)} lines, every character met, every new word in three round lines or more.')
+        print(f'OK: {len(plan)} lines, every character met' + ('.' if early else ', every new word in three round lines or more.'))
+    return 1 if unmet or under else 0
 
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         sys.exit(__doc__)
-    main(sys.argv[1])
+    sys.exit(main(sys.argv[1]))
