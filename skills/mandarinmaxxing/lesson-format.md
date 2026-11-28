@@ -5,13 +5,14 @@ How each message of a lesson looks. Take the words for lesson, part, review, rou
 ## Titles and prompts
 
 - **Title.** Each part opens with one bold line in the learner's language: `HSK 1 · Lesson 20 · At school · part 1 of 2`. Level first, no leading zero, and no "part 1 of 1" for a single-part lesson. When a part starts with the vocabulary table, the table's heading is the title and no line goes above it. When it starts with the review, the title opens the review and the table's heading repeats it.
-- **Prompts.** The counter goes on its own bold line and the sentence to translate in plain text under it, after a blank line, never in a blockquote. In the review the counter counts the whole review: **Review 2 of 7**. In the rounds it names the round and counts to five: **Round 2 · 3 of 5**. Open each round with one bold line naming it: **Round 2 · Full actions**. Say "Translate into Mandarin" before the first review prompt and before the first prompt of round 1, and nowhere else.
+- **Prompts.** The counter goes on its own bold line and the sentence to translate in plain text under it, after a blank line, never in a blockquote. In the review the counter counts the whole review: **Review 2 of 7**. In the rounds it names the round and counts to the round's total: **Round 2 · 3 of 4**. Open each round with one bold line naming it: **Round 2 · Full actions**. Say "Translate into Mandarin" before the first review prompt and before the first prompt of round 1, and nowhere else.
+- **Meaning and reply exercises**, in the first parts of a course, take the same counter. Say what to do in one short line before the first of each kind ("What does it mean?", "What do you answer?"). A meaning exercise shows the line as **Hanzi** and *pinyin*. A reply exercise shows the other person's line on three lines: Hanzi, pinyin, meaning.
 
 ## Mandarin, written the same way everywhere
 
 Outside the vocabulary table: **Hanzi in bold**, *pinyin in italics*, meaning in plain text. Italics are for pinyin only. Never italicize or strike through Hanzi.
 
-- **A chunk or a corrected sentence** takes three lines, with hard line breaks: the Hanzi, the pinyin, the meaning. Put the chunk list under one bold line with the label for useful phrases. When a word in a chunk can be swapped, say which in its meaning line, without giving the swap: round 1 is where the learner tries it. A breakdown, when the chunk has one, is a fourth line in plain text: 你好 = 你 (you) + 好 (good).
+- **A chunk or a corrected sentence** takes three lines, with hard line breaks: the Hanzi, the pinyin, the meaning. Put the chunk list under one bold line with the label for useful phrases. When a word in a chunk can be swapped, say which in its meaning line, without giving the swap: round 1 is where the learner tries it. A breakdown, when the chunk has one, is a fourth line in plain text: 开车 = 开 (drive) + 车 (car).
 - **A word inside a sentence** is written inline: **超市** (*chāoshì*, supermarket). A word known since earlier parts needs only the bold Hanzi, unless it is the point of the correction.
 - **Reading texts** stay as plain Hanzi, with no pinyin.
 
@@ -27,7 +28,7 @@ Draw the table with the chat's inline HTML or widget tool, in the conversation, 
     <tbody><tr><td><span lang="zh-Hans">商店</span></td><td>shāngdiàn</td><td>shop</td></tr></tbody>
   </table>
 </section>
-<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@1aabecc2fa8efb78a801b0764149745900aaa09e/skills/mandarinmaxxing/web/vocab.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@3c37ff22ccbd28484770bda859d8142a907d7a9d/skills/mandarinmaxxing/web/vocab.js"></script>
 ```
 
 Under the table, add a one-line usage note only for a word whose use the meaning can't show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), or a word the exercises will use in a role the meaning doesn't show (不 alone as a reply: "no"). Give a polite form a meaning that says who it is for, such as 您 = "you (to sir or madam)".
@@ -38,7 +39,7 @@ Under the table, add a one-line usage note only for a word whose use the meaning
 
 Plain Markdown. Blockquotes are reserved for showing back what the learner wrote.
 
-- **Correct and natural.** Confirm briefly and go to the next prompt. For a right answer in pinyin, show the sentence in Hanzi on one line. Accept any natural version, including a standard variant such as 没有关系 for 没关系. If the accepted answer leaves out a new word of the part, or uses another expression than the chunk you were after, name the word or chunk in one line and bring it back in a prompt of the same round.
+- **Correct and natural.** Confirm briefly and go to the next prompt. For a right answer in pinyin, show the sentence in Hanzi on one line. Accept any natural version, including a standard variant such as 没有关系 for 没关系. If the accepted answer leaves out a new word of the part, or uses another expression than the chunk you were after, name the word or chunk in one line and bring it back as "After a correction" in `SKILL.md` says.
 - **Right meaning, unnatural phrasing.** Say the meaning is right, show a more natural version with its pinyin, and explain the change briefly.
 - **Incorrect.** In this order: a short opener and "You wrote:", then the learner's whole answer in a blockquote. One line per fix, pointing only at what went wrong: the word or chunk to use in bold, its pinyin in italics, a short reason; for word order, the stretch in the right order. Then the full corrected sentence once, on three lines. Then the next prompt. No breakdown of the parts the learner got right.
 
@@ -56,11 +57,11 @@ One message, in this order:
 
 **While the met words can't carry a first-person account**, as in the first parts of a course, skip the text. Under the same title, name two to four moments of the lesson's situation in the learner's language (you arrive, someone hands you something, you leave) and ask what they would say in each, in Mandarin.
 
-Correct the rewrite as a written translation. One text per part, with every new word in it; a second only when the new words don't fit one scene.
+Correct the rewrite as a written translation. One text per part, with every new word that fits; a second only when the new words don't fit one scene.
 
 ### Listening (with a voice provider)
 
-Up to two clips, sent one at a time, each with one speaker in the course's voice.
+One or two clips, as "How much practice" in `SKILL.md` says, sent one at a time, each with one speaker in the course's voice.
 
 - **Check the script** before generating: natural Mandarin, the part's new words in it, and every word met. Check them one by one.
 - **Generate once**, a single take, with the language set to Chinese when the provider has that setting. Never run a generation again unless the learner asks: each run spends their credits. On the first clip of a course, choose the voice and save it in **Audio**: with ElevenLabs, Yun (voice ID `4AfodMgwXps9oZFhHzoj`), the native Mandarin voice of the table's recordings, unless the learner asks for another, and Sarah (voice ID `EXAVITQu4vr4xnSDxMaL`) if their account can't use Yun; otherwise one clear, neutral voice from the provider's list.
@@ -75,7 +76,6 @@ Up to two clips, sent one at a time, each with one speaker in the course's voice
 One short message after the last exercise; it can share a message with the feedback on it.
 
 - What comes next: "Next time: HSK 1, Lesson 11, part 3."
-- After the last part of a lesson with two or more parts, one line saying the lesson is complete and offering a wrap-up role-play, now or next time (it is described in `requests.md`).
-- An offer to start the next part now.
+- One offer, as a single question. After the last part of a lesson with two or more parts: one line saying the lesson is complete, and the wrap-up role-play (it is described in `requests.md`). After any other part: starting the next part now.
 
 No summary of the part.

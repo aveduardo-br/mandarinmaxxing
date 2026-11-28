@@ -19,15 +19,15 @@ If the learner later reviews a lesson of a finished level, take its name from th
 
 ## HSK 5 and 6
 
-Levels 5 and 6 have a word list in `syllabus/` and no map yet, so you build the map before the overview. Say first, in one line, that this level isn't mapped yet and that preparing it takes a few minutes.
+Levels 5 and 6 are experimental: they have a word list in `syllabus/` and no map yet, so you build the map before the overview. Say first, in one line, that this level isn't mapped yet, that preparing it takes several minutes, and that its lessons come out rougher than levels 1 to 4.
 
-Build it with the rules the other maps follow:
+Read the level's whole list for this, and build the map with the rules the other maps follow:
 
-- Situations a learner can talk about, not categories.
-- Blocks of two to four words that make sentences together.
+- Situations a learner can talk about, not categories. Lessons of about 15 to 25 words.
+- Blocks of two to four words that make sentences together, in mixed sizes.
 - Look-alike and same-category words in different blocks.
-- Core function words early, in a short jump start.
+- Core function words early, in a jump start of five lessons at most.
 
-Use the format of `maps/hsk-4.md`, without `Split` lines, and spell every word as the list does, sense numbers included. Write the map to a file a few lessons at a time, then run `python3 check_map.py map-hsk-N.md N`. It lists the official words the map leaves out, words that aren't in the list, repeated words, and blocks of the wrong size. Fix what it lists and run it again, three times at most. If words are still missing after that, put them in a last lesson of their own rather than leave them out, and tell the learner the level was built on the spot and may be rougher than levels 1 to 4. Where you can't run code, count the words yourself and say the map wasn't checked by script.
+Use the format of `maps/hsk-4.md`, without `Split` lines, and spell every word as the list does, sense numbers included. Write the map to a file a few lessons at a time, then run `python3 check_map.py map-hsk-N.md N <pace>`. It lists every official word the map leaves out, words that aren't in the list, repeated words, and blocks of the wrong size; then the parts of each lesson at the learner's pace and their total, which the overview needs. Fix what it lists and run it again, three times at most. If words are still missing after that, put them in a last lesson of their own rather than leave them out. Where you can't run code, count the words yourself and say the map wasn't checked by script.
 
-Save the map beside the course file as `map-hsk-N.md` and read it from there in later chats. After HSK 6 there is no next level: only congratulate.
+Save the map beside the course file as `map-hsk-N.md` and read it from there in later chats; when a plan needs it, give its path on a `MAP` line of `plan.txt`. After HSK 6 there is no next level: only congratulate.

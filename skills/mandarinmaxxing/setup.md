@@ -32,7 +32,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
   <p>Choose your level and pace below. Nothing here is final: type "setup" to come back to this screen.</p>
   <h3>Before you start</h3>
   <details><summary>What does a lesson look like?</summary>
-    <p>A review of last time, new words inside ready-to-use phrases, three rounds of translation from your language into Mandarin with feedback right away, and a listening or reading step to close. About an hour.</p>
+    <p>A review of last time, new words inside ready-to-use phrases, three rounds of translation from your language into Mandarin with feedback right away, and a listening or reading step to close. From twenty minutes to an hour, depending on how many words the part brings; the very first ones are the shortest.</p>
   </details>
   <details><summary>Do I need audio?</summary>
     <p>No. With audio, you hear a short dictation and a short story in a natural voice, through your own ElevenLabs account, which has a free plan. Without audio, you read a text instead and there's nothing to set up.</p>
@@ -42,7 +42,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
   </details>
   <h3>Your choices</h3>
   <fieldset><legend>Level<small>HSK</small></legend>
-    <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button><button data-value="HSK 5" data-note="HSK 5 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">5</button><button data-value="HSK 6" data-note="HSK 6 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">6</button>
+    <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button><button data-value="HSK 5" data-note="Experimental. HSK 5 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">5</button><button data-value="HSK 6" data-note="Experimental. HSK 6 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">6</button>
   </fieldset>
   <fieldset><legend>Pace<small>new words a day</small></legend>
     <button>Light<small>about 3</small></button><button data-on>Recommended<small>about 5</small></button><button>Intense<small>about 7</small></button>
@@ -69,7 +69,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
 
 Read the map, then show a compact overview before the first part:
 
-- The number of lessons and the total number of parts at the learner's pace, from the map header, and what that means in weeks at one part a day, about an hour each. Present it as an estimate. Say once, in one sentence, that each lesson is one situation studied a part at a time.
+- The number of lessons and the total number of parts at the learner's pace, from the map header, and what that means in weeks at one part a day. For a pace other than 3, 5 or 7, or a map you built, run `python3 check_map.py <map> <level> <pace>`: it prints each lesson's parts and the total. Present it as an estimate. Say once, in one sentence, that each lesson is one situation studied a part at a time.
 - The jump start, when the level has one: the lessons every later lesson depends on, taught first and in order.
 - The other lessons, in map order.
 
@@ -79,7 +79,7 @@ Then:
 
 1. Save `course.md` in the shape given in `SKILL.md`: the settings, the route in map order, the full lesson list in the learner's language, and `Next` at part 1 of the first lesson.
 2. Add one sentence on what they can ask for at any time: review a lesson, change the pace, an extra reading with only the words they know, or flashcards of a part's words.
-3. Ask where they want to start and whether to move any lesson earlier or later. A learner starting from zero starts at Lesson 1. A learner who has studied before reads the list and picks the lesson to start from: "start at 19" puts Lesson 19 first, and it is still called Lesson 19 (see "Another lesson" in `requests.md`). Only lessons after the jump start can move. Save again if the route changes.
+3. Ask where they want to start and whether to move any lesson earlier or later. A learner starting from zero starts at Lesson 1. A learner who has studied before reads the list and picks the lesson to start from: "start at 19" puts Lesson 19 first, and it is still called Lesson 19 (see "Another lesson" in `requests.md`). The jump start keeps its order, and a learner who already knows some of its lessons can skip them as known (see "Skip lessons the learner already knows" in `requests.md`). Save again if the route changes.
 
 Start the first part once the learner agrees.
 
@@ -98,7 +98,7 @@ When a learner with a saved course writes "setup" or "/setup", send this card, f
   </nav>
   <h3>Settings</h3>
   <fieldset><legend>Level<small>HSK</small></legend>
-    <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button><button data-value="HSK 5" data-note="HSK 5 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">5</button><button data-value="HSK 6" data-note="HSK 6 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">6</button>
+    <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button><button data-value="HSK 5" data-note="Experimental. HSK 5 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">5</button><button data-value="HSK 6" data-note="Experimental. HSK 6 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">6</button>
   </fieldset>
   <fieldset><legend>Pace<small>new words a day</small></legend>
     <button>Light<small>about 3</small></button><button data-on>Recommended<small>about 5</small></button><button>Intense<small>about 7</small></button>
@@ -111,7 +111,7 @@ When a learner with a saved course writes "setup" or "/setup", send this card, f
 <script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@1aabecc2fa8efb78a801b0764149745900aaa09e/skills/mandarinmaxxing/web/setup.js"></script>
 ```
 
-- `data-progress` is the parts done and the parts in the level, as two numbers: the **Done** lines of the current level, and the sum of the parts in the **Lessons** list. The script writes the percentage; don't write one yourself.
+- `data-progress` is the parts done and the parts in the level, as two numbers: the **Done** lines of the current level, and the sum of the parts in the **Lessons** list (a lesson marked `(known)` has no parts to count). The script writes the percentage; don't write one yourself.
 - The lesson line comes from **Next** and the **Lessons** list. With `Next: level complete`, say so in that line and make the first button offer the next level.
 - Put `data-on` on the level, pace and audio the file holds. A pace other than 3, 5 or 7 gets no `data-on` in that group; name it in the group's small text.
 - The three buttons at the top send their `data-send` text, translated: answer each as the request it is. "Continue" asks for the part in **Next**.

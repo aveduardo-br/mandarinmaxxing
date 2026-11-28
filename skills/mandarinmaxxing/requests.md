@@ -5,13 +5,20 @@ Read this when the learner asks for something other than the next part. Unless a
 ## Another lesson
 
 - **A specific lesson or part.** Teach it from its start. If it isn't the saved **Next**, it is standalone practice, unless the learner asks to change their place in the course.
-- **Changing the route.** When the learner jumps to a lesson out of route order ("go to Lesson 22", "start at 19"), the lesson keeps its number. Confirm in one line what comes after it, and save the route.
-- **Jumping past an unfinished jump start.** Ask once whether to count the jump start's words as known. If yes, add `- Known: jump start` to the settings in `course.md`. If no, teach the jump start first.
-- **The first review after such a jump** takes five to ten jump-start words that fit the new lesson's situation, in place of the last **Done** line. Each goes in a round-2 sentence set in or near that situation, never a greeting or an introduction formula.
+- **Changing the route.** When the learner jumps to a lesson out of route order ("go to Lesson 22", "start at 19"), the lesson keeps its number. Unless they say otherwise, the lessons jumped over follow it on the route, in map order. Confirm that in one line and save the route.
+
+## Skip lessons the learner already knows
+
+Where to start is the learner's choice: the first lesson, the middle of the jump start, or any lesson after it. When a jump leaves jump-start lessons unstudied, ask once whether they already know those words.
+
+- **If yes**, mark each of those lessons `(known)` in the **Lessons** list and take it off the route. Do the same for any other lesson the learner says they know. Their words count as met, and `SKILL.md` says how to remind the learner of them.
+- **If no**, those jump-start lessons come first: the later lessons are built on their words.
+
+A lesson marked `(known)` can still be studied later: remove the mark, count its parts again, and put it back on the route.
 
 ## Review a lesson
 
-Use the lesson's lines in the **Done** log: a review-style set of prompts for its words, at the level of the course. For extra practice on one point, give more prompts on it during the lesson.
+Use the lesson's lines in the **Done** log: a review-style set of prompts for its words, at the level of the course, one prompt per word and ten at most; in a longer lesson, take the words by turn across its lines. For extra practice on one point, give more prompts on it during the lesson.
 
 ## Change the pace
 
@@ -31,11 +38,11 @@ When the learner writes "setup" or "/setup", read `setup.md` and send the course
 
 ## Back after a break
 
-When the learner says they have been away for weeks, offer a review of the last two or three lessons studied before the next part. They decide.
+When the learner says they have been away for weeks, offer a review of the last two or three lessons studied, then go on from **Next**. They decide.
 
 ## Wrap-up role-play
 
-Offered once, in the close of the last part of a lesson with two or more parts. When the learner accepts, now or in a later chat, play the other person in the lesson's situation: write in Mandarin with the meaning under each line, and let the learner reply in Mandarin, for four to six turns that call on blocks from every part of the lesson. Accept any natural reply, not only the one you expected, and correct the rest as a written translation. A slip goes into **To reinforce**. If the learner moves on, don't bring it up again.
+Offered once, in the close of the last part of a lesson with two or more parts. When the learner accepts, now or in a later chat, set the scene in one line in their language, then play the other person in the lesson's situation: write in Mandarin with the meaning under each line, and let the learner reply in Mandarin, for four to six turns that call on blocks from every part of the lesson. Accept any natural reply, not only the one you expected, and correct the rest as a written translation. Close it in one line, save any slip in **To reinforce**, and offer the next part. If the learner moves on instead, don't bring it up again.
 
 ## Extra reading
 

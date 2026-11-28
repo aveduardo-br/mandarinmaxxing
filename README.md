@@ -10,11 +10,11 @@ I built this skill for myself. The textbook order felt slow to me, with words th
 
 ## How a lesson works
 
-Each lesson is one situation, such as **Shopping and paying**. You study it in parts, a few new words at a time, and a part is built for about an hour a day. That's roughly what real progress takes; if you have less time, ask for a shorter session.
+Each lesson is one situation, such as **Shopping and paying**. You study it in parts, a few new words at a time. A part takes from twenty minutes to about an hour: the practice follows the number of new words, and the very first parts, when you know almost nothing yet, are the shortest. If you have less time, ask for a shorter session.
 
 1. **Review.** One sentence to translate for each word of your last part. Older words come back inside these sentences, so you don't forget them.
 2. **New words.** A table with Hanzi, pinyin, and the meaning in your language, plus a few ready-to-use phrases.
-3. **Three rounds of exercises.** Five sentences each, from your language into Mandarin. The first round practices the phrases, the second asks for complete sentences, and the third for short sequences, like telling your day or writing a message. If something is off, you see what to change and the corrected sentence.
+3. **Three rounds of exercises.** Up to five sentences each, from your language into Mandarin. The first round practices the phrases, the second asks for complete sentences, and the third for short sequences, like telling your day or writing a message. If something is off, you see what to change and the corrected sentence.
 4. **Listening.** With audio turned on, a short dictation and a short story in a natural voice. Without audio, you read a short text and rewrite it with a few changes.
 5. **Wrap-up.** When you finish a lesson, you can play out its situation in a short role-play.
 
@@ -46,8 +46,8 @@ If you start the skill outside a project, it shows you these same steps and offe
 
 The first message is a short card with three choices. They are suggestions, and you can change any of them later: type `setup` in any chat of the course to see where you are and change them.
 
-- **Level.** New to Mandarin? Start with HSK 1, lesson 1. If you've studied before, name the level or the lesson you want to pick up from.
-- **Pace.** How many new words each part brings: light is about 3, recommended is about 5, intense is about 7. Parts are built from whole groups of words, so some come out a word or two shorter or longer. Any other number works too. A part is built for about an hour; when one ends early, as in the first lessons, the skill offers the next part right away.
+- **Level.** New to Mandarin? Start with HSK 1, lesson 1. If you've studied before, name the level or the lesson you want to pick up from, and tell the skill which earlier lessons you already know: it counts their words as known and reminds you of them when they come up.
+- **Pace.** How many new words each part brings: light is about 3, recommended is about 5, intense is about 7. Parts are built from whole groups of words, so some come out a word or two shorter or longer. Any other number works too. When a part ends early, as in the first lessons, the skill offers the next part right away.
 - **Audio.** Optional. See below.
 
 Then the skill shows you the full list of lessons for your level and how long it should take. You can move lessons around before you start, for example to study food before phone calls.
@@ -75,10 +75,10 @@ Without audio there is nothing to set up. You read the text instead.
 ## What it covers
 
 - **HSK 1 to 4 are ready.** 2,000 words in 134 lessons: HSK 1 has 300 words in 22 lessons, HSK 2 has 200 in 19, HSK 3 has 500 in 37, and HSK 4 has 1,000 in 56.
-- **How long it takes.** At the recommended pace, HSK 1 is 58 parts, about two months at one part (an hour) a day. HSK 2 is 38 parts, HSK 3 is 94, and HSK 4 is 173. The skill shows the estimate for your own pace when you start.
+- **How long it takes.** At the recommended pace, HSK 1 is 58 parts, about two months at one part a day. HSK 2 is 38 parts, HSK 3 is 94, and HSK 4 is 173. The skill shows the estimate for your own pace when you start.
 - **Each level opens with a jump start.** In HSK 1 it's greetings, saying what you want, saying who you are. In the later levels it's the connecting words every other lesson uses, such as "because", "already" and "if".
 - **Finish a level and the course moves on to the next.** Words from the level you finished keep coming back.
-- **HSK 5 and 6.** The official word lists are included. Their lesson maps aren't written yet, so the skill builds one when you start the level and checks it by script against the list. Expect it to be rougher than levels 1 to 4.
+- **HSK 5 and 6 are experimental.** The official word lists are included. Their lesson maps aren't written yet, so the skill builds one when you start the level and checks it by script against the list. Expect it to be rougher than levels 1 to 4.
 - **The word list** is the HSK syllabus released in November 2025, levels 1 to 6. Every word of a level appears once in its map.
 
 ## What it doesn't do
