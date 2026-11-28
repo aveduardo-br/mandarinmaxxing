@@ -76,3 +76,24 @@ Each scenario gives the starting `course.md` (or none), the student's first mess
 - Teach the whole part. Decline anything optional.
 - Stop after the tutor's closing message.
 - What it tests: a full part with a real vocabulary (HSK 1 plus half of HSK 2), where natural Mandarin can be judged fairly: the level of the review, three full rounds, older words from 3, 7 and 14 parts back, items to reinforce, dictation plus narration.
+
+## s12-first-three-parts
+
+- Starting `course.md`: none.
+- First message: `start mandarinmaxxing`. On the setup card the student keeps HSK 1, the recommended pace, audio off.
+- Accept the route. Teach Lesson 1 part 1 and part 2, decline the wrap-up role-play, teach Lesson 2 part 1.
+- Stop after its closing message.
+- What it tests (from the review of 27 Nov 2026): the first parts with fewer than twenty words (`first-parts.md`): the three kinds of exercise, how often each line comes back, the length of each part, and the step into the usual rounds.
+
+## s13-jump-with-known-lessons
+
+- Starting `course.md`: `scenarios/s13-course.md` (all of HSK 1 done, just moved to HSK 2, nothing of HSK 2 studied).
+- First message: `quero ir para a aula 12`. The student says they already know the jump start's lessons.
+- Teach Lesson 12 part 1. In a new chat: `setup`. Then: `na verdade eu não conheço a aula 3, quero estudar ela`. In a new chat: `próxima aula` (first message only).
+- What it tests: lessons marked `(known)`, the route and `Next` after a jump, the progress numbers on the course screen, reminders of known words, un-skipping a lesson.
+
+## s14-short-part
+
+- Starting `course.md`: `scenarios/s6-course.md` (HSK 3, next is Lesson 18 part 1, which brings three words; the file is in an older format).
+- First message: `próxima aula`. Teach the whole part with audio. Decline the extra round.
+- What it tests: practice that follows the number of new words (three rounds of three, one clip), repetition of frames in a short part, an older course file.

@@ -1,22 +1,19 @@
 The same HSK words, reorganized around everyday conversations.
 
-**What's new in 0.7.0**
+**What's new in 0.8.0**
 
-- **Hear every word.** Click a word in the vocabulary table and you hear it, in a native Mandarin voice. Every word of HSK 1 to 4 has a recording. The recordings are a reference for a word said alone; in a sentence, tones can shift.
-- **One voice for the whole course.** Dictations and stories now use the same native voice, Yun, when your ElevenLabs account can use it. A course already running keeps its voice; ask for the change if you want it.
+This version comes from a full review of the skill: every file read, the maps and recordings checked by script, and simulated lessons run before and after the changes.
 
-**From 0.6.1**
+- **Practice that follows the words.** Each round has one sentence per new word, up to five, so a part with three words no longer gets the same fifteen exercises as a part with seven.
+- **Shorter first lessons.** The very first parts take ten or fifteen minutes. With only a handful of words, they practise each line three ways (what it means, how you reply, how you say it) instead of asking for the same translation again and again.
+- **Skip what you already know.** Say which lessons you know and the course marks them as known: they leave your route and your progress count, and their words come with a reminder when a lesson uses them.
+- **Fewer mistakes behind the scenes.** A script now works out each part (its words, the review, the older words that come back), so the tutor spends its attention on the Mandarin.
+- **Sound that keeps working.** A click on a word plays its recording however the pinyin is written. Three second readings have no recording yet and stay silent: 过 (guo), 得 (děi) and 着 (zháo).
+- **Pace is light, recommended or intense**: about 3, 5 or 7 new words a part. Other numbers are no longer offered.
+- **HSK 5 and 6 are off the menu for now.** They were built on the spot and came out rough. They return when their lesson maps are written and checked like levels 1 to 4.
+- **A smaller download.** The ZIP no longer carries the font file, which the table loads on its own.
 
-- **A lighter first lesson.** HSK 1 lesson 1 is back to two sittings at the light and recommended paces: six words first (hello and goodbye, thanks and you're welcome, sorry and no problem), then three. Nine words in one sitting was too much for a first day. HSK 1 is 58 parts at the recommended pace.
-
-**From 0.6.0**
-
-- **A setup screen.** A new course opens with a short card: choose your level, pace and audio with a click. Type `setup` in any chat of your course to see where you are, continue, review, jump to a lesson, or change your choices.
-- **Stroke order in the vocabulary table.** Point at a word and its characters draw themselves, stroke by stroke.
-- **A lighter, steadier skill.** Each part is planned whole before it starts and checked by script, so lessons use only words you've met and vary their sentences more.
-- **Honest pace names.** Light is 3 or 4 new words a day, recommended is 5 to 7, intense is 7 to 10.
-
-Your `course.md` keeps working.
+Your `course.md` keeps working. A course with another pace moves to the nearest of the three.
 
 **Install**
 

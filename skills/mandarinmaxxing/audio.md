@@ -1,0 +1,13 @@
+# Listening with a voice provider
+
+Read this when **Audio** in `course.md` names a provider. Use that provider and voice, and only that. Never generate audio with a tool the learner didn't choose, or with a general media tool that spends their credits. If the provider fails or runs out of credits, say so once and use the reading of `lesson-format.md` for the rest of the part.
+
+One or two clips, as the brief says, sent one at a time, each with one speaker in the course's voice.
+
+- **Check the script** before generating: natural Mandarin, the part's new words in it, and every word met. Check them one by one.
+- **Generate once**, a single take, with the language set to Chinese when the provider has that setting. Never run a generation again unless the learner asks: each run spends their credits. On the first clip of a course, choose the voice and save it in **Audio**: with ElevenLabs, Yun (voice ID `4AfodMgwXps9oZFhHzoj`), the native Mandarin voice of the table's recordings, unless the learner asks for another, and Sarah (voice ID `EXAVITQu4vr4xnSDxMaL`) if their account can't use Yun; otherwise one clear, neutral voice from the provider's list.
+- **Keep the script out of the message.** Show it, with pinyin and meaning, only after the learner answers or if they ask.
+
+**Dictation.** Three to five short sentences, each a thing one person says in a single turn, at the level of round 2, written as separate sentences so the voice pauses. No sentence repeats a chunk or a prompt of the part, holds both sides of an exchange (not 谢谢，不客气), or doubles a word to fill a line. With very few met words, two or three real lines are enough, and they may be lines the part already used. Send the clip under a bold title, **Dictation 1**, and ask the learner to write each sentence they hear, numbered, in Hanzi or pinyin. For each wrong sentence give the blockquote and the fix line, then show the full script once with pinyin and meaning.
+
+**Narration.** Only once the met words can fill about 20 seconds; before that the dictation is the whole step. One person speaking in the first person about their day, a plan, or something that happened, in a concrete scene that is new to the part: three to eight sentences, 20 to 40 seconds. The speaker never addresses or questions a listener and never quotes anyone. Send the clip as **Audio 1 · At the tea shop**, with three to five questions in the same message so the learner reads them first: what happened, what the speaker wanted or plans, what a chunk meant in context, at least one of each, with no names the learner hasn't met. Ask for all the answers together, then mark each right or wrong.

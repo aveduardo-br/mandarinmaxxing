@@ -16,7 +16,7 @@ If it can't, for example a chat outside any project, send the message below in t
 >
 > From then on I keep your progress myself, on any device. If you'd like to try it first, I can give you a trial lesson right here, without saving.
 
-For the trial lesson, teach HSK 1, Lesson 1, part 1, at a pace of 5, without saving, and say at the end that the course starts once the project is set up.
+For the trial lesson, teach HSK 1, Lesson 1, part 1, without saving: its words are 你好 再见 谢谢 | 不客气 对不起 没关系, and `first-parts.md` says how. Say at the end that the course starts once the project is set up.
 
 ## The welcome card
 
@@ -42,7 +42,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
   </details>
   <h3>Your choices</h3>
   <fieldset><legend>Level<small>HSK</small></legend>
-    <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button><button data-value="HSK 5" data-note="Experimental. HSK 5 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">5</button><button data-value="HSK 6" data-note="Experimental. HSK 6 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">6</button>
+    <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button>
   </fieldset>
   <fieldset><legend>Pace<small>new words a day</small></legend>
     <button>Light<small>about 3</small></button><button data-on>Recommended<small>about 5</small></button><button>Intense<small>about 7</small></button>
@@ -52,14 +52,14 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
   </fieldset>
   <button data-start>See my lessons</button>
 </section>
-<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@3c37ff22ccbd28484770bda859d8142a907d7a9d/skills/mandarinmaxxing/web/setup.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@v0.8.0/skills/mandarinmaxxing/web/setup.js"></script>
 ```
 
 - `data-on` marks the choice that starts selected: HSK 1, recommended, audio off. If the learner already named a level, a pace or audio, move `data-on` to what they said.
 - Name the learner's own language where the card says "your language".
 - The button sends the three choices as a message, such as `Level: HSK 1. Pace: Recommended (about 5). Audio: off, reading instead.` A learner can also just type them: take either, and go on once level, pace and audio are clear, with recommended and no audio for whatever they leave open.
-- Save light, recommended and intense as a **Pace** of 3, 5 and 7, and any other number as the learner gives it.
-- For HSK 5 or 6, read `levels.md` before the overview.
+- Save light, recommended and intense as a **Pace** of 3, 5 and 7. If the learner names another number, take the nearest of the three and say so.
+- HSK 5 and 6 aren't mapped yet. If the learner asks for one, say so and offer HSK 4.
 
 **Where the chat can't show HTML**, send the same content as plain text, in this order: the title, the two opening paragraphs, then three numbered questions (level, pace, audio) each with its options on the line below, and one line on the keyboard.
 
@@ -67,13 +67,13 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
 
 ## Show the level and agree on the route
 
-Read the map, then show a compact overview before the first part:
+Run `python3 course.py overview <level> <pace>`: it prints the level's lessons, each with its parts at that pace, and the totals. Translate the lesson names, then show a compact overview before the first part:
 
-- The number of lessons and the total number of parts at the learner's pace, from the map header, and what that means in weeks at one part a day. For a pace other than 3, 5 or 7, or a map you built, run `python3 check_map.py <map> <level> <pace>`: it prints each lesson's parts and the total. Present it as an estimate. Say once, in one sentence, that each lesson is one situation studied a part at a time.
+- The number of lessons, the total number of parts, and what that means in weeks at one part a day. Present it as an estimate. Say once, in one sentence, that each lesson is one situation studied a part at a time.
 - The jump start, when the level has one: the lessons every later lesson depends on, taught first and in order.
 - The other lessons, in map order.
 
-Write both lists as bullets, one lesson per line: the map's two-digit number in bold, the lesson name, and its number of parts at the learner's pace from the `Split` line, such as `- **08** Phone calls (1 part)`. Never a numbered list, which adds a second set of numbers. This list is the source of truth for the whole course: never renumber it.
+Write both lists as bullets, one lesson per line: the map's two-digit number in bold, the lesson name, and its number of parts, such as `- **08** Phone calls (1 part)`. Never a numbered list, which adds a second set of numbers. This list is the source of truth for the whole course: never renumber it.
 
 Then:
 
@@ -98,7 +98,7 @@ When a learner with a saved course writes "setup" or "/setup", send this card, f
   </nav>
   <h3>Settings</h3>
   <fieldset><legend>Level<small>HSK</small></legend>
-    <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button><button data-value="HSK 5" data-note="Experimental. HSK 5 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">5</button><button data-value="HSK 6" data-note="Experimental. HSK 6 isn't mapped yet. Its lessons are built on the spot from the official word list: it takes a few minutes the first time and can come out rougher than levels 1 to 4.">6</button>
+    <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button>
   </fieldset>
   <fieldset><legend>Pace<small>new words a day</small></legend>
     <button>Light<small>about 3</small></button><button data-on>Recommended<small>about 5</small></button><button>Intense<small>about 7</small></button>
@@ -108,12 +108,12 @@ When a learner with a saved course writes "setup" or "/setup", send this card, f
   </fieldset>
   <button data-start data-lead="Change my course." data-same="Nothing changed yet.">Save changes</button>
 </section>
-<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@3c37ff22ccbd28484770bda859d8142a907d7a9d/skills/mandarinmaxxing/web/setup.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@v0.8.0/skills/mandarinmaxxing/web/setup.js"></script>
 ```
 
 - `data-progress` is the parts done and the parts in the level, as two numbers: the **Done** lines of the current level, and the sum of the parts in the **Lessons** list (a lesson marked `(known)` has no parts to count). The script writes the percentage; don't write one yourself.
 - The lesson line comes from **Next** and the **Lessons** list. With `Next: level complete`, say so in that line and make the first button offer the next level.
-- Put `data-on` on the level, pace and audio the file holds. A pace other than 3, 5 or 7 gets no `data-on` in that group; name it in the group's small text.
+- Put `data-on` on the level, pace and audio the file holds. An older file with a pace other than 3, 5 or 7 gets it on the nearest.
 - The three buttons at the top send their `data-send` text, translated: answer each as the request it is. "Continue" asks for the part in **Next**.
 - "Save changes" sends only what the learner changed, after the line `Change my course.` Apply each change as `requests.md` says under "Change the pace", "Change the audio" and "Change the level".
 

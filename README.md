@@ -12,7 +12,7 @@ I built this skill for myself. The textbook order felt slow to me, with words th
 
 Each lesson is one situation, such as **Shopping and paying**. You study it in parts, a few new words at a time. The very first parts take ten or fifteen minutes, because you know almost no words yet. After that a part takes from half an hour to about an hour: the practice follows the number of new words. If you have less time, ask for a shorter session.
 
-1. **Review.** One sentence to translate for each word of your last part. Older words come back inside these sentences, so you don't forget them.
+1. **Review.** One sentence to translate for each word of your last part. Older words come back inside these sentences, so you don't forget them, and so does anything you got wrong last time.
 2. **New words.** A table with Hanzi, pinyin, and the meaning in your language, plus a few ready-to-use phrases.
 3. **Three rounds of exercises.** Up to five sentences each, from your language into Mandarin. The first round practices the phrases, the second asks for complete sentences, and the third for short sequences, like telling your day or writing a message. If something is off, you see what to change and the corrected sentence.
 4. **Listening.** With audio turned on, a short dictation and a short story in a natural voice. Without audio, you read a short text and rewrite it with a few changes.
@@ -47,7 +47,7 @@ If you start the skill outside a project, it shows you these same steps and offe
 The first message is a short card with three choices. They are suggestions, and you can change any of them later: type `setup` in any chat of the course to see where you are and change them.
 
 - **Level.** New to Mandarin? Start with HSK 1, lesson 1. If you've studied before, name the level or the lesson you want to pick up from, and tell the skill which earlier lessons you already know: it counts their words as known and reminds you of them when they come up.
-- **Pace.** How many new words each part brings: light is about 3, recommended is about 5, intense is about 7. Parts are built from whole groups of words, so some come out a word or two shorter or longer. Any other number works too. When a part ends early, as in the first lessons, the skill offers the next part right away.
+- **Pace.** How many new words each part brings: light is about 3, recommended is about 5, intense is about 7. Parts are built from whole groups of words, so some come out a word or two shorter or longer. When a part ends early, as in the first lessons, the skill offers the next part right away.
 - **Audio.** Optional. See below.
 
 Then the skill shows you the full list of lessons for your level and how long it should take. You can move lessons around before you start, for example to study food before phone calls.
@@ -78,7 +78,7 @@ Without audio there is nothing to set up. You read the text instead.
 - **How long it takes.** At the recommended pace, HSK 1 is 58 parts, about two months at one part a day. HSK 2 is 38 parts, HSK 3 is 94, and HSK 4 is 173. The skill shows the estimate for your own pace when you start.
 - **Each level opens with a jump start.** In HSK 1 it's greetings, saying what you want, saying who you are. In the later levels it's the connecting words every other lesson uses, such as "because", "already" and "if".
 - **Finish a level and the course moves on to the next.** Words from the level you finished keep coming back.
-- **HSK 5 and 6 are experimental.** The official word lists are included. Their lesson maps aren't written yet, so the skill builds one when you start the level and checks it by script against the list. Expect it to be rougher than levels 1 to 4.
+- **HSK 5 and 6 aren't ready yet.** Their official word lists are included, and their lesson maps will be written and checked the same way as the others.
 - **The word list** is the HSK syllabus released in November 2025, levels 1 to 6. Every word of a level appears once in its map.
 
 ## What it doesn't do
@@ -122,14 +122,14 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | Path | What it is |
 |---|---|
 | `skills/mandarinmaxxing/SKILL.md` | How a lesson works: parts, review, exercises, saving |
-| `skills/mandarinmaxxing/setup.md`, `levels.md`, `requests.md` | Starting a course, changing level, and what you can ask for. Read only when needed |
+| `skills/mandarinmaxxing/setup.md`, `first-parts.md`, `audio.md`, `levels.md`, `requests.md` | Starting a course, the very first parts, listening with audio, changing level, and what you can ask for. Read only when needed |
+| `skills/mandarinmaxxing/course.py` | The bookkeeping of each part, done by script: which words it brings, what the review covers, which older words come back, how many exercises |
 | `skills/mandarinmaxxing/lesson-format.md` | How each message of a lesson looks |
 | `skills/mandarinmaxxing/check_plan.py` | A script the skill runs on each planned part: only words you've met, every new word practised three times |
 | `skills/mandarinmaxxing/maps/` | The lesson map for each level |
 | `skills/mandarinmaxxing/syllabus/` | The official word lists, levels 1 to 6 |
 | `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table. The table loads it from this repository, so the ZIP leaves the font file out |
 | `skills/mandarinmaxxing/web/` | The scripts the lesson's HTML blocks load: the vocabulary table (its look, the font, the stroke-order animation on hover, the word's sound on click) and the setup and course screens |
-| `skills/mandarinmaxxing/check_map.py` | A script the skill runs on a map it builds for HSK 5 or 6: every official word once |
 | `skills/mandarinmaxxing/LICENSE` | A copy of the [license](LICENSE), so it travels with the ZIP |
 | `qa/anchors/` | One test sentence for every group of words in a map. The skill doesn't read these |
 | `qa/benchmark/` | Simulated lessons used to test each version: scenarios, scripts, results |

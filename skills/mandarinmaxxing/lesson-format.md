@@ -28,7 +28,7 @@ Draw the table with the chat's inline HTML or widget tool, in the conversation, 
     <tbody><tr><td><span lang="zh-Hans">商店</span></td><td>shāngdiàn</td><td>shop</td></tr></tbody>
   </table>
 </section>
-<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@3c37ff22ccbd28484770bda859d8142a907d7a9d/skills/mandarinmaxxing/web/vocab.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@v0.8.0/skills/mandarinmaxxing/web/vocab.js"></script>
 ```
 
 Under the table, add a one-line usage note only for a word whose use the meaning can't show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), a word the exercises will use in a role the meaning doesn't show (不 alone as a reply: "no"), or a word whose tone changes in the chunks (不 is said *bú* before a fourth tone). Give a polite form a meaning that says who it is for, such as 您 = "you (to sir or madam)".
@@ -45,9 +45,9 @@ Plain Markdown. Blockquotes are reserved for showing back what the learner wrote
 
 ## Listening or reading
 
-Use what **Audio** in `course.md` says, and only that. Never generate audio with a tool the learner didn't choose, or with a general media tool that spends their credits. Don't suggest the chat app's read aloud button: its voice reads Hanzi with the wrong sounds, and say so if they ask. If the provider fails or runs out of credits, say so once and use reading for the rest of the part.
+Use what **Audio** in `course.md` says, and only that. With a provider, read `audio.md`. With `none`, the step is the reading below. Don't suggest the chat app's read aloud button: its voice reads Hanzi with the wrong sounds, and say so if they ask.
 
-### Reading (Audio: none)
+### Reading
 
 One message, in this order:
 
@@ -55,21 +55,7 @@ One message, in this order:
 - The text: three to six short sentences in plain Hanzi, one person telling in the first person what they did, plan, or what happened. No dialogue, quoted lines, pinyin, or translation.
 - A bold line such as **Your turn**, then the task: rewrite the text with a few changes you name (another day, another thing to buy, another price), chosen so the learner writes the part's new words again. No comprehension questions: the learner can see the text.
 
-**While the met words can't carry a first-person account**, as in the first parts of a course, skip the text. Under the same title, name two to four moments of the lesson's situation in the learner's language (you arrive, someone hands you something, you leave) and ask what they would say in each, in Mandarin.
-
 Correct the rewrite as a written translation. One text per part, with every new word that fits; a second only when the new words don't fit one scene.
-
-### Listening (with a voice provider)
-
-One or two clips, as "How much practice" in `SKILL.md` says, sent one at a time, each with one speaker in the course's voice.
-
-- **Check the script** before generating: natural Mandarin, the part's new words in it, and every word met. Check them one by one.
-- **Generate once**, a single take, with the language set to Chinese when the provider has that setting. Never run a generation again unless the learner asks: each run spends their credits. On the first clip of a course, choose the voice and save it in **Audio**: with ElevenLabs, Yun (voice ID `4AfodMgwXps9oZFhHzoj`), the native Mandarin voice of the table's recordings, unless the learner asks for another, and Sarah (voice ID `EXAVITQu4vr4xnSDxMaL`) if their account can't use Yun; otherwise one clear, neutral voice from the provider's list.
-- **Keep the script out of the message.** Show it, with pinyin and meaning, only after the learner answers or if they ask.
-
-**Dictation.** Three to five short sentences, each a thing one person says in a single turn, at the level of round 2, written as separate sentences so the voice pauses. No sentence repeats a chunk or a prompt of the part, holds both sides of an exchange (not 谢谢，不客气), or doubles a word to fill a line. With very few met words, two or three real lines are enough, and they may be lines the part already used. Send the clip under a bold title, **Dictation 1**, and ask the learner to write each sentence they hear, numbered, in Hanzi or pinyin. For each wrong sentence give the blockquote and the fix line, then show the full script once with pinyin and meaning.
-
-**Narration.** Only once the met words can fill about 20 seconds; before that the dictation is the whole step. One person speaking in the first person about their day, a plan, or something that happened, in a concrete scene that is new to the part: three to eight sentences, 20 to 40 seconds. The speaker never addresses or questions a listener and never quotes anyone. Send the clip as **Audio 1 · At the tea shop**, with three to five questions in the same message so the learner reads them first: what happened, what the speaker wanted or plans, what a chunk meant in context, at least one of each, with no names the learner hasn't met. Ask for all the answers together, then mark each right or wrong.
 
 ## Close a part
 

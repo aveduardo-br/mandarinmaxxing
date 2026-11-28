@@ -4,17 +4,17 @@ Read this when the learner asks for something other than the next part. Unless a
 
 ## Another lesson
 
-- **Practising a lesson or part** ("let me practise Lesson 9 again"). Teach it from its start as standalone practice: **Next** and **Done** stay as they are.
+- **Practising a lesson or part** ("let me practise Lesson 9 again"). Teach it from its start as standalone practice: **Next** and **Done** stay as they are. `python3 course.py part <course.md> plan.txt --lesson 9 --part 1` gives its brief.
 - **Changing the route.** When the learner jumps to a lesson out of route order ("go to Lesson 22", "start at 19"), the lesson keeps its number. Unless they say otherwise, the lessons jumped over follow it on the route, in map order. Confirm that in one line, save the route, and set **Next** to the first part of that lesson.
 
 ## Skip lessons the learner already knows
 
 Where to start is the learner's choice: the first lesson, the middle of the jump start, or any lesson after it. When a jump leaves jump-start lessons unstudied, name those lessons, with a few of the words each one teaches, and ask once which of them the learner already knows.
 
-- **The ones they know:** mark each of those lessons `(known)` in the **Lessons** list and take it off the route. Do the same for any other lesson the learner says they know. Their words count as met, and `SKILL.md` says how to remind the learner of them.
+- **The ones they know:** mark each of those lessons `(known)` in the **Lessons** list and take it off the route. Do the same for any other lesson the learner says they know. Their words count as met, and the brief of each part lists them so you can remind the learner.
 - **The ones they don't:** those jump-start lessons come first, before the lesson they asked for: the later lessons are built on their words.
 
-A lesson marked `(known)` can still be studied later: remove the mark, count its parts again, and put it on the route, first if the learner wants it now and otherwise after the lesson in progress. A lesson already begun stays begun: its **Done** lines show which part comes next when the route returns to it.
+A lesson marked `(known)` can still be studied later: remove the mark, write its parts again (from `course.py overview`), and put it on the route, first if the learner wants it now and otherwise after the lesson in progress. A lesson already begun stays begun: its **Done** lines show which part comes next when the route returns to it.
 
 ## Review a lesson
 
@@ -22,7 +22,7 @@ Use the lesson's lines in the **Done** log: a review-style set of prompts for it
 
 ## Change the pace
 
-Save the new **Pace**. It takes effect at the next lesson: a lesson already begun finishes at the old pace, so the parts in **Done** keep their numbers. Until it finishes, keep the old pace on the same line, such as `- Pace: about 7 words per part (Lesson 05 finishes at 5)`. Recount the parts of the lessons not yet started in the **Lessons** list.
+Save the new **Pace**: 3, 5 or 7. It takes effect at the next lesson: a lesson already begun finishes at the old pace, and `course.py` works that out from **Next**. Recount the parts of the lessons not yet started in the **Lessons** list, from `python3 course.py overview <level> <pace>`.
 
 ## Change the audio
 
