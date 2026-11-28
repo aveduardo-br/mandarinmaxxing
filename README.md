@@ -47,7 +47,7 @@ If you start the skill outside a project, it shows you these same steps and offe
 The first message is a short card with three choices. They are suggestions, and you can change any of them later: type `setup` in any chat of the course to see where you are and change them.
 
 - **Level.** New to Mandarin? Start with HSK 1, lesson 1. If you've studied before, name the level or the lesson you want to pick up from.
-- **Pace.** How many new words each part brings: light is 3 or 4, recommended is 5 to 7, intense is 7 to 10. Any other number works too. A part is built for about an hour; when one ends early, as in the first lessons, the skill offers the next part right away.
+- **Pace.** How many new words each part brings: light is about 3, recommended is about 5, intense is about 7. Parts are built from whole groups of words, so some come out a word or two shorter or longer. Any other number works too. A part is built for about an hour; when one ends early, as in the first lessons, the skill offers the next part right away.
 - **Audio.** Optional. See below.
 
 Then the skill shows you the full list of lessons for your level and how long it should take. You can move lessons around before you start, for example to study food before phone calls.
@@ -93,7 +93,7 @@ The course isn't improvised lesson by lesson. Two things are built and checked b
 
 **The maps.** Every official word of a level is placed once, in groups of two to four words that make sentences together, inside a situation you can actually talk about. Words that look alike or belong to the same category go in different groups, so they don't blur. A script checks that no word is missing or repeated. Each of the 660 groups in HSK 1 to 4 has a test sentence that uses only words taught by that point, and two independent reviews went through every group.
 
-**The lessons.** Before each version, the skill teaches simulated lessons, and the results are checked two ways: by script (only words you've met, every new word practised at least three times, older words coming back, your progress saved correctly) and by a separate AI reviewer that reads each lesson against the method. So far that's 34 simulated lessons across HSK 1 to 4, plus one run of all 19 parts of the HSK 1 jump start with a simulated student who saw the language as made-up words, so it really knew nothing but what it was taught. In that run, 95 words were taught and every one came back in later parts.
+**The lessons.** The skill teaches simulated lessons, and the results are checked two ways: by script (only words you've met, every new word practised at least three times, older words coming back, your progress saved correctly) and by a separate AI reviewer that reads each lesson against the method. So far that's 39 simulated lessons across HSK 1 to 4, plus one run of all 19 parts of the HSK 1 jump start with a simulated student who saw the language as made-up words, so it really knew nothing but what it was taught. In that run, 95 words were taught and every one came back in later parts.
 
 What this shows: the lessons follow the method. What it doesn't show: how much you'll remember. That part comes from people using it, which is why feedback matters. Everything is in [`qa/benchmark/`](qa/benchmark/), including every simulated lesson.
 
@@ -127,7 +127,7 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 | `skills/mandarinmaxxing/check_plan.py` | A script the skill runs on each planned part: only words you've met, every new word practised three times |
 | `skills/mandarinmaxxing/maps/` | The lesson map for each level |
 | `skills/mandarinmaxxing/syllabus/` | The official word lists, levels 1 to 6 |
-| `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table |
+| `skills/mandarinmaxxing/fonts/` | The Hanzi font used in the vocabulary table. The table loads it from this repository, so the ZIP leaves the font file out |
 | `skills/mandarinmaxxing/web/` | The scripts the lesson's HTML blocks load: the vocabulary table (its look, the font, the stroke-order animation on hover, the word's sound on click) and the setup and course screens |
 | `skills/mandarinmaxxing/check_map.py` | A script the skill runs on a map it builds for HSK 5 or 6: every official word once |
 | `skills/mandarinmaxxing/LICENSE` | A copy of the [license](LICENSE), so it travels with the ZIP |
@@ -146,6 +146,6 @@ sh tools/build.sh
 ## Credits
 
 - Word lists: the HSK syllabus published by the Center for Language Education and Cooperation, converted from the mirror at [ofou/hsk](https://github.com/ofou/hsk) (MIT License). Details in [`syllabus/SOURCE.md`](skills/mandarinmaxxing/syllabus/SOURCE.md).
-- Word recordings: one per word, in [mandarinmaxxing-audio](https://github.com/aveduardo-br/mandarinmaxxing-audio), generated with ElevenLabs. HSK 1 is recorded; the other levels follow.
+- Word recordings: one per word, in [mandarinmaxxing-audio](https://github.com/aveduardo-br/mandarinmaxxing-audio), generated with ElevenLabs. HSK 1 to 4 are recorded.
 - Stroke-order animation: [Hanzi Writer](https://hanziwriter.org) (MIT License), with stroke data from [Make Me a Hanzi](https://github.com/skishore/makemeahanzi).
 - Hanzi font: [LXGW WenKai GB](https://github.com/lxgw/LxgwWenkaiGB), under the SIL Open Font License. Details in [`fonts/SOURCE.md`](skills/mandarinmaxxing/fonts/SOURCE.md).

@@ -1,9 +1,9 @@
 # HSK 3 map
 
-Source: HSK syllabus released 2025-11 (500 words). Each situation is one lesson, numbered as below: 37 lessons. Parts at paces 3 / 5 / 7: 168 / 94 / 69. Lessons 01–04 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 才1. The list has 得 twice: the verb děi (have to) in lesson 03 and the verb dé (get) in lesson 35.
+Source: HSK syllabus released 2025-11 (500 words). Each situation is one lesson, numbered as below: 37 lessons. Parts at paces 3 / 5 / 7: 168 / 94 / 68. Lessons 01–04 are the jump start. Under each lesson, the `Split` line gives the number of blocks in each part at paces 3 / 5 / 7, and each `- ` line is one block, in teaching order. Entries keep the official spelling, including sense numbers such as 才1. The list has 得 twice: the verb děi (have to) in lesson 03 and the verb dé (get) in lesson 35.
 
 ## 01 | jump-start | Give your opinion
-Split: 1-1-1-1-1 / 1-2-2 / 1-2-2
+Split: 1-1-1-1-1 / 1-2-2 / 2-3
 - 认为 应该 当然
 - 其实 比较 可是
 - 同意 行 只

@@ -15,7 +15,7 @@ If they accept:
 3. Show the new level's overview as in `setup.md`, leaving out the sentence about lessons, parts and pace, and ask about the route. Save again if it changes.
 4. Ask whether to start the first part now or next time, and start only if they say now.
 
-If the learner later reviews a lesson of a finished level, take its name from that level's map.
+If the learner later reviews a lesson of a finished level, take its name from that level's map, in the course language.
 
 ## HSK 5 and 6
 

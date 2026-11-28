@@ -36,6 +36,7 @@ jobs:
         if: steps.exists.outputs.found == 'no'
         run: |
           for map in skills/mandarinmaxxing/maps/hsk-*.md; do python3 tools/check_map.py "$map"; done
+          for n in 1 2 3 4; do python3 tools/check_anchors.py "$n"; done
           sh tools/build.sh
 
       - name: Publish the release

@@ -15,7 +15,7 @@ Use the lesson's lines in the **Done** log: a review-style set of prompts for it
 
 ## Change the pace
 
-Save the new **Pace**. It takes effect at the next lesson: a lesson already begun finishes at the old pace, so the parts in **Done** keep their numbers. Recount the parts of the lessons not yet started in the **Lessons** list.
+Save the new **Pace**. It takes effect at the next lesson: a lesson already begun finishes at the old pace, so the parts in **Done** keep their numbers. Until it finishes, keep the old pace on the same line, such as `- Pace: about 7 words per part (Lesson 05 finishes at 5)`. Recount the parts of the lessons not yet started in the **Lessons** list.
 
 ## Change the audio
 

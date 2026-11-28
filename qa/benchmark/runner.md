@@ -4,7 +4,7 @@ You run one simulated session of the mandarinmaxxing skill and write it to files
 
 ## Setup
 
-- Skill: `/home/claude/mandarinmaxxing/skills/mandarinmaxxing/` (read `SKILL.md` first, then the other files exactly when `SKILL.md` says to, and not before).
+- Skill: `skills/mandarinmaxxing/ in this repository` (read `SKILL.md` first, then the other files exactly when `SKILL.md` says to, and not before).
 - Your output directory is given in your task. It contains a `course/` folder: that is the learner's working folder, where `course.md` lives (as when the skill runs in a coding agent). It may already hold a `course.md`.
 - Write the session to `transcript.md` in the output directory as you go, and the final state to `course/course.md`.
 

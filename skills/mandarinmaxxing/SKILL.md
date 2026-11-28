@@ -29,7 +29,7 @@ Read only when the moment comes:
 
 The course lives in one `course.md`, kept where every chat of the course can reach it: the documents of the learner's Claude project, or the working folder in a coding agent. Before anything else, look for a document named `course.md` at any path (a project may file it as `claude/course.md`), and keep saving to the one you find.
 
-- **Found.** Read it and the map, then resume from **Next**.
+- **Found.** Read it and the map, then resume from **Next**. "Next lesson", "continue" and the like all ask for the part in **Next**. If the learner says they stopped that part halfway in another chat, ask whether to start it again or go on from the step they name; nothing is saved before a part closes.
 - **Not found.** Read `setup.md` and follow it.
 
 ## The course file
@@ -52,8 +52,8 @@ The course lives in one `course.md`, kept where every chat of the course can rea
 …one line for every lesson of the level
 
 ## Done
-1-01.1 | 你好 再见 谢谢
-1-01.2 | 不客气 对不起 没关系 您 好 没事
+1-01.1 | 你好 再见 谢谢 不客气 对不起 没关系
+1-01.2 | 您 好 没事
 ```
 
 - **Language** is the language of everything outside the Mandarin: instructions, meanings, prompts, feedback. Keep it until the learner asks to switch.
@@ -145,7 +145,7 @@ From ten met words on, every prompt of rounds 1 and 2 is one speaker and one sen
 
 Each part reuses one word from each of the lines 3, 7, 14, 30, and 60 back in the **Done** log, counting from its end, where the last line is 1. Skip the distances the log doesn't reach; across levels the whole log counts.
 
-- Take the words by turn, not by what fits most easily: the line 3 back gives its 1st word, 7 back its 2nd, 14 back its 3rd, 30 back its 4th, 60 back its 5th. In a shorter line, keep counting from its start. If that word fits no prompt, take the next one in the line.
+- Take the words by turn, not by what fits most easily: the line 3 back gives its 1st word, 7 back its 2nd, 14 back its 3rd, 30 back its 4th, 60 back its 5th and, in a longer line, every word after it. In a shorter line, keep counting from its start. If that word fits no prompt, take the next one in the line.
 - Pick them before writing the review, and use each in at least one prompt of the review or the rounds, with the items to reinforce. Weave several into one sentence only where they share a natural situation.
 
 This is exposure for the learner, with nothing to track or score.
