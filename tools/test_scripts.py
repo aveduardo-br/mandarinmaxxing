@@ -61,6 +61,13 @@ COURSE = [
      course('Lesson 02, part 2 of 2', L1P1 + '\n1-01.2 | 您 好 没事\n1-02.1 | 我 要 水 茶 你 吗 不'), ['pace', '3'], 0, 'Next is `Lesson 02, part 2 of 2`'),
     ('a level change starts the new level and keeps Done', course('level complete', L1P1), ['level', '2'], 0, 'Next is `Lesson 01, part 1 of 2`'),
     ('an old file is written in the current format', course(), ['migrate'], 0, 'SAVED'),
+    ('a chunk with a full-width comma stays one item to reinforce', course('Lesson 01, part 2 of 2', L1P1), ['close', '--missed', '没事, 不要，谢谢'], 0, 'TO REINFORCE: 没事, 不要，谢谢'),
+    ('a pace change does not re-split a lesson whose first part is the same at two paces',
+     course('Lesson 18, part 2 of 2', '3-18.1 | 丢 卡 以为', level=3, route='18–37'), ['pace', '7'], 0, 'Next is `Lesson 18, part 2 of 2`'),
+    ('marking lessons known reminds of jump-start lessons still to study',
+     course('Lesson 12, part 1 of 3', '', route='12, 01–11, 13–22'), ['known', '1', '2'], 0, 'JUMP-START LESSONS STILL TO STUDY: 03 04 05 06 07'),
+    ('check flags labels left in English in another language',
+     course().replace('- Route', '- Language: Português\n- Labels: lesson=Aula, part=parte, review=Revisão, round=Bateria, dictation=Dictation, audio=Áudio, reading=Leitura, phrases=Frases úteis, jump start=Largada\n- Route'), ['check'], 1, 'still in English (Dictation)'),
     ('check finds a Next that disagrees with Done', course('Lesson 01, part 1 of 2', L1P1), ['check'], 1, 'Done says `Lesson 01, part 2 of 2`'),
 ]
 
@@ -76,6 +83,7 @@ PLAN = [
     ('the same sentence twice', plan('round1: 你好\nround2: 你好\nround3: 你好。你好'), 1, 'comes twice'),
     ('a word only inside a longer word is counted, with advice', plan('round1: 你好\nround2: 你好，你好\nround3: 你好。你好。你好', 'LEVEL 1\nNEW 好 你好\nDONE\nPLAN\n'), 0, '好 never stands on its own'),
     ('a separable word said apart', plan('round1: 我洗了澡\nround2: 我洗过澡\nround3: 我想洗个澡', 'LEVEL 3\nNEW 洗澡\nDONE\nPLAN\n'), 0, 'OK'),
+    ('a three-character separable word', plan('round1: 我每周给妈妈打两次电话\nround2: 我打了电话\nround3: 你打个电话吧', 'LEVEL 2\nNEW 次\nDONE\nPLAN\n'), 1, 'NEW WORDS IN FEWER'),
     ('two words are not joined into a separable one', plan('round1: 超市场\nround2: 你好\nround3: 你好。你好', 'LEVEL 1\nNEW 你好\nDONE\n1-01.1 | 超市 市场\nPLAN\n'), 1, 'NOT MET'),
     ('more than two support words', plan('round1: 你好\nround2: 你好。你好\nround3: 你好！你好。', 'LEVEL 1\nNEW 你好\nSUPPORT 一 二 三\nDONE\nPLAN\n'), 1, 'two extra words at most'),
     ('KNOWN with no numbers', plan('round1: 你好\nround2: 你好。你好\nround3: 你好！你好。', 'LEVEL 1\nKNOWN\nNEW 你好\nDONE\nPLAN\n'), 1, 'KNOWN has no lesson numbers'),

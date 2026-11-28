@@ -11,7 +11,7 @@ Read this when the learner asks for something other than the next part. Every ch
 
 Where to start is the learner's choice: the first lesson, the middle of the jump start, or any lesson after it. When a jump leaves jump-start lessons unstudied, the command lists them. Name those lessons, with a few of the words each one teaches (`python3 course.py overview <level> <pace>` has them), and ask once which of them the learner already knows.
 
-- **The ones they know:** run `python3 course.py known <course.md> 01 02` with their numbers. Do the same for any other lesson the learner says they know. Their words count as met, and the brief of each part lists them so you can remind the learner.
+- **The ones they know:** run `python3 course.py known <course.md> 01 02` with their numbers. Do the same for any other lesson the learner says they know. Their words count as met, and the brief of each part lists them so you can remind the learner. If the command says jump-start lessons are still to study, they come first: tell the learner and run the jump it names.
 - **The ones they don't:** those jump-start lessons come first, before the lesson they asked for: the later lessons are built on their words. Run `python3 course.py jump` to the first of them.
 
 A lesson marked `(known)` can still be studied later: `python3 course.py study <course.md> 03` puts it back, first on the route, at its first part not yet studied.
@@ -22,7 +22,7 @@ Use the lesson's lines in the **Done** log: a review-style set of prompts for it
 
 ## Change the pace
 
-Run `python3 course.py pace <course.md> 7` (3, 5 or 7). It takes effect at the next lesson: a lesson already begun finishes at the old pace. Tell the learner the new number of parts it prints.
+Run `python3 course.py pace <course.md> 7`: light is 3, recommended is 5, intense is 7. It takes effect at the next lesson: a lesson already begun finishes at the old pace. Tell the learner that, and the new number of parts it prints.
 
 ## Change the audio
 

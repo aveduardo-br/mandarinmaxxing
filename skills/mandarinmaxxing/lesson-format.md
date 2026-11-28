@@ -33,7 +33,7 @@ Draw the table with the chat's inline HTML or widget tool, in the conversation, 
 
 Under the table, add a one-line usage note only for a word whose use the meaning can't show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), a word the exercises will use in a role the meaning doesn't show (不 alone as a reply: "no"), or a word whose tone changes in the chunks (不 is said *bú* before a fourth tone). Give a polite form a meaning that says who it is for, such as 您 = "you (to sir or madam)".
 
-**Words that translate the same way** (没关系 and 没事, 中文 and 汉语): give each prompt a context that fits only one, or accept both. When the learner keeps choosing one, ask for the other by name in the next prompt that fits, and give it in `--missed` at the close so the next review asks for it.
+**Words that translate the same way** (没关系 and 没事, 中文 and 汉语): give each prompt a context that fits only one, or accept both. When the learner keeps choosing one, ask for the other by name in the next prompt that fits ("say it with 没事": naming it is fine, the point is to produce it), and give it in `--missed` at the close so the next review asks for it.
 
 ## Feedback on a translation
 
@@ -41,6 +41,8 @@ Plain Markdown. Blockquotes are reserved for showing back what the learner wrote
 
 - **Correct and natural.** Confirm briefly and go to the next prompt. For a right answer in pinyin, show the sentence in Hanzi on one line. Accept any natural version, including a standard variant such as 没有关系 for 没关系. If the accepted answer leaves out a new word of the part, or uses another expression than the chunk you were after, name the word or chunk in one line and bring it back as "After a correction" in `SKILL.md` says.
 - **Right meaning, unnatural phrasing.** Say the meaning is right, show a more natural version with its pinyin, and explain the change briefly.
+- **No attempt** ("I don't know"). Give the answer on three lines with one line of help, with no blockquote, and treat it as a correction.
+- **A question from the learner.** Answer it in a sentence or two, with an example from met words, then go on with the exercise.
 - **Incorrect.** In this order: a short opener and "You wrote:", then the learner's whole answer in a blockquote. One line per fix, pointing only at what went wrong: the word or chunk to use in bold, its pinyin in italics, a short reason; for word order, the stretch in the right order. Then the full corrected sentence once, on three lines. Then the next prompt. No breakdown of the parts the learner got right.
 
 ## Listening or reading

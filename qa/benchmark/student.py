@@ -12,7 +12,8 @@ What it does, by N:
   N = 9            answers with a natural alternative when it knows one (没事 for 没关系, …)
   N % 7 = 2        leaves out a small word (了, 的, 吗, …), or the last character
   N % 7 = 4        answers right, in pinyin (needs the pypinyin package; else in Hanzi)
-  N % 7 = 5        gets the order wrong: swaps the two halves of the sentence
+  N % 7 = 5        gets the order wrong: swaps the two halves of the sentence (answers right
+                   when the sentence has fewer than five characters)
   N % 7 = 6        says it doesn't know
   anything else    answers right
 
@@ -55,6 +56,8 @@ def reply(n, expected):
         if len(parts) == 3:
             return parts[2].strip() + '，' + parts[0] + '。'
         text = re.sub(r'[^一-鿿]', '', expected)
+        if len(text) < 5:
+            return expected  # too short to get the order wrong in a believable way
         half = max(1, len(text) // 2)
         return text[half:] + text[:half]
     return expected

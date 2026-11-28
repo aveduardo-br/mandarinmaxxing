@@ -18,7 +18,7 @@ In every chat that teaches a part:
 - Read `lesson-format.md` before the first lesson message: the vocabulary table and the format of every lesson message.
 - At the close, run `python3 course.py close <course.md>`. It writes the progress into the file.
 
-`course.py` does the course's bookkeeping and is the only thing that writes `course.md`: never edit that file by hand, except to translate the names and labels it asks you to. Give every file its full path (the scripts sit in this skill's folder). If the chat holds `course.md` as a project document and not as a file where code runs, save a copy first, pass the copy, and put the result back in the document after every command that writes. When a command stops with a message about the file, run `python3 course.py check <course.md>` and do what it says.
+`course.py` does the course's bookkeeping and is the only thing that writes `course.md`: never edit that file by hand, except to translate the names and labels it asks you to. Give every file its full path (the scripts sit in this skill's folder). If the chat holds `course.md` as a project document and not as a file where code runs, save a copy first, pass the copy, and put the result back in the document after every command that writes. When a command stops with a message about the file, or says the file is in an older format, run `python3 course.py check <course.md>` and do what it says; `python3 course.py migrate <course.md>` rewrites an older file in the current format.
 
 If the chat can't run code, say that the skill needs code execution turned on, and offer the trial lesson of `setup.md` meanwhile: without the script there is no course to keep.
 

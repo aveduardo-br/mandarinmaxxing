@@ -15,9 +15,9 @@ Within a part, a line is asked once at most in each kind, so it can come back as
 
 ## The steps
 
-- **Review.** Ask the last part's lines in a new situation, as replies and translations more than as meanings: the learner should write Mandarin. It can have fewer prompts than that part had words.
-- **Vocabulary.** As usual. An exchange of two lines can be listed as a chunk, and a chunk with no slot to change is asked as listed.
-- **Round 1** uses meaning and reply exercises. **Round 2** asks for translations: one speaker's line, or a short exchange in which the second line reacts to the first, with a dash before each speaker. **Round 3** is given only when the words make two connected sentences; otherwise go from round 2 to the last step. Each round has one exercise per new word, five at most, and fewer when the lines run out. Open these rounds with their number alone (**Round 1**): the names in **Rounds** describe the usual rounds. Don't offer an extra round.
+- **Review.** Ask the last part's lines in new combinations, as replies and translations more than as meanings: the learner should write Mandarin. It can have fewer prompts than that part had words.
+- **Vocabulary.** As usual. An exchange of two lines can be listed as a chunk, and a chunk with no slot to change is asked as listed. List every natural chunk, even when round 1 is too short to ask them all.
+- **Round 1** uses meaning and reply exercises. **Round 2** asks for translations: one speaker's line, or a short exchange in which the second line reacts to the first, with a dash before each speaker. **Round 3** is given only when the words make two connected sentences; otherwise go from round 2 to the last step. Each round has one exercise per new word, five at most, and fewer when the lines run out; the allowance of extra prompts for small parts doesn't apply here. Open these rounds with their number alone (**Round 1**): the names in **Rounds** describe the usual rounds. Don't offer an extra round.
 - **Last step.** With audio, a dictation of two or three real lines, which may be lines the part already used. Without audio, or when the audio fails, skip the reading text: under the reading title, name two to four moments of the lesson's situation in the learner's language (you arrive, someone hands you something, you leave) and ask what they would say in each, in Mandarin.
 
 ## Lines people really say

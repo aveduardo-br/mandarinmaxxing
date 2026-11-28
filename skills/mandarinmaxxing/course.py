@@ -172,8 +172,8 @@ def read_course(path):
             elif key == 'next':
                 c['next'] = value
             elif key == 'to reinforce':
-                c['reinforce'] = [] if value.lower() in ('', 'none') else [x.strip() for x in re.split(r'[,;，；]', value) if x.strip()]
-                if len(c['reinforce']) == 1 and ' ' in value and ',' not in value and '，' not in value and re.fullmatch(r'[一-鿿\s]+', value):
+                c['reinforce'] = [] if value.lower() in ('', 'none') else items(value)
+                if len(c['reinforce']) == 1 and ' ' in value and re.fullmatch(r'[一-鿿\s]+', value):
                     c['reinforce'] = value.split()  # older files separated items with spaces
             elif key == 'known' and 'jump' in value.lower():
                 c['old_known'] = True
@@ -232,23 +232,31 @@ def route_text(nums):
     return ', '.join(out)
 
 
-def lesson_state(lesson, done_lines, pace):
+def lesson_state(lesson, done_lines, pace, total=None):
     """Where a lesson stands, from the words Done actually holds for it.
 
     Returns (parts, studied): `parts` is the whole lesson as a list of parts (each a list of
     blocks) and `studied` how many of them are done. A lesson begun at another pace keeps
     that pace's split: the split is the one whose first parts match the Done lines. If no
     split matches (a file edited by hand), the blocks already in Done count as one studied
-    part and the rest is divided at the current pace."""
+    part and the rest is divided at the current pace. `total` is the "of N" that `Next`
+    gives for this lesson, when it names it."""
     lines = sorted(done_lines, key=lambda d: d['part'])
     current = PACES.index(pace)
     if not lines:
         return split_parts(lesson, current), 0
     had = [set(d['words']) for d in lines]
+    fits = []
     for idx in [current] + [i for i in range(3) if i != current]:
         parts = split_parts(lesson, idx)
         if len(parts) >= len(had) and all({w for b in parts[i] for w in b} == had[i] for i in range(len(had))):
+            fits.append(parts)
+    # two paces can share a lesson's first parts: `Next` then says which one the lesson was begun at
+    for parts in fits:
+        if total and len(parts) == total:
             return parts, len(had)
+    if fits:
+        return fits[0], len(had)
     known = set().union(*had)
     studied = [b for b in lesson['blocks'] if set(b) <= known]
     rest = [b for b in lesson['blocks'] if not set(b) <= known]
@@ -302,7 +310,9 @@ class Course:
 
     def refresh(self):
         here = [d for d in self.c['done'] if d['level'] == self.level]
-        self.state = {n: lesson_state(self.by_num[n], [d for d in here if d['lesson'] == n], self.c['pace']) for n in self.by_num}
+        found = NEXT.match((self.c['next'] or '').strip().strip('`'))
+        named = {found.group(1).zfill(2): int(found.group(3))} if found and found.group(3) else {}
+        self.state = {n: lesson_state(self.by_num[n], [d for d in here if d['lesson'] == n], self.c['pace'], named.get(n)) for n in self.by_num}
 
     def name(self, num):
         return self.c['lessons'].get(num, {}).get('name') or self.by_num[num]['name']
@@ -419,7 +429,7 @@ def part(course_path, plan_path=None, want_lesson=None, want_part=None):
     for note in c['notes'] + notes:
         print('NOTE: ' + note)
     if c['format'] < FORMAT:
-        print('NOTE: this file is in an older format. It is read as it is; the next `course.py close` writes it in the current one.')
+        print('NOTE: this file is in an older format. Before teaching, run `course.py migrate <course.md>`, translate what it asks, and put the file back.')
     print(f"PART: HSK {level} · Lesson {int(num)} · {course.name(num)}" + (f' · part {k} of {len(parts)}' if len(parts) > 1 else ''))
     if practice:
         print('PRACTICE: this part is already in Done. Teach it as practice; there is nothing to close.')
@@ -487,11 +497,16 @@ def check(course_path):
         problems.append('Older format: run `course.py migrate` on the file.')
     if not c['language']:
         problems.append('No Language line.')
+    english = c['language'].strip().lower() in ('', 'english', 'en')
     for key in LABELS:
         if not c['labels'].get(key):
             problems.append(f'Labels has no word for "{key}".')
+        elif not english and c['labels'][key] == ENGLISH[key] and key != 'audio':
+            problems.append(f'The label for "{key}" is still in English ({ENGLISH[key]}): translate it into {c["language"]}.')
     if not c['rounds']:
         problems.append('No Rounds line.')
+    elif not english and c['rounds'].strip() == 'Chunks, Full actions, Sequences':
+        problems.append(f'The Rounds line is still in English: translate the three names into {c["language"]}.')
     for n in course.by_num:
         if n not in c['lessons']:
             problems.append(f'The Lessons list has no line for lesson {n}.')
@@ -545,7 +560,9 @@ def new(path, level, pace, language):
 
 
 def items(text):
-    return [x.strip() for x in re.split(r'[,;，；]', text or '') if x.strip()]
+    """Items of a list written with commas or semicolons. A full-width comma stays inside
+    its item: a chunk such as 不要，谢谢 is one item."""
+    return [x.strip() for x in re.split(r'[,;]', text or '') if x.strip()]
 
 
 def close(path, missed='', recovered=''):
@@ -568,6 +585,7 @@ def close(path, missed='', recovered=''):
     nxt = course.pending(num) or course.first_open(num)
     print(f'CLOSED: {line}')
     course.write(nxt)
+    print('TO REINFORCE: ' + (', '.join(c['reinforce']) if c['reinforce'] else 'none'))
     if nxt == 'level complete':
         print('The level is complete: read levels.md.')
     elif not nxt.startswith(f'Lesson {num},'):
@@ -601,6 +619,10 @@ def known(path, lessons_):
     course.route = [n for n in course.route if n not in course.known]
     course.write(course.keep_next())
     print('KNOWN: ' + ' '.join(course.known))
+    waiting = [l['num'] for l in course.lessons if l['jump'] and l['num'] not in course.known and course.state[l['num']][1] == 0]
+    first = course.route[0] if course.route else None
+    if waiting and first and not course.by_num[first]['jump']:
+        print(f'JUMP-START LESSONS STILL TO STUDY: {" ".join(waiting)}. They come before Lesson {first}: run `course.py jump <course.md> {int(waiting[0])}`.')
 
 
 def study(path, lesson):
@@ -619,12 +641,14 @@ def set_pace(path, pace):
     if pace not in PACES:
         sys.exit('Pace is 3, 5 or 7.')
     course = Course(path)
+    begun = course.keep_next()  # worked out at the old pace: a lesson already begun keeps its parts
+    course.c['next'] = begun
     course.c['pace'] = pace
     course.c['notes'] = [n for n in course.c['notes'] if not n.startswith('Pace is')]
     course.refresh()
-    course.write(course.keep_next())
+    course.write(begun)
     active = [n for n in course.by_num if n not in course.known]
-    print(f'PACE {pace}: {sum(len(course.state[n][0]) for n in active)} parts in the level now. A lesson already begun finishes at its old pace.')
+    print(f'PACE {pace}: {sum(len(course.state[n][0]) for n in active)} parts in the level now. A lesson already begun finishes at its old pace: tell the learner the new pace starts with the next lesson.')
 
 
 def set_level(path, level):

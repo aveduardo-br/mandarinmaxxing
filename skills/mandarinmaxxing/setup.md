@@ -113,7 +113,7 @@ When a learner with a saved course writes "setup" or "/setup", send this card, f
 <script src="https://cdn.jsdelivr.net/gh/aveduardo-br/mandarinmaxxing@v0.8.0/skills/mandarinmaxxing/web/setup.js"></script>
 ```
 
-- `data-progress` is the parts done and the parts in the level, as two numbers: the first line that `python3 course.py progress <course.md>` prints. Lessons marked `(known)` are out of both. The card's script writes the percentage; don't write one yourself.
+- `data-progress` is the parts done and the parts in the level, as two numbers: the first line that `python3 course.py progress <course.md>` prints. Lessons marked `(known)` are out of both: when there are any, say how many in the progress line ("3 lessons you already knew are left out"). The card's script writes the percentage; don't write one yourself.
 - The lesson line comes from the `NEXT` line the same command prints and the **Lessons** list. With `level complete`, say so in that line and make the first button offer the next level.
 - Put `data-on` on the level, pace and audio the file holds. An older file with a pace other than 3, 5 or 7 gets it on the nearest.
 - The three buttons at the top send their `data-send` text, translated: answer each as the request it is. "Continue" asks for the part in **Next**.

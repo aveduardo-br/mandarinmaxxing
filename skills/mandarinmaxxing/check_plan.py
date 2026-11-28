@@ -29,8 +29,8 @@ on a line that starts with `prompt:`. A line with no Hanzi needs no label and is
 It fails, with exit code 1, on:
 - NOT MET: characters that no met word covers. Met: the levels below LEVEL, DONE, NEW,
   SUPPORT, and the lessons KNOWN lists; NAMES are allowed. A review line is checked
-  without NEW and SUPPORT: the review comes before the table. A two-character word said
-  apart (洗了澡, 洗个澡 for 洗澡) is met.
+  without NEW and SUPPORT: the review comes before the table. A word said apart after
+  its first character (洗了澡 for 洗澡, 打两次电话 for 打电话) is met.
 - new words in fewer than three round lines, alone or inside a longer word (not with EARLY)
 - a round with no line (round 3 may be missing with EARLY), the same sentence twice in
   the review and rounds (not with EARLY), a line with Hanzi and no label or an unknown one, more than two
@@ -97,12 +97,13 @@ def known_lessons(level, numbers, jump_start):
 
 
 def join_separated(run, vocab):
-    """洗了澡 → 洗澡 plus what stood between: a two-character met word said apart."""
+    """洗了澡 → 洗澡 plus what stood between: a met word of two or three characters said
+    apart after its first character (打了电话, 打两次电话 for 打电话)."""
     found = []
     for word in vocab:
-        if len(word) != 2 or word in run:
+        if len(word) not in (2, 3) or word in run:
             continue
-        pattern = re.escape(word[0]) + '([' + BETWEEN + ']{1,3})' + re.escape(word[1])
+        pattern = re.escape(word[0]) + '([' + BETWEEN + ']{1,3})' + re.escape(word[1:])
         if re.search(pattern, run):
             run = re.sub(pattern, lambda m: word + m.group(1), run, count=1)
             found.append(word)
