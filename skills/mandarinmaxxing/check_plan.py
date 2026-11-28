@@ -29,6 +29,8 @@ with Japanese kana or Korean letters. The script reports:
   without NEW and SUPPORT: the review comes before the table.
 - CHECK: stretches that met words cover but that are also an official word the learner
   hasn't met, such as 要是 from 要 and 是. Keep one only if you mean its parts.
+  A word of this level that a lower level also has with another reading or sense (还 huán
+  when 还 hái is met) is listed too, until its own part is in DONE.
 - new words that appear in fewer than three round lines, alone or inside a longer word
   (not reported with EARLY)
 
@@ -125,7 +127,7 @@ def segment(run, vocab, longest):
 
 def main(path):
     level, known, new, support, names, done, plan = 1, None, set(), set(), set(), set(), []
-    section, mapfile, early = None, None, False
+    section, mapfile, early, done_here = None, None, False, set()
     for raw in open(path, encoding='utf-8'):
         line = raw.strip().replace('：', ':')
         if not line:
@@ -156,6 +158,9 @@ def main(path):
             section = head
         elif section == 'DONE':
             done |= words_in(line.split('|', 1)[-1])
+            prefix = re.match(r'\s*(\d)-', line)
+            if not prefix or int(prefix.group(1)) >= level:
+                done_here |= words_in(line.split('|', 1)[-1])
         elif section == 'PLAN':
             if OTHER_SCRIPT.search(line):
                 continue
@@ -173,6 +178,17 @@ def main(path):
     longest = max((len(w) for w in vocab), default=1)
     later = {w for w in all_levels() - vocab if len(w) > 1}
 
+    # words this level teaches that a lower level already has: another reading or sense
+    lower = lower_levels(level)
+    again = set()
+    here = os.path.join(HERE, 'syllabus', f'hsk-{level}.csv')
+    if os.path.exists(here):
+        for row in list(open(here, encoding='utf-8'))[1:]:
+            cols = row.split(',')
+            if len(cols) > 1 and clean(cols[1]) in lower:
+                again.add(clean(cols[1]))
+    again -= done_here | new
+
     unmet, check, counts = [], {}, {w: 0 for w in new}
     for label, text in plan:
         seen, missing = set(), []
@@ -180,7 +196,11 @@ def main(path):
         for run in HAN.findall(text):
             tokens, miss = segment(run, allowed, longest)
             seen.update(tokens)
+            # a separable word said apart (打了电话 for 打电话) is met
+            miss = [ch for ch in miss if not any(w[0] == ch and len(w) > 1 and w[1:] in text for w in allowed)]
             missing += miss
+            for w in again & set(tokens):
+                check.setdefault(w + ' (this level teaches another reading or sense of it later)', []).append(text)
             if not miss:
                 # an unmet word spelled by two or more whole met words in a row
                 for a in range(len(tokens)):

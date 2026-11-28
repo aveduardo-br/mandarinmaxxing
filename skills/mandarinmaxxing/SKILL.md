@@ -14,7 +14,7 @@ The skill guides the lessons. Long-term memorization stays with the learner's ow
 
 In every chat that teaches a part:
 
-- Run `python3 course.py part <course.md> plan.txt`. It does the course's bookkeeping and prints the **brief** of the part: its new words, what the review covers, older words to bring back, and how many exercises each step has. If the chat holds `course.md` as a project document and not as a file where code runs, save a copy first and pass the copy.
+- Run `python3 course.py part <course.md> plan.txt`, giving each file its full path (the scripts sit in this skill's folder). It does the course's bookkeeping and prints the **brief** of the part: its new words, what the review covers, older words to bring back, and how many exercises each step has. If the chat holds `course.md` as a project document and not as a file where code runs, save a copy first and pass the copy.
 - Read `lesson-format.md` before the first lesson message: the vocabulary table and the format of every lesson message.
 
 Read only when the moment comes:
@@ -41,7 +41,7 @@ The course lives in one `course.md`, kept where every chat of the course can rea
 - Syllabus: HSK 3.0 (2025-11), level 1
 - Pace: about 5 words per part
 - Language: Português
-- Labels: Aula, parte, Revisão, Bateria, Ditado, Áudio, Leitura, Frases úteis, Largada
+- Labels: Aula, parte, Revisão, Bateria, Exercício, Escuta, Ditado, Áudio, Leitura, Frases úteis, Largada
 - Rounds: Chunks, Ações completas, Sequências
 - Audio: none
 - Route: 01–07, 12, 13, 08, 09, 10, 11, 14–22
@@ -61,10 +61,10 @@ The course lives in one `course.md`, kept where every chat of the course can rea
 
 - **Pace** is 3, 5 or 7.
 - **Language** is the language of everything outside the Mandarin: instructions, meanings, prompts, feedback. Keep it until the learner asks to switch.
-- **Labels** fixes the learner-language words for lesson, part, review, round, dictation, audio (the narration clip), reading, useful phrases (the chunk list), and jump start. **Rounds** fixes the names of the three rounds. Use exactly these in every chat, never a synonym. If a file lacks one, choose it once and save it. Field names and the **Next** line stay in English.
+- **Labels** fixes the learner-language words, in this order, for lesson, part, review, round, exercise, listening, dictation, audio (the narration clip), reading, useful phrases (the chunk list), and jump start. **Rounds** fixes the names of the three rounds. Use exactly these in every chat, never a synonym. If a file lacks one, choose it once and save it. Field names and the **Next** line stay in English.
 - **Audio** is `none`, or the provider and the one voice of the course, such as `ElevenLabs, voice Yun`.
 - **Route** is the order of lessons the learner agreed to. **Next** names the lesson and part to teach next, or says `level complete`.
-- **To reinforce** holds what the learner got wrong in the last part and didn't get right later in it: five words or short chunks at most, or `none`. The next part's review asks each once. At every close, replace the list with this part's.
+- **To reinforce** holds what the learner got wrong in the last part and didn't get right later in it: five words or short chunks at most, separated by commas, or `none`. For a slip of word order or grammar, save the short chunk as it should be said. The next part's review asks each once. At every close, replace the list with this part's.
 - **Lessons** is the level as the learner saw it at setup: map number, name in their language, number of parts. Use these names in every chat. A lesson the learner skipped because they already know it ends in `(known)` in place of its parts: it is off the route, out of the progress count, and its words count as met (see `requests.md`).
 - **Done** has one line per finished part, in the order studied: level, lesson and part, then the new words as the map spells them. Sense numbers such as 别1 stay in this log; the learner sees 别.
 
@@ -99,7 +99,7 @@ The plan is a draft. When an answer needs a correction, rework a prompt still to
 ### The five steps
 
 1. **Review**, as the brief lists it. Write the prompts at the level of the course, not of the words reviewed: full sentences built from everything met before this part, even for a simple word (late in HSK 1, 谢谢 comes back as "Thank you, doctor, I'll come back to the hospital tomorrow", not as "Thanks! — You're welcome!"). Fix the total in the first counter and keep it.
-2. **Vocabulary.** The table, any extra words and known-word reminders, then two to four useful chunks. A chunk is a phrase the learner can reuse, longer than a single table word wherever the met words allow, and every chunk listed is practised in round 1. Give a chunk a breakdown line only when its parts are words of this part's table or words met before, as in 开车 = 开 (drive) + 车 (car). End the message with the first prompt of round 1.
+2. **Vocabulary.** The table, any extra words, a reminder line for the words of `(known)` lessons this part uses (pinyin and meaning: the course never showed them), then two to four useful chunks, no more than round 1 has prompts. A chunk is a phrase the learner can reuse, longer than a single table word wherever the met words allow, and every chunk listed is practised in round 1. Give a chunk a breakdown line only when its parts are words of this part's table or words met before, as in 开车 = 开 (drive) + 车 (car). End the message with the first prompt of round 1.
 3. **Three rounds**, each prompt to translate into Mandarin, as many as the brief says. A word that is natural on its own is used on its own at least once, not only inside a longer word (站 in 坐两站, not only in 地铁站).
    - **Round 1 · Chunks.** Each prompt uses one of the part's chunks with a slot changed (the person, the place, the time, what follows the verb), never the chunk as listed. Spread the prompts across the chunks. These sentences can be short.
    - **Round 2 · Full actions.** One complete sentence: who does what, with a time or a place when the learner has the words for one, joining a new chunk to words met earlier.

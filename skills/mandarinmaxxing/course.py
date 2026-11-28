@@ -80,7 +80,7 @@ def overview(level, pace):
 
 
 def read_course(path):
-    c = {'level': 1, 'pace': 5, 'next': '', 'reinforce': '', 'lessons': {}, 'done': [], 'old_known': False}
+    c = {'level': 1, 'pace': 5, 'next': '', 'route': '', 'reinforce': '', 'lessons': {}, 'done': [], 'old_known': False}
     section = None
     for raw in open(path, encoding='utf-8'):
         line = raw.strip()
@@ -97,6 +97,8 @@ def read_course(path):
             elif 'pace:' in low:
                 found = re.search(r'\d+', low.split('pace:', 1)[1])
                 c['pace'] = int(found.group()) if found else 5
+            elif 'route:' in low:
+                c['route'] = line.split(':', 1)[1].strip()
             elif 'next:' in low:
                 c['next'] = line.split(':', 1)[1].strip()
             elif 'to reinforce:' in low:
@@ -136,6 +138,17 @@ def split_index_for(lesson, pace, of=None, begun=0):
     return idx
 
 
+def route_lessons(text):
+    out = []
+    for piece in re.split(r'[,;]', text):
+        nums = re.findall(r'\d+', piece)
+        if len(nums) == 2 and re.search(r'[–—-]', piece):
+            out += [str(n).zfill(2) for n in range(int(nums[0]), int(nums[1]) + 1)]
+        else:
+            out += [n.zfill(2) for n in nums]
+    return out
+
+
 def part(course_path, plan_path=None, want_lesson=None, want_part=None):
     c = read_course(course_path)
     level = c['level']
@@ -171,7 +184,7 @@ def part(course_path, plan_path=None, want_lesson=None, want_part=None):
 
     done = c['done']
     known_words = [w for n in known if n in by_num for b in by_num[n]['blocks'] for w in b]
-    met_before = sum(level_size(n) for n in range(1, level)) + len({bare(w) for d in done for w in d['words']}) + len(known_words)
+    met_before = sum(level_size(n) for n in range(1, level)) + len({bare(w) for d in done if d['level'] >= level for w in d['words']}) + len(known_words)
     early = met_before < 20
 
     print(f"PART: HSK {level} · Lesson {int(num)} · {name}" + (f' · part {k} of {len(parts)}' if len(parts) > 1 else ''))
@@ -179,9 +192,10 @@ def part(course_path, plan_path=None, want_lesson=None, want_part=None):
     last = done[-1] if done else None
     reinforce = '' if c['reinforce'].lower() in ('', 'none') else c['reinforce']
     if last:
-        print(f"REVIEW: one prompt per word of {last['raw'].split('|')[0].strip()}: " + ' '.join(last['words']))
+        how = 'the lines of' if early else 'one prompt per word of'
+        print(f"REVIEW: {how} {last['raw'].split('|')[0].strip()}: " + ' '.join(last['words']))
         if reinforce:
-            print('  and one for each item to reinforce: ' + reinforce)
+            print('  and the items to reinforce, once each: ' + reinforce)
     else:
         print('REVIEW: none, nothing studied yet. Start at the vocabulary.')
     older = []
@@ -199,7 +213,7 @@ def part(course_path, plan_path=None, want_lesson=None, want_part=None):
     if known:
         print('KNOWN LESSONS (never shown by the course): ' + ' '.join(known))
         print('  their words: ' + ' '.join(known_words))
-        print('  use four of them at most in this part, and list the ones used under the table with pinyin and meaning')
+        print('  they count as met; list the ones this part uses under the table, with pinyin and meaning')
     n = len(new)
     per_round = min(5, n)
     print(f'EARLY PART: {"yes: read first-parts.md" if early else "no"} ({met_before} words met before this part)')
@@ -209,7 +223,22 @@ def part(course_path, plan_path=None, want_lesson=None, want_part=None):
         print('ROUNDS AND LAST STEP: as first-parts.md says')
     else:
         print('LISTENING: ' + ('dictation and narration' if n >= 5 else 'dictation only') + ' with audio; one reading without')
-    nxt = f'Lesson {num}, part {k + 1} of {len(parts)}' if k < len(parts) else 'the first part of the next lesson on the route (or `level complete`)'
+    if k < len(parts):
+        nxt = f'`Lesson {num}, part {k + 1} of {len(parts)}`'
+    else:
+        route = route_lessons(c['route'])
+        if num not in route:
+            nxt = 'what it was: this lesson is not on the route'
+        else:
+            nxt = '`level complete`'
+            for cand in route[route.index(num) + 1:]:
+                if cand not in by_num or cand in known:
+                    continue
+                had = max([d['part'] for d in done if d['level'] == level and d['lesson'] == cand] or [0])
+                total = len(by_num[cand]['split'][split_index_for(by_num[cand], c['pace'], None, had)])
+                if had < total:
+                    nxt = f'`Lesson {cand}, part {had + 1} of {total}`'
+                    break
     print(f"AT THE CLOSE: add `{level}-{num}.{k} | {' '.join(new)}` to Done; Next becomes {nxt}")
 
     if plan_path:
