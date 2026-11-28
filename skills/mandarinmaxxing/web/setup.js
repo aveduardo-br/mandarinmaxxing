@@ -181,7 +181,7 @@
       if (m) m.style.background = on ? ORANGE : '';
     });
     // a choice can carry a note, shown under its group while it is the one chosen
-    var el = g.el(), note = el.querySelector('.mm-note'), text = g.current().getAttribute('data-note');
+    var el = g.el(), note = el.querySelector('.mm-note'), text = g.current() ? g.current().getAttribute('data-note') : null;
     if (text && !note) { note = document.createElement('p'); note.className = 'mm-note'; el.appendChild(note); }
     if (note) { note.textContent = text || ''; note.style.display = text ? '' : 'none'; }
   }
@@ -208,12 +208,13 @@
     var start = first.indexOf(f.querySelector('button[data-on]'));
     var g = {
       name: legend ? (legend.firstChild && legend.firstChild.nodeType === 3 ? legend.firstChild.textContent : legend.textContent).trim() : '',
-      at: start < 0 ? 0 : start,
+      at: start,  // -1: no choice marked, as with a pace that is none of the three
       el: function () { return live().querySelectorAll('fieldset')[index] || f; },
       buttons: function () { return Array.prototype.slice.call(g.el().querySelectorAll('button')); },
       current: function () { return g.buttons()[g.at]; },
       value: function () {
         var b = g.current();
+        if (!b) return '';
         var small = b.querySelector('small');
         var label = '';
         for (var k = 0; k < b.childNodes.length; k++) if (b.childNodes[k].nodeType === 3) label += b.childNodes[k].textContent;
@@ -232,7 +233,7 @@
     groups.push(g);
     paint(g);
   });
-  var initial = groups.map(function (g) { return g.name + ': ' + g.value(); });
+  var initial = groups.map(function (g) { return g.value() ? g.name + ': ' + g.value() : ''; });
   function groupOf(b) {
     for (var i = 0; i < groups.length; i++) if (groups[i].buttons().indexOf(b) > -1) return groups[i];
     return null;
@@ -251,7 +252,7 @@
       var prev = g.current();
       if (prev === b) return;
       g.at = g.buttons().indexOf(b);
-      turn(g, [prev, b]);
+      turn(g, prev ? [prev, b] : [b]);
       showSave();
       report();
       return;
@@ -260,14 +261,14 @@
     if (cut) { send(cut.getAttribute('data-send') || cut.textContent.trim()); return; }
     var go = e.target && e.target.closest ? e.target.closest('#mandarinmaxxing-setup [data-start]') : null;
     if (!go) return;
-    var now = groups.map(function (g) { return g.name + ': ' + g.value(); });
+    var now = groups.map(function (g) { return g.value() ? g.name + ': ' + g.value() : ''; });
     // at home only what changed is sent, and nothing is sent when nothing changed
     if (live().hasAttribute('data-home')) {
-      now = now.filter(function (line, i) { return line !== initial[i]; });
+      now = now.filter(function (line, i) { return line && line !== initial[i]; });
       if (!now.length) { say(go.getAttribute('data-same') || ''); return; }
     }
     var lead = go.getAttribute('data-lead');
-    send((lead ? lead + ' ' : '') + now.join('. ') + '.');
+    send((lead ? lead + ' ' : '') + now.filter(Boolean).join('. ') + '.');
   });
   function send(text) {
     if (live().hasAttribute('data-preview') || typeof sendPrompt !== 'function') { say(text); return; }
@@ -276,7 +277,7 @@
   var go = root.querySelector('[data-start]');
   if (go) { go.type = 'button'; go.classList.add('mm-go'); }
   function changed() {
-    return groups.some(function (g, i) { return g.name + ': ' + g.value() !== initial[i]; });
+    return groups.some(function (g, i) { return (g.value() ? g.name + ': ' + g.value() : '') !== initial[i]; });
   }
   function showSave() {
     var r = live(), b = r.querySelector('[data-start]');

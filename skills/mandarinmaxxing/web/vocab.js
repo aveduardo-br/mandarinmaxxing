@@ -71,6 +71,7 @@
     var word = { el: w, cells: cells, busy: false, sound: HAN.test(text) ? sound : '' };
     words.push(word);
     w.addEventListener('click', function () { speak(word); });
+    w.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') speak(word); });
   });
 
   function play(word) {
