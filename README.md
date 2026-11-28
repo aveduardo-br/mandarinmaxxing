@@ -123,7 +123,7 @@ Use `-a codex` for Codex. The installer needs Node.js 22.20.0 or newer.
 |---|---|
 | `skills/mandarinmaxxing/SKILL.md` | How a lesson works: parts, review, exercises, saving |
 | `skills/mandarinmaxxing/setup.md`, `first-parts.md`, `audio.md`, `levels.md`, `requests.md` | Starting a course, the very first parts, listening with audio, changing level, and what you can ask for. Read only when needed |
-| `skills/mandarinmaxxing/course.py` | The bookkeeping of each part, done by script: which words it brings, what the review covers, which older words come back, how many exercises |
+| `skills/mandarinmaxxing/course.py` | The course's bookkeeping, done by script: it says what each part brings (words, review, older words, how many exercises) and writes every change to your course file, so progress never depends on the tutor editing a file by hand |
 | `skills/mandarinmaxxing/lesson-format.md` | How each message of a lesson looks |
 | `skills/mandarinmaxxing/check_plan.py` | A script the skill runs on each planned part: only words you've met, every new word practised three times |
 | `skills/mandarinmaxxing/maps/` | The lesson map for each level |
@@ -141,6 +141,7 @@ To check a map and build the ZIP locally, run these from the repository root:
 python3 tools/check_map.py skills/mandarinmaxxing/maps/hsk-1.md
 python3 tools/check_anchors.py 1
 python3 tools/test_scripts.py
+python3 tools/check_urls.py <commit>
 sh tools/build.sh
 ```
 

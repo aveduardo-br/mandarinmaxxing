@@ -130,7 +130,7 @@
 
   if (typeof HanziWriter !== 'undefined') return enhance();
   var lib = document.createElement('script');
-  lib.src = 'https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js';
+  lib.src = 'https://cdn.jsdelivr.net/npm/hanzi-writer@3.5.0/dist/hanzi-writer.min.js';
   lib.onload = enhance;
   document.head.appendChild(lib);
 })();

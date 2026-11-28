@@ -32,7 +32,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
   <p>Choose your level and pace below. Nothing here is final: type "setup" to come back to this screen.</p>
   <h3>Before you start</h3>
   <details><summary>What does a lesson look like?</summary>
-    <p>A review of last time, new words inside ready-to-use phrases, three rounds of translation from your language into Mandarin with feedback right away, and a listening or reading step to close. The very first lessons take ten or fifteen minutes, because you know almost no words yet. After that, from half an hour to an hour, depending on how many words the part brings.</p>
+    <p>A review of last time, new words inside ready-to-use phrases, rounds of exercises with feedback right away, and a listening or reading step to close. The very first lessons are short, ten or fifteen minutes, and warm you up: what a phrase means, how you reply, how you say it. After that you translate from your language into Mandarin, and a lesson takes from half an hour to an hour.</p>
   </details>
   <details><summary>Do I need audio?</summary>
     <p>No. With audio, you hear a short dictation and a short story in a natural voice, through your own ElevenLabs account, which has a free plan. Without audio, you read a text instead and there's nothing to set up.</p>
@@ -44,7 +44,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
   <fieldset><legend>Level<small>HSK</small></legend>
     <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button>
   </fieldset>
-  <fieldset><legend>Pace<small>new words a day</small></legend>
+  <fieldset><legend>Pace<small>new words a lesson</small></legend>
     <button>Light<small>about 3</small></button><button data-on>Recommended<small>about 5</small></button><button>Intense<small>about 7</small></button>
   </fieldset>
   <fieldset><legend>Audio</legend>
@@ -64,7 +64,7 @@ Send the card below as the whole setup message, drawn with the chat's inline HTM
 
 **Where the chat can't show HTML**, send the same content as plain text, in this order: the title, the two opening paragraphs, then three numbered questions (level, pace, audio) each with its options on the line below, and one line on the keyboard.
 
-**Audio.** If the learner wants audio, they connect a text-to-speech provider to the chat themselves, usually ElevenLabs through its connector. If it isn't connected yet, tell them how, use reading meanwhile, and switch once it appears. Save the choice in **Audio**.
+**Audio.** If the learner wants audio, they connect a text-to-speech provider to the chat themselves, usually ElevenLabs through its connector. If it isn't connected yet, tell them how, use reading meanwhile, and switch once it appears. Record the choice with `python3 course.py audio <course.md> <provider and voice>`.
 
 ## Show the level and agree on the route
 
@@ -78,9 +78,9 @@ Write both lists as bullets, one lesson per line: the map's two-digit number in 
 
 Then:
 
-1. Save `course.md` in the shape given in `SKILL.md`: the settings, the route in map order, the full lesson list in the learner's language, and `Next` at part 1 of the first lesson.
+1. Run `python3 course.py new <course.md> <level> <pace> <language>`. It writes the course file. Translate in it what the command asks (the labels, the round names, the lesson names), set the audio with `course.py audio` if the learner chose it, and save the file where the course is kept.
 2. Add one sentence on what they can ask for at any time: review a lesson, change the pace, an extra reading with only the words they know, or flashcards of a part's words.
-3. Ask where they want to start and whether to move any lesson earlier or later. A learner starting from zero starts at Lesson 1. A learner who has studied before reads the list and picks the lesson to start from: "start at 19" puts Lesson 19 first, and it is still called Lesson 19 (see "Another lesson" in `requests.md`). The jump start keeps its order, and a learner who already knows some of its lessons can skip them as known (see "Skip lessons the learner already knows" in `requests.md`). Save again if the route changes.
+3. Ask where they want to start and whether to move any lesson earlier or later. A learner starting from zero starts at Lesson 1. A learner who has studied before reads the list and picks the lesson to start from: "start at 19" puts Lesson 19 first, and it is still called Lesson 19. For that, and for lessons they already know, follow "Another lesson" and "Skip lessons the learner already knows" in `requests.md`.
 
 Start the first part once the learner agrees.
 
@@ -101,7 +101,7 @@ When a learner with a saved course writes "setup" or "/setup", send this card, f
   <fieldset><legend>Level<small>HSK</small></legend>
     <button data-on data-value="HSK 1">1</button><button data-value="HSK 2">2</button><button data-value="HSK 3">3</button><button data-value="HSK 4">4</button>
   </fieldset>
-  <fieldset><legend>Pace<small>new words a day</small></legend>
+  <fieldset><legend>Pace<small>new words a lesson</small></legend>
     <button>Light<small>about 3</small></button><button data-on>Recommended<small>about 5</small></button><button>Intense<small>about 7</small></button>
   </fieldset>
   <fieldset><legend>Audio</legend>
@@ -114,7 +114,7 @@ When a learner with a saved course writes "setup" or "/setup", send this card, f
 ```
 
 - `data-progress` is the parts done and the parts in the level, as two numbers: the first line that `python3 course.py progress <course.md>` prints. Lessons marked `(known)` are out of both. The card's script writes the percentage; don't write one yourself.
-- The lesson line comes from **Next** and the **Lessons** list. With `Next: level complete`, say so in that line and make the first button offer the next level.
+- The lesson line comes from the `NEXT` line the same command prints and the **Lessons** list. With `level complete`, say so in that line and make the first button offer the next level.
 - Put `data-on` on the level, pace and audio the file holds. An older file with a pace other than 3, 5 or 7 gets it on the nearest.
 - The three buttons at the top send their `data-send` text, translated: answer each as the request it is. "Continue" asks for the part in **Next**.
 - "Save changes" sends only what the learner changed, after the line `Change my course.` Apply each change as `requests.md` says under "Change the pace", "Change the audio" and "Change the level".

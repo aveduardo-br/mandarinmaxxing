@@ -33,7 +33,7 @@ Draw the table with the chat's inline HTML or widget tool, in the conversation, 
 
 Under the table, add a one-line usage note only for a word whose use the meaning can't show: two words that translate the same way (帮 and 帮忙), a word that needs a pattern (让 + person + verb), a word the exercises will use in a role the meaning doesn't show (不 alone as a reply: "no"), or a word whose tone changes in the chunks (不 is said *bú* before a fourth tone). Give a polite form a meaning that says who it is for, such as 您 = "you (to sir or madam)".
 
-**Words that translate the same way** (没关系 and 没事, 中文 and 汉语): give each prompt a context that fits only one, or accept both. When the learner keeps choosing one, ask for the other by name in the next prompt that fits and again in the next part's review.
+**Words that translate the same way** (没关系 and 没事, 中文 and 汉语): give each prompt a context that fits only one, or accept both. When the learner keeps choosing one, ask for the other by name in the next prompt that fits, and give it in `--missed` at the close so the next review asks for it.
 
 ## Feedback on a translation
 
@@ -62,6 +62,6 @@ Correct the rewrite as a written translation. One text per part, with every new 
 One short message after the last exercise; it can share a message with the feedback on it.
 
 - What comes next: "Next time: HSK 1, Lesson 11, part 3."
-- One offer, as a single question. After the last part of a lesson with two or more parts: one line saying the lesson is complete, and the wrap-up role-play (it is described in `requests.md`). After any other part: starting the next part now.
+- One offer, as a single question, after the close has run. After the last part of a lesson with two or more parts: one line saying the lesson is complete, and the wrap-up role-play (it is described in `requests.md`). After any other part: starting the next part now.
 
 No summary of the part.

@@ -1,20 +1,20 @@
 # Requests: anything other than the next part
 
-Read this when the learner asks for something other than the next part. Unless a request says otherwise, it leaves **Next** and **Done** as they are.
+Read this when the learner asks for something other than the next part. Every change to the course goes through a `course.py` command, which writes `course.md`; put the file back where the course is kept after it.
 
 ## Another lesson
 
-- **Practising a lesson or part** ("let me practise Lesson 9 again"). Teach it from its start as standalone practice: **Next** and **Done** stay as they are. `python3 course.py part <course.md> plan.txt --lesson 9 --part 1` gives its brief.
-- **Changing the route.** When the learner jumps to a lesson out of route order ("go to Lesson 22", "start at 19"), the lesson keeps its number. Unless they say otherwise, the lessons jumped over follow it on the route, in map order. Say so in one line, without waiting for an answer, save the route, and set **Next** to the first part of that lesson.
+- **Practising a lesson or part** ("let me practise Lesson 9 again"). `python3 course.py part <course.md> plan.txt --lesson 9 --part 1` gives its brief. It is practice: there is nothing to close.
+- **Going to another lesson** ("go to Lesson 22", "start at 19"). Run `python3 course.py jump <course.md> 22`: the lesson goes first on the route, keeps its number, and the lessons jumped over follow it. Say in one line what comes after it, without waiting for an answer.
 
 ## Skip lessons the learner already knows
 
-Where to start is the learner's choice: the first lesson, the middle of the jump start, or any lesson after it. When a jump leaves jump-start lessons unstudied, name those lessons, with a few of the words each one teaches (`python3 course.py overview <level> <pace>` lists them), and ask once which of them the learner already knows.
+Where to start is the learner's choice: the first lesson, the middle of the jump start, or any lesson after it. When a jump leaves jump-start lessons unstudied, the command lists them. Name those lessons, with a few of the words each one teaches (`python3 course.py overview <level> <pace>` has them), and ask once which of them the learner already knows.
 
-- **The ones they know:** mark each of those lessons `(known)` in the **Lessons** list and take it off the route. If **Next** pointed to one of them, set it to what `python3 course.py progress <course.md>` gives. Do the same for any other lesson the learner says they know. Their words count as met, and the brief of each part lists them so you can remind the learner.
-- **The ones they don't:** those jump-start lessons come first, before the lesson they asked for: the later lessons are built on their words.
+- **The ones they know:** run `python3 course.py known <course.md> 01 02` with their numbers. Do the same for any other lesson the learner says they know. Their words count as met, and the brief of each part lists them so you can remind the learner.
+- **The ones they don't:** those jump-start lessons come first, before the lesson they asked for: the later lessons are built on their words. Run `python3 course.py jump` to the first of them.
 
-A lesson marked `(known)` can still be studied later: remove the mark, write its parts again (from `course.py overview`), and put it on the route, first if the learner wants it now and otherwise after the lesson in progress. If they want it now, set **Next** to its first part not yet in **Done**: `python3 course.py part <course.md> --lesson N` names it. To go through parts already studied is practice, and changes nothing in the file. A lesson already begun stays begun: the script works out which part comes next from its **Done** lines.
+A lesson marked `(known)` can still be studied later: `python3 course.py study <course.md> 03` puts it back, first on the route, at its first part not yet studied.
 
 ## Review a lesson
 
@@ -22,15 +22,15 @@ Use the lesson's lines in the **Done** log: a review-style set of prompts for it
 
 ## Change the pace
 
-Save the new **Pace**: 3, 5 or 7. It takes effect at the next lesson: a lesson already begun finishes at the old pace, and `course.py` works that out from its **Done** lines. Recount the parts of the lessons not yet started in the **Lessons** list, from `python3 course.py overview <level> <pace>`.
+Run `python3 course.py pace <course.md> 7` (3, 5 or 7). It takes effect at the next lesson: a lesson already begun finishes at the old pace. Tell the learner the new number of parts it prints.
 
 ## Change the audio
 
-Save the new **Audio**. Turning it on follows "Audio" in `setup.md`; turning it off takes effect at the next listening step.
+Run `python3 course.py audio <course.md> none`, or with the provider and voice in place of `none`. Turning it on follows "Audio" in `setup.md`; turning it off takes effect at the next listening step.
 
 ## Change the level
 
-Changing level replaces the route, so confirm it first in one line: the course moves to the new level, and the words already studied keep coming back. When the learner confirms, follow steps 1 to 4 of "When a level ends" in `levels.md`, with one difference: **Next** goes to the lesson they choose from the overview. Words of the levels below the new one count as met.
+Changing level replaces the route, so confirm it first in one line: the course moves to the new level, and the words already studied keep coming back. When the learner confirms, follow the steps of "When a level ends" in `levels.md`; if they want to start at another lesson, run `course.py jump` after it. Words of the levels below the new one count as met.
 
 ## The course screen
 
@@ -42,7 +42,7 @@ When the learner says they have been away for weeks, offer a review of the last 
 
 ## Wrap-up role-play
 
-Offered once, in the close of the last part of a lesson with two or more parts. When the learner accepts, now or in a later chat, set the scene in one line in their language, then play the other person in the lesson's situation: write in Mandarin with the meaning under each line, and let the learner reply in Mandarin, for four to six turns that call on blocks from every part of the lesson. Accept any natural reply, not only the one you expected, and correct the rest as a written translation. Close it in one line, save any slip in **To reinforce**, and offer the next part. If the learner moves on instead, don't bring it up again.
+Offered once, in the close of the last part of a lesson with two or more parts. When the learner accepts, now or in a later chat, set the scene in one line in their language, then play the other person in the lesson's situation: write in Mandarin with the meaning under each line, and let the learner reply in Mandarin, for four to six turns that call on blocks from every part of the lesson. Accept any natural reply, not only the one you expected, and correct the rest as a written translation. Close it in one line and offer the next part. If the learner moves on instead, don't bring it up again.
 
 ## Extra reading
 

@@ -14,9 +14,13 @@ The skill guides the lessons. Long-term memorization stays with the learner's ow
 
 In every chat that teaches a part:
 
-- Run `python3 course.py part <course.md> plan.txt`, giving each file its full path (the scripts sit in this skill's folder). It does the course's bookkeeping and prints the **brief** of the part: its new words, what the review covers, older words to bring back, how many exercises each step has, and what to save at the close. If the chat holds `course.md` as a project document and not as a file where code runs, save a copy first and pass the copy. When the script stops with a message about the file, fix what it names in `course.md` and run it again.
-- If the chat can't run code, say that the skill needs code execution turned on, and offer the trial lesson of `setup.md` meanwhile: without the script there is no course to keep.
+- Before it, run `python3 course.py part <course.md> plan.txt`. It prints the **brief** of the part: its new words, what the review covers, older words to bring back, and how many exercises each step has.
 - Read `lesson-format.md` before the first lesson message: the vocabulary table and the format of every lesson message.
+- At the close, run `python3 course.py close <course.md>`. It writes the progress into the file.
+
+`course.py` does the course's bookkeeping and is the only thing that writes `course.md`: never edit that file by hand, except to translate the names and labels it asks you to. Give every file its full path (the scripts sit in this skill's folder). If the chat holds `course.md` as a project document and not as a file where code runs, save a copy first, pass the copy, and put the result back in the document after every command that writes. When a command stops with a message about the file, run `python3 course.py check <course.md>` and do what it says.
+
+If the chat can't run code, say that the skill needs code execution turned on, and offer the trial lesson of `setup.md` meanwhile: without the script there is no course to keep.
 
 Read only when the moment comes:
 
@@ -39,19 +43,20 @@ The course lives in one `course.md`, kept where every chat of the course can rea
 
 ```markdown
 # mandarinmaxxing course
+- Format: 2
 - Syllabus: HSK 3.0 (2025-11), level 1
 - Pace: about 5 words per part
 - Language: Português
-- Labels: Aula, parte, Revisão, Bateria, Exercício, Escuta, Ditado, Áudio, Leitura, Frases úteis, Largada
+- Labels: lesson=Aula, part=parte, review=Revisão, round=Bateria, dictation=Ditado, audio=Áudio, reading=Leitura, phrases=Frases úteis, jump start=Largada
 - Rounds: Chunks, Ações completas, Sequências
 - Audio: none
-- Route: 01–07, 12, 13, 08, 09, 10, 11, 14–22
+- Route: 01, 02, 04–22
 - Next: Lesson 02, part 1 of 2
 - To reinforce: 没关系
 
 ## Lessons
-01 Cumprimentar e agradecer (2 partes)
-02 Dizer o que você quer (2 partes)
+01 Cumprimentar e agradecer
+02 Dizer o que você quer
 03 Dizer quem você é (known)
 …one line for every lesson of the level
 
@@ -60,18 +65,23 @@ The course lives in one `course.md`, kept where every chat of the course can rea
 1-01.2 | 您 好 没事
 ```
 
-- **Pace** is 3, 5 or 7.
+What you use from it:
+
 - **Language** is the language of everything outside the Mandarin: instructions, meanings, prompts, feedback. Keep it until the learner asks to switch.
-- **Labels** fixes the learner-language words, in this order, for lesson, part, review, round, exercise, listening, dictation, audio (the narration clip), reading, useful phrases (the chunk list), and jump start. **Rounds** fixes the names of the three rounds. Use exactly these in every chat, never a synonym. If a file lacks one, choose it once and save it. Field names and the **Next** line stay in English.
+- **Labels** fixes the learner-language words for lesson, part, review, round, dictation, audio (the narration clip), reading, useful phrases (the chunk list), and jump start. **Rounds** fixes the names of the three rounds. Use exactly these in every chat, never a synonym.
 - **Audio** is `none`, or the provider and the one voice of the course, such as `ElevenLabs, voice Yun`.
-- **Route** is the order of lessons the learner agreed to. **Next** names the lesson and part to teach next, or says `level complete`.
-- **To reinforce** holds words or short chunks the learner still gets wrong: five at most, separated by commas, or `none`. For a slip of word order or grammar, save the short chunk as it should be said. Each review asks every item once. At the close, take out the items the learner got right unaided in this part's review, and add what they got wrong in this part and didn't get right later in it. Past five, the oldest leaves.
-- **Lessons** is the level as the learner saw it at setup: map number, name in their language, number of parts. Use these names in every chat. A lesson the learner skipped because they already know it ends in `(known)` in place of its parts: it is off the route, out of the progress count, and its words count as met (see `requests.md`).
-- **Done** has one line per finished part, in the order studied: level, lesson and part, then the new words as the map spells them. Sense numbers such as 别1 stay in this log; the learner sees 别.
+- **Lessons** holds each lesson's map number and its name in the learner's language. Use these names in every chat. A lesson that ends in `(known)` is one the learner skipped because they already know it: it is off the route and its words count as met.
 
-**Saving.** Save at the close of each part: add the **Done** line and set the **Next** the brief gives, and update **To reinforce**. The first time in a course, read the saved document again to confirm the new line is there. Do the same when the learner skips the rest of a part or asks to mark it done. Reread the file before writing; if another chat has already taken the course past this part, keep the newer state. Save quietly: don't attach or present the file, and mention saving only when it fails. If it fails, say so once, finish the lesson, and never claim the progress was saved. Replace a course only when the learner asks to reset it.
+What the script keeps: **Pace** (3, 5 or 7), **Route** (the order of lessons the learner agreed to), **Next** (the lesson and part to teach, or `level complete`), **To reinforce** (up to five words or short chunks the learner still gets wrong) and **Done** (one line per finished part with its new words; sense numbers such as 别1 stay there, and the learner sees 别).
 
-When the last part on the route is done, or the file says `Next: level complete`, read `levels.md`.
+**Closing a part.** `course.py close` takes two optional lists, each in quotes with commas between items:
+
+- `--missed`: what the learner got wrong in this part and didn't get right later in it. For a slip of word order or grammar, give the short chunk as it should be said. A synonym they keep avoiding goes here too.
+- `--recovered`: the items of **To reinforce** they got right unaided in this part's review.
+
+Close in the same way when the learner skips the rest of a part or asks to mark it done. Then put the file back where the course is kept, quietly: don't attach or present it, and mention saving only when it fails. The first time in a course, read the kept document again to confirm the new line is there. If saving fails, say so once, finish the lesson, and never claim the progress was saved. If another chat may have taken the course further, read the kept file again before closing and work from that one. Replace a course only when the learner asks to reset it.
+
+When the close says the level is complete, or the file says `Next: level complete`, read `levels.md`.
 
 ## Lessons and parts
 
@@ -108,7 +118,7 @@ The plan is a draft. When an answer needs a correction, rework a prompt still to
 
    After a full round 3, offer one more round like it or the listening step, and wait.
 4. **Listening or reading**, as `audio.md` or `lesson-format.md` describes. Across this step, use every new word that fits.
-5. **Close.** Save, then send the closing message.
+5. **Close.** Run the close, put the file back, then send the closing message.
 
 **Older words.** The brief lists older words to bring back, two candidates from each of a few earlier parts. Use one from each line in the review or the rounds, the one that fits a sentence naturally; skip a line when neither fits. It is exposure for the learner, with nothing to track.
 
@@ -125,6 +135,6 @@ A prompt is a whole sentence someone would actually say or write, in the learner
 
 To call for a polite form such as 您, use the polite pronoun or put the form of address inside the line where 您 goes ("Thank you, sir!" → 谢谢您), never as a call at the start. Chunks and corrected sentences pass the same checks. Judge the learner's answer by whether it is natural Mandarin for that meaning, not by how close it is to yours.
 
-**After a correction**, bring the item back once, in a later prompt of the part where it fits naturally: rework a prompt still to come, in a new frame, and never add a prompt or force the item into a sentence. If no prompt left fits it, leave it: at the close it goes to **To reinforce**, and the next part's review brings it back.
+**After a correction**, bring the item back once, in a later prompt of the part where it fits naturally: rework a prompt still to come, in a new frame, and never add a prompt or force the item into a sentence. If no prompt left fits it, leave it: at the close it goes in `--missed`, and the next part's review brings it back.
 
 **Pinyin answers.** Accept them and correct them the same way, always showing the Hanzi. The first time in a chat, remind the learner once about the Chinese keyboard.
